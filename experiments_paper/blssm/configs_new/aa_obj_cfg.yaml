@@ -1,0 +1,48 @@
+input_space:
+  m0: 
+      block_index: 1
+      block_name: 'MINPAR'
+  m12:
+      block_index: 2
+      block_name: 'MINPAR'
+  TanBeta:
+      block_index: 3
+      block_name: 'MINPAR'
+  Azero:
+      block_index: 5
+      block_name: 'MINPAR'
+  MuInput:
+      block_index: 11
+      block_name: 'EXTPAR'
+  MuPInput:
+      block_index: 12
+      block_name: 'EXTPAR'
+  BMuInput:
+      block_index: 13
+      block_name: 'EXTPAR'
+  BMuPInput:
+      block_index: 14
+      block_name: 'EXTPAR'
+  x:
+    lower: -5
+    upper: 5.0
+    distribution: uniform
+  'y':
+    lower: -5
+    upper: 5.0
+    distribution: uniform
+output_parameters:
+- himmelblau
+- booth
+objectives:
+  double_constraint:
+    booth:
+    - - gt
+      - 2
+    - - lt
+      - 4
+  single_constraint:
+    himmelblau:
+    - lt
+    - 3.0
+  gaussian_constraint: {}
