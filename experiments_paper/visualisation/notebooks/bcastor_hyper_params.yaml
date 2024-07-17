@@ -1,0 +1,26 @@
+run_name: 'hb_bcastor_local/run_1'
+parallel: False
+initial_dataset:
+  generate: True,
+  n_workers: 4
+  n_points: 15
+checkpoint:
+  name: 'checkpoint'
+  n_step_save: 1
+total_iterations: 2
+resolution:
+  value: 0.01
+  constant_resolution: True
+  r_decay_steps: 30
+  initial: 1e-2
+  final: 1e-3
+batch_sampling:
+  tpe_trials: 200
+  rank_samples: 5
+  n_evaluation_workers: 4
+  alpha: 2
+eci:
+  num_samples: 128 # Fixed samples
+reporter:
+  wandb_name: 'castor-blssm'
+  n_step_plotting: 5
