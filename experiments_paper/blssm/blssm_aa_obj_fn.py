@@ -37,6 +37,7 @@ def objective_pheno(x):
         hep_config=hep_stack_config,
         close=True
         )
+    print(sample_dict)
     sample_dict = mu_aa_masses_hbhs_mg5(
         sample_dict, obj_hep_fn
         )
