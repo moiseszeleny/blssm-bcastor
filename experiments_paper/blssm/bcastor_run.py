@@ -53,7 +53,6 @@ def run(n, mode, config, channels):
             search_hyper_parameters,
             n
             )
-    
     if channels == 'aa':
         obj_hep_config= 'configs/aa_obj_hep.yml'
         aa_pheno_obj = Objective(
@@ -64,7 +63,6 @@ def run(n, mode, config, channels):
             objective_function=aa_pheno_obj,
             hyper_parameters=search_hyper_parameters
         )
-        bcastor.run()
     if channels == 'aabb':
         obj_hep_config = 'configs/aa_bb_obj_hep.yml'
         aa_bb_pheno_obj = Objective(
@@ -75,7 +73,6 @@ def run(n, mode, config, channels):
             objective_function=aa_bb_pheno_obj,
             hyper_parameters=search_hyper_parameters
         )
-        bcastor.run()
     if channels == 'all':
         obj_hep_config = 'configs/aa_bb_tautau_obj_hep.yml'
         all_pheno_obj = Objective(
@@ -86,9 +83,8 @@ def run(n, mode, config, channels):
             objective_function=all_pheno_obj,
             hyper_parameters=search_hyper_parameters
         )
-        bcastor.run()
 
-    
+    bcastor.run()
     config_path = Path('datasets')/ search_hyper_parameters.run_name
     OmegaConf.save(config=search_hyper_parameters,
                     f=config_path / 'hprms.yaml')
