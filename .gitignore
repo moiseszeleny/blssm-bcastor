@@ -56,5 +56,9 @@ MANIFEST
 
 /experiments_paper/blssm/datasets
 examples
-experiments_paper/blssm/hepstack
+experiments_paper/blssm/hepstack/higgsbounds-master
+experiments_paper/blssm/hepstack/higgssignals-master
+experiments_paper/blssm/hepstack/MG5_aMC_v3_5_4
+experiments_paper/blssm/hepstack/SPheno-4.0.4
 experiments_paper/test_function/datasets
+output

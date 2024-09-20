@@ -9,7 +9,7 @@ import click
 
 from pathlib import Path
 from asp.search.bcastor import bcastor
-from asp.search.objective_fn import ObjectiveFunction
+from asp.search.objective_fn import Objective
 
 def sweep(config, n):
     tpe_trials = [100, 300, 500]
@@ -51,7 +51,7 @@ def run(n):
         n
         )
     
-    objective_function = ObjectiveFunction(
+    objective_function = Objective(
             himmelblau_booth,
             space_config,
             input_parameters,

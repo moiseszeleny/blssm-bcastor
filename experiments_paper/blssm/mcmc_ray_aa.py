@@ -1,6 +1,6 @@
 import numpy as np
 from torch.quasirandom import SobolEngine
-from asp.search.objective_fn import ObjectiveFunction
+from asp.search.objective_fn import Objective
 from asp.search.mcmc import smooth_box_mask, smooth_mask
 from asp.search.mcmc import proposal_distribution, metropolis_hastings
 from asp.search.mcmc import recursive_proposal
@@ -49,7 +49,7 @@ def create_objective_function():
             )
         return sample_dict
 
-    objective_function = ObjectiveFunction(
+    objective_function = Objective(
         function_spheno,
         dict(hep_config.model.input),
         list(search_config.input_parameters.keys()),

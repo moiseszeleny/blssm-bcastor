@@ -5,12 +5,14 @@ import itertools
 import click
 
 from pathlib import Path
-from asp.search.bcastor import bcastor
-from asp.search.objective_fn import ObjectiveFunction
+from hepaid.search.method import bCASTOR
+from hepaid.search.objective import Objective
 
-from blssm_aa_obj_fn import objective_hep as obj_hep_aa
-from blssm_aabb_obj_fn import objective_hep as obj_hep_aabb
-from blssm_aabbtautau_obj_fn import objective_hep as obj_hep_aabbtautau
+from blssm_obj_fns import aa_pheno_obj_fn
+from blssm_obj_fns import aa_bb_pheno_obj_fn
+from blssm_obj_fns import all_pheno_obj_fn
+
+hep_stack_config = 'configs/hep_stack_config.yaml'
 
 def sweep(config, n):
     tpe_trials = [100, 300, 500]
@@ -43,7 +45,7 @@ def sweep_decay(config, n):
 @click.option('--n', type=int, default=0, help='Combination number')
 @click.option('--mode', type=str, default='single_run', help='single_run/sweep_decay')
 @click.option('--config', type=str, default='configs/asp_mu_aa.yaml', help='Path to the config file')
-@click.option('--channels', type=str, default='aa', help='Fitting aa/aabb/aabbtautau')
+@click.option('--channels', type=str, default='aa', help='Fitting aa/aabb/all')
 def run(n, mode, config, channels):
     search_hyper_parameters = OmegaConf.load(config)
     if mode == 'sweep_decay':
@@ -53,20 +55,38 @@ def run(n, mode, config, channels):
             )
     
     if channels == 'aa':
-        bcastor(
-            obj_hep_aa,
-            search_hyper_parameters
+        obj_hep_config= 'configs/aa_obj_hep.yml'
+        aa_pheno_obj = Objective(
+            function_config=obj_hep_config,
+            function=aa_pheno_obj_fn,   
         )
+        bcastor = bCASTOR(
+            objective_function=aa_pheno_obj,
+            hyper_parameters=search_hyper_parameters
+        )
+        bcastor.run()
     if channels == 'aabb':
-        bcastor(
-            obj_hep_aabb,
-            search_hyper_parameters
+        obj_hep_config = 'configs/aa_bb_obj_hep.yml'
+        aa_bb_pheno_obj = Objective(
+            function_config=obj_hep_config,
+            function=aa_bb_pheno_obj_fn,   
         )
-    if channels == 'aabbtautau':
-        bcastor(
-            obj_hep_aabbtautau,
-            search_hyper_parameters
+        bcastor = bCASTOR(
+            objective_function=aa_bb_pheno_obj,
+            hyper_parameters=search_hyper_parameters
         )
+        bcastor.run()
+    if channels == 'all':
+        obj_hep_config = 'configs/aa_bb_tautau_obj_hep.yml'
+        all_pheno_obj = Objective(
+            function_config=obj_hep_config,
+            function=all_pheno_obj_fn,   
+        )
+        bcastor = bCASTOR(
+            objective_function=all_pheno_obj,
+            hyper_parameters=search_hyper_parameters
+        )
+        bcastor.run()
 
     
     config_path = Path('datasets')/ search_hyper_parameters.run_name

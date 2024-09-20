@@ -134,7 +134,7 @@ def himmelblau_booth(x):
     return output
 ```
 
-Configure the search space and objectives, and instantiate the ObjectiveFunction class:
+Configure the search space and objectives, and instantiate the Objective class:
 ```python
 # Search space configuration
 space_config = {
@@ -164,9 +164,9 @@ This constraints on the objectives define the satisfactory $\mathcal{S}$ region,
 ![image](https://raw.githubusercontent.com/mjadiaz/b-castor/main/images/test_function.png)
 Then the `ObjetiveFunction` class is intanciated by,
 ```python
-from asp.search.objective_fn import ObjectiveFunction
+from asp.search.objective_fn import Objective
 
-objective_function = ObjectiveFunction(
+objective_function = Objective(
             himmelblau_booth,
             space_config,
             input_parameters = ['x', 'y'],
