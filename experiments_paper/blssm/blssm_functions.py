@@ -266,5 +266,6 @@ def mus_masses_hbhs_mg5(sample_dict, obj_hep_config):
         }
     output_dict = create_simple_dict(obj_hep_config, sample_dict)
     output_dict = {**output_dict, **mus} 
+    print(output_dict)
     return output_dict
 

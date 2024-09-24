@@ -27,23 +27,24 @@ model:
         block_name: 'EXTPAR'
 spheno:
     model: 'BLSSM'
-    reference_slha: '/Users/madiaz/PhD/Projects/hepaid/blssm-bcastor/experiments_paper/blssm/configs/hep_files/diphoton_paper_v2'        
-    directory: '/Users/madiaz/PhD/Projects/hepaid/blssm-bcastor/experiments_paper/blssm/hepstack/SPheno-4.0.4'
+    reference_slha: '/scratch/mjad1g20/dev/bcastor_paper/blssm-bcastor/experiments_paper/blssm/configs/hep_files/diphoton_paper_v2'        
+    directory: '/home/mjad1g20/HEP/SPHENO/SPheno-4.0.5/'
 higgsbounds:
     neutral_higgs: 6
     charged_higgs: 1
-    directory: '/Users/madiaz/PhD/Projects/hepaid/blssm-bcastor/experiments_paper/blssm/hepstack/higgsbounds-master/build'
+    directory: '/scratch/mjad1g20/dev/bcastor_paper/blssm-bcastor/experiments_paper/blssm/hepstack/higgsbounds-master/build'
 higgssignals:
     neutral_higgs: 6
     charged_higgs: 1
-    directory: '/Users/madiaz/PhD/Projects/hepaid/blssm-bcastor/experiments_paper/blssm/hepstack/higgssignals-master/build'
+    directory: '/scratch/mjad1g20/dev/bcastor_paper/blssm-bcastor/experiments_paper/blssm/hepstack/higgssignals-master/build'
 madgraph:
-    directory: '/Users/madiaz/PhD/Projects/hepaid/blssm-bcastor/experiments_paper/blssm/hepstack/MG5_aMC_v3_5_4'
+    directory: '/scratch/mjad1g20/HEP/MG5_aMC_v3_5_1'
+    #directory: '/scratch/mjad1g20/dev/bcastor_paper/blssm-bcastor/experiments_paper/blssm/hepstack/MG5_aMC_v3_5_5'
     scripts: 
-        gghaa: "/Users/madiaz/PhD/Projects/hepaid/blssm-bcastor/experiments_paper/blssm/configs/hep_files/mg5/blssm_pphaa_LHC13.txt"
+        gghaa: "configs/hep_files/mg5/blssm_pphaa_LHC13.txt"
 hep_stack: 
     name: 'SPhenoHBHSMG5'
-    scan_dir: '/Users/madiaz/PhD/Projects/hepaid/blssm-bcastor/output'
+    scan_dir: '/scratch/mjad1g20/dev/bcastor_paper/blssm-bcastor/experiments_paper/blssm/datasets'
     final_dataset: 'datasets'
     delete_on_exit: True
 

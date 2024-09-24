@@ -61,4 +61,14 @@ experiments_paper/blssm/hepstack/higgssignals-master
 experiments_paper/blssm/hepstack/MG5_aMC_v3_5_4
 experiments_paper/blssm/hepstack/SPheno-4.0.4
 experiments_paper/test_function/datasets
+experiments_paper/blssm/datasets
+experiments_paper/blssm/slurm*
+
+# Ignore everything in the dataset folder
+experiments_paper/blssm/hepstack/*
+# But do not ignore files that start with BLSSM
+!experiments_paper/blssm/hepstack/BLSSM*
+# Ensure that the directory structure is not ignored
+!experiments_paper/blssm/hepstack/
+
 output
