@@ -1,0 +1,8 @@
+checkpoint:
+  n_step_save: 500
+  name: chckpnt
+run_name: mcmc_save/run_1
+total_iterations: 5210
+initial_scale: 0.4
+adapt_frequency: 100
+burn_in: 1000

@@ -3,14 +3,46 @@
 Code repository for https://arxiv.org/abs/2404.18653.
 
 ## Overview
-Phenomenological analyses in beyond the Standard Model (BSM) theories assess the viability of BSM models by testing them against current experimental data, aiming to explain new physics signals. However, these analyses face significant challenges. The parameter space in BSM models are commonly large and high dimensional. The regions capable of accommodating a combination of experimental results, is often sparse and potentially disconnected. Moreover, the numerical evaluation for each configuration computationally expensive.
-
-To address these challenges, our work introduces a batched Multi-Objective Constrained Active Search approach named **b-CASTOR**. Physical observables and statistical tests, such as particle masses and $\chi^2$-tests from experimental data respectively, are defined as the objectives with pre-defined constraints. We use probabilistic models as surrogates for the objectives to enhance sample efficiency, and a volume-based active sampling strategy, that uses the surrogates to effectively characterise and populate satisfactory regions within the parameter space of BSM models.
-
-We employ the algorithm with the B-L SSM model to accommodate results an observed signal at 95 GeV in neutral scalar searches in the $\gamma \gamma$ channel. We found that the algorithm efficiently identifies satisfactory regions in the parameter space of the B-L SSM model, improving previous studies in this model. 
+In the attempt to explain possible data anomalies from collider experiments in terms of New Physics (NP) models, computationally expensive scans over their parameter spaces are typically required in order to match theoretical predictions to experimental observations. Assuming the anomalies observed at around 95 GeV by the Large Electron-Positron (LEP) and Large Hadron Collider (LHC) experiments signify an NP signal, we interpret it as a spin-0 resonance within the $(B-L)$ Supersymmetric Standard Model ($(B-L)$SSM). We introduce a novel Machine Learning (ML) approach, named b-CASTOR, to efficiently scan the parameter space. This method leverages Gaussian Processes surrogate to approximate multiple objectives constrained by experimental measurements and employs a volume-based acquisition function to ensure a comprehensive characterisation of the satisfactory region in the parameter space. Our method outperforms traditional competing algorithms, such as those based on Markov-Chain Monte Carlo (MCMC) methods, offering a more effective strategy for exploring parameter spaces in computationally expensive BSM scenarios.
 
 ## Requirements
-There are no additional requirements to run the test function experiments. For running the (B-L) SSM study cases, the [SPheno](https://spheno.hepforge.org/) and UFO ([MadGraph](https://launchpad.net/mg5amcnlo)) model files are included in `BLSSM_SPheno` an `BLSSM_UFO` folders. They can also be generated with [SARAH](https://sarah.hepforge.org/). In a Mathematica notebook run, 
+The [`hep-aid`](https://github.com/mjadiaz/hep-aid) library is required. To install it, clone the `hep-aid` repository and run `pip install -e .`.
+
+To run the experiments from the paper, the following HEP tools need to be installed: [SPheno](https://spheno.hepforge.org/), [MadGraph](https://launchpad.net/mg5amcnlo), [HiggsBounds](https://higgsbounds.hepforge.org/), and HiggsSignals.
+
+If the HEP tools are not already installed, run the Python script `install_hepstack.py`, located in `experiments_paper/blssm/hepstack`. The code will install all necesary HEP Software using the SPheno and UFO files can be found in the `BLSSM_SPheno` and `BLSSM_UFO` folders, also located in `experiments_paper/blssm/hepstack`. 
+
+Lastly modify the configuration file located `experiments_paper/blssm/configs/hep_stack_config.yaml` with this format:
+```yml
+model: 'BLSSM'
+reference_slha: 'configs/hep_files/diphoton_paper_v2'        
+directory: '/path/to/spheno_directory/'
+
+higgsbounds:
+    neutral_higgs: 6
+    charged_higgs: 1
+    directory: '/path/to/higgsbounds_directory/build'
+
+higgssignals:
+    neutral_higgs: 6
+    charged_higgs: 1
+    directory: '/path/to/higgssignals_directory/build'
+
+madgraph:
+    directory: '/path/to/madgraph_directory/'
+    scripts: 
+        gghaa: "configs/hep_files/mg5/blssm_pphaa_LHC13.txt"
+hep_stack: 
+    name: 'SPhenoHBHSMG5'
+    scan_dir: '/path/to/scan_directory/'
+    final_dataset: 'datasets'
+    delete_on_exit: True
+```
+In this case we are using some relative paths to the `experiments_paper/blssm` directory. A manual for the [`hep-aid`](https://github.com/mjadiaz/hep-aid)  library is currently under development. 
+
+#### Manual installation of HEP Software
+The SPheno and UFO filese files can also be generated using [SARAH](https://sarah.hepforge.org/) by running it in a Mathematica notebook.
+
 ```mathematica
 Needs["SARAH`","/SARAH-4.14.5/SARAH.m"]
 
@@ -33,162 +65,56 @@ and run
 make Model=BLSSM
 ```
 an executable SPhenoBLSSM will be created which will be used by the script in this package.
-
 [HiggsBounds](https://gitlab.com/higgsbounds/higgsbounds)and [HiggsSignals](https://gitlab.com/higgsbounds/higgssignals), which are part of [HiggsTools](https://gitlab.com/higgsbounds/higgstools) now, should installed. This code uses only HB and HS.
-
 Finally [MadGraph](https://launchpad.net/mg5amcnlo) with the UFO model file copied in the models directory.
 
-The main directories should be written in the configuration file .yaml, as the one located in `experiments_paper/blssm/configs/hep_files/blssm_config_v2.yaml`, as,
-```yml
-directories:
-  scan_dir: '/scan_directory' 
-  reference_lhs: 'experiments_paper/blssm/configs/hep_files/diphoton_paper_v2'        
-  spheno: 'HEP_PATH/SPHENO/SPheno-4.0.5'
-  higgsbounds: 'HEP_PATH/HB/higgsbounds-5.10.2/build'
-  madgraph: 'HEP_PATH/MG5_aMC_v3_5_0'
-  higgssignals: 'HEP_PATH/HS/higgssignals-2.6.2/build'
-  final_dataset: 'datasets'
-```
 
 
 ## Results
-
-Scripts for generating results discussed in the paper are available in the `experiments_paper` folder.
-
-Create the conda/mamba/micromamba environment with:
-```
-conda env create -f environment.yml    
-```
-Install the asp package with:
-```
-pip install -e . 
-```
-
-Additionally, the hep-aid library is required:
-```
-pip install git+https://github.com/mjadiaz/hep-aid
-```
+The main Python script for both case studies is located in `run_search.py` located in `experiments_paper/test_function/` and `experiments_paper/blssm/`. It defines a hyper-parameter sweep function that updates the configuration for the b-CASTOR algorithm based on a specified combination of the priority parameter $\alpha$, TPE trials $N_{TPE}$, and resolution $r$ as defined in the paper. The function can perform either a `sweep` for constant resolution or `sweep_decay` for decaying resolution. Each combination is accessed using the `--n` argument in the script for easier replication.
 
 ### 2D Double Objective Test Function
+The working directory for the test funcion study is located in `experiments_paper/test_function`. Configuration files are in `experiments_paper/test_function/configs`. 
 
-- MCMC results and plots for the test function are provided in the Jupyter notebook located at  `experiments_paper/test_function/mcmc_results_and_plots.ipynb`. 
-
-- The b-CASTOR results are in `experiments_paper/test_function/bcastor_run.py`.  The script performs a grid hyper-parameter search by running  `python bcastor_run.py --n n` where `n` is the number of hyper-parameter configuration generated by the `sweep_decay()` function.
+For the b-CASTOR algorithm run, 
+```python
+python run_search.py --method bcastor --n 8 --mode sweep_decay --config configs/bcastor_hyper_params.yaml --channels himboo
+```
+For the MCMC search,
+```python
+python run_search.py --method mcmc --config configs/mcmc.yaml --channels himboo
+```
 
 ### $(B - L)SSM$ for a 95 GeV Higgs
-The B-L SSM model files are in `configs/hep_files`, with the SPheno reference LHE file at `configs/hep_files/diphoton_paper_v2` and the Madgraph script files for calculating cross-sections of each channel located in `configs/hep_files/mg5`.
+The working directory for the B-L SSM model study case is located in `experiments_paper/blssm`. Configuration files are in `experiments_paper/blssm/configs/hep_files`, with the SPheno reference LHE file at `configs/hep_files/diphoton_paper_v2` and the Madgraph script files for calculating cross-sections of each channel located in  `experiments_paper/blssm/configs/hep_files/mg5`.
 
-MCMC results for fitting $\mu_{\gamma\gamma}$ used the Ray core library for parallel runs, with the script available at `experiments_paper/blssm/mcmc_ray_aa.py`. The script for fitting $\mu_{bb}$ follow the similar structure.
+Modify the corresponding hyper-parameter configuration for `bcastor` in `experiments_paper/blssm/configs/bcastor*`, specifically for local runs depending on the number of cores of your machine. These scripts were run on a node of the Iridis5 cluster, which has 40 cores per node.
 
-The b-CASTOR results for each case study can be obtained by running the script like `experiments_paper/blssm/bcastor_run.py`. For the $\gamma\gamma$ case run, 
-```
-python bcastor_run.py --mode single_run --config configs/asp_mu_aa.yaml  --channels aa
+#### b-CASTOR
+
+For the $\gamma\gamma$ case run, 
+```python
+python run_search.py --method bcastor --n 19 --mode sweep_decay --config configs/aa_obj_hep.yml --channels aa
 ```
 For the search in $\gamma\gamma$ and $bb$,
-```
-python bcastor_run.py --mode single_run --config configs/asp_mu_aabb.yaml  --channels aabb
+```python
+python run_search.py --method bcastor --n 19  --mode sweep_decay --config configs/aa_bb_obj_hep.yml --channels aabb
 ```
 Finally, for the search in the three channels $\gamma\gamma$,$bb$ and $\tau\tau$,
-```
-python bcastor_run.py --mode single_run --config configs/asp_mu_aabbtautau.yaml  --channels aabbtautau
-```
-
-## Using b-CASTOR on a custom problem
-### Example: Test Objective Function
-
-Following the test objective function example,
-```math
-\mathbf{f}_{BH}(\mathbf{\theta})=\left\{\begin{array}{l}
-f_B(\theta_1, \theta_2)=\log\left[(\theta_1+2 \theta_2-7)^2+(2 \theta_1+\theta_2-5)^2 \right] \\
-f_H(\theta_1, \theta_2)=\log\left[ \left(\theta_1^2+\theta_2-11\right)^2+\left(\theta_1+\theta_2^2-7\right)^2 \right]
-\end{array}\right.
-```
-
-Define and implement the objective functions:
-
 ```python
-def booth(x):
-    '''f(1,3)=0, -10 < x, y < 10'''
-    x, y = x[0], x[1]
-    term1 = (x+2*y-7)**2
-    term2 = (2*x+y-5)**2
-    return np.log(term1 + term2)
-
-def himmelblau(x):
-    '''-5 < x, y < 5'''
-    x, y = x[0], x[1]
-    term1 = (x**2+y-11)**2
-    term2 = (x+y**2-7)**2
-    return np.log(term1 + term2)
+python run_search.py --method bcastor --n 19  --mode sweep_decay --config configs/aa_bb_tautau_obj_hep.yml --channels all
 ```
+#### MCMC Metropolis Hastings
 
-Then define the objective funtion where the output is a dictionary with the input and ouput dimensions,
+For the $\gamma\gamma$ case run, 
 ```python
-def himmelblau_booth(x):
-    output = {
-        'x': x[0],
-        'y': x[1],
-        'himmelblau': himmelblau(x),
-        'booth': booth(x)
-        }
-    return output
+python run_search.py --method mcmc  --config configs/aa_obj_hep.yml --channels aa
 ```
-
-Configure the search space and objectives, and instantiate the Objective class:
+For the search in $\gamma\gamma$ and $bb$,
 ```python
-# Search space configuration
-space_config = {
-    'x': {
-        'lower': -5,
-        'upper': 5.,
-        'distribution': 'uniform',
-    },
-    'y': {
-        'lower': -5,
-        'upper': 5.,
-        'distribution': 'uniform',
-    },
-}
-
-# Objective constraints configuration
-objectives = {
-    'double_constraint': {
-        'booth': [['gt', 2],['lt',4]]
-    },
-    'single_constraint': {
-        'himmelblau':['lt', 3.],
-    },
-}
+python run_search.py --method mcmc --config configs/aa_bb_obj_hep.yml --channels aabb
 ```
-This constraints on the objectives define the satisfactory $\mathcal{S}$ region,
-![image](https://raw.githubusercontent.com/mjadiaz/b-castor/main/images/test_function.png)
-Then the `ObjetiveFunction` class is intanciated by,
+Finally, for the search in the three channels $\gamma\gamma$,$bb$ and $\tau\tau$,
 ```python
-from asp.search.objective_fn import Objective
-
-objective_function = Objective(
-            himmelblau_booth,
-            space_config,
-            input_parameters = ['x', 'y'],
-            output_parameters = ['himmelblau', 'booth'],
-            objectives = objectives
-            )
+python run_search.py --method mcmc  --config configs/aa_bb_tautau_obj_hep.yml --channels all
 ```
-
-Then b-CASTOR can be used by defining a hyper-parameter config as the one in `experiments_paper/test_function/configs/bcastor_hyper_params.yaml` and running,
-
-```python
-from asp.search.bcastor import bcastor
-from omegaconf import OmegaConf
-
-search_hyper_parameters = OmegaConf.load('configs/bcastor_hyper_params.yaml')
-
-model, likelihood, eci, optuna_study, metrics = bcastor(
-        objective_function,
-        search_hyper_parameters
-    )
-
-```
-
-This setup returns the surrogate models from the last iteration, the likelihood of these models, the ECI function from the last iteration, and the Optuna study used to optimize the ECI function. Metrics to evaluate the algorithm's performance are also provided.
-
