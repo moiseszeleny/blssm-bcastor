@@ -1,10 +1,10 @@
 ! ------------------------------------------------------------------------------  
-! This file was automatically created by SARAH version 4.15.1 
+! This file was automatically created by SARAH version 4.14.5 
 ! SARAH References: arXiv:0806.0538, 0909.2863, 1002.0840, 1207.0906, 1309.7223,
 !           1405.1434, 1411.0675, 1503.03098, 1703.09237, 1706.05372, 1805.07306  
 ! (c) Florian Staub, Mark Goodsell and Werner Porod 2020  
 ! ------------------------------------------------------------------------------  
-! File created at 16:28 on 25.7.2023   
+! File created at 19:15 on 3.11.2021   
 ! ----------------------------------------------------------------------  
  
  
@@ -34,8 +34,6 @@ Real(dp),save::mGUT_save,sinW2_Q_mZ&
 &, mf_l_MS_SM(3),mf_d_MS_SM(3),mf_u_MS_SM(3) 
 Complex(dp),save::Yl_mZ(3,3),Yu_mZ(3,3),Yd_mZ(3,3),Yl_Q(3,3),Yu_Q(3,3),Yd_Q(3,3)
 Real(dp),Save::vevs_DR_save(2), vSM_save
-Real(dp),Save::rMS_save
-real(dp) :: delta_rhomatch,delta_rwmatch,delta_emmatch,newWscale,MVWm_scale
 Contains 
  
 Subroutine BoundarySUSY(gA,gB) 
@@ -1518,17 +1516,18 @@ Real(dp),Parameter::&
 Real(dp) :: Q2, logQ 
 
 
-Complex(dp) ::MassFu(3,3),MassFd(3,3),MassFe(3,3),smdr_lambda 
+Complex(dp) ::MassFu(3,3),MassFd(3,3),MassFe(3,3) 
 Iname=Iname+1
 NameOfUnit(Iname)='BoundarySM'
-mZ2=mZ**2 ! to correct for temporary settings in BoundaryBSM
 sinW2 = 1 - mW**2/mZ**2 
 test = SetRenormalizationScale(mZ2) 
 !-----------------
 !sin(theta_W)^2
 !-----------------
 If (i_run.Eq.1) Then
-   vSM = 248.42485568930796_dp 
+   vSM = 246._dp 
+   sinW2_Q=sinW2
+   sinW2_old=sinW2_Q
    Y_l=0._dp
    Do i1=1,3
        y_l(i1,i1)=sqrt2*mf_l_mZ(i1)/vevSM(1)
@@ -1536,35 +1535,28 @@ If (i_run.Eq.1) Then
        yd_MZ(i1,i1)=sqrt2*mf_d_mZ(i1)/vSM 
        yu_MZ(i1,i1)=sqrt2*mf_u_mZ(i1)/vSM 
    End Do
-   g1SM=0.3572555504761069_dp
-   g2SM=0.6509845147468623_dp
-   g3SM=1.2118095750036533_dp
-   alphamz=g1SM**2*g2sm**2/(g1sm**2+g2sm**2)*oo4pi
-   alpha3=g3sm**2*oo4pi
-   smdr_lambda=2._dp*(0.1399865180248392_dp,0._dp)
-   yu_mz(3,3) = 0.9701349914178578_dp
-   sinW2_Q=g1sm**2/(g1sm**2+g2sm**2)
-   sinW2_old=sinW2_Q
+   mf_l2=mf_l_mZ**2
+   mf_d2=mf_d_mZ**2
+   mf_u2=mf_u_mZ**2
 Else
    vSM = vSM_save 
    sinW2_Q=sinW2_Q_mZ
    sinW2_old=sinW2_Q
    Y_l=Yl_mZ
-   alphaMZ = AlphaEW_MS_SM(mZ,mf_d,mf_u,mf_l) 
- 
-   alpha3 = AlphaS_MS_SM(mZ,mf_d,mf_u) 
-   smdr_lambda=lambda_SM
    Call FermionMass(Yd_mZ,vSM,mf_d2,uD_L_T,uD_R_T,kont)
    Call FermionMass(Yl_mZ,vSM,mf_l2,uL_L_T,uL_R_T,kont)
    Call FermionMass(Yu_mZ,vSM,mf_u2,uU_L_T,uU_R_T,kont)
+   mf_l2=mf_l2**2
+   mf_d2=mf_d2**2
+   mf_u2=mf_u2**2
 End If
-mHiggs= sqrt(smdr_lambda)*vSM 
-MuSM = 0.5_dp*smdr_lambda*vSM**2 
-mw=smmwfit(mHiggs,mf_u(3),alpha3) 
-mw2=mW**2 
-sinW2 = 1 - mW**2/mZ**2 
-   If (.not.OneLoopMatching) alpha3= AlphaS_mZ 
-   If (.not.OneLoopMatching) alphaMZ = Alpha_MZ_MS 
+mHiggs= sqrt(Lambda_SM)*vSM 
+MuSM = 0.5_dp*Lambda_SM*vSM**2 
+alphaMZ = AlphaEW_MS_SM(mZ,mf_d,mf_u,mf_l) 
+ 
+alpha3 = AlphaS_MS_SM(mZ,mf_d,mf_u) 
+If (.not.OneLoopMatching) alpha3= AlphaS_mZ 
+If (.not.OneLoopMatching) alphaMZ = Alpha_MZ_MS 
 gSU3 = Sqrt(4._dp*pi*alpha3) 
 g3SM = Sqrt(4._dp*pi*alpha3) 
 !--------------------
@@ -1586,11 +1578,12 @@ YeSM=Yl_MZ
 YdSM=Yd_MZ
 YuSM=Yu_MZ
 TW= Asin(Sqrt(sinw2_Q)) 
-mHiggs= sqrt(smdr_lambda)*vSM 
-MuSM = 0.5_dp*smdr_lambda*vSM**2 
+mHiggs= sqrt(Lambda_SM)*vSM 
+MuSM = 0.5_dp*Lambda_SM*vSM**2 
+Yu_MZ(3,3)=mf_u(3)/vSM*Sqrt(2._dp) 
 YuSM=Yu_MZ 
-Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,smdr_lambda,-YuSM,YdSM,YeSM,kont,              & 
-& dmZ2,dmW2,dmW2_0)
+Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,Lambda_SM,-YuSM,YdSM,YeSM,kont,dmZ2,           & 
+& dmW2,dmW2_0)
 
 If (.not.OneLoopMatching) dmZ2= 0._dp 
 If (.not.OneLoopMatching) dmW2= 0._dp 
@@ -1612,8 +1605,8 @@ vSM=Sqrt(vev2)
 MuSM = 0.5_dp*Lambda_SM*vSM**2 
 Yu_MZ(3,3)=mf_u(3)/vSM*Sqrt(2._dp) 
 YuSM=Yu_MZ 
-Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,smdr_lambda,-YuSM,YdSM,YeSM,kont,              & 
-& dmZ2,dmW2,dmW2_0)
+Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,Lambda_SM,-YuSM,YdSM,YeSM,kont,dmZ2,           & 
+& dmW2,dmW2_0)
 
 If (.not.OneLoopMatching) dmZ2= 0._dp 
 If (.not.OneLoopMatching) dmW2= 0._dp 
@@ -1632,12 +1625,12 @@ mW2_run=mZ2_mZ*(1._dp-sinW2_Q)
 CosW2SinW2=(1._dp-sinW2_Q)*sinW2_Q
 vev2=mZ2_mZ *CosW2SinW2/(pi*alphamZ) 
 vSM=sqrt(vev2) 
-mHiggs= sqrt(smdr_lambda)*vSM 
-MuSM = 0.5_dp*smdr_lambda*vSM**2 
+mHiggs= sqrt(Lambda_SM)*vSM 
+MuSM = 0.5_dp*Lambda_SM*vSM**2 
 Yu_MZ(3,3)=mf_u(3)/vSM*Sqrt(2._dp) 
 YuSM=Yu_MZ 
-Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,smdr_lambda,-YuSM,YdSM,YeSM,kont,              & 
-& dmZ2,dmW2,dmW2_0)
+Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,Lambda_SM,-YuSM,YdSM,YeSM,kont,dmZ2,           & 
+& dmW2,dmW2_0)
 
 If (.not.OneLoopMatching) dmZ2= 0._dp 
 If (.not.OneLoopMatching) dmW2= 0._dp 
@@ -1672,15 +1665,25 @@ End If
 If (Abs(sinW2_Q-sinW2_old).Lt.0.1_dp*delta0) Exit
 
 sinW2_old=sinW2_Q
-mw=smmwfit(mHiggs,mf_u(3),alpha3) 
-mw2=mW**2 
+delta_rw=(delta_rho+fac(2)/sinW2_Q+xt2)*(1._dp-delta_r)+delta_r
+If ((0.25_dp-alphamz*pi/(sqrt2*G_F*mz2*rho*(1._dp-delta_rw))).Lt.0._dp) Then
+    kont=-404
+    Call AddError(404)
+    Iname=Iname-1
+     Return
+End If
+
+mW2=mZ2*rho*(0.5_dp&
+    &+Sqrt(0.25_dp-alphamz*pi/(sqrt2*G_F*mz2*rho*(1._dp-delta_rw))))
 cosW2=mW2/mZ2
 cosW=Sqrt(cosW2)
 sinW2=1._dp-cosW2
 End Do
 
-mw=smmwfit(mHiggs,mf_u(3),alpha3) 
-mw2=mW**2 
+delta_rw=(delta_rho+fac(2)/sinW2_Q+xt2)*(1._dp-delta_r)+delta_r
+mW2=mZ2*rho*(0.5_dp& 
+   &+Sqrt(0.25_dp-alphamz*pi/(sqrt2*G_F*mz2*rho*(1._dp-delta_rw))))
+mW=Sqrt(mW2)
 cosW2=mW2/mZ2
 cosW=Sqrt(cosW2)
 sinW2=1._dp-cosW2
@@ -1731,9 +1734,6 @@ If (GenerationMixing) Then
   End If
 End If
 Else
-  mf_l_Q=mf_l2
-  mf_d_Q=mf_d2
-  mf_u_Q=mf_u2
 YeSM=Yl_MZ
 YdSM=Yd_MZ
 YuSM=Yu_MZ
@@ -1758,7 +1758,7 @@ p2=0._dp! for off-diagonal elements
 
 
 ! Full one-loop corrections
-Call OneLoop_d_u_e_SM(vSM,g1SM,g2SM,g3SM,smdr_lambda,-YuSM,YdSM,YeSM,sigR_d,          & 
+Call OneLoop_d_u_e_SM(vSM,g1SM,g2SM,g3SM,Lambda_SM,-YuSM,YdSM,YeSM,sigR_d,            & 
 & sigL_d,sigSR_d,sigSL_d,sigR_u,sigL_u,sigSR_u,sigSL_u,sigR_l,sigL_l,sigSR_l,            & 
 & sigSL_l,kont)
 
@@ -1781,17 +1781,17 @@ End if
 ! SM two-loop corrections
 ! Two-loop Non-SUSY from hep-ph/9803493
 Q2=GetRenormalizationScale()
-logQ=Log(Q2/mf_u_Q(3)**2)
+logQ=Log(Q2/MFu(3)**2)
 If (OneLoopMatching) Then 
-SigQCD=-4._dp/3._dp*gSU3**2*mf_u_q(3)*(4._dp+3._dp*LogQ) &
-&-mf_u_q(3)*(-2._dp/3._dp*gSU2)**2*sinW2_Q*(4+3._dp*LogQ)
+SigQCD=-4._dp/3._dp*gSU3**2*MFu(3)*(4._dp+3._dp*LogQ) &
+&-MFu(3)*(-2._dp/3._dp*gSU2)**2*sinW2_Q*(4+3._dp*LogQ)
 Else  
 SigQCD=0._dp 
 End if 
 If (TwoLoopMatching) Then 
-SigQCD=-4._dp/3._dp*gSU3**2*mf_u_q(3)*(4._dp+3._dp*LogQ) &
-& -oo16pi2*mf_u_q(3)*((2821._dp + 2028._dp*LogQ + 396._dp*LogQ**2 + 16._dp*Pi**2*(1._dp + 2._dp*log2) - 48._dp*Zeta3)*gSU3**4/18._dp) &
-&-mf_u_q(3)*(-2._dp/3._dp*gSU2)**2*sinW2_Q*(4+3._dp*LogQ)
+SigQCD=-4._dp/3._dp*gSU3**2*MFu(3)*(4._dp+3._dp*LogQ) &
+& -oo16pi2*MFu(3)*((2821._dp + 2028._dp*LogQ + 396._dp*LogQ**2 + 16._dp*Pi**2*(1._dp + 2._dp*log2) - 48._dp*Zeta3)*gSU3**4/18._dp) &
+&-MFu(3)*(-2._dp/3._dp*gSU2)**2*sinW2_Q*(4+3._dp*LogQ)
 End if 
 SigQCD=oo16pi2*SigQCD
 
@@ -2051,8 +2051,6 @@ Real(dp)::mW2_run,mZ2_run,test, D_mat(3,3)
 Real(dp)::alphaQ,alpha3,gSU2,rho,delta_rho,delta_rho0,sinW2_Q,vev2&
 &,vevs_Q(2),mZ2_Q,CosW2SinW2,gauge(3),delta,delta_SM,sinW2_old,delta_r&
 &,p2,gSU3,tanb,xt2,fac(2),SigQCD,delta_rw,sinW2,cosW2,cosW
-Real(dp) :: mz2save,mw2save,rMS_save,rMS_SM_save,alpha_DR,mz2_dr,mw2_dr,sw2cw2_sm,vev2_dr
-complex(dp) :: treelambda,dmZ2_SM_DR,dmw2_SM_DR
 Real(dp),Dimension(3)::mf_d_Q,mf_l_Q,mf_u_Q
 Real(dp) :: g1SM, g2SM, g3SM, vSM 
 Complex(dp) :: dMZ2_SM, dMW2_SM, dMW2_0_SM 
@@ -2093,26 +2091,7 @@ sinW2_Q = sinTW_MS**2
 alphaEW_MS = (sinTW_MS*g2_MS)**2/(4._dp*Pi) 
 alphaS_MS = g3_MS**2/(4._dp*Pi) 
 mz2_MS = (g1_MS**2+g2_MS**2)/(4._dp)*(v_MS**2) 
-mw2_MS = (g2_MS**2)/(4._dp)*(v_MS**2) 
-rMS_save=rMS
-mz2save = mz2
-mz2 = mz2_ms
-rMS=1._dp
-rMS_SM=1._dp
-Call OneLoop_Z_W_SM(v_MS,g1_MS,g2_MS,g3_MS,Lam_MS,-Yu_MS,Yd_MS,Ye_MS,kont,            & 
-& dmZ2_SM,dmW2_SM,dmW2_0_SM)
-
-rMS=rMS_save
-rMS_SM=rMS
-Call OneLoop_Z_W_SM(v_MS,g1_MS,g2_MS,g3_MS,Lam_MS,-Yu_MS,Yd_MS,Ye_MS,kont,            & 
-& dmZ2_SM_DR,dmW2_SM_DR,dmW2_0_SM)
-
-mz2_dr=mz2_ms+dmz2_sm_dr-dmz2_sm
-mw2_dr=mw2_ms+dmw2_sm_dr-dmw2_sm
-sw2cw2_sm=g1_MS**2*g2_MS**2/(g1_MS**2+g2_MS**2)**2+(1._dp-rMS)*(alphaEW_MS/(6._dp*Pi)*(1._dp-sinw2_q)*(2._dp*sinw2_q-1._dp))
-alpha_dr=alphaew_MS+(1._dp-rMS)*alphaew_MS**2/(6._dp*Pi)
-vev2_dr=mz2_dr*sw2cw2_sm/(pi*alpha_dr)
-sinW2_Q=0.5_dp-Sqrt(0.25_dp-sw2cw2_sm)
+delta_r_SM = 1._dp - alphaEW_MS*Pi/(G_F*mz2*sqrt2*sinW2_Q*(1-sinW2_Q))
    Call FermionMass(Yd_MS,v_MS,mf_d_MS,uD_L_MS,uD_R_MS,kont)
    Call FermionMass(Ye_MS,v_MS,mf_e_MS,uL_L_MS,uL_R_MS,kont)
    Call FermionMass(Yu_MS,v_MS,mf_u_MS,uU_L_MS,uU_R_MS,kont)
@@ -2120,8 +2099,7 @@ sinW2_Q=0.5_dp-Sqrt(0.25_dp-sw2cw2_sm)
 !-----------------
 !sin(theta_W)^2
 !-----------------
-!vSM = v_MS 
-vSM = sqrt(vev2_dr) 
+vSM = v_MS 
    sinW2_old=sinW2_Q
    mf_l2=mf_e_MS**2
    mf_d2=mf_d_MS**2
@@ -2185,8 +2163,7 @@ x2 = vevP*Cos(betaP)
 x1 = vevP*Sin(betaP)
 ! ----------------------- 
  
-mZ2 = MVZ2 
-mW2 = MVWm2 
+MVZ2 = mZ2 
 MVZ= Sqrt(MVZ2) 
 MVWm2 = mW2 
 MVWm= Sqrt(MVWm2) 
@@ -2235,13 +2212,12 @@ Call Pi1LoopVZ(mZ2,Mhh,Mhh2,MAh,MAh2,MCha,MCha2,MChi,MChi2,MFd,MFd2,MFe,        
 & cplSdcSdVZVZ,cplSecSeVZVZ,cplSucSuVZVZ,cplSvImSvImVZVZ,cplSvReSvReVZVZ,cplcVWmVWmVZVZ1,& 
 & cplcVWmVWmVZVZ2,cplcVWmVWmVZVZ3,kont,dmZ2)
 
-treelambda = Mhh2(1)/vSM**2
-Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,treelambda,-YuSM,YdSM,YeSM,kont,               & 
-& dmZ2_SM,dmW2_SM,dmW2_0_SM)
+Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,Lam_MS,-YuSM,YdSM,YeSM,kont,dmZ2_SM,           & 
+& dmW2_SM,dmW2_0_SM)
 
 dmZ2 = dmZ2 - dmZ2_SM
 If (.not.OneLoopMatching) dmZ2 = 0._dp 
-mZ2_Q = Real(dmZ2 + mZ2_DR,dp) 
+mZ2_Q = Real(dmZ2 + mZ2_MS,dp) 
 If (mZ2_Q.Lt.0._dp) Then
     Iname=Iname-1
     kont=-402
@@ -2265,23 +2241,9 @@ MHpm2(1)=MVWm2
 CosW2SinW2=(1._dp-sinW2_Q)*sinW2_Q
 vev2=mZ2_Q*CosW2SinW2/(pi*alphaQ) -(0) 
 vSM=Sqrt(vev2)
-gSU2 = Sqrt( 4._dp*pi*alphaQ/sinW2_Q) 
-g1SM =gSU2*Sqrt(sinW2_Q/(1._dp-sinW2_Q)) 
-g2SM =gSU2 
 Call SetMatchingConditions(g1SM,g2SM,g3SM,YuSM,YdSM,YeSM,vSM,vd,vu,x1,x2,             & 
 & g1,g2,g3,gBL,gYB,gBY,Yd,Ye,Yu,Yx,Yv,MuP,Mu,Td,Te,Tu,Tx,Tv,BMuP,Bmu,mq2,ml2,            & 
 & mHd2,mHu2,md2,mu2,me2,mv2,mC12,mC22,MBBp,M1,M2,M3,MBp,.False.)
-
-Call SolveTadpoleEquations(g1,g2,g3,gBL,gYB,gBY,Yd,Ye,Yu,Yx,Yv,MuP,Mu,Td,             & 
-& Te,Tu,Tx,Tv,BMuP,Bmu,mq2,ml2,mHd2,mHu2,md2,mu2,me2,mv2,mC12,mC22,MBBp,M1,              & 
-& M2,M3,MBp,vd,vu,x1,x2,(/ ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC /))
-
-Call TreeMasses(MAh,MAh2,MCha,MCha2,MChi,MChi2,MFd,MFd2,MFe,MFe2,MFu,MFu2,            & 
-& MFv,MFv2,MGlu,MGlu2,Mhh,Mhh2,MHpm,MHpm2,MSd,MSd2,MSe,MSe2,MSu,MSu2,MSvIm,              & 
-& MSvIm2,MSvRe,MSvRe2,MVWm,MVWm2,MVZ,MVZ2,MVZp,MVZp2,pG,TW,TWp,UM,UP,UV,v,               & 
-& ZA,ZD,ZDL,ZDR,ZE,ZEL,ZER,ZH,ZN,ZP,ZU,ZUL,ZUR,ZVI,ZVR,ZW,ZZ,betaH,vd,vu,x1,             & 
-& x2,g1,g2,g3,gBL,gYB,gBY,Yd,Ye,Yu,Yx,Yv,MuP,Mu,Td,Te,Tu,Tx,Tv,BMuP,Bmu,mq2,             & 
-& ml2,mHd2,mHu2,md2,mu2,me2,mv2,mC12,mC22,MBBp,M1,M2,M3,MBp,GenerationMixing,kont)
 
 Call CouplingsForVectorBosons(g1,g2,gBY,ZH,ZA,TW,UM,UP,ZN,UV,gBL,gYB,vd,              & 
 & vu,x1,x2,TWp,ZP,ZD,ZE,ZU,ZVI,ZVR,ZDL,ZUL,ZEL,cplAhhhVP,cplcChaChaVPL,cplcChaChaVPR,    & 
@@ -2311,9 +2273,6 @@ Call CouplingsForVectorBosons(g1,g2,gBY,ZH,ZA,TW,UM,UP,ZN,UV,gBL,gYB,vd,        
 & cplSecSeVZVZp,cplSucSuVZVZp,cplSvImSvImVZVZp,cplSvReSvReVZVZp,cplcVWmVWmVZVZp1,        & 
 & cplcVWmVWmVZVZp2,cplcVWmVWmVZVZp3)
 
-treelambda = Mhh2(1)/vSM**2
-rMS_SM_save=rMS_SM
-rMS_SM=rMS
 Call Pi1LoopVZ(mZ2,Mhh,Mhh2,MAh,MAh2,MCha,MCha2,MChi,MChi2,MFd,MFd2,MFe,              & 
 & MFe2,MFu,MFu2,MFv,MFv2,MVZ,MVZ2,MVZp,MVZp2,MHpm,MHpm2,MVWm,MVWm2,MSd,MSd2,             & 
 & MSe,MSe2,MSu,MSu2,MSvRe,MSvRe2,MSvIm,MSvIm2,cplAhhhVZ,cplcChaChaVZL,cplcChaChaVZR,     & 
@@ -2324,12 +2283,12 @@ Call Pi1LoopVZ(mZ2,Mhh,Mhh2,MAh,MAh2,MCha,MCha2,MChi,MChi2,MFd,MFd2,MFe,        
 & cplSdcSdVZVZ,cplSecSeVZVZ,cplSucSuVZVZ,cplSvImSvImVZVZ,cplSvReSvReVZVZ,cplcVWmVWmVZVZ1,& 
 & cplcVWmVWmVZVZ2,cplcVWmVWmVZVZ3,kont,dmZ2)
 
-Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,treelambda,-YuSM,YdSM,YeSM,kont,               & 
-& dmZ2_SM,dmW2_SM,dmW2_0_SM)
+Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,Lam_MS,-YuSM,YdSM,YeSM,kont,dmZ2_SM,           & 
+& dmW2_SM,dmW2_0_SM)
 
 dmZ2 = dmZ2 - dmZ2_SM
 If (.not.OneLoopMatching) dmZ2 = 0._dp 
-mZ2_Q = Real(dmZ2 + mZ2_DR,dp) 
+mZ2_Q = Real(dmZ2 + mZ2_MS,dp) 
 If (mZ2_Q.Lt.0._dp) Then
     Iname=Iname-1
     kont=-402
@@ -2353,26 +2312,10 @@ MHpm2(1)=MVWm2
 CosW2SinW2=(1._dp-sinW2_Q)*sinW2_Q
 vev2=mZ2_Q *CosW2SinW2/(pi*alphaQ) -(0) 
 vSM=sqrt(vev2) 
-gSU2 = Sqrt( 4._dp*pi*alphaQ/sinW2_Q) 
-g1SM =gSU2*Sqrt(sinW2_Q/(1._dp-sinW2_Q)) 
-g2SM =gSU2 
 Call SetMatchingConditions(g1SM,g2SM,g3SM,YuSM,YdSM,YeSM,vSM,vd,vu,x1,x2,             & 
 & g1,g2,g3,gBL,gYB,gBY,Yd,Ye,Yu,Yx,Yv,MuP,Mu,Td,Te,Tu,Tx,Tv,BMuP,Bmu,mq2,ml2,            & 
 & mHd2,mHu2,md2,mu2,me2,mv2,mC12,mC22,MBBp,M1,M2,M3,MBp,.False.)
 
-Call SolveTadpoleEquations(g1,g2,g3,gBL,gYB,gBY,Yd,Ye,Yu,Yx,Yv,MuP,Mu,Td,             & 
-& Te,Tu,Tx,Tv,BMuP,Bmu,mq2,ml2,mHd2,mHu2,md2,mu2,me2,mv2,mC12,mC22,MBBp,M1,              & 
-& M2,M3,MBp,vd,vu,x1,x2,(/ ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC, ZeroC /))
-
-Call TreeMasses(MAh,MAh2,MCha,MCha2,MChi,MChi2,MFd,MFd2,MFe,MFe2,MFu,MFu2,            & 
-& MFv,MFv2,MGlu,MGlu2,Mhh,Mhh2,MHpm,MHpm2,MSd,MSd2,MSe,MSe2,MSu,MSu2,MSvIm,              & 
-& MSvIm2,MSvRe,MSvRe2,MVWm,MVWm2,MVZ,MVZ2,MVZp,MVZp2,pG,TW,TWp,UM,UP,UV,v,               & 
-& ZA,ZD,ZDL,ZDR,ZE,ZEL,ZER,ZH,ZN,ZP,ZU,ZUL,ZUR,ZVI,ZVR,ZW,ZZ,betaH,vd,vu,x1,             & 
-& x2,g1,g2,g3,gBL,gYB,gBY,Yd,Ye,Yu,Yx,Yv,MuP,Mu,Td,Te,Tu,Tx,Tv,BMuP,Bmu,mq2,             & 
-& ml2,mHd2,mHu2,md2,mu2,me2,mv2,mC12,mC22,MBBp,M1,M2,M3,MBp,GenerationMixing,kont)
-
-mW2 = MVWm2
-mZ2 = MVZ2
 Call CouplingsForVectorBosons(g1,g2,gBY,ZH,ZA,TW,UM,UP,ZN,UV,gBL,gYB,vd,              & 
 & vu,x1,x2,TWp,ZP,ZD,ZE,ZU,ZVI,ZVR,ZDL,ZUL,ZEL,cplAhhhVP,cplcChaChaVPL,cplcChaChaVPR,    & 
 & cplChiChiVPL,cplChiChiVPR,cplcFdFdVPL,cplcFdFdVPR,cplcFeFeVPL,cplcFeFeVPR,             & 
@@ -2400,16 +2343,6 @@ Call CouplingsForVectorBosons(g1,g2,gBY,ZH,ZA,TW,UM,UP,ZN,UV,gBL,gYB,vd,        
 & cplcVWmVPVWmVZp3,cplAhAhVZVZp,cplhhhhVZVZp,cplHpmcHpmVZVZp,cplSdcSdVZVZp,              & 
 & cplSecSeVZVZp,cplSucSuVZVZp,cplSvImSvImVZVZp,cplSvReSvReVZVZp,cplcVWmVWmVZVZp1,        & 
 & cplcVWmVWmVZVZp2,cplcVWmVWmVZVZp3)
-
-Call Pi1LoopVZ(mZ2,Mhh,Mhh2,MAh,MAh2,MCha,MCha2,MChi,MChi2,MFd,MFd2,MFe,              & 
-& MFe2,MFu,MFu2,MFv,MFv2,MVZ,MVZ2,MVZp,MVZp2,MHpm,MHpm2,MVWm,MVWm2,MSd,MSd2,             & 
-& MSe,MSe2,MSu,MSu2,MSvRe,MSvRe2,MSvIm,MSvIm2,cplAhhhVZ,cplcChaChaVZL,cplcChaChaVZR,     & 
-& cplChiChiVZL,cplChiChiVZR,cplcFdFdVZL,cplcFdFdVZR,cplcFeFeVZL,cplcFeFeVZR,             & 
-& cplcFuFuVZL,cplcFuFuVZR,cplFvFvVZL,cplFvFvVZR,cplcgWmgWmVZ,cplcgWpCgWpCVZ,             & 
-& cplhhVPVZ,cplhhVZVZ,cplhhVZVZp,cplHpmcHpmVZ,cplHpmcVWmVZ,cplSdcSdVZ,cplSecSeVZ,        & 
-& cplSucSuVZ,cplSvImSvReVZ,cplcVWmVWmVZ,cplAhAhVZVZ,cplhhhhVZVZ,cplHpmcHpmVZVZ,          & 
-& cplSdcSdVZVZ,cplSecSeVZVZ,cplSucSuVZVZ,cplSvImSvImVZVZ,cplSvReSvReVZVZ,cplcVWmVWmVZVZ1,& 
-& cplcVWmVWmVZVZ2,cplcVWmVWmVZVZ3,kont,dmZ2)
 
 Call Pi1LoopVWm(mW2,MHpm,MHpm2,MAh,MAh2,MChi,MChi2,MCha,MCha2,MFu,MFu2,               & 
 & MFd,MFd2,MFv,MFv2,MFe,MFe2,Mhh,Mhh2,MVWm,MVWm2,MVZ,MVZ2,MVZp,MVZp2,MSu,MSu2,           & 
@@ -2437,43 +2370,37 @@ Call Pi1LoopVWm(0._dp,MHpm,MHpm2,MAh,MAh2,MChi,MChi2,MCha,MCha2,MFu,MFu2,       
 & cplcVWmVWmVZVZ2,cplcVWmVWmVZVZ3,cplcVWmVWmVZpVZp1,cplcVWmVWmVZpVZp2,cplcVWmVWmVZpVZp3, & 
 & kont,dmW2_0)
 
-treelambda = Mhh2(1)/vSM**2
-Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,treelambda,-YuSM,YdSM,YeSM,kont,               & 
-& dmZ2_SM,dmW2_SM,dmW2_0_SM)
+Call OneLoop_Z_W_SM(vSM,g1SM,g2SM,g3SM,Lam_MS,-YuSM,YdSM,YeSM,kont,dmZ2_SM,           & 
+& dmW2_SM,dmW2_0_SM)
 
-dmZ2 = dmZ2 - dmZ2_SM
 dmW2 = dmW2 - dmW2_SM
 dmW2_0 = dmW2_0 - dmW2_0_SM
 If (.not.OneLoopMatching) dmW2 = 0._dp 
 If (.not.OneLoopMatching) dmW2_0 = 0._dp 
 rho=(1._dp+Real(dmZ2,dp)/mZ2)/(1._dp+Real(dmW2,dp)/mW2)  
 delta_rho=1._dp-1._dp/rho
-delta_rho0=MW2*(g1SM**2+g2SM**2)/g2SM**2/MZ2-1._dp
+delta_rho0=0
 rho=1._dp/(1._dp-delta_rho-delta_rho0)
 CosW2SinW2=(1._dp-sinW2_Q)*sinW2_Q
 If (IncludeDeltaVB) Then 
-Call DeltaVB(sinW2_Q,sinW2_Q,rho,MAh,MCha,MChi,MFe,MFv,Mhh,MHpm,MSe,MSvIm,            & 
+Call DeltaVB(sinW2,sinW2_Q,rho,MAh,MCha,MChi,MFe,MFv,Mhh,MHpm,MSe,MSvIm,              & 
 & MSvRe,MVWm,MVZp,g1,gYB,g2,gBL,gBY,TW,TWp,UM,UP,UV,vd,vu,Ye,Yx,Yv,ZA,ZE,ZEL,            & 
 & ZER,ZH,ZN,ZP,ZVI,ZVR,delta)
 
-Call DeltaVB_SM(sinW2_Q,sinW2_Q,g2SM,rho,delta_SM)
+Call DeltaVB_SM(sinW2,sinW2_Q,g2SM,rho,delta_SM)
 
  delta=delta-delta_SM 
 Else 
  delta = 0._dp 
 End if 
 If (.not.OneLoopMatching) delta = 0._dp 
-delta_rho0=MW2*(g1SM**2+g2SM**2)/g2SM**2/MZ2-1._dp
-delta_r=(1._dp+delta_rho0)*Real(dmW2_0,dp)/mW2-Real(dmZ2,dp)/mZ2+delta
-delta_rhomatch=Real(dmZ2,dp)/mZ2-(1._dp+delta_rho0)*Real(dmW2,dp)/mW2
-delta_rwmatch=Real(dmW2_0,dp)/mW2-Real(dmW2,dp)/mW2+delta
-delta_emmatch= DeltaAlphaEW_T(g1sm**2*g2sm**2*oo4pi/(g1sm**2+g2sm**2),mudim,Abs(MVWm),Abs(MSd),Abs(MSu),Abs(MSe),Abs(MHpm),Abs(MCha),Abs(MFe),Abs(MFd),Abs(MFu)) 
- 
-CosW2SinW2=sw2cw2_sm*(1._dp+delta_emmatch+delta_r)/(1._dp+delta_rho0)
+delta_r=rho*Real(dmW2_0,dp)/mW2-Real(dmZ2,dp)/mZ2+delta
+delta_rho0=0
+rho=1._dp/(1._dp-delta_rho-delta_rho0)
+delta_r=rho*Real(dmW2_0,dp)/mW2-Real(dmZ2,dp)/mZ2+delta
+CosW2SinW2=pi*alphaQ/(sqrt2*mZ2*G_F*(1-delta_r_SM - delta_r))
 sinW2_Q=0.5_dp-Sqrt(0.25_dp-CosW2SinW2)
 
-newWscale=sinW2_Q/(1._dp-2._dp*sinW2_Q)*((1._dp/sinW2_Q -1._dp)*(delta_rho0+delta_rhomatch)-delta_rwmatch-delta_emmatch)
-mZ2 = mZ2save 
 If (sinW2_Q.Lt.0._dp) Then
     kont=-403
     Call AddError(403)
@@ -2485,6 +2412,16 @@ End If
 If (Abs(sinW2_Q-sinW2_old).Lt.0.1_dp*delta0) Exit
 
 sinW2_old=sinW2_Q
+delta_rw=delta_rho*(1._dp-delta_r_SM - delta_r)+delta_r_SM + delta_r
+If ((0.25_dp-alphaQ*pi/(sqrt2*G_F*mz2*rho*(1._dp-delta_rw))).Lt.0._dp) Then
+    kont=-404
+    Call AddError(404)
+    Iname=Iname-1
+     Return
+End If
+
+mW2=mZ2*rho*(0.5_dp&
+    &+Sqrt(0.25_dp-alphaQ*pi/(sqrt2*G_F*mz2*rho*(1._dp-delta_rw))))
 MAh(1)=MVZ
 MAh2(1)=MVZ2
 MAh(2)=MVZp
@@ -2552,8 +2489,8 @@ Call OneLoop_Z_W_SM(v_MS,g1_MS,g2_MS,g3_MS,Lam_MS,Yu_MS,Yd_MS,Ye_MS,kont,       
 If (.not.OneLoopMatching) dmZ2_SM = 0._dp 
 If (.not.OneLoopMatching) dmW2_SM = 0._dp 
 If (.not.OneLoopMatching) dmW2_0_SM = 0._dp 
-mZ2_run=mZ2_DR-dmZ2+dmz2_SM
-mW2_run=mw2_DR-dmW2+dmw2_SM
+mZ2_run=mZ2_MS-dmZ2+dmz2_SM
+mW2_run=mw2_MS-dmW2+dmw2_SM
 sinW2_Q=1._dp-mW2_run/MZ2_run
 g1SM=Sqrt(4._dp*pi*alphaQ/(1._dp-sinW2_Q))
 g2SM=Sqrt(4._dp*pi*alphaQ/sinW2_Q)
@@ -2575,6 +2512,10 @@ MAh2(2)=MVZp2
 MHpm(1)=MVWm
 MHpm2(1)=MVWm2
 If (.not.MatchZWpoleMasses) Then 
+delta_rw=delta_rho*(1._dp-delta_r_SM - delta_r)+delta_r_SM + delta_r
+mW2=mZ2*rho*(0.5_dp& 
+   &+Sqrt(0.25_dp-alphaQ*pi/(sqrt2*G_F*mz2*rho*(1._dp-delta_rw))))
+mW=Sqrt(mW2)
 vev2=mZ2_Q*CosW2SinW2/(pi*alphaQ) -(0) 
 vSM=sqrt(vev2) 
 Else 
@@ -2936,8 +2877,8 @@ Call SetMatchingConditions(g1SM,g2SM,g3SM,YuSM,YdSM,YeSM,vSM,vd,vu,x1,x2,       
 & g1,g2,g3,gBL,gYB,gBY,Yd,Ye,Yu,Yx,Yv,MuP,Mu,Td,Te,Tu,Tx,Tv,BMuP,Bmu,mq2,ml2,            & 
 & mHd2,mHu2,md2,mu2,me2,mv2,mC12,mC22,MBBp,M1,M2,M3,MBp,.False.)
 
-! sinW2_Q_mZ=sinW2_Q
-! vSM_save=vSM
+sinW2_Q_mZ=sinW2_Q
+vSM_save=vSM
 gauge_mZ=gauge
 
  
@@ -2971,7 +2912,6 @@ gBY = Sqrt(2._dp/3._dp)*gBY
 Call ParametersToG96(g1,g2,g3,gBL,gYB,gBY,Yd,Ye,Yu,Yx,Yv,gMZ)
 
 rMS_SM = 1._dp 
-mZ2 = mz2save 
 Iname=Iname-1
 
 Contains
@@ -3783,15 +3723,11 @@ Write(*,*) "Calculating mass spectrum"
 CalculateOneLoopMassesSave = CalculateOneLoopMasses 
 CalculateOneLoopMasses = .false. 
 Lambda_MZ = 0.1_dp 
-rMS_save=rMS 
 Do j=1,niter 
 Write(*,*) "  ", j,".-iteration" 
 Write(ErrCan,*) "RGE Running ", j,".-iteration" 
-rMS = 1._dp
-rMS_SM = 1._dp
 Call BoundarySM(j,Lambda_MZ,delta0,g_SM,kont)
 
-rMS = rMS_save
 g_SM_save = g_SM 
 mudim=GetRenormalizationScale()
 mudim=Max(mudim,mZ2)
@@ -4212,14 +4148,6 @@ Call Get_mh_pole_SM(g_SM,mudim,delta0,Mhh2(1),mh_SM)
 Mhh2(1) = mh_SM**2 
 Mhh(1) = mh_SM 
 End if
-If (MatchZWpoleMasses) newWscale=0._dp
-MVwm_scale=smmwfit(Mhh(1),MFu(3),alphas_MZ)*(1._dp+0.5_dp*newWscale)
-MVWm = MVwm_scale
-MVWm2 = MVwm_scale**2
-mW = MVwm_scale
-mW2 = MVwm_scale**2
-MHpm(1)=MVWm
-MHpm2(1)=MVWm2
 If (SignOfMassChanged) Then
   If (.Not.IgnoreNegativeMasses) Then
   Write(*,*) " Mass spectrum converged, but negative mass squared present." 

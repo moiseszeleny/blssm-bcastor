@@ -1,5 +1,5 @@
 ! ------------------------------------------------------------------------------ 
-! This file was automatically created by SARAH version 4.15.1 
+! This file was automatically created by SARAH version 4.14.5 
 ! Two Loop diagrammatic calculation of Higgs masses (c) Mark Goodsell 2015-20 
 ! References: arXiv: 1503.03098, 1604.05335, 1706.05372  
 ! ------------------------------------------------------------------------------  

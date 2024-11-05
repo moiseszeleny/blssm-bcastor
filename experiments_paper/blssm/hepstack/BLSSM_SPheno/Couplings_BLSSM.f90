@@ -1,10 +1,10 @@
 ! ------------------------------------------------------------------------------  
-! This file was automatically created by SARAH version 4.15.1 
+! This file was automatically created by SARAH version 4.14.5 
 ! SARAH References: arXiv:0806.0538, 0909.2863, 1002.0840, 1207.0906, 1309.7223,
 !           1405.1434, 1411.0675, 1503.03098, 1703.09237, 1706.05372, 1805.07306  
 ! (c) Florian Staub, Mark Goodsell and Werner Porod 2020  
 ! ------------------------------------------------------------------------------  
-! File created at 16:13 on 25.7.2023   
+! File created at 18:46 on 3.11.2021   
 ! ----------------------------------------------------------------------  
  
  
@@ -27604,23 +27604,23 @@ End If
 res = 0._dp 
 res = res+(gYB*g2*Cos(TW)*Cos(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/2._dp
 res = res-(g1*gYB*Cos(TWp)**2*Sin(TW)*ZP(gt1,1)*ZP(gt2,1))/2._dp
+res = res+(g1**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,1)*ZP(gt2,1))/4._dp
+res = res-(g2**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,1)*ZP(gt2,1))/4._dp
 res = res+(g1*gYB*Sin(TW)*Sin(TWp)**2*ZP(gt1,1)*ZP(gt2,1))/2._dp
 res = res+(-3*g1**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
 res = res+(gYB**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/4._dp
 res = res-(g2**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
-res = res+(g1**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/8._dp
-res = res-(g2**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/8._dp
 res = res+(g1**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
 res = res-(g2**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
 res = res+(g1*g2*Sin(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/4._dp
 res = res+(gYB*g2*Cos(TW)*Cos(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/2._dp
 res = res-(g1*gYB*Cos(TWp)**2*Sin(TW)*ZP(gt1,2)*ZP(gt2,2))/2._dp
+res = res+(g1**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,2)*ZP(gt2,2))/4._dp
+res = res-(g2**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,2)*ZP(gt2,2))/4._dp
 res = res+(g1*gYB*Sin(TW)*Sin(TWp)**2*ZP(gt1,2)*ZP(gt2,2))/2._dp
 res = res+(-3*g1**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
 res = res+(gYB**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/4._dp
 res = res-(g2**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
-res = res+(g1**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/8._dp
-res = res-(g2**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/8._dp
 res = res+(g1**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
 res = res-(g2**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
 res = res+(g1*g2*Sin(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/4._dp
@@ -71101,6 +71101,13 @@ If ((gt4.Lt.1).Or.(gt4.Gt.6)) Then
 End If 
 
 res = 0._dp 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+Do j1 = 1,3
+Do j3 = 1,3
+res = res-(Conjg(Yd(j3,gt3))*Conjg(ZD(gt2,3 + j3))*Yd(j1,gt1)*ZD(gt4,3 + j1))
+End Do 
+End Do 
+End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j1 = 1,3
 res = res-(g1**2*Conjg(ZD(gt2,j1))*ZD(gt4,j1))/12._dp
@@ -71109,11 +71116,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j1 = 1,3
 res = res-(gYB**2*Conjg(ZD(gt2,j1))*ZD(gt4,j1))/12._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j1 = 1,3
-res = res-(g3**2*Conjg(ZD(gt2,j1))*ZD(gt4,j1))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -71153,11 +71155,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j1 = 1,3
-res = res+(g3**2*Conjg(ZD(gt2,j1))*ZD(gt4,j1))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j1 = 1,3
 res = res-(gYB*gBL*Conjg(ZD(gt2,j1))*ZD(gt4,j1))/12._dp
 End Do 
 End If 
@@ -71184,11 +71181,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j1 = 1,3
 res = res-(gYB**2*Conjg(ZD(gt2,3 + j1))*ZD(gt4,3 + j1))/6._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j1 = 1,3
-res = res+(g3**2*Conjg(ZD(gt2,3 + j1))*ZD(gt4,3 + j1))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -71223,11 +71215,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j1 = 1,3
-res = res-(g3**2*Conjg(ZD(gt2,3 + j1))*ZD(gt4,3 + j1))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j1 = 1,3
 res = res-(gYB*gBL*Conjg(ZD(gt2,3 + j1))*ZD(gt4,3 + j1))/24._dp
 End Do 
 End If 
@@ -71253,6 +71240,13 @@ res = res-3*Conjg(Yd(-3 + gt1,gt3))*Conjg(ZD(gt2,j2))*Yd(j1,j2)*ZD(gt4,3 + j1)
 End Do 
 End Do 
 End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+Do j2 = 1,3
+Do j4 = 1,3
+res = res-(Conjg(Yd(-3 + gt1,j4))*Conjg(ZD(gt2,j2))*Yd(-3 + gt3,j2)*ZD(gt4,j4))
+End Do 
+End Do 
+End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j2 = 1,3
 res = res-(g1**2*Conjg(ZD(gt2,j2))*ZD(gt4,j2))/12._dp
@@ -71261,11 +71255,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j2 = 1,3
 res = res-(gYB**2*Conjg(ZD(gt2,j2))*ZD(gt4,j2))/12._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j2 = 1,3
-res = res-(g3**2*Conjg(ZD(gt2,j2))*ZD(gt4,j2))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -71305,11 +71294,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j2 = 1,3
-res = res+(g3**2*Conjg(ZD(gt2,j2))*ZD(gt4,j2))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j2 = 1,3
 res = res-(gYB*gBL*Conjg(ZD(gt2,j2))*ZD(gt4,j2))/12._dp
 End Do 
 End If 
@@ -71336,11 +71320,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j2 = 1,3
 res = res-(gYB**2*Conjg(ZD(gt2,3 + j2))*ZD(gt4,3 + j2))/6._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j2 = 1,3
-res = res+(g3**2*Conjg(ZD(gt2,3 + j2))*ZD(gt4,3 + j2))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -71375,11 +71354,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j2 = 1,3
-res = res-(g3**2*Conjg(ZD(gt2,3 + j2))*ZD(gt4,3 + j2))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j2 = 1,3
 res = res-(gYB*gBL*Conjg(ZD(gt2,3 + j2))*ZD(gt4,3 + j2))/24._dp
 End Do 
 End If 
@@ -71406,16 +71380,91 @@ End Do
 End Do 
 End If 
 If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
-res = res+(-3*g3**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/2._dp
+res = res-(g1**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res-(gYB**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(-4*g3**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/3._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(gYB*gBL*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res-(gBL**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(g1*gBY*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res-(gBY**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
 End If 
 If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
-res = res+(3*g3**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/2._dp
+res = res-(g1**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/18._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res-(gYB**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/18._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(4*g3**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/3._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res-(gYB*gBL*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(gBL**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res-(g1*gBY*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(gBY**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
 End If 
 If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
-res = res+(3*g3**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/2._dp
+res = res-(g1**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/18._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gYB**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/18._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(4*g3**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/3._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gYB*gBL*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(gBL**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(g1*gBY*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(gBY**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
 End If 
 If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
-res = res+(-3*g3**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/2._dp
+res = res-(g1**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gYB**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(g2**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/4._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(-4*g3**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/3._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gYB*gBL*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/18._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gBL**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(g1*gBY*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/18._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gBY**2*Conjg(ZD(gt2,gt3))*ZD(gt4,gt1))/36._dp
 End If 
 If (Real(res,dp).ne.Real(res,dp)) Then 
  Write(*,*) "NaN appearing in ",NameOfUnit(Iname) 
@@ -71780,6 +71829,13 @@ If ((gt4.Lt.1).Or.(gt4.Gt.6)) Then
 End If 
 
 res = 0._dp 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+Do j1 = 1,3
+Do j3 = 1,3
+res = res-(Conjg(Yu(j3,gt3))*Conjg(ZU(gt2,3 + j3))*Yu(j1,gt1)*ZU(gt4,3 + j1))
+End Do 
+End Do 
+End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j1 = 1,3
 res = res-(g1**2*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/12._dp
@@ -71788,11 +71844,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j1 = 1,3
 res = res-(gYB**2*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/12._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j1 = 1,3
-res = res-(g3**2*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -71832,11 +71883,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j1 = 1,3
-res = res+(g3**2*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j1 = 1,3
 res = res-(gYB*gBL*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/12._dp
 End Do 
 End If 
@@ -71863,11 +71909,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j1 = 1,3
 res = res+(gYB**2*Conjg(ZU(gt2,3 + j1))*ZU(gt4,3 + j1))/3._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j1 = 1,3
-res = res+(g3**2*Conjg(ZU(gt2,3 + j1))*ZU(gt4,3 + j1))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -71902,11 +71943,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j1 = 1,3
-res = res-(g3**2*Conjg(ZU(gt2,3 + j1))*ZU(gt4,3 + j1))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j1 = 1,3
 res = res+(5*gYB*gBL*Conjg(ZU(gt2,3 + j1))*ZU(gt4,3 + j1))/24._dp
 End Do 
 End If 
@@ -71925,6 +71961,13 @@ Do j1 = 1,3
 res = res+(gBY**2*Conjg(ZU(gt2,3 + j1))*ZU(gt4,3 + j1))/24._dp
 End Do 
 End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+Do j2 = 1,3
+Do j4 = 1,3
+res = res-(Conjg(Yd(-3 + gt1,j4))*Conjg(ZU(gt2,j2))*Yd(-3 + gt3,j2)*ZU(gt4,j4))
+End Do 
+End Do 
+End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j2 = 1,3
 res = res-(g1**2*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/12._dp
@@ -71933,11 +71976,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j2 = 1,3
 res = res-(gYB**2*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/12._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j2 = 1,3
-res = res-(g3**2*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -71977,11 +72015,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j2 = 1,3
-res = res+(g3**2*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j2 = 1,3
 res = res-(gYB*gBL*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/12._dp
 End Do 
 End If 
@@ -72008,11 +72041,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j2 = 1,3
 res = res+(gYB**2*Conjg(ZU(gt2,3 + j2))*ZU(gt4,3 + j2))/3._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j2 = 1,3
-res = res+(g3**2*Conjg(ZU(gt2,3 + j2))*ZU(gt4,3 + j2))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -72047,11 +72075,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j2 = 1,3
-res = res-(g3**2*Conjg(ZU(gt2,3 + j2))*ZU(gt4,3 + j2))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j2 = 1,3
 res = res+(5*gYB*gBL*Conjg(ZU(gt2,3 + j2))*ZU(gt4,3 + j2))/24._dp
 End Do 
 End If 
@@ -72069,6 +72092,9 @@ If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then
 Do j2 = 1,3
 res = res+(gBY**2*Conjg(ZU(gt2,3 + j2))*ZU(gt4,3 + j2))/24._dp
 End Do 
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(g2**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/2._dp
 End If 
 If (Real(res,dp).ne.Real(res,dp)) Then 
  Write(*,*) "NaN appearing in ",NameOfUnit(Iname) 
@@ -74383,6 +74409,13 @@ If ((gt4.Lt.1).Or.(gt4.Gt.6)) Then
 End If 
 
 res = 0._dp 
+If ((gt2.le.3).And.(gt2.ge.1).And.(gt4.le.3).And.(gt4.ge.1)) Then 
+Do j1 = 1,3
+Do j3 = 1,3
+res = res-(Conjg(Yd(j3,gt4))*Conjg(ZD(gt1,3 + j3))*Yd(j1,gt2)*ZD(gt3,3 + j1))
+End Do 
+End Do 
+End If 
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
 Do j1 = 1,3
 res = res+(g1**2*Conjg(ZD(gt1,j1))*ZD(gt3,j1))/6._dp
@@ -74391,11 +74424,6 @@ End If
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
 Do j1 = 1,3
 res = res+(gYB**2*Conjg(ZD(gt1,j1))*ZD(gt3,j1))/6._dp
-End Do 
-End If 
-If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
-Do j1 = 1,3
-res = res-(g3**2*Conjg(ZD(gt1,j1))*ZD(gt3,j1))/4._dp
 End Do 
 End If 
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
@@ -74435,11 +74463,6 @@ End Do
 End If 
 If ((gt2.eq.gt4).And.(gt2.le.3).And.(gt2.ge.1)) Then 
 Do j1 = 1,3
-res = res+(g3**2*Conjg(ZD(gt1,j1))*ZD(gt3,j1))/4._dp
-End Do 
-End If 
-If ((gt2.eq.gt4).And.(gt2.le.3).And.(gt2.ge.1)) Then 
-Do j1 = 1,3
 res = res-(gYB*gBL*Conjg(ZD(gt1,j1))*ZD(gt3,j1))/12._dp
 End Do 
 End If 
@@ -74466,11 +74489,6 @@ End If
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
 Do j1 = 1,3
 res = res+(gYB**2*Conjg(ZD(gt1,3 + j1))*ZD(gt3,3 + j1))/3._dp
-End Do 
-End If 
-If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
-Do j1 = 1,3
-res = res+(g3**2*Conjg(ZD(gt1,3 + j1))*ZD(gt3,3 + j1))/4._dp
 End Do 
 End If 
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
@@ -74505,11 +74523,6 @@ End Do
 End If 
 If ((gt2.eq.gt4).And.(gt2.le.3).And.(gt2.ge.1)) Then 
 Do j1 = 1,3
-res = res-(g3**2*Conjg(ZD(gt1,3 + j1))*ZD(gt3,3 + j1))/4._dp
-End Do 
-End If 
-If ((gt2.eq.gt4).And.(gt2.le.3).And.(gt2.ge.1)) Then 
-Do j1 = 1,3
 res = res-(gYB*gBL*Conjg(ZD(gt1,3 + j1))*ZD(gt3,3 + j1))/24._dp
 End Do 
 End If 
@@ -74528,6 +74541,13 @@ Do j1 = 1,3
 res = res+(gBY**2*Conjg(ZD(gt1,3 + j1))*ZD(gt3,3 + j1))/24._dp
 End Do 
 End If 
+If ((-3 + gt2.le.3).And.(-3 + gt2.ge.1).And.(-3 + gt4.le.3).And.(-3 + gt4.ge.1)) Then 
+Do j2 = 1,3
+Do j4 = 1,3
+res = res-(Conjg(Yu(-3 + gt2,j4))*Conjg(ZD(gt1,j2))*Yu(-3 + gt4,j2)*ZD(gt3,j4))
+End Do 
+End Do 
+End If 
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
 Do j2 = 1,3
 res = res+(g1**2*Conjg(ZD(gt1,j2))*ZD(gt3,j2))/6._dp
@@ -74536,11 +74556,6 @@ End If
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
 Do j2 = 1,3
 res = res+(gYB**2*Conjg(ZD(gt1,j2))*ZD(gt3,j2))/6._dp
-End Do 
-End If 
-If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
-Do j2 = 1,3
-res = res-(g3**2*Conjg(ZD(gt1,j2))*ZD(gt3,j2))/4._dp
 End Do 
 End If 
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
@@ -74580,11 +74595,6 @@ End Do
 End If 
 If ((gt2.eq.gt4).And.(gt2.le.3).And.(gt2.ge.1)) Then 
 Do j2 = 1,3
-res = res+(g3**2*Conjg(ZD(gt1,j2))*ZD(gt3,j2))/4._dp
-End Do 
-End If 
-If ((gt2.eq.gt4).And.(gt2.le.3).And.(gt2.ge.1)) Then 
-Do j2 = 1,3
 res = res-(gYB*gBL*Conjg(ZD(gt1,j2))*ZD(gt3,j2))/12._dp
 End Do 
 End If 
@@ -74611,11 +74621,6 @@ End If
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
 Do j2 = 1,3
 res = res+(gYB**2*Conjg(ZD(gt1,3 + j2))*ZD(gt3,3 + j2))/3._dp
-End Do 
-End If 
-If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
-Do j2 = 1,3
-res = res+(g3**2*Conjg(ZD(gt1,3 + j2))*ZD(gt3,3 + j2))/4._dp
 End Do 
 End If 
 If ((gt2.eq.gt4).And.(-3 + gt2.le.3).And.(-3 + gt2.ge.1)) Then 
@@ -74650,11 +74655,6 @@ End Do
 End If 
 If ((gt2.eq.gt4).And.(gt2.le.3).And.(gt2.ge.1)) Then 
 Do j2 = 1,3
-res = res-(g3**2*Conjg(ZD(gt1,3 + j2))*ZD(gt3,3 + j2))/4._dp
-End Do 
-End If 
-If ((gt2.eq.gt4).And.(gt2.le.3).And.(gt2.ge.1)) Then 
-Do j2 = 1,3
 res = res-(gYB*gBL*Conjg(ZD(gt1,3 + j2))*ZD(gt3,3 + j2))/24._dp
 End Do 
 End If 
@@ -74672,6 +74672,9 @@ If ((gt2.eq.gt4).And.(gt2.le.3).And.(gt2.ge.1)) Then
 Do j2 = 1,3
 res = res+(gBY**2*Conjg(ZD(gt1,3 + j2))*ZD(gt3,3 + j2))/24._dp
 End Do 
+End If 
+If ((gt2.le.3).And.(gt2.ge.1).And.(gt4.le.3).And.(gt4.ge.1)) Then 
+res = res-(g2**2*Conjg(ZD(gt1,gt4))*ZD(gt3,gt2))/2._dp
 End If 
 If (Real(res,dp).ne.Real(res,dp)) Then 
  Write(*,*) "NaN appearing in ",NameOfUnit(Iname) 
@@ -75041,6 +75044,13 @@ If ((gt4.Lt.1).Or.(gt4.Gt.6)) Then
 End If 
 
 res = 0._dp 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+Do j1 = 1,3
+Do j3 = 1,3
+res = res-(Conjg(Yu(j3,gt3))*Conjg(ZU(gt2,3 + j3))*Yu(j1,gt1)*ZU(gt4,3 + j1))
+End Do 
+End Do 
+End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j1 = 1,3
 res = res+(g1**2*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/6._dp
@@ -75049,11 +75059,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j1 = 1,3
 res = res+(gYB**2*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/6._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j1 = 1,3
-res = res-(g3**2*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -75093,11 +75098,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j1 = 1,3
-res = res+(g3**2*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j1 = 1,3
 res = res-(gYB*gBL*Conjg(ZU(gt2,j1))*ZU(gt4,j1))/12._dp
 End Do 
 End If 
@@ -75124,11 +75124,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j1 = 1,3
 res = res+(-2*gYB**2*Conjg(ZU(gt2,3 + j1))*ZU(gt4,3 + j1))/3._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j1 = 1,3
-res = res+(g3**2*Conjg(ZU(gt2,3 + j1))*ZU(gt4,3 + j1))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -75163,11 +75158,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j1 = 1,3
-res = res-(g3**2*Conjg(ZU(gt2,3 + j1))*ZU(gt4,3 + j1))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j1 = 1,3
 res = res+(5*gYB*gBL*Conjg(ZU(gt2,3 + j1))*ZU(gt4,3 + j1))/24._dp
 End Do 
 End If 
@@ -75193,6 +75183,13 @@ res = res-3*Conjg(Yu(-3 + gt1,gt3))*Conjg(ZU(gt2,j2))*Yu(j1,j2)*ZU(gt4,3 + j1)
 End Do 
 End Do 
 End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+Do j2 = 1,3
+Do j4 = 1,3
+res = res-(Conjg(Yu(-3 + gt1,j4))*Conjg(ZU(gt2,j2))*Yu(-3 + gt3,j2)*ZU(gt4,j4))
+End Do 
+End Do 
+End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j2 = 1,3
 res = res+(g1**2*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/6._dp
@@ -75201,11 +75198,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j2 = 1,3
 res = res+(gYB**2*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/6._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j2 = 1,3
-res = res-(g3**2*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -75245,11 +75237,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j2 = 1,3
-res = res+(g3**2*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j2 = 1,3
 res = res-(gYB*gBL*Conjg(ZU(gt2,j2))*ZU(gt4,j2))/12._dp
 End Do 
 End If 
@@ -75276,11 +75263,6 @@ End If
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
 Do j2 = 1,3
 res = res+(-2*gYB**2*Conjg(ZU(gt2,3 + j2))*ZU(gt4,3 + j2))/3._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
-Do j2 = 1,3
-res = res+(g3**2*Conjg(ZU(gt2,3 + j2))*ZU(gt4,3 + j2))/4._dp
 End Do 
 End If 
 If ((gt1.eq.gt3).And.(-3 + gt1.le.3).And.(-3 + gt1.ge.1)) Then 
@@ -75315,11 +75297,6 @@ End Do
 End If 
 If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
 Do j2 = 1,3
-res = res-(g3**2*Conjg(ZU(gt2,3 + j2))*ZU(gt4,3 + j2))/4._dp
-End Do 
-End If 
-If ((gt1.eq.gt3).And.(gt1.le.3).And.(gt1.ge.1)) Then 
-Do j2 = 1,3
 res = res+(5*gYB*gBL*Conjg(ZU(gt2,3 + j2))*ZU(gt4,3 + j2))/24._dp
 End Do 
 End If 
@@ -75346,16 +75323,91 @@ End Do
 End Do 
 End If 
 If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
-res = res+(-3*g3**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/2._dp
+res = res+(-4*g1**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(-4*gYB**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(-4*g3**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/3._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(-2*gYB*gBL*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res-(gBL**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(-2*g1*gBY*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res-(gBY**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
 End If 
 If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
-res = res+(3*g3**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/2._dp
+res = res+(g1**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/9._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(gYB**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/9._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(4*g3**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/3._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(5*gYB*gBL*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(gBL**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(5*g1*gBY*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(-3 + gt3.le.3).And.(-3 + gt3.ge.1)) Then 
+res = res+(gBY**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
 End If 
 If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
-res = res+(3*g3**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/2._dp
+res = res+(g1**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(gYB**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/9._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(4*g3**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/3._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(5*gYB*gBL*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(gBL**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(5*g1*gBY*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((-3 + gt1.le.3).And.(-3 + gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(gBY**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
 End If 
 If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
-res = res+(-3*g3**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/2._dp
+res = res-(g1**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gYB**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(g2**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/4._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res+(-4*g3**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/3._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gYB*gBL*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/18._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gBL**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(g1*gBY*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/18._dp
+End If 
+If ((gt1.le.3).And.(gt1.ge.1).And.(gt3.le.3).And.(gt3.ge.1)) Then 
+res = res-(gBY**2*Conjg(ZU(gt2,gt3))*ZU(gt4,gt1))/36._dp
 End If 
 If (Real(res,dp).ne.Real(res,dp)) Then 
  Write(*,*) "NaN appearing in ",NameOfUnit(Iname) 
@@ -118424,23 +118476,23 @@ End If
 res = 0._dp 
 res = res+(gYB*g2*Cos(TW)*Cos(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/2._dp
 res = res-(g1*gYB*Cos(TWp)**2*Sin(TW)*ZP(gt1,1)*ZP(gt2,1))/2._dp
+res = res+(g1**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,1)*ZP(gt2,1))/4._dp
+res = res-(g2**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,1)*ZP(gt2,1))/4._dp
 res = res+(g1*gYB*Sin(TW)*Sin(TWp)**2*ZP(gt1,1)*ZP(gt2,1))/2._dp
 res = res+(-3*g1**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
 res = res+(gYB**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/4._dp
 res = res-(g2**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
-res = res+(g1**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/8._dp
-res = res-(g2**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/8._dp
 res = res+(g1**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
 res = res-(g2**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
 res = res+(g1*g2*Sin(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/4._dp
 res = res+(gYB*g2*Cos(TW)*Cos(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/2._dp
 res = res-(g1*gYB*Cos(TWp)**2*Sin(TW)*ZP(gt1,2)*ZP(gt2,2))/2._dp
+res = res+(g1**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,2)*ZP(gt2,2))/4._dp
+res = res-(g2**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,2)*ZP(gt2,2))/4._dp
 res = res+(g1*gYB*Sin(TW)*Sin(TWp)**2*ZP(gt1,2)*ZP(gt2,2))/2._dp
 res = res+(-3*g1**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
 res = res+(gYB**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/4._dp
 res = res-(g2**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
-res = res+(g1**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/8._dp
-res = res-(g2**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/8._dp
 res = res+(g1**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
 res = res-(g2**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
 res = res+(g1*g2*Sin(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/4._dp
@@ -139757,23 +139809,23 @@ End If
 res1 = 0._dp 
 res1 = res1+(gYB*g2*Cos(TW)*Cos(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/2._dp
 res1 = res1-(g1*gYB*Cos(TWp)**2*Sin(TW)*ZP(gt1,1)*ZP(gt2,1))/2._dp
+res1 = res1+(g1**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,1)*ZP(gt2,1))/4._dp
+res1 = res1-(g2**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,1)*ZP(gt2,1))/4._dp
 res1 = res1+(g1*gYB*Sin(TW)*Sin(TWp)**2*ZP(gt1,1)*ZP(gt2,1))/2._dp
 res1 = res1+(-3*g1**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
 res1 = res1+(gYB**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/4._dp
 res1 = res1-(g2**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
-res1 = res1+(g1**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/8._dp
-res1 = res1-(g2**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/8._dp
 res1 = res1+(g1**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
 res1 = res1-(g2**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/16._dp
 res1 = res1+(g1*g2*Sin(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,1)*ZP(gt2,1))/4._dp
 res1 = res1+(gYB*g2*Cos(TW)*Cos(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/2._dp
 res1 = res1-(g1*gYB*Cos(TWp)**2*Sin(TW)*ZP(gt1,2)*ZP(gt2,2))/2._dp
+res1 = res1+(g1**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,2)*ZP(gt2,2))/4._dp
+res1 = res1-(g2**2*Cos(TW)**2*Cos(TWp)*Sin(TWp)*ZP(gt1,2)*ZP(gt2,2))/4._dp
 res1 = res1+(g1*gYB*Sin(TW)*Sin(TWp)**2*ZP(gt1,2)*ZP(gt2,2))/2._dp
 res1 = res1+(-3*g1**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
 res1 = res1+(gYB**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/4._dp
 res1 = res1-(g2**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
-res1 = res1+(g1**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/8._dp
-res1 = res1-(g2**2*Cos(TW)**2*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/8._dp
 res1 = res1+(g1**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
 res1 = res1-(g2**2*Cos(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/16._dp
 res1 = res1+(g1*g2*Sin(2._dp*(TW))*Sin(2._dp*(TWp))*ZP(gt1,2)*ZP(gt2,2))/4._dp

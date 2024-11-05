@@ -1,10 +1,10 @@
 ! ------------------------------------------------------------------------------  
-! This file was automatically created by SARAH version 4.15.1 
+! This file was automatically created by SARAH version 4.14.5 
 ! SARAH References: arXiv:0806.0538, 0909.2863, 1002.0840, 1207.0906, 1309.7223,
 !           1405.1434, 1411.0675, 1503.03098, 1703.09237, 1706.05372, 1805.07306  
 ! (c) Florian Staub, Mark Goodsell and Werner Porod 2020  
 ! ------------------------------------------------------------------------------  
-! File created at 16:33 on 25.7.2023   
+! File created at 19:23 on 3.11.2021   
 ! ----------------------------------------------------------------------  
  
  
@@ -154,9 +154,9 @@ Complex(dp), Intent(in) :: Tad1Loop(4)
 
 Real(dp), Intent(out) :: TadpoleValues(4)
 
-TadpoleValues(1) = Real(((g1**2 + gYB**2 + g2**2)*vd**3 - 8*Bmu*vu + vd*(8._dp*(mHd2) & 
-&  - (g1**2 + gYB**2 + g2**2)*vu**2 + 2*(gYB*gBL + g1*gBY)*x1**2 - 2*gYB*gBL*x2**2 - 2*g1*gBY*x2**2 + 8*Mu**2))& 
-& /8._dp - Tad1Loop(1),dp) 
+TadpoleValues(1) = Real(((g1**2 + gYB**2 + g2**2)*vd**3 - 8*Bmu*vu + vd*(-((g1**2 + gYB**2 + g2**2)& 
+& *vu**2) + 2*(4._dp*(mHd2) + (gYB*gBL + g1*gBY)*x1**2 - (gYB*gBL + g1*gBY)              & 
+& *x2**2) + 8*Mu**2))/8._dp - Tad1Loop(1),dp) 
 TadpoleValues(2) = Real((-8*Bmu*vd + vu*(8._dp*(mHu2) - (g1**2 + gYB**2 + g2**2)      & 
 & *vd**2 + g1**2*vu**2 + gYB**2*vu**2 + g2**2*vu**2 - 2*gYB*gBL*x1**2 - 2*g1*gBY*x1**2 + 2*gYB*gBL*x2**2 + 2*g1*gBY*x2**2 + 8*Mu**2))& 
 & /8._dp - Tad1Loop(2),dp) 

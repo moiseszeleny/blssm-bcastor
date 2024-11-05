@@ -1,10 +1,10 @@
 ! ------------------------------------------------------------------------------  
-! This file was automatically created by SARAH version 4.15.1 
+! This file was automatically created by SARAH version 4.14.5 
 ! SARAH References: arXiv:0806.0538, 0909.2863, 1002.0840, 1207.0906, 1309.7223,
 !           1405.1434, 1411.0675, 1503.03098, 1703.09237, 1706.05372, 1805.07306  
 ! (c) Florian Staub, Mark Goodsell and Werner Porod 2020  
 ! ------------------------------------------------------------------------------  
-! File created at 16:13 on 25.7.2023   
+! File created at 18:46 on 3.11.2021   
 ! ----------------------------------------------------------------------  
  
  
@@ -482,8 +482,8 @@ End If
 ! gBL 
 !-------------------- 
  
-betagBL1  = (3*(15._dp*(gBLp3) + 11*gBL*gYBp2 + 4*gYB*gBLp2*sqrt10 + gBL*gBY*(15._dp*(gBY)& 
-&  + 2*g1*sqrt10) + gYB*gBY*(11._dp*(g1) + 2*gBY*sqrt10)))/5._dp
+betagBL1  = (3*(11*g1*gYB*gBY + 15._dp*(gBLp3) + 15*gBL*gBYp2 + 11*gBL*gYBp2 +        & 
+&  2*g1*gBL*gBY*sqrt10 + 4*gYB*gBLp2*sqrt10 + 2*gYB*gBYp2*sqrt10))/5._dp
 
  
  
@@ -498,16 +498,15 @@ betagBL2 = (398*gYB*g1p3*gBY + 270*g1*gYB*g2p2*gBY + 880*g1*gYB*g3p2*gBY + 1610*
 &  210*g1*gBY*gBLp3*sqrt10 + 280*gYB*gBLp4*sqrt10 + 246*gYB*g1p2*gBYp2*sqrt10 +          & 
 &  90*gYB*g2p2*gBYp2*sqrt10 + 80*gYB*g3p2*gBYp2*sqrt10 + 350*gYB*gBLp2*gBYp2*sqrt10 +    & 
 &  210*g1*gBL*gBYp3*sqrt10 + 70*gYB*gBYp4*sqrt10 + 410*g1*gBL*gBY*gYBp2*sqrt10 +         & 
-&  328*gBLp2*gYBp3*sqrt10 + 82*gBYp2*gYBp3*sqrt10 - 5*(10._dp*(gBLp3) + 28*gBL*gYBp2 +   & 
-&  gBL*gBY*(10._dp*(gBY) - g1*sqrt10) - gYB*(2*gBLp2*sqrt10 + gBY*(-28._dp*(g1) +        & 
-&  gBY*sqrt10)))*TrYdadjYd - 15*(10._dp*(gBLp3) + 12*gBL*gYBp2 + 6*gYB*gBLp2*sqrt10 +    & 
-&  gBL*gBY*(10._dp*(gBY) + 3*g1*sqrt10) + 3*gYB*gBY*(4._dp*(g1) + gBY*sqrt10))*TrYeadjYe -& 
-&  260*g1*gYB*gBY*TrYuadjYu - 50*gBLp3*TrYuadjYu - 50*gBL*gBYp2*TrYuadjYu -              & 
-&  260*gBL*gYBp2*TrYuadjYu - 25*g1*gBL*gBY*sqrt10*TrYuadjYu - 50*gYB*gBLp2*sqrt10*TrYuadjYu -& 
-&  25*gYB*gBYp2*sqrt10*TrYuadjYu - 60*g1*gYB*gBY*TrYvadjYv - 150*gBLp3*TrYvadjYv -       & 
-&  150*gBL*gBYp2*TrYvadjYv - 60*gBL*gYBp2*TrYvadjYv - 15*g1*gBL*gBY*sqrt10*TrYvadjYv -   & 
-&  30*gYB*gBLp2*sqrt10*TrYvadjYv - 15*gYB*gBYp2*sqrt10*TrYvadjYv - 450*gBLp3*TrYxCYx -   & 
-&  450*gBL*gBYp2*TrYxCYx)/50._dp
+&  328*gBLp2*gYBp3*sqrt10 + 82*gBYp2*gYBp3*sqrt10 - 5*(28*g1*gYB*gBY + 10._dp*(gBLp3) +  & 
+&  10*gBL*gBYp2 + 28*gBL*gYBp2 - g1*gBL*gBY*sqrt10 - 2*gYB*gBLp2*sqrt10 - gYB*gBYp2*sqrt10)*TrYdadjYd -& 
+&  15*(12*g1*gYB*gBY + 10._dp*(gBLp3) + 10*gBL*gBYp2 + 12*gBL*gYBp2 + 3*g1*gBL*gBY*sqrt10 +& 
+&  6*gYB*gBLp2*sqrt10 + 3*gYB*gBYp2*sqrt10)*TrYeadjYe - 260*g1*gYB*gBY*TrYuadjYu -       & 
+&  50*gBLp3*TrYuadjYu - 50*gBL*gBYp2*TrYuadjYu - 260*gBL*gYBp2*TrYuadjYu -               & 
+&  25*g1*gBL*gBY*sqrt10*TrYuadjYu - 50*gYB*gBLp2*sqrt10*TrYuadjYu - 25*gYB*gBYp2*sqrt10*TrYuadjYu -& 
+&  60*g1*gYB*gBY*TrYvadjYv - 150*gBLp3*TrYvadjYv - 150*gBL*gBYp2*TrYvadjYv -             & 
+&  60*gBL*gYBp2*TrYvadjYv - 15*g1*gBL*gBY*sqrt10*TrYvadjYv - 30*gYB*gBLp2*sqrt10*TrYvadjYv -& 
+&  15*gYB*gBYp2*sqrt10*TrYvadjYv - 450*gBLp3*TrYxCYx - 450*gBL*gBYp2*TrYxCYx)/50._dp
 
  
 DgBL = oo16pi2*( betagBL1 + oo16pi2 * betagBL2 ) 
@@ -563,8 +562,8 @@ If (.not.KineticMixing) DgYB  = 0._dp
 ! gBY 
 !-------------------- 
  
-betagBY1  = (3*(11*g1*gYB*gBL + 11*g1p2*gBY + 15*gBY*(gBLp2 + gBYp2) + 2*gYB*gBL*gBY*sqrt10 +& 
-&  2*g1*(gBLp2 + 2._dp*(gBYp2))*sqrt10))/5._dp
+betagBY1  = (3*(11*g1p2*gBY + gBY*(15*(gBLp2 + gBYp2) + 2*gYB*gBL*sqrt10)             & 
+&  + g1*(11*gYB*gBL + 2*(gBLp2 + 2._dp*(gBYp2))*sqrt10)))/5._dp
 
  
  
@@ -579,16 +578,15 @@ betagBY2 = (398*gYB*g1p3*gBL + 270*g1*gYB*g2p2*gBL + 880*g1*gYB*g3p2*gBL + 398*g
 &  210*gYB*gBY*gBLp3*sqrt10 + 70*g1*gBLp4*sqrt10 + 328*g1p3*gBYp2*sqrt10 +               & 
 &  180*g1*g2p2*gBYp2*sqrt10 + 160*g1*g3p2*gBYp2*sqrt10 + 350*g1*gBLp2*gBYp2*sqrt10 +     & 
 &  210*gYB*gBL*gBYp3*sqrt10 + 280*g1*gBYp4*sqrt10 + 246*g1*gBLp2*gYBp2*sqrt10 +          & 
-&  164*g1*gBYp2*gYBp2*sqrt10 + 82*gBL*gBY*gYBp3*sqrt10 - 5*(28*g1*gYB*gBL +              & 
-&  28*g1p2*gBY + 10*gBY*(gBLp2 + gBYp2) - gYB*gBL*gBY*sqrt10 - g1*(gBLp2 +               & 
-&  2._dp*(gBYp2))*sqrt10)*TrYdadjYd - 15*(12*g1*gYB*gBL + 12*g1p2*gBY + 10*gBY*(gBLp2 +  & 
-&  gBYp2) + 3*gYB*gBL*gBY*sqrt10 + 3*g1*(gBLp2 + 2._dp*(gBYp2))*sqrt10)*TrYeadjYe -      & 
-&  260*g1*gYB*gBL*TrYuadjYu - 260*g1p2*gBY*TrYuadjYu - 50*gBY*gBLp2*TrYuadjYu -          & 
-&  50*gBYp3*TrYuadjYu - 25*gYB*gBL*gBY*sqrt10*TrYuadjYu - 25*g1*gBLp2*sqrt10*TrYuadjYu - & 
-&  50*g1*gBYp2*sqrt10*TrYuadjYu - 60*g1*gYB*gBL*TrYvadjYv - 60*g1p2*gBY*TrYvadjYv -      & 
-&  150*gBY*gBLp2*TrYvadjYv - 150*gBYp3*TrYvadjYv - 15*gYB*gBL*gBY*sqrt10*TrYvadjYv -     & 
-&  15*g1*gBLp2*sqrt10*TrYvadjYv - 30*g1*gBYp2*sqrt10*TrYvadjYv - 450*gBY*gBLp2*TrYxCYx - & 
-&  450*gBYp3*TrYxCYx)/50._dp
+&  164*g1*gBYp2*gYBp2*sqrt10 + 82*gBL*gBY*gYBp3*sqrt10 - 5*(28*g1p2*gBY + 10*gBY*(gBLp2 +& 
+&  gBYp2) - gYB*gBL*gBY*sqrt10 + g1*(28*gYB*gBL - (gBLp2 + 2._dp*(gBYp2))*sqrt10))*TrYdadjYd -& 
+&  15*(12*g1p2*gBY + gBY*(10*(gBLp2 + gBYp2) + 3*gYB*gBL*sqrt10) + 3*g1*(4*gYB*gBL +     & 
+&  (gBLp2 + 2._dp*(gBYp2))*sqrt10))*TrYeadjYe - 260*g1*gYB*gBL*TrYuadjYu -               & 
+&  260*g1p2*gBY*TrYuadjYu - 50*gBY*gBLp2*TrYuadjYu - 50*gBYp3*TrYuadjYu - 25*gYB*gBL*gBY*sqrt10*TrYuadjYu -& 
+&  25*g1*gBLp2*sqrt10*TrYuadjYu - 50*g1*gBYp2*sqrt10*TrYuadjYu - 60*g1*gYB*gBL*TrYvadjYv -& 
+&  60*g1p2*gBY*TrYvadjYv - 150*gBY*gBLp2*TrYvadjYv - 150*gBYp3*TrYvadjYv -               & 
+&  15*gYB*gBL*gBY*sqrt10*TrYvadjYv - 15*g1*gBLp2*sqrt10*TrYvadjYv - 30*g1*gBYp2*sqrt10*TrYvadjYv -& 
+&  450*gBY*gBLp2*TrYxCYx - 450*gBYp3*TrYxCYx)/50._dp
 
  
 DgBY = oo16pi2*( betagBY1 + oo16pi2 * betagBY2 ) 
@@ -606,7 +604,7 @@ If (.not.KineticMixing) DgBY  = 0._dp
  
 betaYd1  = ((-14._dp*(g1p2) - 90._dp*(g2p2) - 160._dp*(g3p2) - 5._dp*(gBLp2)          & 
 &  - 5._dp*(gBYp2) - 14._dp*(gYBp2) + gYB*gBL*sqrt10 + g1*gBY*sqrt10 + 90._dp*(TrYdadjYd)& 
-&  + 30._dp*(TrYeadjYe))*Yd)/30._dp + 3._dp*(YdadjYdYd) + YdadjYuYu
+&  + 30._dp*(TrYeadjYe))*Yd + 30*(3._dp*(YdadjYdYd) + YdadjYuYu))/30._dp
 
  
  
@@ -646,8 +644,8 @@ Call Chop(DYd)
 ! Ye 
 !-------------------- 
  
-betaYe1  = ((-3*(6._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 6._dp*(gYBp2)      & 
-&  + 3*gYB*gBL*sqrt10 + 3*g1*gBY*sqrt10) + 30._dp*(TrYdadjYd) + 10._dp*(TrYeadjYe))      & 
+betaYe1  = -((3*(6._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 6._dp*(gYBp2)      & 
+&  + 3*gYB*gBL*sqrt10 + 3*g1*gBY*sqrt10) - 30._dp*(TrYdadjYd) - 10._dp*(TrYeadjYe))      & 
 & *Ye)/10._dp + 3._dp*(YeadjYeYe) + YeadjYvYv
 
  
@@ -685,9 +683,9 @@ Call Chop(DYe)
 ! Yu 
 !-------------------- 
  
-betaYu1  = -((26._dp*(g1p2) + 90._dp*(g2p2) + 160._dp*(g3p2) + 5._dp*(gBLp2)          & 
+betaYu1  = (-((26._dp*(g1p2) + 90._dp*(g2p2) + 160._dp*(g3p2) + 5._dp*(gBLp2)         & 
 &  + 5._dp*(gBYp2) + 26._dp*(gYBp2) + 5*gYB*gBL*sqrt10 + 5*g1*gBY*sqrt10 -               & 
-&  90._dp*(TrYuadjYu) - 30._dp*(TrYvadjYv))*Yu)/30._dp + YuadjYdYd + 3._dp*(YuadjYuYu)
+&  90._dp*(TrYuadjYu) - 30._dp*(TrYvadjYv))*Yu) + 30*(YuadjYdYd + 3._dp*(YuadjYuYu)))/30._dp
 
  
  
@@ -727,7 +725,7 @@ Call Chop(DYu)
 ! Yx 
 !-------------------- 
  
-betaYx1  = (-9*(gBLp2 + gBYp2)*Yx)/2._dp + 2*TrYxCYx*Yx + 2*(YvadjYvYx +              & 
+betaYx1  = -((9*(gBLp2 + gBYp2) - 4._dp*(TrYxCYx))*Yx)/2._dp + 2*(YvadjYvYx +         & 
 &  YxCYvTpYv + 4._dp*(YxCYxYx))
 
  
@@ -761,8 +759,8 @@ Call Chop(DYx)
 ! Yv 
 !-------------------- 
  
-betaYv1  = ((-3*(2._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 2._dp*(gYBp2)      & 
-&  + gYB*gBL*sqrt10 + g1*gBY*sqrt10) + 30._dp*(TrYuadjYu) + 10._dp*(TrYvadjYv))          & 
+betaYv1  = -((3*(2._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 2._dp*(gYBp2)      & 
+&  + gYB*gBL*sqrt10 + g1*gBY*sqrt10) - 30._dp*(TrYuadjYu) - 10._dp*(TrYvadjYv))          & 
 & *Yv)/10._dp + YvadjYeYe + 3._dp*(YvadjYvYv) + 4._dp*(YxCYxYv)
 
  
@@ -1378,12 +1376,11 @@ Complex(dp) :: TrYxCTx,TrCTdTpYd,TrCTeTpYe,TrCTuTpYu,TrCTvTpYv,Trmv2CYxYx,TrYdad
 
 Real(dp) :: g1p2,g1p3,gYBp2,g2p2,g2p3,g3p2,g3p3,gBLp2,gBLp3,gBYp2
 
-Complex(dp) :: sqrt2ov5,sqrt3ov5,sqrt3ov2,sqrt2,sqrt3,sqrt5,ooSqrt6,sqrt6,ooSqrt10,sqrt10,           & 
-& ooSqrt15,sqrt15
+Complex(dp) :: sqrt2ov5,sqrt3ov5,sqrt3ov2,sqrt2,sqrt3,sqrt5,sqrt6,ooSqrt10,sqrt10,sqrt15
 
 Real(dp) :: g1p4,g1p5,gYBp3,gYBp4,gYBp5,g2p4,g3p4,gBLp4,gBLp5,gBYp3,gBYp4,gBYp5
 
-Complex(dp) :: sqrt2ov3,sqrt5ov2,ooSqrt3
+Complex(dp) :: sqrt2ov3,sqrt5ov2,ooSqrt3,ooSqrt15
 
 Iname = Iname +1 
 NameOfUnit(Iname) = 'rge316' 
@@ -1581,11 +1578,9 @@ Forall(i2=1:3)  adjYvmv2Yv(i2,i2) =  Real(adjYvmv2Yv(i2,i2),dp)
  sqrt2 =sqrt(2._dp) 
  sqrt3 =sqrt(3._dp) 
  sqrt5 =sqrt(5._dp) 
- ooSqrt6 =1._dp/sqrt(6._dp) 
  sqrt6 =sqrt(6._dp) 
  ooSqrt10 =1._dp/sqrt(10._dp) 
  sqrt10 =sqrt(10._dp) 
- ooSqrt15 =1._dp/sqrt(15._dp) 
  sqrt15 =sqrt(15._dp) 
  g1p2 =g1**2 
  g1p3 =g1**3 
@@ -1600,6 +1595,7 @@ Forall(i2=1:3)  adjYvmv2Yv(i2,i2) =  Real(adjYvmv2Yv(i2,i2),dp)
  sqrt2ov3 =Sqrt(2._dp/3._dp) 
  sqrt5ov2 =Sqrt(5._dp/2._dp) 
  ooSqrt3 =1._dp/sqrt(3._dp) 
+ ooSqrt15 =1._dp/sqrt(15._dp) 
  g1p4 =g1**4 
  g1p5 =g1**5 
  gYBp3 =gYB**3 
@@ -2269,6 +2265,7 @@ Forall(i2=1:3)  adjYvYvml2adjYvYv(i2,i2) =  Real(adjYvYvml2adjYvYv(i2,i2),dp)
  sqrt2ov3 =Sqrt(2._dp/3._dp) 
  sqrt5ov2 =Sqrt(5._dp/2._dp) 
  ooSqrt3 =1._dp/sqrt(3._dp) 
+ ooSqrt15 =1._dp/sqrt(15._dp) 
  g1p4 =g1**4 
  g1p5 =g1**5 
  gYBp3 =gYB**3 
@@ -2473,8 +2470,8 @@ End If
 ! gBL 
 !-------------------- 
  
-betagBL1  = (3*(15._dp*(gBLp3) + 11*gBL*gYBp2 + 4*gYB*gBLp2*sqrt10 + gBL*gBY*(15._dp*(gBY)& 
-&  + 2*g1*sqrt10) + gYB*gBY*(11._dp*(g1) + 2*gBY*sqrt10)))/5._dp
+betagBL1  = (3*(11*g1*gYB*gBY + 15._dp*(gBLp3) + 15*gBL*gBYp2 + 11*gBL*gYBp2 +        & 
+&  2*g1*gBL*gBY*sqrt10 + 4*gYB*gBLp2*sqrt10 + 2*gYB*gBYp2*sqrt10))/5._dp
 
  
  
@@ -2489,16 +2486,15 @@ betagBL2 = (398*gYB*g1p3*gBY + 270*g1*gYB*g2p2*gBY + 880*g1*gYB*g3p2*gBY + 1610*
 &  210*g1*gBY*gBLp3*sqrt10 + 280*gYB*gBLp4*sqrt10 + 246*gYB*g1p2*gBYp2*sqrt10 +          & 
 &  90*gYB*g2p2*gBYp2*sqrt10 + 80*gYB*g3p2*gBYp2*sqrt10 + 350*gYB*gBLp2*gBYp2*sqrt10 +    & 
 &  210*g1*gBL*gBYp3*sqrt10 + 70*gYB*gBYp4*sqrt10 + 410*g1*gBL*gBY*gYBp2*sqrt10 +         & 
-&  328*gBLp2*gYBp3*sqrt10 + 82*gBYp2*gYBp3*sqrt10 - 5*(10._dp*(gBLp3) + 28*gBL*gYBp2 +   & 
-&  gBL*gBY*(10._dp*(gBY) - g1*sqrt10) - gYB*(2*gBLp2*sqrt10 + gBY*(-28._dp*(g1) +        & 
-&  gBY*sqrt10)))*TrYdadjYd - 15*(10._dp*(gBLp3) + 12*gBL*gYBp2 + 6*gYB*gBLp2*sqrt10 +    & 
-&  gBL*gBY*(10._dp*(gBY) + 3*g1*sqrt10) + 3*gYB*gBY*(4._dp*(g1) + gBY*sqrt10))*TrYeadjYe -& 
-&  260*g1*gYB*gBY*TrYuadjYu - 50*gBLp3*TrYuadjYu - 50*gBL*gBYp2*TrYuadjYu -              & 
-&  260*gBL*gYBp2*TrYuadjYu - 25*g1*gBL*gBY*sqrt10*TrYuadjYu - 50*gYB*gBLp2*sqrt10*TrYuadjYu -& 
-&  25*gYB*gBYp2*sqrt10*TrYuadjYu - 60*g1*gYB*gBY*TrYvadjYv - 150*gBLp3*TrYvadjYv -       & 
-&  150*gBL*gBYp2*TrYvadjYv - 60*gBL*gYBp2*TrYvadjYv - 15*g1*gBL*gBY*sqrt10*TrYvadjYv -   & 
-&  30*gYB*gBLp2*sqrt10*TrYvadjYv - 15*gYB*gBYp2*sqrt10*TrYvadjYv - 450*gBLp3*TrYxCYx -   & 
-&  450*gBL*gBYp2*TrYxCYx)/50._dp
+&  328*gBLp2*gYBp3*sqrt10 + 82*gBYp2*gYBp3*sqrt10 - 5*(28*g1*gYB*gBY + 10._dp*(gBLp3) +  & 
+&  10*gBL*gBYp2 + 28*gBL*gYBp2 - g1*gBL*gBY*sqrt10 - 2*gYB*gBLp2*sqrt10 - gYB*gBYp2*sqrt10)*TrYdadjYd -& 
+&  15*(12*g1*gYB*gBY + 10._dp*(gBLp3) + 10*gBL*gBYp2 + 12*gBL*gYBp2 + 3*g1*gBL*gBY*sqrt10 +& 
+&  6*gYB*gBLp2*sqrt10 + 3*gYB*gBYp2*sqrt10)*TrYeadjYe - 260*g1*gYB*gBY*TrYuadjYu -       & 
+&  50*gBLp3*TrYuadjYu - 50*gBL*gBYp2*TrYuadjYu - 260*gBL*gYBp2*TrYuadjYu -               & 
+&  25*g1*gBL*gBY*sqrt10*TrYuadjYu - 50*gYB*gBLp2*sqrt10*TrYuadjYu - 25*gYB*gBYp2*sqrt10*TrYuadjYu -& 
+&  60*g1*gYB*gBY*TrYvadjYv - 150*gBLp3*TrYvadjYv - 150*gBL*gBYp2*TrYvadjYv -             & 
+&  60*gBL*gYBp2*TrYvadjYv - 15*g1*gBL*gBY*sqrt10*TrYvadjYv - 30*gYB*gBLp2*sqrt10*TrYvadjYv -& 
+&  15*gYB*gBYp2*sqrt10*TrYvadjYv - 450*gBLp3*TrYxCYx - 450*gBL*gBYp2*TrYxCYx)/50._dp
 
  
 DgBL = oo16pi2*( betagBL1 + oo16pi2 * betagBL2 ) 
@@ -2554,8 +2550,8 @@ If (.not.KineticMixing) DgYB  = 0._dp
 ! gBY 
 !-------------------- 
  
-betagBY1  = (3*(11*g1*gYB*gBL + 11*g1p2*gBY + 15*gBY*(gBLp2 + gBYp2) + 2*gYB*gBL*gBY*sqrt10 +& 
-&  2*g1*(gBLp2 + 2._dp*(gBYp2))*sqrt10))/5._dp
+betagBY1  = (3*(11*g1p2*gBY + gBY*(15*(gBLp2 + gBYp2) + 2*gYB*gBL*sqrt10)             & 
+&  + g1*(11*gYB*gBL + 2*(gBLp2 + 2._dp*(gBYp2))*sqrt10)))/5._dp
 
  
  
@@ -2570,16 +2566,15 @@ betagBY2 = (398*gYB*g1p3*gBL + 270*g1*gYB*g2p2*gBL + 880*g1*gYB*g3p2*gBL + 398*g
 &  210*gYB*gBY*gBLp3*sqrt10 + 70*g1*gBLp4*sqrt10 + 328*g1p3*gBYp2*sqrt10 +               & 
 &  180*g1*g2p2*gBYp2*sqrt10 + 160*g1*g3p2*gBYp2*sqrt10 + 350*g1*gBLp2*gBYp2*sqrt10 +     & 
 &  210*gYB*gBL*gBYp3*sqrt10 + 280*g1*gBYp4*sqrt10 + 246*g1*gBLp2*gYBp2*sqrt10 +          & 
-&  164*g1*gBYp2*gYBp2*sqrt10 + 82*gBL*gBY*gYBp3*sqrt10 - 5*(28*g1*gYB*gBL +              & 
-&  28*g1p2*gBY + 10*gBY*(gBLp2 + gBYp2) - gYB*gBL*gBY*sqrt10 - g1*(gBLp2 +               & 
-&  2._dp*(gBYp2))*sqrt10)*TrYdadjYd - 15*(12*g1*gYB*gBL + 12*g1p2*gBY + 10*gBY*(gBLp2 +  & 
-&  gBYp2) + 3*gYB*gBL*gBY*sqrt10 + 3*g1*(gBLp2 + 2._dp*(gBYp2))*sqrt10)*TrYeadjYe -      & 
-&  260*g1*gYB*gBL*TrYuadjYu - 260*g1p2*gBY*TrYuadjYu - 50*gBY*gBLp2*TrYuadjYu -          & 
-&  50*gBYp3*TrYuadjYu - 25*gYB*gBL*gBY*sqrt10*TrYuadjYu - 25*g1*gBLp2*sqrt10*TrYuadjYu - & 
-&  50*g1*gBYp2*sqrt10*TrYuadjYu - 60*g1*gYB*gBL*TrYvadjYv - 60*g1p2*gBY*TrYvadjYv -      & 
-&  150*gBY*gBLp2*TrYvadjYv - 150*gBYp3*TrYvadjYv - 15*gYB*gBL*gBY*sqrt10*TrYvadjYv -     & 
-&  15*g1*gBLp2*sqrt10*TrYvadjYv - 30*g1*gBYp2*sqrt10*TrYvadjYv - 450*gBY*gBLp2*TrYxCYx - & 
-&  450*gBYp3*TrYxCYx)/50._dp
+&  164*g1*gBYp2*gYBp2*sqrt10 + 82*gBL*gBY*gYBp3*sqrt10 - 5*(28*g1p2*gBY + 10*gBY*(gBLp2 +& 
+&  gBYp2) - gYB*gBL*gBY*sqrt10 + g1*(28*gYB*gBL - (gBLp2 + 2._dp*(gBYp2))*sqrt10))*TrYdadjYd -& 
+&  15*(12*g1p2*gBY + gBY*(10*(gBLp2 + gBYp2) + 3*gYB*gBL*sqrt10) + 3*g1*(4*gYB*gBL +     & 
+&  (gBLp2 + 2._dp*(gBYp2))*sqrt10))*TrYeadjYe - 260*g1*gYB*gBL*TrYuadjYu -               & 
+&  260*g1p2*gBY*TrYuadjYu - 50*gBY*gBLp2*TrYuadjYu - 50*gBYp3*TrYuadjYu - 25*gYB*gBL*gBY*sqrt10*TrYuadjYu -& 
+&  25*g1*gBLp2*sqrt10*TrYuadjYu - 50*g1*gBYp2*sqrt10*TrYuadjYu - 60*g1*gYB*gBL*TrYvadjYv -& 
+&  60*g1p2*gBY*TrYvadjYv - 150*gBY*gBLp2*TrYvadjYv - 150*gBYp3*TrYvadjYv -               & 
+&  15*gYB*gBL*gBY*sqrt10*TrYvadjYv - 15*g1*gBLp2*sqrt10*TrYvadjYv - 30*g1*gBYp2*sqrt10*TrYvadjYv -& 
+&  450*gBY*gBLp2*TrYxCYx - 450*gBYp3*TrYxCYx)/50._dp
 
  
 DgBY = oo16pi2*( betagBY1 + oo16pi2 * betagBY2 ) 
@@ -2597,7 +2592,7 @@ If (.not.KineticMixing) DgBY  = 0._dp
  
 betaYd1  = ((-14._dp*(g1p2) - 90._dp*(g2p2) - 160._dp*(g3p2) - 5._dp*(gBLp2)          & 
 &  - 5._dp*(gBYp2) - 14._dp*(gYBp2) + gYB*gBL*sqrt10 + g1*gBY*sqrt10 + 90._dp*(TrYdadjYd)& 
-&  + 30._dp*(TrYeadjYe))*Yd)/30._dp + 3._dp*(YdadjYdYd) + YdadjYuYu
+&  + 30._dp*(TrYeadjYe))*Yd + 30*(3._dp*(YdadjYdYd) + YdadjYuYu))/30._dp
 
  
  
@@ -2637,8 +2632,8 @@ Call Chop(DYd)
 ! Ye 
 !-------------------- 
  
-betaYe1  = ((-3*(6._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 6._dp*(gYBp2)      & 
-&  + 3*gYB*gBL*sqrt10 + 3*g1*gBY*sqrt10) + 30._dp*(TrYdadjYd) + 10._dp*(TrYeadjYe))      & 
+betaYe1  = -((3*(6._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 6._dp*(gYBp2)      & 
+&  + 3*gYB*gBL*sqrt10 + 3*g1*gBY*sqrt10) - 30._dp*(TrYdadjYd) - 10._dp*(TrYeadjYe))      & 
 & *Ye)/10._dp + 3._dp*(YeadjYeYe) + YeadjYvYv
 
  
@@ -2676,9 +2671,9 @@ Call Chop(DYe)
 ! Yu 
 !-------------------- 
  
-betaYu1  = -((26._dp*(g1p2) + 90._dp*(g2p2) + 160._dp*(g3p2) + 5._dp*(gBLp2)          & 
+betaYu1  = (-((26._dp*(g1p2) + 90._dp*(g2p2) + 160._dp*(g3p2) + 5._dp*(gBLp2)         & 
 &  + 5._dp*(gBYp2) + 26._dp*(gYBp2) + 5*gYB*gBL*sqrt10 + 5*g1*gBY*sqrt10 -               & 
-&  90._dp*(TrYuadjYu) - 30._dp*(TrYvadjYv))*Yu)/30._dp + YuadjYdYd + 3._dp*(YuadjYuYu)
+&  90._dp*(TrYuadjYu) - 30._dp*(TrYvadjYv))*Yu) + 30*(YuadjYdYd + 3._dp*(YuadjYuYu)))/30._dp
 
  
  
@@ -2718,7 +2713,7 @@ Call Chop(DYu)
 ! Yx 
 !-------------------- 
  
-betaYx1  = (-9*(gBLp2 + gBYp2)*Yx)/2._dp + 2*TrYxCYx*Yx + 2*(YvadjYvYx +              & 
+betaYx1  = -((9*(gBLp2 + gBYp2) - 4._dp*(TrYxCYx))*Yx)/2._dp + 2*(YvadjYvYx +         & 
 &  YxCYvTpYv + 4._dp*(YxCYxYx))
 
  
@@ -2752,8 +2747,8 @@ Call Chop(DYx)
 ! Yv 
 !-------------------- 
  
-betaYv1  = ((-3*(2._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 2._dp*(gYBp2)      & 
-&  + gYB*gBL*sqrt10 + g1*gBY*sqrt10) + 30._dp*(TrYuadjYu) + 10._dp*(TrYvadjYv))          & 
+betaYv1  = -((3*(2._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 2._dp*(gYBp2)      & 
+&  + gYB*gBL*sqrt10 + g1*gBY*sqrt10) - 30._dp*(TrYuadjYu) - 10._dp*(TrYvadjYv))          & 
 & *Yv)/10._dp + YvadjYeYe + 3._dp*(YvadjYvYv) + 4._dp*(YxCYxYv)
 
  
@@ -2798,10 +2793,10 @@ betaMuP1  = 2*MuP*(-3*(gBLp2 + gBYp2) + TrYxCYx)
  
  
 If (TwoLoopRGE) Then 
-betaMuP2 = (18*MuP*(20._dp*(gBLp4) + 11*gBLp2*gYBp2 + 4*gYB*gBLp3*sqrt10 + 4*gBY*gBLp2*(10._dp*(gBY) +& 
-&  g1*sqrt10) + 2*gYB*gBL*gBY*(11._dp*(g1) + 2*gBY*sqrt10) + gBYp2*(11._dp*(g1p2) +      & 
-&  20._dp*(gBYp2) + 4*g1*gBY*sqrt10)))/5._dp - 3*(gBLp2 + gBYp2)*MuP*TrYxCYx -           & 
-&  8*MuP*TrYxCYxYvadjYv - 16*MuP*TrYxCYxYxCYx
+betaMuP2 = (MuP*(-15*(gBLp2 + gBYp2)*TrYxCYx + 2*(9*(20._dp*(gBLp4) + 11*gBLp2*gYBp2 +           & 
+&  4*gBY*gBLp2*(10._dp*(gBY) + g1*sqrt10) + gBYp2*(11._dp*(g1p2) + 20._dp*(gBYp2) +      & 
+&  4*g1*gBY*sqrt10) + gYB*(4*gBLp3*sqrt10 + 2*gBL*gBY*(11._dp*(g1) + 2*gBY*sqrt10))) -   & 
+&  20._dp*(TrYxCYxYvadjYv) - 40._dp*(TrYxCYxYxCYx))))/5._dp
 
  
 DMuP = oo16pi2*( betaMuP1 + oo16pi2 * betaMuP2 ) 
@@ -3279,8 +3274,8 @@ Call Chop(DTv)
 ! BMuP 
 !-------------------- 
  
-betaBMuP1  = 4*MuP*(3*gBYp2*M1 + 6*gBL*gBY*MBBp + 3*gBLp2*MBp + TrCYxTx)              & 
-&  + 2*(-3*(gBLp2 + gBYp2) + TrYxCYx)*BMuP
+betaBMuP1  = 2*(2*MuP*(3*gBYp2*M1 + 6*gBL*gBY*MBBp + 3*gBLp2*MBp + TrCYxTx)           & 
+&  + (-3*(gBLp2 + gBYp2) + TrYxCYx)*BMuP)
 
  
  
@@ -3293,11 +3288,10 @@ betaBMuP2 = (-2*MuP*(15*(gBLp2 + gBYp2)*TrCYxTx - 15*(gBYp2*M1 + 2*gBL*gBY*MBBp 
 &  36*g1*gBYp3*M1*sqrt10 + 54*gYB*gBY*gBLp2*MBBp*sqrt10 + 18*g1*gBLp3*MBBp*sqrt10 +      & 
 &  54*g1*gBL*gBYp2*MBBp*sqrt10 + 18*gYB*gBYp3*MBBp*sqrt10 + 18*g1*gBY*gBLp2*MBp*sqrt10 + & 
 &  36*gYB*gBLp3*MBp*sqrt10 + 18*gYB*gBL*gBYp2*MBp*sqrt10 + 10._dp*(TrYvadjYvTxCYx) +     & 
-&  10._dp*(TrYxCYxTvadjYv) + 40._dp*(TrYxCYxTxCYx))) + (18*(20._dp*(gBLp4) +             & 
-&  11*gBLp2*gYBp2 + 4*gYB*gBLp3*sqrt10 + 4*gBY*gBLp2*(10._dp*(gBY) + g1*sqrt10) +        & 
-&  2*gYB*gBL*gBY*(11._dp*(g1) + 2*gBY*sqrt10) + gBYp2*(11._dp*(g1p2) + 20._dp*(gBYp2) +  & 
-&  4*g1*gBY*sqrt10)) - 15*(gBLp2 + gBYp2)*TrYxCYx - 40._dp*(TrYxCYxYvadjYv) -            & 
-&  80._dp*(TrYxCYxYxCYx))*BMuP)/5._dp
+&  10._dp*(TrYxCYxTvadjYv) + 40._dp*(TrYxCYxTxCYx))) + (-15*(gBLp2 + gBYp2)*TrYxCYx +    & 
+&  2*(9*(20._dp*(gBLp4) + 11*gBLp2*gYBp2 + 4*gBY*gBLp2*(10._dp*(gBY) + g1*sqrt10) +      & 
+&  gBYp2*(11._dp*(g1p2) + 20._dp*(gBYp2) + 4*g1*gBY*sqrt10) + gYB*(4*gBLp3*sqrt10 +      & 
+&  2*gBL*gBY*(11._dp*(g1) + 2*gBY*sqrt10))) - 20._dp*(TrYxCYxYvadjYv) - 40._dp*(TrYxCYxYxCYx)))*BMuP)/5._dp
 
  
 DBMuP = oo16pi2*( betaBMuP1 + oo16pi2 * betaBMuP2 ) 
@@ -3379,18 +3373,18 @@ Call Chop(DBmu)
 ! mq2 
 !-------------------- 
  
-betamq21  = 2._dp*(adjTdTd) + 2._dp*(adjTuTu) + 2._dp*(adjYdmd2Yd) + adjYdYdmq2 +     & 
-&  2._dp*(adjYumu2Yu) + adjYuYumq2 - 6*AbsM2*g2p2*id3R - (32*AbsM3*g3p2*id3R)            & 
-& /3._dp - (AbsMBp*gBLp2*id3R)/3._dp - (2*AbsMBp*gYBp2*id3R)/15._dp + 2*adjYdYd*mHd2 +   & 
-&  2*adjYuYu*mHu2 + mq2adjYdYd + mq2adjYuYu - (2*AbsMBp*gYB*gBL*id3R*sqrt2ov5)           & 
-& /3._dp - (id3R*(2*g1p2*M1 + gBY*(5*gBY*M1 + 5*gBL*MBBp + gYB*MBBp*sqrt10)              & 
-&  + g1*(2*gYB*MBBp + 2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*Conjg(M1))/15._dp -            & 
-&  (id3R*(2*g1p2*MBBp + 2*gYBp2*MBBp + 5*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 +        & 
-&  MBp)) + gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10 + g1*(2*gYB*(M1 + MBp)               & 
-&  + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10))*Conjg(MBBp))/15._dp - (2*g1*gYB*id3R*MBBp*Conjg(MBp))& 
-& /15._dp - (gBL*gBY*id3R*MBBp*Conjg(MBp))/3._dp - (g1*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))& 
-& /3._dp - (gYB*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp + g1*id3R*ooSqrt15*Tr1(1)       & 
-&  + gBY*id3R*ooSqrt6*Tr1(1) + gYB*id3R*ooSqrt15*Tr1(4) + gBL*id3R*ooSqrt6*Tr1(4)
+betamq21  = (60._dp*(adjTdTd) + 60._dp*(adjTuTu) + 60._dp*(adjYdmd2Yd) +              & 
+&  30._dp*(adjYdYdmq2) + 60._dp*(adjYumu2Yu) + 30._dp*(adjYuYumq2) - 180*AbsM2*g2p2*id3R -& 
+&  320*AbsM3*g3p2*id3R - 10*AbsMBp*gBLp2*id3R - 4*AbsMBp*gYBp2*id3R + 60*adjYdYd*mHd2 +  & 
+&  60*adjYuYu*mHu2 + 30._dp*(mq2adjYdYd) + 30._dp*(mq2adjYuYu) - 4*AbsMBp*gYB*gBL*id3R*sqrt10 -& 
+&  2*id3R*(2*g1p2*M1 + gBY*(5*gBY*M1 + 5*gBL*MBBp + gYB*MBBp*sqrt10) + g1*(2*gYB*MBBp +  & 
+&  2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*Conjg(M1) - 2*id3R*(2*g1p2*MBBp + 2*gYBp2*MBBp +  & 
+&  5*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp)) + gYB*(2*gBL*MBBp + gBY*(M1 +        & 
+&  MBp))*sqrt10 + g1*(2*gYB*(M1 + MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10))          & 
+& *Conjg(MBBp) - 4*g1*gYB*id3R*MBBp*Conjg(MBp) - 10*gBL*gBY*id3R*MBBp*Conjg(MBp)         & 
+&  - 2*g1*gBL*id3R*MBBp*sqrt10*Conjg(MBp) - 2*gYB*gBY*id3R*MBBp*sqrt10*Conjg(MBp)        & 
+&  + 2*g1*id3R*sqrt15*Tr1(1) + 5*gBY*id3R*sqrt6*Tr1(1) + 2*gYB*id3R*sqrt15*Tr1(4)        & 
+&  + 5*gBL*id3R*sqrt6*Tr1(4))/30._dp
 
  
  
@@ -3619,9 +3613,9 @@ betaml22 =  betaml22- 3*ml2adjYeYe*TrYdadjYd - 2*adjTeTe*TrYeadjYe - 2*adjYeme2Y
 &  24*gBY*M1*sqrt10 + 8*gBL*MBBp*sqrt10) + 2*g1p2*(46*gYBp2*(2._dp*(M1) + MBp) +         & 
 &  5*(9*(24*gBYp2*M1 + 16*gBL*gBY*MBBp + gBLp2*(2._dp*(M1) + MBp)) + 2*g2p2*(2._dp*(M1) +& 
 &  M2)) + 32*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) + gBY*(90*gYBp2*(8*gBL*MBBp +& 
-&  gBY*(2._dp*(M1) + MBp)) + 325*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp +         & 
-&  gBY*gBLp2*(2._dp*(M1) + MBp)) + 50*g2p2*(2*gBL*MBBp + gBY*(2._dp*(M1) +               & 
-&  M2)) + 64*gYBp3*MBBp*sqrt10 + 10*gYB*(33*gBLp2*MBBp + 2*(g2p2 + 11._dp*(gBYp2))*MBBp +& 
+&  gBY*(2._dp*(M1) + MBp)) + 25*(13*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp +      & 
+&  gBY*gBLp2*(2._dp*(M1) + MBp)) + 2*g2p2*(2*gBL*MBBp + gBY*(2._dp*(M1) + M2))) +        & 
+&  64*gYBp3*MBBp*sqrt10 + 10*gYB*(33*gBLp2*MBBp + 2*(g2p2 + 11._dp*(gBYp2))*MBBp +       & 
 &  11*gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) + 2*g1*(92*gYBp3*MBBp + 10*gYB*(36*gBLp2*MBBp +& 
 &  2*(g2p2 + 36._dp*(gBYp2))*MBBp + 27*gBL*gBY*(2._dp*(M1) + MBp)) + 32*gYBp2*(3*gBL*MBBp +& 
 &  gBY*(2._dp*(M1) + MBp))*sqrt10 + 5*(11*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp +  & 
@@ -3630,24 +3624,24 @@ betaml22 =  betaml22- 3*ml2adjYeYe*TrYdadjYd - 2*adjTeTe*TrYeadjYe - 2*adjYeme2Y
 &  adjYeTe*g1*(4._dp*(g1) + gBY*sqrt10) + adjYeYe*(8*g1p2*M1 + gYB*gBY*MBBp*sqrt10 +     & 
 &  g1*(8*gYB*MBBp + 2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))))*Conjg(M1))/100._dp +           & 
 &  (3*(3*id3R*(92*g1p4*MBBp + 92*gYBp4*MBBp + 10*gYBp2*(72*gBLp2*MBBp + (2._dp*(g2p2) +  & 
-&  45._dp*(gBYp2))*MBBp + 36*gBL*gBY*(M1 + 2._dp*(MBp))) + 325*(gBLp4*MBBp +             & 
+&  45._dp*(gBYp2))*MBBp + 36*gBL*gBY*(M1 + 2._dp*(MBp))) + 25*(13*(gBLp4*MBBp +          & 
 &  4*gBLp2*gBYp2*MBBp + gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 +      & 
-&  2._dp*(MBp))) + 50*g2p2*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp + M2)) +         & 
+&  2._dp*(MBp))) + 2*g2p2*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp + M2))) +         & 
 &  32*gYBp3*(4*gBL*MBBp + gBY*(M1 + 2._dp*(MBp)))*sqrt10 + 5*gYB*(11*(4*gBLp3*MBBp +     & 
 &  8*gBL*gBYp2*MBBp + gBYp3*(2._dp*(M1) + MBp) + 3*gBY*gBLp2*(M1 + 2._dp*(MBp))) +       & 
 &  2*g2p2*(2*gBL*MBBp + gBY*(M1 + MBp + M2)))*sqrt10 + 4*g1p3*(23*gYB*(2._dp*(M1) +      & 
 &  MBp) + 8*(2*gBL*M1 + 4*gBY*MBBp + gBL*MBp)*sqrt10) + 2*g1p2*(184*gYBp2*MBBp +         & 
 &  5*(45*gBLp2*MBBp + 2*(g2p2 + 36._dp*(gBYp2))*MBBp + 36*gBL*gBY*(2._dp*(M1) +          & 
 &  MBp)) + 16*gYB*(8*gBL*MBBp + 3*gBY*(2._dp*(M1) + MBp))*sqrt10) + g1*(92*gYBp3*(M1 +   & 
-&  2._dp*(MBp)) + 20*gYB*(99*gBL*gBY*MBBp + 18*gBYp2*(2._dp*(M1) + MBp) + 18*gBLp2*(M1 + & 
-&  2._dp*(MBp)) + g2p2*(M1 + MBp + M2)) + 32*gYBp2*(8*gBY*MBBp + 3*gBL*(M1 +             & 
-&  2._dp*(MBp)))*sqrt10 + 5*(11*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) +& 
-&  MBp) + gBLp3*(M1 + 2._dp*(MBp))) + 2*g2p2*(2*gBY*MBBp + gBL*(M1 + MBp +               & 
-&  M2)))*sqrt10)) + 10*((adjYvTv*(g1*gBL + gYB*gBY) - adjYvYv*(2*gYB*gBL*MBBp +          & 
-&  2*g1*gBY*MBBp + g1*gBL*(M1 + MBp) + gYB*gBY*(M1 + MBp)))*sqrt10 - adjYeTe*(8*g1*gYB + & 
-&  g1*gBL*sqrt10 + gYB*gBY*sqrt10) + adjYeYe*(8*g1p2*MBBp + 8*g1*gYB*(M1 +               & 
-&  MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10 +          & 
-&  2*gYB*MBBp*(4._dp*(gYB) + gBL*sqrt10))))*Conjg(MBBp))/50._dp - (12*adjYeTe*gYBp2*Conjg(MBp))/5._dp  
+&  2._dp*(MBp)) + 20*gYB*(9*(11*gBL*gBY*MBBp + 2*gBYp2*(2._dp*(M1) + MBp) +              & 
+&  2*gBLp2*(M1 + 2._dp*(MBp))) + g2p2*(M1 + MBp + M2)) + 32*gYBp2*(8*gBY*MBBp +          & 
+&  3*gBL*(M1 + 2._dp*(MBp)))*sqrt10 + 5*(11*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp +           & 
+&  3*gBL*gBYp2*(2._dp*(M1) + MBp) + gBLp3*(M1 + 2._dp*(MBp))) + 2*g2p2*(2*gBY*MBBp +     & 
+&  gBL*(M1 + MBp + M2)))*sqrt10)) + 10*((adjYvTv*(g1*gBL + gYB*gBY) - adjYvYv*(g1*(2*gBY*MBBp +& 
+&  gBL*(M1 + MBp)) + gYB*(2*gBL*MBBp + gBY*(M1 + MBp))))*sqrt10 - adjYeTe*(8*g1*gYB +    & 
+&  g1*gBL*sqrt10 + gYB*gBY*sqrt10) + adjYeYe*(8*g1p2*MBBp + g1*(8*gYB*(M1 +              & 
+&  MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) + gYB*(gBY*(M1 + MBp)*sqrt10 +           & 
+&  2*MBBp*(4._dp*(gYB) + gBL*sqrt10)))))*Conjg(MBBp))/50._dp - (12*adjYeTe*gYBp2*Conjg(MBp))/5._dp  
 betaml22 =  betaml22+ (243*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/5._dp + (81*g1p2*gBLp2*id3R*M1*Conjg(MBp))/10._dp +& 
 &  (117*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/4._dp + (207*g1p2*gYBp2*id3R*M1*Conjg(MBp))/25._dp +& 
 &  (81*gBYp2*gYBp2*id3R*M1*Conjg(MBp))/10._dp + (24*adjYeYe*g1*gYB*MBBp*Conjg(MBp))/5._dp +& 
@@ -3698,12 +3692,11 @@ Dml2 = 0.5_dp*(Dml2+ Conjg(Transpose(Dml2)) )
 ! mHd2 
 !-------------------- 
  
-betamHd21  = -6*AbsM2*g2p2 - (6*AbsMBp*gYBp2)/5._dp + 6._dp*(TrCTdTpTd)               & 
-&  + 2._dp*(TrCTeTpTe) + 6._dp*(Trmd2YdadjYd) + 2._dp*(Trme2YeadjYe) + 2._dp*(Trml2adjYeYe)& 
-&  + 6._dp*(Trmq2adjYdYd) + 6*mHd2*TrYdadjYd + 2*mHd2*TrYeadjYe - (6*g1*(g1*M1 +         & 
-&  gYB*MBBp)*Conjg(M1))/5._dp - (6*(g1p2*MBBp + gYBp2*MBBp + g1*gYB*(M1 + MBp))          & 
-& *Conjg(MBBp))/5._dp - (6*g1*gYB*MBBp*Conjg(MBp))/5._dp - g1*sqrt3ov5*Tr1(1)            & 
-&  - gYB*sqrt3ov5*Tr1(4)
+betamHd21  = (-30*AbsM2*g2p2 - 6*AbsMBp*gYBp2 + 30._dp*(TrCTdTpTd) + 10._dp*(TrCTeTpTe)& 
+&  + 30._dp*(Trmd2YdadjYd) + 10._dp*(Trme2YeadjYe) + 10._dp*(Trml2adjYeYe)               & 
+&  + 30._dp*(Trmq2adjYdYd) + 30*mHd2*TrYdadjYd + 10*mHd2*TrYeadjYe - 6*g1*(g1*M1 +       & 
+&  gYB*MBBp)*Conjg(M1) - 6*(g1p2*MBBp + gYBp2*MBBp + g1*gYB*(M1 + MBp))*Conjg(MBBp)      & 
+&  - 6*g1*gYB*MBBp*Conjg(MBp) - g1*sqrt15*Tr1(1) - gYB*sqrt15*Tr1(4))/5._dp
 
  
  
@@ -3806,67 +3799,66 @@ End If
 ! mHu2 
 !-------------------- 
  
-betamHu21  = -6*AbsM2*g2p2 - (6*AbsMBp*gYBp2)/5._dp + 6._dp*(TrCTuTpTu)               & 
-&  + 2._dp*(TrCTvTpTv) + 2._dp*(Trml2adjYvYv) + 6._dp*(Trmq2adjYuYu) + 6._dp*(Trmu2YuadjYu)& 
-&  + 2._dp*(Trmv2YvadjYv) + 6*mHu2*TrYuadjYu + 2*mHu2*TrYvadjYv - (6*g1*(g1*M1 +         & 
-&  gYB*MBBp)*Conjg(M1))/5._dp - (6*(g1p2*MBBp + gYBp2*MBBp + g1*gYB*(M1 + MBp))          & 
-& *Conjg(MBBp))/5._dp - (6*g1*gYB*MBBp*Conjg(MBp))/5._dp + g1*sqrt3ov5*Tr1(1)            & 
-&  + gYB*sqrt3ov5*Tr1(4)
+betamHu21  = (-30*AbsM2*g2p2 - 6*AbsMBp*gYBp2 + 30._dp*(TrCTuTpTu) + 10._dp*(TrCTvTpTv)& 
+&  + 10._dp*(Trml2adjYvYv) + 30._dp*(Trmq2adjYuYu) + 30._dp*(Trmu2YuadjYu)               & 
+&  + 10._dp*(Trmv2YvadjYv) + 30*mHu2*TrYuadjYu + 10*mHu2*TrYvadjYv - 6*g1*(g1*M1 +       & 
+&  gYB*MBBp)*Conjg(M1) - 6*(g1p2*MBBp + gYBp2*MBBp + g1*gYB*(M1 + MBp))*Conjg(MBBp)      & 
+&  - 6*g1*gYB*MBBp*Conjg(MBp) + g1*sqrt15*Tr1(1) + gYB*sqrt15*Tr1(4))/5._dp
 
  
  
 If (TwoLoopRGE) Then 
-betamHu22 = (18*AbsM2*g1p2*g2p2)/5._dp + 33*AbsM2*g2p4 + (108*AbsMBp*g1*gYB*gBL*gBY)/5._dp +      & 
-&  (414*AbsMBp*g1p2*gYBp2)/25._dp + (18*AbsM2*g2p2*gYBp2)/5._dp + (18*AbsMBp*g2p2*gYBp2)/5._dp +& 
-&  (162*AbsMBp*gBLp2*gYBp2)/5._dp + (621*AbsMBp*gYBp4)/25._dp + (72*AbsMBp*gYB*g1p2*gBL*sqrt2ov5)/5._dp +& 
-&  (72*AbsMBp*g1*gBY*gYBp2*sqrt2ov5)/5._dp + (216*AbsMBp*gBL*gYBp3*sqrt2ov5)/5._dp +     & 
-&  (8*g1p2*TrCTuTpTu)/5._dp + 32*g3p2*TrCTuTpTu + gBLp2*TrCTuTpTu + gBYp2*TrCTuTpTu +    & 
-&  (8*gYBp2*TrCTuTpTu)/5._dp + gYB*gBL*sqrt10*TrCTuTpTu + g1*gBY*sqrt10*TrCTuTpTu -      & 
-&  (8*g1p2*M1*TrCTuTpYu)/5._dp - gBYp2*M1*TrCTuTpYu - (16*g1*gYB*MBBp*TrCTuTpYu)/5._dp - & 
-&  2*gBL*gBY*MBBp*TrCTuTpYu - gBLp2*MBp*TrCTuTpYu - (8*gYBp2*MBp*TrCTuTpYu)/5._dp -      & 
-&  32*g3p2*M3*TrCTuTpYu - g1*gBY*M1*sqrt10*TrCTuTpYu - g1*gBL*MBBp*sqrt10*TrCTuTpYu -    & 
-&  gYB*gBY*MBBp*sqrt10*TrCTuTpYu - gYB*gBL*MBp*sqrt10*TrCTuTpYu + 3*gBLp2*TrCTvTpTv +    & 
-&  3*gBYp2*TrCTvTpTv + 3*gYB*gBL*sqrt2ov5*TrCTvTpTv + 3*g1*gBY*sqrt2ov5*TrCTvTpTv -      & 
-&  3*gBYp2*M1*TrCTvTpYv - 6*gBL*gBY*MBBp*TrCTvTpYv - 3*gBLp2*MBp*TrCTvTpYv -             & 
-&  3*g1*gBY*M1*sqrt2ov5*TrCTvTpYv - 3*g1*gBL*MBBp*sqrt2ov5*TrCTvTpYv - 3*gYB*gBY*MBBp*sqrt2ov5*TrCTvTpYv -& 
-&  3*gYB*gBL*MBp*sqrt2ov5*TrCTvTpYv - 8._dp*(TrCYxTxCTvTpYv) - 6._dp*(Trmd2YdadjYuYuadjYd) -& 
-&  2._dp*(Trme2YeadjYvYvadjYe) - 2._dp*(Trml2adjYeYeadjYvYv) + 3*gBLp2*Trml2adjYvYv +    & 
-&  3*gBYp2*Trml2adjYvYv + 3*gYB*gBL*sqrt2ov5*Trml2adjYvYv + 3*g1*gBY*sqrt2ov5*Trml2adjYvYv -& 
-&  2._dp*(Trml2adjYvYvadjYeYe) - 12._dp*(Trml2adjYvYvadjYvYv) - 8._dp*(Trml2adjYvYxCYxYv) -& 
-&  6._dp*(Trmq2adjYdYdadjYuYu) + (8*g1p2*Trmq2adjYuYu)/5._dp + 32*g3p2*Trmq2adjYuYu +    & 
-&  gBLp2*Trmq2adjYuYu + gBYp2*Trmq2adjYuYu + (8*gYBp2*Trmq2adjYuYu)/5._dp +              & 
-&  gYB*gBL*sqrt10*Trmq2adjYuYu + g1*gBY*sqrt10*Trmq2adjYuYu - 6._dp*(Trmq2adjYuYuadjYdYd) -& 
-&  36._dp*(Trmq2adjYuYuadjYuYu) - 6._dp*(Trmu2YuadjYdYdadjYu) + (8*g1p2*Trmu2YuadjYu)/5._dp  
-betamHu22 =  betamHu22+ 32*g3p2*Trmu2YuadjYu + gBLp2*Trmu2YuadjYu + gBYp2*Trmu2YuadjYu + (8*gYBp2*Trmu2YuadjYu)/5._dp +& 
-&  gYB*gBL*sqrt10*Trmu2YuadjYu + g1*gBY*sqrt10*Trmu2YuadjYu - 36._dp*(Trmu2YuadjYuYuadjYu) -& 
-&  2._dp*(Trmv2YvadjYeYeadjYv) + 3*gBLp2*Trmv2YvadjYv + 3*gBYp2*Trmv2YvadjYv +           & 
-&  3*gYB*gBL*sqrt2ov5*Trmv2YvadjYv + 3*g1*gBY*sqrt2ov5*Trmv2YvadjYv - 12._dp*(Trmv2YvadjYvYvadjYv) -& 
-&  8._dp*(Trmv2YvadjYvYxCYx) - 8._dp*(Trmv2YxCYxYvadjYv) - 6._dp*(TrYdadjTuTuadjYd) -    & 
-&  6._dp*(TrYdadjYuTuadjTd) - 6*mHd2*TrYdadjYuYuadjYd - 6*mHu2*TrYdadjYuYuadjYd -        & 
-&  2._dp*(TrYeadjTvTvadjYe) - 2._dp*(TrYeadjYvTvadjTe) - 2*mHd2*TrYeadjYvYvadjYe -       & 
-&  2*mHu2*TrYeadjYvYvadjYe - 6._dp*(TrYuadjTdTdadjYu) - 36._dp*(TrYuadjTuTuadjYu) -      & 
-&  6._dp*(TrYuadjYdTdadjTu) + 64*AbsM3*g3p2*TrYuadjYu + 2*AbsMBp*gBLp2*TrYuadjYu +       & 
-&  (16*AbsMBp*gYBp2*TrYuadjYu)/5._dp + (8*g1p2*mHu2*TrYuadjYu)/5._dp + 32*g3p2*mHu2*TrYuadjYu +& 
-&  gBLp2*mHu2*TrYuadjYu + gBYp2*mHu2*TrYuadjYu + (8*gYBp2*mHu2*TrYuadjYu)/5._dp +        & 
-&  2*AbsMBp*gYB*gBL*sqrt10*TrYuadjYu + gYB*gBL*mHu2*sqrt10*TrYuadjYu + g1*gBY*mHu2*sqrt10*TrYuadjYu -& 
-&  36._dp*(TrYuadjYuTuadjTu) - 36*mHu2*TrYuadjYuYuadjYu - 2._dp*(TrYvadjTeTeadjYv) -     & 
-&  12._dp*(TrYvadjTvTvadjYv) - 2._dp*(TrYvadjYeTeadjTv) + 6*AbsMBp*gBLp2*TrYvadjYv +     & 
-&  3*gBLp2*mHu2*TrYvadjYv + 3*gBYp2*mHu2*TrYvadjYv + 6*AbsMBp*gYB*gBL*sqrt2ov5*TrYvadjYv +& 
-&  3*gYB*gBL*mHu2*sqrt2ov5*TrYvadjYv + 3*g1*gBY*mHu2*sqrt2ov5*TrYvadjYv - 12._dp*(TrYvadjYvTvadjTv) -& 
-&  8._dp*(TrYvadjYvTxCTx) - 12*mHu2*TrYvadjYvYvadjYv - 8._dp*(TrYxCmv2CYxYvadjYv) -      & 
-&  8._dp*(TrYxCTxTvadjYv) - 8._dp*(TrYxCYxTvadjTv) - 8*mC12*TrYxCYxYvadjYv -             & 
-&  8*mHu2*TrYxCYxYvadjYv + ((621*g1p4*M1 + 90*g1p2*g2p2*M1 + 540*g1*gYB*gBL*gBY*M1 +     & 
-&  810*g1p2*gBYp2*M1 + 414*g1p2*gYBp2*M1 + 828*gYB*g1p3*MBBp + 90*g1*gYB*g2p2*MBBp +     & 
-&  540*g1p2*gBL*gBY*MBBp + 270*g1*gYB*gBLp2*MBBp + 540*g1*gYB*gBYp2*MBBp +               & 
-&  270*gBL*gBY*gYBp2*MBBp + 414*g1*gYBp3*MBBp + 270*g1*gYB*gBL*gBY*MBp + 207*g1p2*gYBp2*MBp +& 
-&  45*g1p2*g2p2*M2 + 72*gYB*g1p2*gBL*M1*sqrt10 + 216*g1p3*gBY*M1*sqrt10 + 72*g1*gBY*gYBp2*M1*sqrt10 +& 
+betamHu22 = (90*AbsM2*g1p2*g2p2 + 825*AbsM2*g2p4 + 540*AbsMBp*g1*gYB*gBL*gBY + 414*AbsMBp*g1p2*gYBp2 +& 
+&  90*AbsM2*g2p2*gYBp2 + 90*AbsMBp*g2p2*gYBp2 + 810*AbsMBp*gBLp2*gYBp2 + 621*AbsMBp*gYBp4 +& 
+&  72*AbsMBp*gYB*g1p2*gBL*sqrt10 + 72*AbsMBp*g1*gBY*gYBp2*sqrt10 + 216*AbsMBp*gBL*gYBp3*sqrt10 +& 
+&  40*g1p2*TrCTuTpTu + 800*g3p2*TrCTuTpTu + 25*gBLp2*TrCTuTpTu + 25*gBYp2*TrCTuTpTu +    & 
+&  40*gYBp2*TrCTuTpTu + 25*gYB*gBL*sqrt10*TrCTuTpTu + 25*g1*gBY*sqrt10*TrCTuTpTu -       & 
+&  40*g1p2*M1*TrCTuTpYu - 25*gBYp2*M1*TrCTuTpYu - 80*g1*gYB*MBBp*TrCTuTpYu -             & 
+&  50*gBL*gBY*MBBp*TrCTuTpYu - 25*gBLp2*MBp*TrCTuTpYu - 40*gYBp2*MBp*TrCTuTpYu -         & 
+&  800*g3p2*M3*TrCTuTpYu - 25*g1*gBY*M1*sqrt10*TrCTuTpYu - 25*g1*gBL*MBBp*sqrt10*TrCTuTpYu -& 
+&  25*gYB*gBY*MBBp*sqrt10*TrCTuTpYu - 25*gYB*gBL*MBp*sqrt10*TrCTuTpYu + 75*gBLp2*TrCTvTpTv +& 
+&  75*gBYp2*TrCTvTpTv + 15*gYB*gBL*sqrt10*TrCTvTpTv + 15*g1*gBY*sqrt10*TrCTvTpTv -       & 
+&  75*gBYp2*M1*TrCTvTpYv - 150*gBL*gBY*MBBp*TrCTvTpYv - 75*gBLp2*MBp*TrCTvTpYv -         & 
+&  15*g1*gBY*M1*sqrt10*TrCTvTpYv - 15*g1*gBL*MBBp*sqrt10*TrCTvTpYv - 15*gYB*gBY*MBBp*sqrt10*TrCTvTpYv -& 
+&  15*gYB*gBL*MBp*sqrt10*TrCTvTpYv - 200._dp*(TrCYxTxCTvTpYv) - 150._dp*(Trmd2YdadjYuYuadjYd) -& 
+&  50._dp*(Trme2YeadjYvYvadjYe) - 50._dp*(Trml2adjYeYeadjYvYv) + 75*gBLp2*Trml2adjYvYv + & 
+&  75*gBYp2*Trml2adjYvYv + 15*gYB*gBL*sqrt10*Trml2adjYvYv + 15*g1*gBY*sqrt10*Trml2adjYvYv -& 
+&  50._dp*(Trml2adjYvYvadjYeYe) - 300._dp*(Trml2adjYvYvadjYvYv) - 200._dp*(Trml2adjYvYxCYxYv) -& 
+&  150._dp*(Trmq2adjYdYdadjYuYu) + 40*g1p2*Trmq2adjYuYu + 800*g3p2*Trmq2adjYuYu +        & 
+&  25*gBLp2*Trmq2adjYuYu + 25*gBYp2*Trmq2adjYuYu + 40*gYBp2*Trmq2adjYuYu +               & 
+&  25*gYB*gBL*sqrt10*Trmq2adjYuYu + 25*g1*gBY*sqrt10*Trmq2adjYuYu - 150._dp*(Trmq2adjYuYuadjYdYd) -& 
+&  900._dp*(Trmq2adjYuYuadjYuYu) - 150._dp*(Trmu2YuadjYdYdadjYu) + 40*g1p2*Trmu2YuadjYu +& 
+&  800*g3p2*Trmu2YuadjYu + 25*gBLp2*Trmu2YuadjYu + 25*gBYp2*Trmu2YuadjYu +               & 
+&  40*gYBp2*Trmu2YuadjYu + 25*gYB*gBL*sqrt10*Trmu2YuadjYu + 25*g1*gBY*sqrt10*Trmu2YuadjYu -& 
+&  900._dp*(Trmu2YuadjYuYuadjYu) - 50._dp*(Trmv2YvadjYeYeadjYv) + 75*gBLp2*Trmv2YvadjYv +& 
+&  75*gBYp2*Trmv2YvadjYv + 15*gYB*gBL*sqrt10*Trmv2YvadjYv + 15*g1*gBY*sqrt10*Trmv2YvadjYv -& 
+&  300._dp*(Trmv2YvadjYvYvadjYv) - 200._dp*(Trmv2YvadjYvYxCYx) - 200._dp*(Trmv2YxCYxYvadjYv) -& 
+&  150._dp*(TrYdadjTuTuadjYd) - 150._dp*(TrYdadjYuTuadjTd) - 150*mHd2*TrYdadjYuYuadjYd - & 
+&  150*mHu2*TrYdadjYuYuadjYd - 50._dp*(TrYeadjTvTvadjYe) - 50._dp*(TrYeadjYvTvadjTe) -   & 
+&  50*mHd2*TrYeadjYvYvadjYe - 50*mHu2*TrYeadjYvYvadjYe - 150._dp*(TrYuadjTdTdadjYu) -    & 
+&  900._dp*(TrYuadjTuTuadjYu) - 150._dp*(TrYuadjYdTdadjTu) + 1600*AbsM3*g3p2*TrYuadjYu + & 
+&  50*AbsMBp*gBLp2*TrYuadjYu + 80*AbsMBp*gYBp2*TrYuadjYu + 40*g1p2*mHu2*TrYuadjYu +      & 
+&  800*g3p2*mHu2*TrYuadjYu + 25*gBLp2*mHu2*TrYuadjYu + 25*gBYp2*mHu2*TrYuadjYu +         & 
+&  40*gYBp2*mHu2*TrYuadjYu + 50*AbsMBp*gYB*gBL*sqrt10*TrYuadjYu + 25*gYB*gBL*mHu2*sqrt10*TrYuadjYu +& 
+&  25*g1*gBY*mHu2*sqrt10*TrYuadjYu - 900._dp*(TrYuadjYuTuadjTu) - 900*mHu2*TrYuadjYuYuadjYu -& 
+&  50._dp*(TrYvadjTeTeadjYv) - 300._dp*(TrYvadjTvTvadjYv) - 50._dp*(TrYvadjYeTeadjTv) +  & 
+&  150*AbsMBp*gBLp2*TrYvadjYv + 75*gBLp2*mHu2*TrYvadjYv + 75*gBYp2*mHu2*TrYvadjYv +      & 
+&  30*AbsMBp*gYB*gBL*sqrt10*TrYvadjYv + 15*gYB*gBL*mHu2*sqrt10*TrYvadjYv +               & 
+&  15*g1*gBY*mHu2*sqrt10*TrYvadjYv - 300._dp*(TrYvadjYvTvadjTv) - 200._dp*(TrYvadjYvTxCTx) -& 
+&  300*mHu2*TrYvadjYvYvadjYv - 200._dp*(TrYxCmv2CYxYvadjYv) - 200._dp*(TrYxCTxTvadjYv) - & 
+&  200._dp*(TrYxCYxTvadjTv) - 200*mC12*TrYxCYxYvadjYv - 200*mHu2*TrYxCYxYvadjYv +        & 
+&  (621*g1p4*M1 + 90*g1p2*g2p2*M1 + 540*g1*gYB*gBL*gBY*M1 + 810*g1p2*gBYp2*M1 +          & 
+&  414*g1p2*gYBp2*M1 + 828*gYB*g1p3*MBBp + 90*g1*gYB*g2p2*MBBp + 540*g1p2*gBL*gBY*MBBp + & 
+&  270*g1*gYB*gBLp2*MBBp + 540*g1*gYB*gBYp2*MBBp + 270*gBL*gBY*gYBp2*MBBp +              & 
+&  414*g1*gYBp3*MBBp + 270*g1*gYB*gBL*gBY*MBp + 207*g1p2*gYBp2*MBp + 45*g1p2*g2p2*M2 +   & 
+&  72*gYB*g1p2*gBL*M1*sqrt10 + 216*g1p3*gBY*M1*sqrt10 + 72*g1*gBY*gYBp2*M1*sqrt10 +      & 
 &  72*g1p3*gBL*MBBp*sqrt10 + 216*gYB*g1p2*gBY*MBBp*sqrt10 + 108*g1*gBL*gYBp2*MBBp*sqrt10 +& 
 &  36*gBY*gYBp3*MBBp*sqrt10 + 36*gYB*g1p2*gBL*MBp*sqrt10 + 36*g1*gBY*gYBp2*MBp*sqrt10 -  & 
 &  40*g1p2*TradjYuTu - 25*gBYp2*TradjYuTu - 25*g1*gBY*sqrt10*TradjYuTu - 75*gBYp2*TradjYvTv -& 
 &  15*g1*gBY*sqrt10*TradjYvTv + 5*(16*g1p2*M1 + 5*gBY*(2*gBY*M1 + 2*gBL*MBBp +           & 
 &  gYB*MBBp*sqrt10) + g1*(16*gYB*MBBp + 10*gBY*M1*sqrt10 + 5*gBL*MBBp*sqrt10))*TrYuadjYu +& 
-&  15*(g1*(2*gBY*M1 + gBL*MBBp)*sqrt10 + gBY*(10*gBY*M1 + 10*gBL*MBBp + gYB*MBBp*sqrt10))*TrYvadjYv)*Conjg(M1))/25._dp  
-betamHu22 =  betamHu22+ ((828*gYB*g1p3*M1 + 90*g1*gYB*g2p2*M1 + 540*g1p2*gBL*gBY*M1 + 270*g1*gYB*gBLp2*M1 +   & 
+&  15*(g1*(2*gBY*M1 + gBL*MBBp)*sqrt10 + gBY*(10*gBY*M1 + 10*gBL*MBBp + gYB*MBBp*sqrt10))*TrYvadjYv)*Conjg(M1) +& 
+&  (828*gYB*g1p3*M1 + 90*g1*gYB*g2p2*M1 + 540*g1p2*gBL*gBY*M1 + 270*g1*gYB*gBLp2*M1 +    & 
 &  540*g1*gYB*gBYp2*M1 + 270*gBL*gBY*gYBp2*M1 + 414*g1*gYBp3*M1 + 414*g1p4*MBBp +        & 
 &  90*g1p2*g2p2*MBBp + 1620*g1*gYB*gBL*gBY*MBBp + 270*g1p2*gBLp2*MBBp + 540*g1p2*gBYp2*MBBp +& 
 &  1656*g1p2*gYBp2*MBBp + 90*g2p2*gYBp2*MBBp + 540*gBLp2*gYBp2*MBBp + 270*gBYp2*gYBp2*MBBp +& 
@@ -3882,25 +3874,22 @@ betamHu22 =  betamHu22+ ((828*gYB*g1p3*M1 + 90*g1*gYB*g2p2*M1 + 540*g1p2*gBL*gBY
 &  gBYp2*MBBp + gBL*gBY*(M1 + MBp)) + 5*gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10 +       & 
 &  g1*(16*gYB*(M1 + MBp) + 5*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10))*TrYuadjYu +          & 
 &  15*(10*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp)) + g1*(2*gBY*MBBp +              & 
-&  gBL*(M1 + MBp))*sqrt10 + gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10)*TrYvadjYv)*Conjg(MBBp))/25._dp +& 
-&  (54*g1*gYB*gBL*gBY*M1*Conjg(MBp))/5._dp + (207*g1p2*gYBp2*M1*Conjg(MBp))/25._dp +     & 
-&  (414*gYB*g1p3*MBBp*Conjg(MBp))/25._dp + (18*g1*gYB*g2p2*MBBp*Conjg(MBp))/5._dp +      & 
-&  (54*g1p2*gBL*gBY*MBBp*Conjg(MBp))/5._dp + (108*g1*gYB*gBLp2*MBBp*Conjg(MBp))/5._dp +  & 
-&  (54*g1*gYB*gBYp2*MBBp*Conjg(MBp))/5._dp + (108*gBL*gBY*gYBp2*MBBp*Conjg(MBp))/5._dp  
-betamHu22 =  betamHu22+ (828*g1*gYBp3*MBBp*Conjg(MBp))/25._dp + (9*g2p2*gYBp2*M2*Conjg(MBp))/5._dp +          & 
-&  (36*gYB*g1p2*gBL*M1*sqrt2ov5*Conjg(MBp))/5._dp + (36*g1*gBY*gYBp2*M1*sqrt2ov5*Conjg(MBp))/5._dp +& 
-&  (36*g1p3*gBL*MBBp*sqrt2ov5*Conjg(MBp))/5._dp + (108*gYB*g1p2*gBY*MBBp*sqrt2ov5*Conjg(MBp))/5._dp +& 
-&  (216*g1*gBL*gYBp2*MBBp*sqrt2ov5*Conjg(MBp))/5._dp + (72*gBY*gYBp3*MBBp*sqrt2ov5*Conjg(MBp))/5._dp -& 
-&  gBLp2*TradjYuTu*Conjg(MBp) - (8*gYBp2*TradjYuTu*Conjg(MBp))/5._dp - gYB*gBL*sqrt10*TradjYuTu*Conjg(MBp) -& 
-&  3*gBLp2*TradjYvTv*Conjg(MBp) - 3*gYB*gBL*sqrt2ov5*TradjYvTv*Conjg(MBp) +              & 
-&  (16*g1*gYB*MBBp*TrYuadjYu*Conjg(MBp))/5._dp + 2*gBL*gBY*MBBp*TrYuadjYu*Conjg(MBp) +   & 
-&  g1*gBL*MBBp*sqrt10*TrYuadjYu*Conjg(MBp) + gYB*gBY*MBBp*sqrt10*TrYuadjYu*Conjg(MBp) +  & 
-&  6*gBL*gBY*MBBp*TrYvadjYv*Conjg(MBp) + 3*g1*gBL*MBBp*sqrt2ov5*TrYvadjYv*Conjg(MBp) +   & 
-&  3*gYB*gBY*MBBp*sqrt2ov5*TrYvadjYv*Conjg(MBp) - 32*g3p2*TradjYuTu*Conjg(M3) +          & 
-&  (9*g1p2*g2p2*M1*Conjg(M2))/5._dp + (18*g1*gYB*g2p2*MBBp*Conjg(M2))/5._dp +            & 
-&  (9*g2p2*gYBp2*MBp*Conjg(M2))/5._dp + 6*g2p4*Tr2(2) + (6*g1p2*Tr2U1(1,1))/5._dp +      & 
-&  (6*g1*gYB*Tr2U1(1,4))/5._dp + (6*g1*gYB*Tr2U1(4,1))/5._dp + (6*gYBp2*Tr2U1(4,         & 
-& 4))/5._dp + 4*g1*sqrt3ov5*Tr3(1) + 4*gYB*sqrt3ov5*Tr3(4)
+&  gBL*(M1 + MBp))*sqrt10 + gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10)*TrYvadjYv)*Conjg(MBBp) +& 
+&  270*g1*gYB*gBL*gBY*M1*Conjg(MBp) + 207*g1p2*gYBp2*M1*Conjg(MBp) + 414*gYB*g1p3*MBBp*Conjg(MBp) +& 
+&  90*g1*gYB*g2p2*MBBp*Conjg(MBp) + 270*g1p2*gBL*gBY*MBBp*Conjg(MBp) + 540*g1*gYB*gBLp2*MBBp*Conjg(MBp) +& 
+&  270*g1*gYB*gBYp2*MBBp*Conjg(MBp) + 540*gBL*gBY*gYBp2*MBBp*Conjg(MBp) + 828*g1*gYBp3*MBBp*Conjg(MBp) +& 
+&  45*g2p2*gYBp2*M2*Conjg(MBp) + 36*gYB*g1p2*gBL*M1*sqrt10*Conjg(MBp) + 36*g1*gBY*gYBp2*M1*sqrt10*Conjg(MBp) +& 
+&  36*g1p3*gBL*MBBp*sqrt10*Conjg(MBp) + 108*gYB*g1p2*gBY*MBBp*sqrt10*Conjg(MBp) +        & 
+&  216*g1*gBL*gYBp2*MBBp*sqrt10*Conjg(MBp) + 72*gBY*gYBp3*MBBp*sqrt10*Conjg(MBp) -       & 
+&  25*gBLp2*TradjYuTu*Conjg(MBp) - 40*gYBp2*TradjYuTu*Conjg(MBp) - 25*gYB*gBL*sqrt10*TradjYuTu*Conjg(MBp) -& 
+&  75*gBLp2*TradjYvTv*Conjg(MBp) - 15*gYB*gBL*sqrt10*TradjYvTv*Conjg(MBp) +              & 
+&  80*g1*gYB*MBBp*TrYuadjYu*Conjg(MBp) + 50*gBL*gBY*MBBp*TrYuadjYu*Conjg(MBp) +          & 
+&  25*g1*gBL*MBBp*sqrt10*TrYuadjYu*Conjg(MBp) + 25*gYB*gBY*MBBp*sqrt10*TrYuadjYu*Conjg(MBp) +& 
+&  150*gBL*gBY*MBBp*TrYvadjYv*Conjg(MBp) + 15*g1*gBL*MBBp*sqrt10*TrYvadjYv*Conjg(MBp) +  & 
+&  15*gYB*gBY*MBBp*sqrt10*TrYvadjYv*Conjg(MBp) - 800*g3p2*TradjYuTu*Conjg(M3) +          & 
+&  45*g1p2*g2p2*M1*Conjg(M2) + 90*g1*gYB*g2p2*MBBp*Conjg(M2) + 45*g2p2*gYBp2*MBp*Conjg(M2) +& 
+&  150*g2p4*Tr2(2) + 30*g1p2*Tr2U1(1,1) + 30*g1*gYB*Tr2U1(1,4) + 30*g1*gYB*Tr2U1(4,      & 
+& 1) + 30*gYBp2*Tr2U1(4,4) + 20*g1*sqrt15*Tr3(1) + 20*gYB*sqrt15*Tr3(4))/25._dp
 
  
 DmHu2 = oo16pi2*( betamHu21 + oo16pi2 * betamHu22 ) 
@@ -3929,59 +3918,57 @@ betamd21  = (-320*AbsM3*g3p2*id3R - 10*AbsMBp*gBLp2*id3R - 16*AbsMBp*gYBp2*id3R 
  
  
 If (TwoLoopRGE) Then 
-betamd22 = (128*AbsM3*g1p2*g3p2*id3R)/45._dp - (128*AbsM3*g3p4*id3R)/3._dp + (358*AbsMBp*g1*gYB*gBL*gBY*id3R)/45._dp -& 
-&  (28*AbsMBp*g1p2*gBLp2*id3R)/9._dp + (16*AbsM3*g3p2*gBLp2*id3R)/9._dp + (16*AbsMBp*g3p2*gBLp2*id3R)/9._dp +& 
-&  (109*AbsMBp*gBLp4*id3R)/12._dp + (16*AbsM3*g3p2*gBYp2*id3R)/9._dp + (109*AbsMBp*gBLp2*gBYp2*id3R)/18._dp +& 
-&  (1616*AbsMBp*g1p2*gYBp2*id3R)/225._dp + (128*AbsM3*g3p2*gYBp2*id3R)/45._dp +          & 
-&  (128*AbsMBp*g3p2*gYBp2*id3R)/45._dp + (13*AbsMBp*gBLp2*gYBp2*id3R)/5._dp -            & 
-&  (28*AbsMBp*gBYp2*gYBp2*id3R)/9._dp + (808*AbsMBp*gYBp4*id3R)/75._dp + (2*g1p2*md2YdadjYd)/5._dp +& 
-&  6*g2p2*md2YdadjYd + (2*gYBp2*md2YdadjYd)/5._dp - 2._dp*(md2YdadjYdYdadjYd) -          & 
-&  2._dp*(md2YdadjYuYuadjYd) - (124*AbsMBp*gYB*g1p2*gBL*id3R*sqrt2ov5)/45._dp -          & 
-&  (64*AbsM3*gYB*g3p2*gBL*id3R*sqrt2ov5)/9._dp - (64*AbsMBp*gYB*g3p2*gBL*id3R*sqrt2ov5)/9._dp -& 
-&  (64*AbsM3*g1*g3p2*gBY*id3R*sqrt2ov5)/9._dp - (74*AbsMBp*g1*gBY*gBLp2*id3R*sqrt2ov5)/9._dp -& 
-&  (74*AbsMBp*gYB*gBLp3*id3R*sqrt2ov5)/3._dp - (74*AbsMBp*gYB*gBL*gBYp2*id3R*sqrt2ov5)/9._dp -& 
-&  (124*AbsMBp*g1*gBY*gYBp2*id3R*sqrt2ov5)/45._dp - (124*AbsMBp*gBL*gYBp3*id3R*sqrt2ov5)/15._dp +& 
-&  gYB*gBL*md2YdadjYd*sqrt2ov5 + g1*gBY*md2YdadjYd*sqrt2ov5 + (4*g1p2*TdadjTd)/5._dp +   & 
-&  12*g2p2*TdadjTd + (4*gYBp2*TdadjTd)/5._dp + 2*gYB*gBL*sqrt2ov5*TdadjTd +              & 
-&  2*g1*gBY*sqrt2ov5*TdadjTd - 4._dp*(TdadjTdYdadjYd) - 4._dp*(TdadjTuYuadjYd) -         & 
-&  4._dp*(TdadjYdYdadjTd) - 4._dp*(TdadjYuYuadjTd) - 12*TdadjYd*TrCTdTpYd -              & 
-&  4*TdadjYd*TrCTeTpYe - 6*md2YdadjYd*TrYdadjYd - 12*TdadjTd*TrYdadjYd - 2*md2YdadjYd*TrYeadjYe -& 
-&  4*TdadjTd*TrYeadjYe - (4*g1p2*M1*YdadjTd)/5._dp - (8*g1*gYB*MBBp*YdadjTd)/5._dp -     & 
-&  (4*gYBp2*MBp*YdadjTd)/5._dp - 12*g2p2*M2*YdadjTd - 2*g1*gBY*M1*sqrt2ov5*YdadjTd -     & 
-&  2*g1*gBL*MBBp*sqrt2ov5*YdadjTd - 2*gYB*gBY*MBBp*sqrt2ov5*YdadjTd - 2*gYB*gBL*MBp*sqrt2ov5*YdadjTd -& 
-&  12*TradjYdTd*YdadjTd - 4*TradjYeTe*YdadjTd - 4._dp*(YdadjTdTdadjYd) - 4._dp*(YdadjTuTuadjYd)  
-betamd22 =  betamd22+ 24*AbsM2*g2p2*YdadjYd + (8*AbsMBp*gYBp2*YdadjYd)/5._dp + (4*g1p2*mHd2*YdadjYd)/5._dp +& 
-&  12*g2p2*mHd2*YdadjYd + (4*gYBp2*mHd2*YdadjYd)/5._dp + 4*AbsMBp*gYB*gBL*sqrt2ov5*YdadjYd +& 
-&  2*gYB*gBL*mHd2*sqrt2ov5*YdadjYd + 2*g1*gBY*mHd2*sqrt2ov5*YdadjYd - 12*TrCTdTpTd*YdadjYd -& 
-&  4*TrCTeTpTe*YdadjYd - 12*Trmd2YdadjYd*YdadjYd - 4*Trme2YeadjYe*YdadjYd -              & 
-&  4*Trml2adjYeYe*YdadjYd - 12*Trmq2adjYdYd*YdadjYd - 24*mHd2*TrYdadjYd*YdadjYd -        & 
-&  8*mHd2*TrYeadjYe*YdadjYd + (2*g1p2*YdadjYdmd2)/5._dp + 6*g2p2*YdadjYdmd2 +            & 
-&  (2*gYBp2*YdadjYdmd2)/5._dp + gYB*gBL*sqrt2ov5*YdadjYdmd2 + g1*gBY*sqrt2ov5*YdadjYdmd2 -& 
-&  6*TrYdadjYd*YdadjYdmd2 - 2*TrYeadjYe*YdadjYdmd2 - 4._dp*(YdadjYdmd2YdadjYd) -         & 
-&  4._dp*(YdadjYdTdadjTd) - 8*mHd2*YdadjYdYdadjYd - 2._dp*(YdadjYdYdadjYdmd2) -          & 
-&  4._dp*(YdadjYdYdmq2adjYd) - 4._dp*(YdadjYumu2YuadjYd) - 4._dp*(YdadjYuTuadjTd) -      & 
-&  4*mHd2*YdadjYuYuadjYd - 4*mHu2*YdadjYuYuadjYd - 2._dp*(YdadjYuYuadjYdmd2) -           & 
-&  4._dp*(YdadjYuYumq2adjYd) + (4*g1p2*Ydmq2adjYd)/5._dp + 12*g2p2*Ydmq2adjYd +          & 
-&  (4*gYBp2*Ydmq2adjYd)/5._dp + 2*gYB*gBL*sqrt2ov5*Ydmq2adjYd + 2*g1*gBY*sqrt2ov5*Ydmq2adjYd -& 
-&  12*TrYdadjYd*Ydmq2adjYd - 4*TrYeadjYe*Ydmq2adjYd - 4._dp*(Ydmq2adjYdYdadjYd) -        & 
-&  4._dp*(Ydmq2adjYuYuadjYd) + ((id3R*(9696*g1p4*M1 - 16*g1p3*(-808*gYB*MBBp +           & 
-&  93*gBY*M1*sqrt10 + 31*gBL*MBBp*sqrt10) + 4*g1p2*(808*gYBp2*(2._dp*(M1) +              & 
+betamd22 = (2560*AbsM3*g1p2*g3p2*id3R - 38400._dp*AbsM3*g3p4*id3R + 7160*AbsMBp*g1*gYB*gBL*gBY*id3R -& 
+&  2800*AbsMBp*g1p2*gBLp2*id3R + 1600*AbsM3*g3p2*gBLp2*id3R + 1600*AbsMBp*g3p2*gBLp2*id3R +& 
+&  8175*AbsMBp*gBLp4*id3R + 1600*AbsM3*g3p2*gBYp2*id3R + 5450*AbsMBp*gBLp2*gBYp2*id3R +  & 
+&  6464*AbsMBp*g1p2*gYBp2*id3R + 2560*AbsM3*g3p2*gYBp2*id3R + 2560*AbsMBp*g3p2*gYBp2*id3R +& 
+&  2340*AbsMBp*gBLp2*gYBp2*id3R - 2800*AbsMBp*gBYp2*gYBp2*id3R + 9696*AbsMBp*gYBp4*id3R +& 
+&  360*g1p2*md2YdadjYd + 5400*g2p2*md2YdadjYd + 360*gYBp2*md2YdadjYd - 1800._dp*(md2YdadjYdYdadjYd) -& 
+&  1800._dp*(md2YdadjYuYuadjYd) - 496*AbsMBp*gYB*g1p2*gBL*id3R*sqrt10 - 1280*AbsM3*gYB*g3p2*gBL*id3R*sqrt10 -& 
+&  1280*AbsMBp*gYB*g3p2*gBL*id3R*sqrt10 - 1280*AbsM3*g1*g3p2*gBY*id3R*sqrt10 -           & 
+&  1480*AbsMBp*g1*gBY*gBLp2*id3R*sqrt10 - 4440*AbsMBp*gYB*gBLp3*id3R*sqrt10 -            & 
+&  1480*AbsMBp*gYB*gBL*gBYp2*id3R*sqrt10 - 496*AbsMBp*g1*gBY*gYBp2*id3R*sqrt10 -         & 
+&  1488*AbsMBp*gBL*gYBp3*id3R*sqrt10 + 180*gYB*gBL*md2YdadjYd*sqrt10 + 180*g1*gBY*md2YdadjYd*sqrt10 +& 
+&  720*g1p2*TdadjTd + 10800._dp*g2p2*TdadjTd + 720*gYBp2*TdadjTd + 360*gYB*gBL*sqrt10*TdadjTd +& 
+&  360*g1*gBY*sqrt10*TdadjTd - 3600._dp*(TdadjTdYdadjYd) - 3600._dp*(TdadjTuYuadjYd) -   & 
+&  3600._dp*(TdadjYdYdadjTd) - 3600._dp*(TdadjYuYuadjTd) - 10800._dp*TdadjYd*TrCTdTpYd - & 
+&  3600*TdadjYd*TrCTeTpYe - 5400*md2YdadjYd*TrYdadjYd - 10800._dp*TdadjTd*TrYdadjYd -    & 
+&  1800*md2YdadjYd*TrYeadjYe - 3600*TdadjTd*TrYeadjYe - 720*g1p2*M1*YdadjTd -            & 
+&  1440*g1*gYB*MBBp*YdadjTd - 720*gYBp2*MBp*YdadjTd - 10800._dp*g2p2*M2*YdadjTd -        & 
+&  360*g1*gBY*M1*sqrt10*YdadjTd - 360*g1*gBL*MBBp*sqrt10*YdadjTd - 360*gYB*gBY*MBBp*sqrt10*YdadjTd -& 
+&  360*gYB*gBL*MBp*sqrt10*YdadjTd - 10800._dp*TradjYdTd*YdadjTd - 3600*TradjYeTe*YdadjTd -& 
+&  3600._dp*(YdadjTdTdadjYd) - 3600._dp*(YdadjTuTuadjYd) + 21600._dp*AbsM2*g2p2*YdadjYd +& 
+&  1440*AbsMBp*gYBp2*YdadjYd + 720*g1p2*mHd2*YdadjYd + 10800._dp*g2p2*mHd2*YdadjYd +     & 
+&  720*gYBp2*mHd2*YdadjYd + 720*AbsMBp*gYB*gBL*sqrt10*YdadjYd + 360*gYB*gBL*mHd2*sqrt10*YdadjYd +& 
+&  360*g1*gBY*mHd2*sqrt10*YdadjYd - 10800._dp*TrCTdTpTd*YdadjYd - 3600*TrCTeTpTe*YdadjYd -& 
+&  10800._dp*Trmd2YdadjYd*YdadjYd - 3600*Trme2YeadjYe*YdadjYd - 3600*Trml2adjYeYe*YdadjYd -& 
+&  10800._dp*Trmq2adjYdYd*YdadjYd - 21600._dp*mHd2*TrYdadjYd*YdadjYd - 7200*mHd2*TrYeadjYe*YdadjYd +& 
+&  360*g1p2*YdadjYdmd2 + 5400*g2p2*YdadjYdmd2 + 360*gYBp2*YdadjYdmd2 + 180*gYB*gBL*sqrt10*YdadjYdmd2 +& 
+&  180*g1*gBY*sqrt10*YdadjYdmd2 - 5400*TrYdadjYd*YdadjYdmd2 - 1800*TrYeadjYe*YdadjYdmd2 -& 
+&  3600._dp*(YdadjYdmd2YdadjYd) - 3600._dp*(YdadjYdTdadjTd) - 7200*mHd2*YdadjYdYdadjYd - & 
+&  1800._dp*(YdadjYdYdadjYdmd2) - 3600._dp*(YdadjYdYdmq2adjYd) - 3600._dp*(YdadjYumu2YuadjYd) -& 
+&  3600._dp*(YdadjYuTuadjTd) - 3600*mHd2*YdadjYuYuadjYd - 3600*mHu2*YdadjYuYuadjYd -     & 
+&  1800._dp*(YdadjYuYuadjYdmd2) - 3600._dp*(YdadjYuYumq2adjYd) + 720*g1p2*Ydmq2adjYd +   & 
+&  10800._dp*g2p2*Ydmq2adjYd + 720*gYBp2*Ydmq2adjYd + 360*gYB*gBL*sqrt10*Ydmq2adjYd +    & 
+&  360*g1*gBY*sqrt10*Ydmq2adjYd - 10800._dp*TrYdadjYd*Ydmq2adjYd - 3600*TrYeadjYe*Ydmq2adjYd -& 
+&  3600._dp*(Ydmq2adjYdYdadjYd) - 3600._dp*(Ydmq2adjYuYuadjYd) + (id3R*(9696*g1p4*M1 -   & 
+&  16*g1p3*(-808*gYB*MBBp + 93*gBY*M1*sqrt10 + 31*gBL*MBBp*sqrt10) + 4*g1p2*(808*gYBp2*(2._dp*(M1) +& 
 &  MBp) + 5*(117*gBYp2*M1 + 78*gBL*gBY*MBBp - 70*gBLp2*(2._dp*(M1) + MBp) +              & 
 &  64*g3p2*(2._dp*(M1) + M3)) - 62*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) +   & 
-&  gBY*(-20*gYBp2*(-39*gBL*MBBp + 70*gBY*(2._dp*(M1) + MBp)) + 2725*(3*gBYp3*M1 +        & 
-&  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 800*g3p2*(2*gBL*MBBp +& 
-&  gBY*(2._dp*(M1) + M3)) - 248*gYBp3*MBBp*sqrt10 - 20*gYB*(32*g3p2*MBBp +               & 
+&  gBY*(-20*gYBp2*(-39*gBL*MBBp + 70*gBY*(2._dp*(M1) + MBp)) + 25*(109*(3*gBYp3*M1 +     & 
+&  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 32*g3p2*(2*gBL*MBBp +& 
+&  gBY*(2._dp*(M1) + M3))) - 248*gYBp3*MBBp*sqrt10 - 20*gYB*(32*g3p2*MBBp +              & 
 &  111*gBLp2*MBBp + 74*gBYp2*MBBp + 37*gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) -             & 
 &  4*g1*(-1616*gYBp3*MBBp - 5*gYB*(39*gBLp2*MBBp + 2*(64._dp*(g3p2) + 39._dp*(gBYp2))*MBBp +& 
 &  179*gBL*gBY*(2._dp*(M1) + MBp)) + 62*gYBp2*(3*gBL*MBBp + gBY*(2._dp*(M1) +            & 
 &  MBp))*sqrt10 + 5*(37*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +& 
 &  MBp)) + 32*g3p2*(gBL*MBBp + gBY*(2._dp*(M1) + M3)))*sqrt10)) + 360*(-(g1*(2._dp*(g1) +& 
 &  gBY*sqrt10)*TdadjYd) + (4*g1p2*M1 + gYB*gBY*MBBp*sqrt10 + g1*(4*gYB*MBBp +            & 
-&  2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*YdadjYd))*Conjg(M1))/900._dp + ((id3R*(3232*g1p4*MBBp +& 
+&  2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*YdadjYd))*Conjg(M1) + 2*(id3R*(3232*g1p4*MBBp +   & 
 &  3232*gYBp4*MBBp + 10*gYBp2*(78*gBLp2*MBBp + (128._dp*(g3p2) - 101._dp*(gBYp2))*MBBp + & 
-&  39*gBL*gBY*(M1 + 2._dp*(MBp))) + 2725*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp +              & 
+&  39*gBL*gBY*(M1 + 2._dp*(MBp))) + 25*(109*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp +           & 
 &  gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) +           & 
-&  800*g3p2*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp + M3)) - 124*gYBp3*(4*gBL*MBBp +& 
+&  32*g3p2*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp + M3))) - 124*gYBp3*(4*gBL*MBBp +& 
 &  gBY*(M1 + 2._dp*(MBp)))*sqrt10 - 10*gYB*(37*(4*gBLp3*MBBp + 8*gBL*gBYp2*MBBp +        & 
 &  gBYp3*(2._dp*(M1) + MBp) + 3*gBY*gBLp2*(M1 + 2._dp*(MBp))) + 32*g3p2*(2*gBL*MBBp +    & 
 &  gBY*(M1 + MBp + M3)))*sqrt10 + 4*g1p3*(808*gYB*(2._dp*(M1) + MBp) - 31*(4*gBY*MBBp +  & 
@@ -3993,41 +3980,38 @@ betamd22 =  betamd22+ 24*AbsM2*g2p2*YdadjYd + (8*AbsMBp*gYBp2*YdadjYd)/5._dp + (
 &  2._dp*(MBp)))*sqrt10 - 5*(37*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) +& 
 &  MBp) + gBLp3*(M1 + 2._dp*(MBp))) + 32*g3p2*(2*gBY*MBBp + gBL*(M1 + MBp +              & 
 &  M3)))*sqrt10)) + 180*(-((4*g1*gYB + g1*gBL*sqrt10 + gYB*gBY*sqrt10)*TdadjYd) +        & 
-&  (4*g1p2*MBBp + 4*g1*gYB*(M1 + MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp +     & 
-&  gBL*(M1 + MBp))*sqrt10 + 2*gYB*MBBp*(2._dp*(gYB) + gBL*sqrt10))*YdadjYd))*Conjg(MBBp))/450._dp  
-betamd22 =  betamd22+ (179*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/45._dp - (14*g1p2*gBLp2*id3R*M1*Conjg(MBp))/9._dp +& 
-&  (109*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/36._dp + (808*g1p2*gYBp2*id3R*M1*Conjg(MBp))/225._dp -& 
-&  (14*gBYp2*gYBp2*id3R*M1*Conjg(MBp))/9._dp + (1616*gYB*g1p3*id3R*MBBp*Conjg(MBp))/225._dp +& 
-&  (128*g1*gYB*g3p2*id3R*MBBp*Conjg(MBp))/45._dp + (13*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (16*g3p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/9._dp + (26*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (109*gBY*gBLp3*id3R*MBBp*Conjg(MBp))/9._dp + (13*g1*gYB*gBYp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (109*gBL*gBYp3*id3R*MBBp*Conjg(MBp))/18._dp + (26*gBL*gBY*gYBp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (3232*g1*gYBp3*id3R*MBBp*Conjg(MBp))/225._dp + (8*g3p2*gBLp2*id3R*M3*Conjg(MBp))/9._dp +& 
-&  (64*g3p2*gYBp2*id3R*M3*Conjg(MBp))/45._dp - (62*gYB*g1p2*gBL*id3R*M1*sqrt2ov5*Conjg(MBp))/45._dp -& 
-&  (37*g1*gBY*gBLp2*id3R*M1*sqrt2ov5*Conjg(MBp))/9._dp - (37*gYB*gBL*gBYp2*id3R*M1*sqrt2ov5*Conjg(MBp))/9._dp -& 
-&  (62*g1*gBY*gYBp2*id3R*M1*sqrt2ov5*Conjg(MBp))/45._dp - (62*g1p3*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))/45._dp -& 
-&  (32*g1*g3p2*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp - (62*gYB*g1p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/15._dp -& 
-&  (32*gYB*g3p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp - (74*gYB*gBY*gBLp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp -& 
-&  (74*g1*gBLp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp - (37*g1*gBL*gBYp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp -& 
-&  (37*gYB*gBYp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp - (124*g1*gBL*gYBp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/15._dp -& 
-&  (124*gBY*gYBp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/45._dp - (32*gYB*g3p2*gBL*id3R*M3*sqrt2ov5*Conjg(MBp))/9._dp -& 
-&  (4*gYBp2*TdadjYd*Conjg(MBp))/5._dp - 2*gYB*gBL*sqrt2ov5*TdadjYd*Conjg(MBp) +          & 
-&  (8*g1*gYB*MBBp*YdadjYd*Conjg(MBp))/5._dp + 2*g1*gBL*MBBp*sqrt2ov5*YdadjYd*Conjg(MBp) +& 
-&  2*gYB*gBY*MBBp*sqrt2ov5*YdadjYd*Conjg(MBp) + (64*g1p2*g3p2*id3R*M1*Conjg(M3))/45._dp +& 
-&  (8*g3p2*gBYp2*id3R*M1*Conjg(M3))/9._dp + (128*g1*gYB*g3p2*id3R*MBBp*Conjg(M3))/45._dp +& 
-&  (16*g3p2*gBL*gBY*id3R*MBBp*Conjg(M3))/9._dp + (8*g3p2*gBLp2*id3R*MBp*Conjg(M3))/9._dp  
-betamd22 =  betamd22+ (64*g3p2*gYBp2*id3R*MBp*Conjg(M3))/45._dp - (32*g1*g3p2*gBY*id3R*M1*sqrt2ov5*Conjg(M3))/9._dp -& 
-&  (32*g1*g3p2*gBL*id3R*MBBp*sqrt2ov5*Conjg(M3))/9._dp - (32*gYB*g3p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(M3))/9._dp -& 
-&  (32*gYB*g3p2*gBL*id3R*MBp*sqrt2ov5*Conjg(M3))/9._dp - 12*g2p2*TdadjYd*Conjg(M2) +     & 
-&  (32*g3p4*id3R*Tr2(3))/3._dp + (8*g1p2*id3R*Tr2U1(1,1))/15._dp + (gBYp2*id3R*Tr2U1(1,  & 
-& 1))/3._dp - (4*g1*gBY*id3R*sqrt2ov5*Tr2U1(1,1))/3._dp + (8*g1*gYB*id3R*Tr2U1(1,        & 
-& 4))/15._dp + (gBL*gBY*id3R*Tr2U1(1,4))/3._dp - (2*g1*gBL*id3R*sqrt2ov5*Tr2U1(1,        & 
-& 4))/3._dp - (2*gYB*gBY*id3R*sqrt2ov5*Tr2U1(1,4))/3._dp + (8*g1*gYB*id3R*Tr2U1(4,       & 
-& 1))/15._dp + (gBL*gBY*id3R*Tr2U1(4,1))/3._dp - (2*g1*gBL*id3R*sqrt2ov5*Tr2U1(4,        & 
-& 1))/3._dp - (2*gYB*gBY*id3R*sqrt2ov5*Tr2U1(4,1))/3._dp + (gBLp2*id3R*Tr2U1(4,          & 
-& 4))/3._dp + (8*gYBp2*id3R*Tr2U1(4,4))/15._dp - (4*gYB*gBL*id3R*sqrt2ov5*Tr2U1(4,       & 
-& 4))/3._dp + 8*g1*id3R*ooSqrt15*Tr3(1) - 2*gBY*id3R*sqrt2ov3*Tr3(1) + 8*gYB*id3R*ooSqrt15*Tr3(4) -& 
-&  2*gBL*id3R*sqrt2ov3*Tr3(4)
+&  (4*g1p2*MBBp + g1*(4*gYB*(M1 + MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) +         & 
+&  gYB*(gBY*(M1 + MBp)*sqrt10 + 2*MBBp*(2._dp*(gYB) + gBL*sqrt10)))*YdadjYd))*Conjg(MBBp) +& 
+&  3580*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp) - 1400*g1p2*gBLp2*id3R*M1*Conjg(MBp) +         & 
+&  2725*gBLp2*gBYp2*id3R*M1*Conjg(MBp) + 3232*g1p2*gYBp2*id3R*M1*Conjg(MBp) -            & 
+&  1400*gBYp2*gYBp2*id3R*M1*Conjg(MBp) + 6464*gYB*g1p3*id3R*MBBp*Conjg(MBp) +            & 
+&  2560*g1*gYB*g3p2*id3R*MBBp*Conjg(MBp) + 780*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp) +       & 
+&  1600*g3p2*gBL*gBY*id3R*MBBp*Conjg(MBp) + 1560*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp) +     & 
+&  10900._dp*gBY*gBLp3*id3R*MBBp*Conjg(MBp) + 780*g1*gYB*gBYp2*id3R*MBBp*Conjg(MBp) +    & 
+&  5450*gBL*gBYp3*id3R*MBBp*Conjg(MBp) + 1560*gBL*gBY*gYBp2*id3R*MBBp*Conjg(MBp) +       & 
+&  12928._dp*g1*gYBp3*id3R*MBBp*Conjg(MBp) + 800*g3p2*gBLp2*id3R*M3*Conjg(MBp) +         & 
+&  1280*g3p2*gYBp2*id3R*M3*Conjg(MBp) - 248*gYB*g1p2*gBL*id3R*M1*sqrt10*Conjg(MBp) -     & 
+&  740*g1*gBY*gBLp2*id3R*M1*sqrt10*Conjg(MBp) - 740*gYB*gBL*gBYp2*id3R*M1*sqrt10*Conjg(MBp) -& 
+&  248*g1*gBY*gYBp2*id3R*M1*sqrt10*Conjg(MBp) - 248*g1p3*gBL*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  640*g1*g3p2*gBL*id3R*MBBp*sqrt10*Conjg(MBp) - 744*gYB*g1p2*gBY*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  640*gYB*g3p2*gBY*id3R*MBBp*sqrt10*Conjg(MBp) - 4440*gYB*gBY*gBLp2*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  1480*g1*gBLp3*id3R*MBBp*sqrt10*Conjg(MBp) - 2220*g1*gBL*gBYp2*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  740*gYB*gBYp3*id3R*MBBp*sqrt10*Conjg(MBp) - 1488*g1*gBL*gYBp2*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  496*gBY*gYBp3*id3R*MBBp*sqrt10*Conjg(MBp) - 640*gYB*g3p2*gBL*id3R*M3*sqrt10*Conjg(MBp) -& 
+&  720*gYBp2*TdadjYd*Conjg(MBp) - 360*gYB*gBL*sqrt10*TdadjYd*Conjg(MBp) + 1440*g1*gYB*MBBp*YdadjYd*Conjg(MBp) +& 
+&  360*g1*gBL*MBBp*sqrt10*YdadjYd*Conjg(MBp) + 360*gYB*gBY*MBBp*sqrt10*YdadjYd*Conjg(MBp) +& 
+&  1280*g1p2*g3p2*id3R*M1*Conjg(M3) + 800*g3p2*gBYp2*id3R*M1*Conjg(M3) + 2560*g1*gYB*g3p2*id3R*MBBp*Conjg(M3) +& 
+&  1600*g3p2*gBL*gBY*id3R*MBBp*Conjg(M3) + 800*g3p2*gBLp2*id3R*MBp*Conjg(M3) +           & 
+&  1280*g3p2*gYBp2*id3R*MBp*Conjg(M3) - 640*g1*g3p2*gBY*id3R*M1*sqrt10*Conjg(M3) -       & 
+&  640*g1*g3p2*gBL*id3R*MBBp*sqrt10*Conjg(M3) - 640*gYB*g3p2*gBY*id3R*MBBp*sqrt10*Conjg(M3) -& 
+&  640*gYB*g3p2*gBL*id3R*MBp*sqrt10*Conjg(M3) - 10800._dp*g2p2*TdadjYd*Conjg(M2) +       & 
+&  9600*g3p4*id3R*Tr2(3) + 480*g1p2*id3R*Tr2U1(1,1) + 300*gBYp2*id3R*Tr2U1(1,            & 
+& 1) - 240*g1*gBY*id3R*sqrt10*Tr2U1(1,1) + 480*g1*gYB*id3R*Tr2U1(1,4) + 300*gBL*gBY*id3R*Tr2U1(1,& 
+& 4) - 120*g1*gBL*id3R*sqrt10*Tr2U1(1,4) - 120*gYB*gBY*id3R*sqrt10*Tr2U1(1,              & 
+& 4) + 480*g1*gYB*id3R*Tr2U1(4,1) + 300*gBL*gBY*id3R*Tr2U1(4,1) - 120*g1*gBL*id3R*sqrt10*Tr2U1(4,& 
+& 1) - 120*gYB*gBY*id3R*sqrt10*Tr2U1(4,1) + 300*gBLp2*id3R*Tr2U1(4,4) + 480*gYBp2*id3R*Tr2U1(4,& 
+& 4) - 240*gYB*gBL*id3R*sqrt10*Tr2U1(4,4) + 480*g1*id3R*sqrt15*Tr3(1) - 600*gBY*id3R*sqrt6*Tr3(1) +& 
+&  480*gYB*id3R*sqrt15*Tr3(4) - 600*gBL*id3R*sqrt6*Tr3(4))/900._dp
 
  
 Dmd2 = oo16pi2*( betamd21 + oo16pi2 * betamd22 ) 
@@ -4060,60 +4044,58 @@ betamu21  = (-320*AbsM3*g3p2*id3R - 10*AbsMBp*gBLp2*id3R - 64*AbsMBp*gYBp2*id3R 
  
  
 If (TwoLoopRGE) Then 
-betamu22 = (512*AbsM3*g1p2*g3p2*id3R)/45._dp - (128*AbsM3*g3p4*id3R)/3._dp + (2566*AbsMBp*g1*gYB*gBL*gBY*id3R)/45._dp +& 
-&  (304*AbsMBp*g1p2*gBLp2*id3R)/45._dp + (16*AbsM3*g3p2*gBLp2*id3R)/9._dp +              & 
-&  (16*AbsMBp*g3p2*gBLp2*id3R)/9._dp + (109*AbsMBp*gBLp4*id3R)/12._dp + (16*AbsM3*g3p2*gBYp2*id3R)/9._dp +& 
-&  (109*AbsMBp*gBLp2*gBYp2*id3R)/18._dp + (6848*AbsMBp*g1p2*gYBp2*id3R)/225._dp +        & 
-&  (512*AbsM3*g3p2*gYBp2*id3R)/45._dp + (512*AbsMBp*g3p2*gYBp2*id3R)/45._dp +            & 
-&  (529*AbsMBp*gBLp2*gYBp2*id3R)/5._dp + (304*AbsMBp*gBYp2*gYBp2*id3R)/45._dp +          & 
-&  (3424*AbsMBp*gYBp4*id3R)/75._dp - 2._dp*(mu2YuadjYdYdadjYu) - (2*g1p2*mu2YuadjYu)/5._dp +& 
-&  6*g2p2*mu2YuadjYu - (2*gYBp2*mu2YuadjYu)/5._dp - 2._dp*(mu2YuadjYuYuadjYu) +          & 
-&  (2072*AbsMBp*gYB*g1p2*gBL*id3R*sqrt2ov5)/45._dp + (128*AbsM3*gYB*g3p2*gBL*id3R*sqrt2ov5)/9._dp +& 
-&  (128*AbsMBp*gYB*g3p2*gBL*id3R*sqrt2ov5)/9._dp + (128*AbsM3*g1*g3p2*gBY*id3R*sqrt2ov5)/9._dp +& 
-&  (256*AbsMBp*g1*gBY*gBLp2*id3R*sqrt2ov5)/9._dp + (256*AbsMBp*gYB*gBLp3*id3R*sqrt2ov5)/3._dp +& 
-&  (256*AbsMBp*gYB*gBL*gBYp2*id3R*sqrt2ov5)/9._dp + (2072*AbsMBp*g1*gBY*gYBp2*id3R*sqrt2ov5)/45._dp +& 
-&  (2072*AbsMBp*gBL*gYBp3*id3R*sqrt2ov5)/15._dp - gYB*gBL*mu2YuadjYu*sqrt2ov5 -          & 
-&  g1*gBY*mu2YuadjYu*sqrt2ov5 - 6*mu2YuadjYu*TrYuadjYu - 2*mu2YuadjYu*TrYvadjYv -        & 
-&  4._dp*(TuadjTdYdadjYu) - (4*g1p2*TuadjTu)/5._dp + 12*g2p2*TuadjTu - (4*gYBp2*TuadjTu)/5._dp -& 
-&  2*gYB*gBL*sqrt2ov5*TuadjTu - 2*g1*gBY*sqrt2ov5*TuadjTu - 12*TrYuadjYu*TuadjTu -       & 
-&  4*TrYvadjYv*TuadjTu - 4._dp*(TuadjTuYuadjYu) - 4._dp*(TuadjYdYdadjTu) -               & 
-&  12*TrCTuTpYu*TuadjYu - 4*TrCTvTpYv*TuadjYu - 4._dp*(TuadjYuYuadjTu) - 4._dp*(YuadjTdTdadjYu) +& 
-&  (4*g1p2*M1*YuadjTu)/5._dp + (8*g1*gYB*MBBp*YuadjTu)/5._dp + (4*gYBp2*MBp*YuadjTu)/5._dp -& 
-&  12*g2p2*M2*YuadjTu + 2*g1*gBY*M1*sqrt2ov5*YuadjTu + 2*g1*gBL*MBBp*sqrt2ov5*YuadjTu +  & 
-&  2*gYB*gBY*MBBp*sqrt2ov5*YuadjTu + 2*gYB*gBL*MBp*sqrt2ov5*YuadjTu - 12*TradjYuTu*YuadjTu  
-betamu22 =  betamu22- 4*TradjYvTv*YuadjTu - 4._dp*(YuadjTuTuadjYu) - 4._dp*(YuadjYdmd2YdadjYu) -            & 
-&  4._dp*(YuadjYdTdadjTu) - 4*mHd2*YuadjYdYdadjYu - 4*mHu2*YuadjYdYdadjYu -              & 
-&  2._dp*(YuadjYdYdadjYumu2) - 4._dp*(YuadjYdYdmq2adjYu) + 24*AbsM2*g2p2*YuadjYu -       & 
-&  (8*AbsMBp*gYBp2*YuadjYu)/5._dp - (4*g1p2*mHu2*YuadjYu)/5._dp + 12*g2p2*mHu2*YuadjYu - & 
-&  (4*gYBp2*mHu2*YuadjYu)/5._dp - 4*AbsMBp*gYB*gBL*sqrt2ov5*YuadjYu - 2*gYB*gBL*mHu2*sqrt2ov5*YuadjYu -& 
-&  2*g1*gBY*mHu2*sqrt2ov5*YuadjYu - 12*TrCTuTpTu*YuadjYu - 4*TrCTvTpTv*YuadjYu -         & 
-&  4*Trml2adjYvYv*YuadjYu - 12*Trmq2adjYuYu*YuadjYu - 12*Trmu2YuadjYu*YuadjYu -          & 
-&  4*Trmv2YvadjYv*YuadjYu - 24*mHu2*TrYuadjYu*YuadjYu - 8*mHu2*TrYvadjYv*YuadjYu -       & 
-&  (2*g1p2*YuadjYumu2)/5._dp + 6*g2p2*YuadjYumu2 - (2*gYBp2*YuadjYumu2)/5._dp -          & 
-&  gYB*gBL*sqrt2ov5*YuadjYumu2 - g1*gBY*sqrt2ov5*YuadjYumu2 - 6*TrYuadjYu*YuadjYumu2 -   & 
-&  2*TrYvadjYv*YuadjYumu2 - 4._dp*(YuadjYumu2YuadjYu) - 4._dp*(YuadjYuTuadjTu) -         & 
-&  8*mHu2*YuadjYuYuadjYu - 2._dp*(YuadjYuYuadjYumu2) - 4._dp*(YuadjYuYumq2adjYu) -       & 
-&  4._dp*(Yumq2adjYdYdadjYu) - (4*g1p2*Yumq2adjYu)/5._dp + 12*g2p2*Yumq2adjYu -          & 
-&  (4*gYBp2*Yumq2adjYu)/5._dp - 2*gYB*gBL*sqrt2ov5*Yumq2adjYu - 2*g1*gBY*sqrt2ov5*Yumq2adjYu -& 
-&  12*TrYuadjYu*Yumq2adjYu - 4*TrYvadjYv*Yumq2adjYu - 4._dp*(Yumq2adjYuYuadjYu) +        & 
-&  ((id3R*(41088._dp*g1p4*M1 + 32*g1p3*(1712*gYB*MBBp + 777*gBY*M1*sqrt10 +              & 
-&  259*gBL*MBBp*sqrt10) + 4*g1p2*(3424*gYBp2*(2._dp*(M1) + MBp) + 5*(4761*gBYp2*M1 +     & 
-&  3174*gBL*gBY*MBBp + 152*gBLp2*(2._dp*(M1) + MBp) + 256*g3p2*(2._dp*(M1) +             & 
-&  M3)) + 1036*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) + gBY*(20*gYBp2*(1587*gBL*MBBp +& 
-&  152*gBY*(2._dp*(M1) + MBp)) + 2725*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp +    & 
-&  gBY*gBLp2*(2._dp*(M1) + MBp)) + 800*g3p2*(2*gBL*MBBp + gBY*(2._dp*(M1) +              & 
-&  M3)) + 4144*gYBp3*MBBp*sqrt10 + 1280*gYB*(6*gBLp2*MBBp + (g3p2 + 4._dp*(gBYp2))*MBBp +& 
-&  2*gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) + 4*g1*(6848*gYBp3*MBBp + 5*gYB*(512*g3p2*MBBp +& 
-&  1587*gBLp2*MBBp + 3174*gBYp2*MBBp + 1283*gBL*gBY*(2._dp*(M1) + MBp)) + 1036*gYBp2*(3*gBL*MBBp +& 
-&  gBY*(2._dp*(M1) + MBp))*sqrt10 + 320*(2*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + & 
-&  gBY*gBLp2*(2._dp*(M1) + MBp)) + g3p2*(gBL*MBBp + gBY*(2._dp*(M1) + M3)))*sqrt10)) -   & 
-&  360*(-(g1*(2._dp*(g1) + gBY*sqrt10)*TuadjYu) + (4*g1p2*M1 + gYB*gBY*MBBp*sqrt10 +     & 
-&  g1*(4*gYB*MBBp + 2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*YuadjYu))*Conjg(M1))/900._dp  
-betamu22 =  betamu22+ ((id3R*(13696._dp*g1p4*MBBp + 13696._dp*gYBp4*MBBp + 10*gYBp2*(3174*gBLp2*MBBp +      & 
+betamu22 = (10240._dp*AbsM3*g1p2*g3p2*id3R - 38400._dp*AbsM3*g3p4*id3R + 51320._dp*AbsMBp*g1*gYB*gBL*gBY*id3R +& 
+&  6080*AbsMBp*g1p2*gBLp2*id3R + 1600*AbsM3*g3p2*gBLp2*id3R + 1600*AbsMBp*g3p2*gBLp2*id3R +& 
+&  8175*AbsMBp*gBLp4*id3R + 1600*AbsM3*g3p2*gBYp2*id3R + 5450*AbsMBp*gBLp2*gBYp2*id3R +  & 
+&  27392._dp*AbsMBp*g1p2*gYBp2*id3R + 10240._dp*AbsM3*g3p2*gYBp2*id3R + 10240._dp*AbsMBp*g3p2*gYBp2*id3R +& 
+&  95220._dp*AbsMBp*gBLp2*gYBp2*id3R + 6080*AbsMBp*gBYp2*gYBp2*id3R + 41088._dp*AbsMBp*gYBp4*id3R -& 
+&  1800._dp*(mu2YuadjYdYdadjYu) - 360*g1p2*mu2YuadjYu + 5400*g2p2*mu2YuadjYu -           & 
+&  360*gYBp2*mu2YuadjYu - 1800._dp*(mu2YuadjYuYuadjYu) + 8288*AbsMBp*gYB*g1p2*gBL*id3R*sqrt10 +& 
+&  2560*AbsM3*gYB*g3p2*gBL*id3R*sqrt10 + 2560*AbsMBp*gYB*g3p2*gBL*id3R*sqrt10 +          & 
+&  2560*AbsM3*g1*g3p2*gBY*id3R*sqrt10 + 5120*AbsMBp*g1*gBY*gBLp2*id3R*sqrt10 +           & 
+&  15360._dp*AbsMBp*gYB*gBLp3*id3R*sqrt10 + 5120*AbsMBp*gYB*gBL*gBYp2*id3R*sqrt10 +      & 
+&  8288*AbsMBp*g1*gBY*gYBp2*id3R*sqrt10 + 24864._dp*AbsMBp*gBL*gYBp3*id3R*sqrt10 -       & 
+&  180*gYB*gBL*mu2YuadjYu*sqrt10 - 180*g1*gBY*mu2YuadjYu*sqrt10 - 5400*mu2YuadjYu*TrYuadjYu -& 
+&  1800*mu2YuadjYu*TrYvadjYv - 3600._dp*(TuadjTdYdadjYu) - 720*g1p2*TuadjTu +            & 
+&  10800._dp*g2p2*TuadjTu - 720*gYBp2*TuadjTu - 360*gYB*gBL*sqrt10*TuadjTu -             & 
+&  360*g1*gBY*sqrt10*TuadjTu - 10800._dp*TrYuadjYu*TuadjTu - 3600*TrYvadjYv*TuadjTu -    & 
+&  3600._dp*(TuadjTuYuadjYu) - 3600._dp*(TuadjYdYdadjTu) - 10800._dp*TrCTuTpYu*TuadjYu - & 
+&  3600*TrCTvTpYv*TuadjYu - 3600._dp*(TuadjYuYuadjTu) - 3600._dp*(YuadjTdTdadjYu) +      & 
+&  720*g1p2*M1*YuadjTu + 1440*g1*gYB*MBBp*YuadjTu + 720*gYBp2*MBp*YuadjTu -              & 
+&  10800._dp*g2p2*M2*YuadjTu + 360*g1*gBY*M1*sqrt10*YuadjTu + 360*g1*gBL*MBBp*sqrt10*YuadjTu +& 
+&  360*gYB*gBY*MBBp*sqrt10*YuadjTu + 360*gYB*gBL*MBp*sqrt10*YuadjTu - 10800._dp*TradjYuTu*YuadjTu -& 
+&  3600*TradjYvTv*YuadjTu - 3600._dp*(YuadjTuTuadjYu) - 3600._dp*(YuadjYdmd2YdadjYu) -   & 
+&  3600._dp*(YuadjYdTdadjTu) - 3600*mHd2*YuadjYdYdadjYu - 3600*mHu2*YuadjYdYdadjYu -     & 
+&  1800._dp*(YuadjYdYdadjYumu2) - 3600._dp*(YuadjYdYdmq2adjYu) + 21600._dp*AbsM2*g2p2*YuadjYu -& 
+&  1440*AbsMBp*gYBp2*YuadjYu - 720*g1p2*mHu2*YuadjYu + 10800._dp*g2p2*mHu2*YuadjYu -     & 
+&  720*gYBp2*mHu2*YuadjYu - 720*AbsMBp*gYB*gBL*sqrt10*YuadjYu - 360*gYB*gBL*mHu2*sqrt10*YuadjYu -& 
+&  360*g1*gBY*mHu2*sqrt10*YuadjYu - 10800._dp*TrCTuTpTu*YuadjYu - 3600*TrCTvTpTv*YuadjYu -& 
+&  3600*Trml2adjYvYv*YuadjYu - 10800._dp*Trmq2adjYuYu*YuadjYu - 10800._dp*Trmu2YuadjYu*YuadjYu -& 
+&  3600*Trmv2YvadjYv*YuadjYu - 21600._dp*mHu2*TrYuadjYu*YuadjYu - 7200*mHu2*TrYvadjYv*YuadjYu -& 
+&  360*g1p2*YuadjYumu2 + 5400*g2p2*YuadjYumu2 - 360*gYBp2*YuadjYumu2 - 180*gYB*gBL*sqrt10*YuadjYumu2 -& 
+&  180*g1*gBY*sqrt10*YuadjYumu2 - 5400*TrYuadjYu*YuadjYumu2 - 1800*TrYvadjYv*YuadjYumu2 -& 
+&  3600._dp*(YuadjYumu2YuadjYu) - 3600._dp*(YuadjYuTuadjTu) - 7200*mHu2*YuadjYuYuadjYu - & 
+&  1800._dp*(YuadjYuYuadjYumu2) - 3600._dp*(YuadjYuYumq2adjYu) - 3600._dp*(Yumq2adjYdYdadjYu) -& 
+&  720*g1p2*Yumq2adjYu + 10800._dp*g2p2*Yumq2adjYu - 720*gYBp2*Yumq2adjYu -              & 
+&  360*gYB*gBL*sqrt10*Yumq2adjYu - 360*g1*gBY*sqrt10*Yumq2adjYu - 10800._dp*TrYuadjYu*Yumq2adjYu -& 
+&  3600*TrYvadjYv*Yumq2adjYu - 3600._dp*(Yumq2adjYuYuadjYu) + (id3R*(41088._dp*g1p4*M1 + & 
+&  32*g1p3*(1712*gYB*MBBp + 777*gBY*M1*sqrt10 + 259*gBL*MBBp*sqrt10) + 4*g1p2*(3424*gYBp2*(2._dp*(M1) +& 
+&  MBp) + 5*(4761*gBYp2*M1 + 3174*gBL*gBY*MBBp + 152*gBLp2*(2._dp*(M1) + MBp) +          & 
+&  256*g3p2*(2._dp*(M1) + M3)) + 1036*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) +& 
+&  gBY*(20*gYBp2*(1587*gBL*MBBp + 152*gBY*(2._dp*(M1) + MBp)) + 25*(109*(3*gBYp3*M1 +    & 
+&  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 32*g3p2*(2*gBL*MBBp +& 
+&  gBY*(2._dp*(M1) + M3))) + 4144*gYBp3*MBBp*sqrt10 + 1280*gYB*(6*gBLp2*MBBp +           & 
+&  (g3p2 + 4._dp*(gBYp2))*MBBp + 2*gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) + 4*g1*(6848*gYBp3*MBBp +& 
+&  5*gYB*(512*g3p2*MBBp + 1587*gBLp2*MBBp + 3174*gBYp2*MBBp + 1283*gBL*gBY*(2._dp*(M1) + & 
+&  MBp)) + 1036*gYBp2*(3*gBL*MBBp + gBY*(2._dp*(M1) + MBp))*sqrt10 + 320*(2*(6*gBYp3*M1 +& 
+&  gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + g3p2*(gBL*MBBp +      & 
+&  gBY*(2._dp*(M1) + M3)))*sqrt10)) - 360*(-(g1*(2._dp*(g1) + gBY*sqrt10)*TuadjYu) +     & 
+&  (4*g1p2*M1 + gYB*gBY*MBBp*sqrt10 + g1*(4*gYB*MBBp + 2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*YuadjYu))*Conjg(M1) +& 
+&  2*(id3R*(13696._dp*g1p4*MBBp + 13696._dp*gYBp4*MBBp + 10*gYBp2*(3174*gBLp2*MBBp +     & 
 &  (512._dp*(g3p2) + 1891._dp*(gBYp2))*MBBp + 1587*gBL*gBY*(M1 + 2._dp*(MBp))) +         & 
-&  2725*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) +          & 
-&  MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) + 800*g3p2*(gBLp2*MBBp + gBYp2*MBBp +            & 
-&  gBL*gBY*(M1 + MBp + M3)) + 2072*gYBp3*(4*gBL*MBBp + gBY*(M1 + 2._dp*(MBp)))*sqrt10 +  & 
+&  25*(109*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) +       & 
+&  MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) + 32*g3p2*(gBLp2*MBBp + gBYp2*MBBp +             & 
+&  gBL*gBY*(M1 + MBp + M3))) + 2072*gYBp3*(4*gBL*MBBp + gBY*(M1 + 2._dp*(MBp)))*sqrt10 + & 
 &  640*gYB*(2*(4*gBLp3*MBBp + 8*gBL*gBYp2*MBBp + gBYp3*(2._dp*(M1) + MBp) +              & 
 &  3*gBY*gBLp2*(M1 + 2._dp*(MBp))) + g3p2*(2*gBL*MBBp + gBY*(M1 + MBp + M3)))*sqrt10 +   & 
 &  8*g1p3*(1712*gYB*(2._dp*(M1) + MBp) + 259*(4*gBY*MBBp + gBL*(2._dp*(M1) +             & 
@@ -4125,41 +4107,38 @@ betamu22 =  betamu22+ ((id3R*(13696._dp*g1p4*MBBp + 13696._dp*gYBp4*MBBp + 10*gY
 &  2._dp*(MBp)))*sqrt10 + 320*(2*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) +& 
 &  MBp) + gBLp3*(M1 + 2._dp*(MBp))) + g3p2*(2*gBY*MBBp + gBL*(M1 + MBp + M3)))*sqrt10)) -& 
 &  180*(-((4*g1*gYB + g1*gBL*sqrt10 + gYB*gBY*sqrt10)*TuadjYu) + (4*g1p2*MBBp +          & 
-&  4*g1*gYB*(M1 + MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp + gBL*(M1 +          & 
-&  MBp))*sqrt10 + 2*gYB*MBBp*(2._dp*(gYB) + gBL*sqrt10))*YuadjYu))*Conjg(MBBp))/450._dp +& 
-&  (1283*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/45._dp + (152*g1p2*gBLp2*id3R*M1*Conjg(MBp))/45._dp +& 
-&  (109*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/36._dp + (3424*g1p2*gYBp2*id3R*M1*Conjg(MBp))/225._dp +& 
-&  (152*gBYp2*gYBp2*id3R*M1*Conjg(MBp))/45._dp + (6848*gYB*g1p3*id3R*MBBp*Conjg(MBp))/225._dp  
-betamu22 =  betamu22+ (512*g1*gYB*g3p2*id3R*MBBp*Conjg(MBp))/45._dp + (529*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (16*g3p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/9._dp + (1058*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (109*gBY*gBLp3*id3R*MBBp*Conjg(MBp))/9._dp + (529*g1*gYB*gBYp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (109*gBL*gBYp3*id3R*MBBp*Conjg(MBp))/18._dp + (1058*gBL*gBY*gYBp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (13696._dp*g1*gYBp3*id3R*MBBp*Conjg(MBp))/225._dp + (8*g3p2*gBLp2*id3R*M3*Conjg(MBp))/9._dp +& 
-&  (256*g3p2*gYBp2*id3R*M3*Conjg(MBp))/45._dp + (1036*gYB*g1p2*gBL*id3R*M1*sqrt2ov5*Conjg(MBp))/45._dp +& 
-&  (128*g1*gBY*gBLp2*id3R*M1*sqrt2ov5*Conjg(MBp))/9._dp + (128*gYB*gBL*gBYp2*id3R*M1*sqrt2ov5*Conjg(MBp))/9._dp +& 
-&  (1036*g1*gBY*gYBp2*id3R*M1*sqrt2ov5*Conjg(MBp))/45._dp + (1036*g1p3*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))/45._dp +& 
-&  (64*g1*g3p2*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp + (1036*gYB*g1p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/15._dp +& 
-&  (64*gYB*g3p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp + (256*gYB*gBY*gBLp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp +& 
-&  (256*g1*gBLp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp + (128*g1*gBL*gBYp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp +& 
-&  (128*gYB*gBYp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp + (2072*g1*gBL*gYBp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/15._dp +& 
-&  (2072*gBY*gYBp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/45._dp + (64*gYB*g3p2*gBL*id3R*M3*sqrt2ov5*Conjg(MBp))/9._dp +& 
-&  (4*gYBp2*TuadjYu*Conjg(MBp))/5._dp + 2*gYB*gBL*sqrt2ov5*TuadjYu*Conjg(MBp) -          & 
-&  (8*g1*gYB*MBBp*YuadjYu*Conjg(MBp))/5._dp - 2*g1*gBL*MBBp*sqrt2ov5*YuadjYu*Conjg(MBp) -& 
-&  2*gYB*gBY*MBBp*sqrt2ov5*YuadjYu*Conjg(MBp) + (256*g1p2*g3p2*id3R*M1*Conjg(M3))/45._dp +& 
-&  (8*g3p2*gBYp2*id3R*M1*Conjg(M3))/9._dp + (512*g1*gYB*g3p2*id3R*MBBp*Conjg(M3))/45._dp +& 
-&  (16*g3p2*gBL*gBY*id3R*MBBp*Conjg(M3))/9._dp + (8*g3p2*gBLp2*id3R*MBp*Conjg(M3))/9._dp +& 
-&  (256*g3p2*gYBp2*id3R*MBp*Conjg(M3))/45._dp + (64*g1*g3p2*gBY*id3R*M1*sqrt2ov5*Conjg(M3))/9._dp +& 
-&  (64*g1*g3p2*gBL*id3R*MBBp*sqrt2ov5*Conjg(M3))/9._dp + (64*gYB*g3p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(M3))/9._dp +& 
-&  (64*gYB*g3p2*gBL*id3R*MBp*sqrt2ov5*Conjg(M3))/9._dp - 12*g2p2*TuadjYu*Conjg(M2)  
-betamu22 =  betamu22+ (32*g3p4*id3R*Tr2(3))/3._dp + (32*g1p2*id3R*Tr2U1(1,1))/15._dp + (gBYp2*id3R*Tr2U1(1, & 
-& 1))/3._dp + (8*g1*gBY*id3R*sqrt2ov5*Tr2U1(1,1))/3._dp + (32*g1*gYB*id3R*Tr2U1(1,       & 
-& 4))/15._dp + (gBL*gBY*id3R*Tr2U1(1,4))/3._dp + (4*g1*gBL*id3R*sqrt2ov5*Tr2U1(1,        & 
-& 4))/3._dp + (4*gYB*gBY*id3R*sqrt2ov5*Tr2U1(1,4))/3._dp + (32*g1*gYB*id3R*Tr2U1(4,      & 
-& 1))/15._dp + (gBL*gBY*id3R*Tr2U1(4,1))/3._dp + (4*g1*gBL*id3R*sqrt2ov5*Tr2U1(4,        & 
-& 1))/3._dp + (4*gYB*gBY*id3R*sqrt2ov5*Tr2U1(4,1))/3._dp + (gBLp2*id3R*Tr2U1(4,          & 
-& 4))/3._dp + (32*gYBp2*id3R*Tr2U1(4,4))/15._dp + (8*gYB*gBL*id3R*sqrt2ov5*Tr2U1(4,      & 
-& 4))/3._dp - 16*g1*id3R*ooSqrt15*Tr3(1) - 2*gBY*id3R*sqrt2ov3*Tr3(1) - 16*gYB*id3R*ooSqrt15*Tr3(4) -& 
-&  2*gBL*id3R*sqrt2ov3*Tr3(4)
+&  g1*(4*gYB*(M1 + MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) + gYB*(gBY*(M1 +         & 
+&  MBp)*sqrt10 + 2*MBBp*(2._dp*(gYB) + gBL*sqrt10)))*YuadjYu))*Conjg(MBBp) +             & 
+&  25660._dp*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp) + 3040*g1p2*gBLp2*id3R*M1*Conjg(MBp) +    & 
+&  2725*gBLp2*gBYp2*id3R*M1*Conjg(MBp) + 13696._dp*g1p2*gYBp2*id3R*M1*Conjg(MBp) +       & 
+&  3040*gBYp2*gYBp2*id3R*M1*Conjg(MBp) + 27392._dp*gYB*g1p3*id3R*MBBp*Conjg(MBp) +       & 
+&  10240._dp*g1*gYB*g3p2*id3R*MBBp*Conjg(MBp) + 31740._dp*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp) +& 
+&  1600*g3p2*gBL*gBY*id3R*MBBp*Conjg(MBp) + 63480._dp*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp) +& 
+&  10900._dp*gBY*gBLp3*id3R*MBBp*Conjg(MBp) + 31740._dp*g1*gYB*gBYp2*id3R*MBBp*Conjg(MBp) +& 
+&  5450*gBL*gBYp3*id3R*MBBp*Conjg(MBp) + 63480._dp*gBL*gBY*gYBp2*id3R*MBBp*Conjg(MBp) +  & 
+&  54784._dp*g1*gYBp3*id3R*MBBp*Conjg(MBp) + 800*g3p2*gBLp2*id3R*M3*Conjg(MBp) +         & 
+&  5120*g3p2*gYBp2*id3R*M3*Conjg(MBp) + 4144*gYB*g1p2*gBL*id3R*M1*sqrt10*Conjg(MBp) +    & 
+&  2560*g1*gBY*gBLp2*id3R*M1*sqrt10*Conjg(MBp) + 2560*gYB*gBL*gBYp2*id3R*M1*sqrt10*Conjg(MBp) +& 
+&  4144*g1*gBY*gYBp2*id3R*M1*sqrt10*Conjg(MBp) + 4144*g1p3*gBL*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  1280*g1*g3p2*gBL*id3R*MBBp*sqrt10*Conjg(MBp) + 12432._dp*gYB*g1p2*gBY*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  1280*gYB*g3p2*gBY*id3R*MBBp*sqrt10*Conjg(MBp) + 15360._dp*gYB*gBY*gBLp2*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  5120*g1*gBLp3*id3R*MBBp*sqrt10*Conjg(MBp) + 7680*g1*gBL*gBYp2*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  2560*gYB*gBYp3*id3R*MBBp*sqrt10*Conjg(MBp) + 24864._dp*g1*gBL*gYBp2*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  8288*gBY*gYBp3*id3R*MBBp*sqrt10*Conjg(MBp) + 1280*gYB*g3p2*gBL*id3R*M3*sqrt10*Conjg(MBp) +& 
+&  720*gYBp2*TuadjYu*Conjg(MBp) + 360*gYB*gBL*sqrt10*TuadjYu*Conjg(MBp) - 1440*g1*gYB*MBBp*YuadjYu*Conjg(MBp) -& 
+&  360*g1*gBL*MBBp*sqrt10*YuadjYu*Conjg(MBp) - 360*gYB*gBY*MBBp*sqrt10*YuadjYu*Conjg(MBp) +& 
+&  5120*g1p2*g3p2*id3R*M1*Conjg(M3) + 800*g3p2*gBYp2*id3R*M1*Conjg(M3) + 10240._dp*g1*gYB*g3p2*id3R*MBBp*Conjg(M3) +& 
+&  1600*g3p2*gBL*gBY*id3R*MBBp*Conjg(M3) + 800*g3p2*gBLp2*id3R*MBp*Conjg(M3) +           & 
+&  5120*g3p2*gYBp2*id3R*MBp*Conjg(M3) + 1280*g1*g3p2*gBY*id3R*M1*sqrt10*Conjg(M3) +      & 
+&  1280*g1*g3p2*gBL*id3R*MBBp*sqrt10*Conjg(M3) + 1280*gYB*g3p2*gBY*id3R*MBBp*sqrt10*Conjg(M3) +& 
+&  1280*gYB*g3p2*gBL*id3R*MBp*sqrt10*Conjg(M3) - 10800._dp*g2p2*TuadjYu*Conjg(M2) +      & 
+&  9600*g3p4*id3R*Tr2(3) + 1920*g1p2*id3R*Tr2U1(1,1) + 300*gBYp2*id3R*Tr2U1(1,           & 
+& 1) + 480*g1*gBY*id3R*sqrt10*Tr2U1(1,1) + 1920*g1*gYB*id3R*Tr2U1(1,4) + 300*gBL*gBY*id3R*Tr2U1(1,& 
+& 4) + 240*g1*gBL*id3R*sqrt10*Tr2U1(1,4) + 240*gYB*gBY*id3R*sqrt10*Tr2U1(1,              & 
+& 4) + 1920*g1*gYB*id3R*Tr2U1(4,1) + 300*gBL*gBY*id3R*Tr2U1(4,1) + 240*g1*gBL*id3R*sqrt10*Tr2U1(4,& 
+& 1) + 240*gYB*gBY*id3R*sqrt10*Tr2U1(4,1) + 300*gBLp2*id3R*Tr2U1(4,4) + 1920*gYBp2*id3R*Tr2U1(4,& 
+& 4) + 480*gYB*gBL*id3R*sqrt10*Tr2U1(4,4) - 960*g1*id3R*sqrt15*Tr3(1) - 600*gBY*id3R*sqrt6*Tr3(1) -& 
+&  960*gYB*id3R*sqrt15*Tr3(4) - 600*gBL*id3R*sqrt6*Tr3(4))/900._dp
 
  
 Dmu2 = oo16pi2*( betamu21 + oo16pi2 * betamu22 ) 
@@ -4224,16 +4203,16 @@ betame22 =  betame22- 12*Trmq2adjYdYd*YeadjYe - 24*mHd2*TrYdadjYd*YeadjYe - 8*mH
 &  6*gYB*gBL*sqrt2ov5*Yeml2adjYe - 6*g1*gBY*sqrt2ov5*Yeml2adjYe - 12*TrYdadjYd*Yeml2adjYe -& 
 &  4*TrYeadjYe*Yeml2adjYe - 4._dp*(Yeml2adjYeYeadjYe) - 4._dp*(Yeml2adjYvYvadjYe) +      & 
 &  (3*(3*id3R*(1248*g1p4*M1 + 16*g1p3*(104*gYB*MBBp + 69*gBY*M1*sqrt10 + 23*gBL*MBBp*sqrt10) +& 
-&  4*g1p2*(1185*gBYp2*M1 + 790*gBL*gBY*MBBp + 50*gBLp2*(2._dp*(M1) + MBp) +              & 
-&  104*gYBp2*(2._dp*(M1) + MBp) + 46*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) + & 
+&  4*g1p2*(104*gYBp2*(2._dp*(M1) + MBp) + 5*(237*gBYp2*M1 + 158*gBL*gBY*MBBp +           & 
+&  10*gBLp2*(2._dp*(M1) + MBp)) + 46*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) + & 
 &  gBY*(20*gYBp2*(79*gBL*MBBp + 10*gBY*(2._dp*(M1) + MBp)) + 325*(3*gBYp3*M1 +           & 
 &  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 184*gYBp3*MBBp*sqrt10 +& 
 &  180*gYB*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) +          & 
 &  4*g1*(208*gYBp3*MBBp + 5*gYB*(79*gBLp2*MBBp + 158*gBYp2*MBBp + 59*gBL*gBY*(2._dp*(M1) +& 
 &  MBp)) + 46*gYBp2*(3*gBL*MBBp + gBY*(2._dp*(M1) + MBp))*sqrt10 + 45*(6*gBYp3*M1 +      & 
-&  gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10)) +              & 
-&  40*g1*(2._dp*(g1) + gBY*sqrt10)*TeadjYe - 40*(4*g1p2*M1 + 4*g1*gYB*MBBp +             & 
-&  2*g1*gBY*M1*sqrt10 + g1*gBL*MBBp*sqrt10 + gYB*gBY*MBBp*sqrt10)*YeadjYe)*Conjg(M1))/100._dp  
+&  gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10)) -              & 
+&  40*(-(g1*(2._dp*(g1) + gBY*sqrt10)*TeadjYe) + (4*g1p2*M1 + 4*g1*gYB*MBBp +            & 
+&  2*g1*gBY*M1*sqrt10 + g1*gBL*MBBp*sqrt10 + gYB*gBY*MBBp*sqrt10)*YeadjYe))*Conjg(M1))/100._dp  
 betame22 =  betame22+ (3*(3*id3R*(416*g1p4*MBBp + 416*gYBp4*MBBp + 10*gYBp2*(158*gBLp2*MBBp +               & 
 &  99*gBYp2*MBBp + 79*gBL*gBY*(M1 + 2._dp*(MBp))) + 325*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp +& 
 &  gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) +           & 
@@ -4245,9 +4224,9 @@ betame22 =  betame22+ (3*(3*id3R*(416*g1p4*MBBp + 416*gYBp4*MBBp + 10*gYBp2*(158
 &  2._dp*(MBp)) + 5*gYB*(434*gBL*gBY*MBBp + 79*gBYp2*(2._dp*(M1) + MBp) + 79*gBLp2*(M1 + & 
 &  2._dp*(MBp))) + 46*gYBp2*(8*gBY*MBBp + 3*gBL*(M1 + 2._dp*(MBp)))*sqrt10 +             & 
 &  45*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) + MBp) + gBLp3*(M1 +    & 
-&  2._dp*(MBp)))*sqrt10)) + 20*(4*g1*gYB + g1*gBL*sqrt10 + gYB*gBY*sqrt10)*TeadjYe -     & 
-&  20*(4*g1p2*MBBp + 4*g1*gYB*(M1 + MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp +  & 
-&  gBL*(M1 + MBp))*sqrt10 + 2*gYB*MBBp*(2._dp*(gYB) + gBL*sqrt10))*YeadjYe)*Conjg(MBBp))/50._dp +& 
+&  2._dp*(MBp)))*sqrt10)) - 20*(-((4*g1*gYB + g1*gBL*sqrt10 + gYB*gBY*sqrt10)*TeadjYe) + & 
+&  (4*g1p2*MBBp + g1*(4*gYB*(M1 + MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) +         & 
+&  gYB*(gBY*(M1 + MBp)*sqrt10 + 2*MBBp*(2._dp*(gYB) + gBL*sqrt10)))*YeadjYe))*Conjg(MBBp))/50._dp +& 
 &  (531*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/5._dp + 18*g1p2*gBLp2*id3R*M1*Conjg(MBp) +    & 
 &  (117*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/4._dp + (936*g1p2*gYBp2*id3R*M1*Conjg(MBp))/25._dp +& 
 &  18*gBYp2*gYBp2*id3R*M1*Conjg(MBp) + (1872*gYB*g1p3*id3R*MBBp*Conjg(MBp))/25._dp +     & 
@@ -4338,24 +4317,24 @@ betamv22 =  betamv22+ 12*AbsMBp*gYB*gBL*sqrt2ov5*YvadjYv + 6*gYB*gBL*mHu2*sqrt2o
 &  24*gBYp2*mC12*YxCYx - 16*TrCTxTx*YxCYx - 32*Trmv2YxCYx*YxCYx - 32*mC12*TrYxCYx*YxCYx +& 
 &  12*gBLp2*YxCYxmv2 + 12*gBYp2*YxCYxmv2 - 8*TrYxCYx*YxCYxmv2 - 32._dp*(YxCYxmv2YxCYx) - & 
 &  32._dp*(YxCYxTxCTx) - 32._dp*(YxCYxYxCmv2CYx) - 64*mC12*YxCYxYxCYx - 16._dp*(YxCYxYxCYxmv2) +& 
-&  (3*(3*id3R*(44*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) + 44*g1*gYB*(gBLp2*MBBp +             & 
-&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 8*g1*(6*gBYp3*M1 + gBLp3*MBBp +          & 
-&  6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10 + gBY*(44*gBL*gYBp2*MBBp +    & 
+&  (3*(3*id3R*(44*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) + gBY*(44*gBL*gYBp2*MBBp +            & 
 &  65*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +            & 
-&  MBp)) + 8*gYB*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10)) +   & 
-&  8*(-2*g1p2*TvadjYv - g1*gBY*sqrt10*TvadjYv - 20*gBYp2*TxCYx + (4*g1p2*M1 +            & 
-&  4*g1*gYB*MBBp + 2*g1*gBY*M1*sqrt10 + g1*gBL*MBBp*sqrt10 + gYB*gBY*MBBp*sqrt10)*YvadjYv +& 
+&  MBp)) + 8*gYB*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) +    & 
+&  4*g1*(11*gYB*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) +               & 
+&  2*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +               & 
+&  MBp))*sqrt10)) + 8*(-2*g1p2*TvadjYv - g1*gBY*sqrt10*TvadjYv - 20*gBYp2*TxCYx +        & 
+&  (4*g1p2*M1 + 4*g1*gYB*MBBp + 2*g1*gBY*M1*sqrt10 + g1*gBL*MBBp*sqrt10 + gYB*gBY*MBBp*sqrt10)*YvadjYv +& 
 &  40*gBY*(gBY*M1 + gBL*MBBp)*YxCYx))*Conjg(M1))/20._dp + (3*(3*id3R*(22*g1p2*(gBLp2*MBBp +& 
 &  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 22*gYBp2*(2*gBLp2*MBBp + gBYp2*MBBp +    & 
-&  gBL*gBY*(M1 + 2._dp*(MBp))) + 22*g1*gYB*(6*gBL*gBY*MBBp + gBYp2*(2._dp*(M1) +         & 
-&  MBp) + gBLp2*(M1 + 2._dp*(MBp))) + 65*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp +              & 
-&  gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) +           & 
-&  4*gYB*(4*gBLp3*MBBp + 8*gBL*gBYp2*MBBp + gBYp3*(2._dp*(M1) + MBp) + 3*gBY*gBLp2*(M1 + & 
-&  2._dp*(MBp)))*sqrt10 + 4*g1*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) +& 
-&  MBp) + gBLp3*(M1 + 2._dp*(MBp)))*sqrt10) + 4*(-4*g1*gYB*TvadjYv - g1*gBL*sqrt10*TvadjYv -& 
-&  gYB*gBY*sqrt10*TvadjYv - 40*gBL*gBY*TxCYx + (4*g1p2*MBBp + 4*g1*gYB*(M1 +             & 
-&  MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10 +          & 
-&  2*gYB*MBBp*(2._dp*(gYB) + gBL*sqrt10))*YvadjYv + 40*(gBLp2*MBBp + gBYp2*MBBp +        & 
+&  gBL*gBY*(M1 + 2._dp*(MBp))) + 65*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp +      & 
+&  gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) + 4*gYB*(4*gBLp3*MBBp +  & 
+&  8*gBL*gBYp2*MBBp + gBYp3*(2._dp*(M1) + MBp) + 3*gBY*gBLp2*(M1 + 2._dp*(MBp)))*sqrt10 +& 
+&  2*g1*(11*gYB*(6*gBL*gBY*MBBp + gBYp2*(2._dp*(M1) + MBp) + gBLp2*(M1 + 2._dp*(MBp))) + & 
+&  2*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) + MBp) + gBLp3*(M1 +     & 
+&  2._dp*(MBp)))*sqrt10)) + 4*(-4*g1*gYB*TvadjYv - g1*gBL*sqrt10*TvadjYv -               & 
+&  gYB*gBY*sqrt10*TvadjYv - 40*gBL*gBY*TxCYx + (4*g1p2*MBBp + g1*(4*gYB*(M1 +            & 
+&  MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) + gYB*(gBY*(M1 + MBp)*sqrt10 +           & 
+&  2*MBBp*(2._dp*(gYB) + gBL*sqrt10)))*YvadjYv + 40*(gBLp2*MBBp + gBYp2*MBBp +           & 
 &  gBL*gBY*(M1 + MBp))*YxCYx))*Conjg(MBBp))/10._dp + (99*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/5._dp  
 betamv22 =  betamv22+ (117*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/4._dp + (99*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/5._dp +& 
 &  (198*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp))/5._dp + 117*gBY*gBLp3*id3R*MBBp*Conjg(MBp) +  & 
@@ -4404,11 +4383,11 @@ betamC122 = (2*(396*AbsMBp*g1*gYB*gBL*gBY + 1080*AbsMBp*gBLp4 + 720*AbsMBp*gBLp2
 &  160._dp*(TrYxCTxTxCYx) - 30*AbsMBp*gBLp2*TrYxCYx - 15*gBLp2*mC12*TrYxCYx -            & 
 &  15*gBYp2*mC12*TrYxCYx - 40._dp*(TrYxCYxTvadjTv) - 160._dp*(TrYxCYxTxCTx) -            & 
 &  40*mC12*TrYxCYxYvadjYv - 40*mHu2*TrYxCYxYvadjYv - 160*mC12*TrYxCYxYxCYx +             & 
-&  3*(6*(11*gBL*gBY*gYBp2*MBBp + 11*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) + 11*g1*gYB*(gBLp2*MBBp +& 
-&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 20*gBY*(3*gBYp3*M1 + 2*gBLp3*MBBp +      & 
-&  4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 2*gYB*gBY*(3*gBLp2*MBBp +          & 
-&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10 + 2*g1*(6*gBYp3*M1 + gBLp3*MBBp +   & 
-&  6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10) + 5*gBYp2*TrCYxTx -          & 
+&  3*(6*(11*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) + gBY*(11*gBL*gYBp2*MBBp + 20*(3*gBYp3*M1 + & 
+&  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 2*gYB*(3*gBLp2*MBBp +& 
+&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) + g1*(11*gYB*(gBLp2*MBBp +         & 
+&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 2*(6*gBYp3*M1 + gBLp3*MBBp +             & 
+&  6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10)) + 5*gBYp2*TrCYxTx -         & 
 &  10*gBY*(gBY*M1 + gBL*MBBp)*TrYxCYx)*Conjg(M1) + 6*(3*(11*g1p2*(gBLp2*MBBp +           & 
 &  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 11*gYBp2*(2*gBLp2*MBBp + gBYp2*MBBp +    & 
 &  gBL*gBY*(M1 + 2._dp*(MBp))) + 40*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp +      & 
@@ -4449,12 +4428,12 @@ betamC221  = -12*AbsMBp*gBLp2 - 12*gBY*(gBY*M1 + gBL*MBBp)*Conjg(M1) - 12*(gBLp2
 If (TwoLoopRGE) Then 
 betamC222 = (4*(198*AbsMBp*g1*gYB*gBL*gBY + 540*AbsMBp*gBLp4 + 360*AbsMBp*gBLp2*gBYp2 +           & 
 &  297*AbsMBp*gBLp2*gYBp2 + 36*AbsMBp*g1*gBY*gBLp2*sqrt10 + 108*AbsMBp*gYB*gBLp3*sqrt10 +& 
-&  36*AbsMBp*gYB*gBL*gBYp2*sqrt10 + 9*(11*gBL*gBY*gYBp2*MBBp + 11*g1p2*gBY*(3*gBY*M1 +   & 
-&  2*gBL*MBBp) + 11*g1*gYB*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +            & 
-&  MBp)) + 20*gBY*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +& 
-&  MBp)) + 2*gYB*gBY*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10 + & 
-&  2*g1*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +            & 
-&  MBp))*sqrt10)*Conjg(M1) + 9*(11*g1p2*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +& 
+&  36*AbsMBp*gYB*gBL*gBYp2*sqrt10 + 9*(11*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) +             & 
+&  gBY*(11*gBL*gYBp2*MBBp + 20*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp +           & 
+&  gBY*gBLp2*(2._dp*(M1) + MBp)) + 2*gYB*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +& 
+&  MBp))*sqrt10) + g1*(11*gYB*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +         & 
+&  MBp)) + 2*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +       & 
+&  MBp))*sqrt10))*Conjg(M1) + 9*(11*g1p2*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +& 
 &  MBp)) + 11*gYBp2*(2*gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + 2._dp*(MBp))) +           & 
 &  40*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) +            & 
 &  MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) + 2*gYB*(4*gBLp3*MBBp + 8*gBL*gBYp2*MBBp +       & 
@@ -4482,9 +4461,9 @@ End If
 ! MBBp 
 !-------------------- 
  
-betaMBBp1  = (33*g1p2*MBBp + 33*gYBp2*MBBp + 33*g1*gYB*(M1 + MBp) + 45*(gBLp2*MBBp +  & 
-&  gBYp2*MBBp + gBL*gBY*(M1 + MBp)) + 6*g1*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10 +        & 
-&  6*gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10)/5._dp
+betaMBBp1  = (3*(11*g1p2*MBBp + 11*gYBp2*MBBp + 15*(gBLp2*MBBp + gBYp2*MBBp +         & 
+&  gBL*gBY*(M1 + MBp)) + 2*gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10 + g1*(11*gYB*(M1 +   & 
+&  MBp) + 2*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10)))/5._dp
 
  
  
@@ -5292,12 +5271,11 @@ Complex(dp) :: TrYxCTx,TrCTdTpYd,TrCTeTpYe,TrCTuTpYu,TrCTvTpYv,Trmv2CYxYx,TrYdad
 
 Real(dp) :: g1p2,g1p3,gYBp2,g2p2,g2p3,g3p2,g3p3,gBLp2,gBLp3,gBYp2
 
-Complex(dp) :: sqrt2ov5,sqrt3ov5,sqrt3ov2,sqrt2,sqrt3,sqrt5,ooSqrt6,sqrt6,ooSqrt10,sqrt10,           & 
-& ooSqrt15,sqrt15
+Complex(dp) :: sqrt2ov5,sqrt3ov5,sqrt3ov2,sqrt2,sqrt3,sqrt5,sqrt6,ooSqrt10,sqrt10,sqrt15
 
 Real(dp) :: g1p4,g1p5,gYBp3,gYBp4,gYBp5,g2p4,g3p4,gBLp4,gBLp5,gBYp3,gBYp4,gBYp5
 
-Complex(dp) :: sqrt2ov3,sqrt5ov2,ooSqrt3,Xip2
+Complex(dp) :: sqrt2ov3,sqrt5ov2,ooSqrt3,ooSqrt15,Xip2
 
 Iname = Iname +1 
 NameOfUnit(Iname) = 'rge320' 
@@ -5495,11 +5473,9 @@ Forall(i2=1:3)  adjYvmv2Yv(i2,i2) =  Real(adjYvmv2Yv(i2,i2),dp)
  sqrt2 =sqrt(2._dp) 
  sqrt3 =sqrt(3._dp) 
  sqrt5 =sqrt(5._dp) 
- ooSqrt6 =1._dp/sqrt(6._dp) 
  sqrt6 =sqrt(6._dp) 
  ooSqrt10 =1._dp/sqrt(10._dp) 
  sqrt10 =sqrt(10._dp) 
- ooSqrt15 =1._dp/sqrt(15._dp) 
  sqrt15 =sqrt(15._dp) 
  g1p2 =g1**2 
  g1p3 =g1**3 
@@ -5514,6 +5490,7 @@ Forall(i2=1:3)  adjYvmv2Yv(i2,i2) =  Real(adjYvmv2Yv(i2,i2),dp)
  sqrt2ov3 =Sqrt(2._dp/3._dp) 
  sqrt5ov2 =Sqrt(5._dp/2._dp) 
  ooSqrt3 =1._dp/sqrt(3._dp) 
+ ooSqrt15 =1._dp/sqrt(15._dp) 
  g1p4 =g1**4 
  g1p5 =g1**5 
  gYBp3 =gYB**3 
@@ -6184,6 +6161,7 @@ Forall(i2=1:3)  adjYvYvml2adjYvYv(i2,i2) =  Real(adjYvYvml2adjYvYv(i2,i2),dp)
  sqrt2ov3 =Sqrt(2._dp/3._dp) 
  sqrt5ov2 =Sqrt(5._dp/2._dp) 
  ooSqrt3 =1._dp/sqrt(3._dp) 
+ ooSqrt15 =1._dp/sqrt(15._dp) 
  g1p4 =g1**4 
  g1p5 =g1**5 
  gYBp3 =gYB**3 
@@ -6389,8 +6367,8 @@ End If
 ! gBL 
 !-------------------- 
  
-betagBL1  = (3*(15._dp*(gBLp3) + 11*gBL*gYBp2 + 4*gYB*gBLp2*sqrt10 + gBL*gBY*(15._dp*(gBY)& 
-&  + 2*g1*sqrt10) + gYB*gBY*(11._dp*(g1) + 2*gBY*sqrt10)))/5._dp
+betagBL1  = (3*(11*g1*gYB*gBY + 15._dp*(gBLp3) + 15*gBL*gBYp2 + 11*gBL*gYBp2 +        & 
+&  2*g1*gBL*gBY*sqrt10 + 4*gYB*gBLp2*sqrt10 + 2*gYB*gBYp2*sqrt10))/5._dp
 
  
  
@@ -6405,16 +6383,15 @@ betagBL2 = (398*gYB*g1p3*gBY + 270*g1*gYB*g2p2*gBY + 880*g1*gYB*g3p2*gBY + 1610*
 &  210*g1*gBY*gBLp3*sqrt10 + 280*gYB*gBLp4*sqrt10 + 246*gYB*g1p2*gBYp2*sqrt10 +          & 
 &  90*gYB*g2p2*gBYp2*sqrt10 + 80*gYB*g3p2*gBYp2*sqrt10 + 350*gYB*gBLp2*gBYp2*sqrt10 +    & 
 &  210*g1*gBL*gBYp3*sqrt10 + 70*gYB*gBYp4*sqrt10 + 410*g1*gBL*gBY*gYBp2*sqrt10 +         & 
-&  328*gBLp2*gYBp3*sqrt10 + 82*gBYp2*gYBp3*sqrt10 - 5*(10._dp*(gBLp3) + 28*gBL*gYBp2 +   & 
-&  gBL*gBY*(10._dp*(gBY) - g1*sqrt10) - gYB*(2*gBLp2*sqrt10 + gBY*(-28._dp*(g1) +        & 
-&  gBY*sqrt10)))*TrYdadjYd - 15*(10._dp*(gBLp3) + 12*gBL*gYBp2 + 6*gYB*gBLp2*sqrt10 +    & 
-&  gBL*gBY*(10._dp*(gBY) + 3*g1*sqrt10) + 3*gYB*gBY*(4._dp*(g1) + gBY*sqrt10))*TrYeadjYe -& 
-&  260*g1*gYB*gBY*TrYuadjYu - 50*gBLp3*TrYuadjYu - 50*gBL*gBYp2*TrYuadjYu -              & 
-&  260*gBL*gYBp2*TrYuadjYu - 25*g1*gBL*gBY*sqrt10*TrYuadjYu - 50*gYB*gBLp2*sqrt10*TrYuadjYu -& 
-&  25*gYB*gBYp2*sqrt10*TrYuadjYu - 60*g1*gYB*gBY*TrYvadjYv - 150*gBLp3*TrYvadjYv -       & 
-&  150*gBL*gBYp2*TrYvadjYv - 60*gBL*gYBp2*TrYvadjYv - 15*g1*gBL*gBY*sqrt10*TrYvadjYv -   & 
-&  30*gYB*gBLp2*sqrt10*TrYvadjYv - 15*gYB*gBYp2*sqrt10*TrYvadjYv - 450*gBLp3*TrYxCYx -   & 
-&  450*gBL*gBYp2*TrYxCYx)/50._dp
+&  328*gBLp2*gYBp3*sqrt10 + 82*gBYp2*gYBp3*sqrt10 - 5*(28*g1*gYB*gBY + 10._dp*(gBLp3) +  & 
+&  10*gBL*gBYp2 + 28*gBL*gYBp2 - g1*gBL*gBY*sqrt10 - 2*gYB*gBLp2*sqrt10 - gYB*gBYp2*sqrt10)*TrYdadjYd -& 
+&  15*(12*g1*gYB*gBY + 10._dp*(gBLp3) + 10*gBL*gBYp2 + 12*gBL*gYBp2 + 3*g1*gBL*gBY*sqrt10 +& 
+&  6*gYB*gBLp2*sqrt10 + 3*gYB*gBYp2*sqrt10)*TrYeadjYe - 260*g1*gYB*gBY*TrYuadjYu -       & 
+&  50*gBLp3*TrYuadjYu - 50*gBL*gBYp2*TrYuadjYu - 260*gBL*gYBp2*TrYuadjYu -               & 
+&  25*g1*gBL*gBY*sqrt10*TrYuadjYu - 50*gYB*gBLp2*sqrt10*TrYuadjYu - 25*gYB*gBYp2*sqrt10*TrYuadjYu -& 
+&  60*g1*gYB*gBY*TrYvadjYv - 150*gBLp3*TrYvadjYv - 150*gBL*gBYp2*TrYvadjYv -             & 
+&  60*gBL*gYBp2*TrYvadjYv - 15*g1*gBL*gBY*sqrt10*TrYvadjYv - 30*gYB*gBLp2*sqrt10*TrYvadjYv -& 
+&  15*gYB*gBYp2*sqrt10*TrYvadjYv - 450*gBLp3*TrYxCYx - 450*gBL*gBYp2*TrYxCYx)/50._dp
 
  
 DgBL = oo16pi2*( betagBL1 + oo16pi2 * betagBL2 ) 
@@ -6470,8 +6447,8 @@ If (.not.KineticMixing) DgYB  = 0._dp
 ! gBY 
 !-------------------- 
  
-betagBY1  = (3*(11*g1*gYB*gBL + 11*g1p2*gBY + 15*gBY*(gBLp2 + gBYp2) + 2*gYB*gBL*gBY*sqrt10 +& 
-&  2*g1*(gBLp2 + 2._dp*(gBYp2))*sqrt10))/5._dp
+betagBY1  = (3*(11*g1p2*gBY + gBY*(15*(gBLp2 + gBYp2) + 2*gYB*gBL*sqrt10)             & 
+&  + g1*(11*gYB*gBL + 2*(gBLp2 + 2._dp*(gBYp2))*sqrt10)))/5._dp
 
  
  
@@ -6486,16 +6463,15 @@ betagBY2 = (398*gYB*g1p3*gBL + 270*g1*gYB*g2p2*gBL + 880*g1*gYB*g3p2*gBL + 398*g
 &  210*gYB*gBY*gBLp3*sqrt10 + 70*g1*gBLp4*sqrt10 + 328*g1p3*gBYp2*sqrt10 +               & 
 &  180*g1*g2p2*gBYp2*sqrt10 + 160*g1*g3p2*gBYp2*sqrt10 + 350*g1*gBLp2*gBYp2*sqrt10 +     & 
 &  210*gYB*gBL*gBYp3*sqrt10 + 280*g1*gBYp4*sqrt10 + 246*g1*gBLp2*gYBp2*sqrt10 +          & 
-&  164*g1*gBYp2*gYBp2*sqrt10 + 82*gBL*gBY*gYBp3*sqrt10 - 5*(28*g1*gYB*gBL +              & 
-&  28*g1p2*gBY + 10*gBY*(gBLp2 + gBYp2) - gYB*gBL*gBY*sqrt10 - g1*(gBLp2 +               & 
-&  2._dp*(gBYp2))*sqrt10)*TrYdadjYd - 15*(12*g1*gYB*gBL + 12*g1p2*gBY + 10*gBY*(gBLp2 +  & 
-&  gBYp2) + 3*gYB*gBL*gBY*sqrt10 + 3*g1*(gBLp2 + 2._dp*(gBYp2))*sqrt10)*TrYeadjYe -      & 
-&  260*g1*gYB*gBL*TrYuadjYu - 260*g1p2*gBY*TrYuadjYu - 50*gBY*gBLp2*TrYuadjYu -          & 
-&  50*gBYp3*TrYuadjYu - 25*gYB*gBL*gBY*sqrt10*TrYuadjYu - 25*g1*gBLp2*sqrt10*TrYuadjYu - & 
-&  50*g1*gBYp2*sqrt10*TrYuadjYu - 60*g1*gYB*gBL*TrYvadjYv - 60*g1p2*gBY*TrYvadjYv -      & 
-&  150*gBY*gBLp2*TrYvadjYv - 150*gBYp3*TrYvadjYv - 15*gYB*gBL*gBY*sqrt10*TrYvadjYv -     & 
-&  15*g1*gBLp2*sqrt10*TrYvadjYv - 30*g1*gBYp2*sqrt10*TrYvadjYv - 450*gBY*gBLp2*TrYxCYx - & 
-&  450*gBYp3*TrYxCYx)/50._dp
+&  164*g1*gBYp2*gYBp2*sqrt10 + 82*gBL*gBY*gYBp3*sqrt10 - 5*(28*g1p2*gBY + 10*gBY*(gBLp2 +& 
+&  gBYp2) - gYB*gBL*gBY*sqrt10 + g1*(28*gYB*gBL - (gBLp2 + 2._dp*(gBYp2))*sqrt10))*TrYdadjYd -& 
+&  15*(12*g1p2*gBY + gBY*(10*(gBLp2 + gBYp2) + 3*gYB*gBL*sqrt10) + 3*g1*(4*gYB*gBL +     & 
+&  (gBLp2 + 2._dp*(gBYp2))*sqrt10))*TrYeadjYe - 260*g1*gYB*gBL*TrYuadjYu -               & 
+&  260*g1p2*gBY*TrYuadjYu - 50*gBY*gBLp2*TrYuadjYu - 50*gBYp3*TrYuadjYu - 25*gYB*gBL*gBY*sqrt10*TrYuadjYu -& 
+&  25*g1*gBLp2*sqrt10*TrYuadjYu - 50*g1*gBYp2*sqrt10*TrYuadjYu - 60*g1*gYB*gBL*TrYvadjYv -& 
+&  60*g1p2*gBY*TrYvadjYv - 150*gBY*gBLp2*TrYvadjYv - 150*gBYp3*TrYvadjYv -               & 
+&  15*gYB*gBL*gBY*sqrt10*TrYvadjYv - 15*g1*gBLp2*sqrt10*TrYvadjYv - 30*g1*gBYp2*sqrt10*TrYvadjYv -& 
+&  450*gBY*gBLp2*TrYxCYx - 450*gBYp3*TrYxCYx)/50._dp
 
  
 DgBY = oo16pi2*( betagBY1 + oo16pi2 * betagBY2 ) 
@@ -6513,7 +6489,7 @@ If (.not.KineticMixing) DgBY  = 0._dp
  
 betaYd1  = ((-14._dp*(g1p2) - 90._dp*(g2p2) - 160._dp*(g3p2) - 5._dp*(gBLp2)          & 
 &  - 5._dp*(gBYp2) - 14._dp*(gYBp2) + gYB*gBL*sqrt10 + g1*gBY*sqrt10 + 90._dp*(TrYdadjYd)& 
-&  + 30._dp*(TrYeadjYe))*Yd)/30._dp + 3._dp*(YdadjYdYd) + YdadjYuYu
+&  + 30._dp*(TrYeadjYe))*Yd + 30*(3._dp*(YdadjYdYd) + YdadjYuYu))/30._dp
 
  
  
@@ -6553,8 +6529,8 @@ Call Chop(DYd)
 ! Ye 
 !-------------------- 
  
-betaYe1  = ((-3*(6._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 6._dp*(gYBp2)      & 
-&  + 3*gYB*gBL*sqrt10 + 3*g1*gBY*sqrt10) + 30._dp*(TrYdadjYd) + 10._dp*(TrYeadjYe))      & 
+betaYe1  = -((3*(6._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 6._dp*(gYBp2)      & 
+&  + 3*gYB*gBL*sqrt10 + 3*g1*gBY*sqrt10) - 30._dp*(TrYdadjYd) - 10._dp*(TrYeadjYe))      & 
 & *Ye)/10._dp + 3._dp*(YeadjYeYe) + YeadjYvYv
 
  
@@ -6592,9 +6568,9 @@ Call Chop(DYe)
 ! Yu 
 !-------------------- 
  
-betaYu1  = -((26._dp*(g1p2) + 90._dp*(g2p2) + 160._dp*(g3p2) + 5._dp*(gBLp2)          & 
+betaYu1  = (-((26._dp*(g1p2) + 90._dp*(g2p2) + 160._dp*(g3p2) + 5._dp*(gBLp2)         & 
 &  + 5._dp*(gBYp2) + 26._dp*(gYBp2) + 5*gYB*gBL*sqrt10 + 5*g1*gBY*sqrt10 -               & 
-&  90._dp*(TrYuadjYu) - 30._dp*(TrYvadjYv))*Yu)/30._dp + YuadjYdYd + 3._dp*(YuadjYuYu)
+&  90._dp*(TrYuadjYu) - 30._dp*(TrYvadjYv))*Yu) + 30*(YuadjYdYd + 3._dp*(YuadjYuYu)))/30._dp
 
  
  
@@ -6634,7 +6610,7 @@ Call Chop(DYu)
 ! Yx 
 !-------------------- 
  
-betaYx1  = (-9*(gBLp2 + gBYp2)*Yx)/2._dp + 2*TrYxCYx*Yx + 2*(YvadjYvYx +              & 
+betaYx1  = -((9*(gBLp2 + gBYp2) - 4._dp*(TrYxCYx))*Yx)/2._dp + 2*(YvadjYvYx +         & 
 &  YxCYvTpYv + 4._dp*(YxCYxYx))
 
  
@@ -6668,8 +6644,8 @@ Call Chop(DYx)
 ! Yv 
 !-------------------- 
  
-betaYv1  = ((-3*(2._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 2._dp*(gYBp2)      & 
-&  + gYB*gBL*sqrt10 + g1*gBY*sqrt10) + 30._dp*(TrYuadjYu) + 10._dp*(TrYvadjYv))          & 
+betaYv1  = -((3*(2._dp*(g1p2) + 5*(2._dp*(g2p2) + gBLp2 + gBYp2) + 2._dp*(gYBp2)      & 
+&  + gYB*gBL*sqrt10 + g1*gBY*sqrt10) - 30._dp*(TrYuadjYu) - 10._dp*(TrYvadjYv))          & 
 & *Yv)/10._dp + YvadjYeYe + 3._dp*(YvadjYvYv) + 4._dp*(YxCYxYv)
 
  
@@ -6714,10 +6690,10 @@ betaMuP1  = 2*MuP*(-3*(gBLp2 + gBYp2) + TrYxCYx)
  
  
 If (TwoLoopRGE) Then 
-betaMuP2 = (18*MuP*(20._dp*(gBLp4) + 11*gBLp2*gYBp2 + 4*gYB*gBLp3*sqrt10 + 4*gBY*gBLp2*(10._dp*(gBY) +& 
-&  g1*sqrt10) + 2*gYB*gBL*gBY*(11._dp*(g1) + 2*gBY*sqrt10) + gBYp2*(11._dp*(g1p2) +      & 
-&  20._dp*(gBYp2) + 4*g1*gBY*sqrt10)))/5._dp - 3*(gBLp2 + gBYp2)*MuP*TrYxCYx -           & 
-&  8*MuP*TrYxCYxYvadjYv - 16*MuP*TrYxCYxYxCYx
+betaMuP2 = (MuP*(-15*(gBLp2 + gBYp2)*TrYxCYx + 2*(9*(20._dp*(gBLp4) + 11*gBLp2*gYBp2 +           & 
+&  4*gBY*gBLp2*(10._dp*(gBY) + g1*sqrt10) + gBYp2*(11._dp*(g1p2) + 20._dp*(gBYp2) +      & 
+&  4*g1*gBY*sqrt10) + gYB*(4*gBLp3*sqrt10 + 2*gBL*gBY*(11._dp*(g1) + 2*gBY*sqrt10))) -   & 
+&  20._dp*(TrYxCYxYvadjYv) - 40._dp*(TrYxCYxYxCYx))))/5._dp
 
  
 DMuP = oo16pi2*( betaMuP1 + oo16pi2 * betaMuP2 ) 
@@ -7195,8 +7171,8 @@ Call Chop(DTv)
 ! BMuP 
 !-------------------- 
  
-betaBMuP1  = 4*MuP*(3*gBYp2*M1 + 6*gBL*gBY*MBBp + 3*gBLp2*MBp + TrCYxTx)              & 
-&  + 2*(-3*(gBLp2 + gBYp2) + TrYxCYx)*BMuP
+betaBMuP1  = 2*(2*MuP*(3*gBYp2*M1 + 6*gBL*gBY*MBBp + 3*gBLp2*MBp + TrCYxTx)           & 
+&  + (-3*(gBLp2 + gBYp2) + TrYxCYx)*BMuP)
 
  
  
@@ -7209,11 +7185,10 @@ betaBMuP2 = (-2*MuP*(15*(gBLp2 + gBYp2)*TrCYxTx - 15*(gBYp2*M1 + 2*gBL*gBY*MBBp 
 &  36*g1*gBYp3*M1*sqrt10 + 54*gYB*gBY*gBLp2*MBBp*sqrt10 + 18*g1*gBLp3*MBBp*sqrt10 +      & 
 &  54*g1*gBL*gBYp2*MBBp*sqrt10 + 18*gYB*gBYp3*MBBp*sqrt10 + 18*g1*gBY*gBLp2*MBp*sqrt10 + & 
 &  36*gYB*gBLp3*MBp*sqrt10 + 18*gYB*gBL*gBYp2*MBp*sqrt10 + 10._dp*(TrYvadjYvTxCYx) +     & 
-&  10._dp*(TrYxCYxTvadjYv) + 40._dp*(TrYxCYxTxCYx))) + (18*(20._dp*(gBLp4) +             & 
-&  11*gBLp2*gYBp2 + 4*gYB*gBLp3*sqrt10 + 4*gBY*gBLp2*(10._dp*(gBY) + g1*sqrt10) +        & 
-&  2*gYB*gBL*gBY*(11._dp*(g1) + 2*gBY*sqrt10) + gBYp2*(11._dp*(g1p2) + 20._dp*(gBYp2) +  & 
-&  4*g1*gBY*sqrt10)) - 15*(gBLp2 + gBYp2)*TrYxCYx - 40._dp*(TrYxCYxYvadjYv) -            & 
-&  80._dp*(TrYxCYxYxCYx))*BMuP)/5._dp
+&  10._dp*(TrYxCYxTvadjYv) + 40._dp*(TrYxCYxTxCYx))) + (-15*(gBLp2 + gBYp2)*TrYxCYx +    & 
+&  2*(9*(20._dp*(gBLp4) + 11*gBLp2*gYBp2 + 4*gBY*gBLp2*(10._dp*(gBY) + g1*sqrt10) +      & 
+&  gBYp2*(11._dp*(g1p2) + 20._dp*(gBYp2) + 4*g1*gBY*sqrt10) + gYB*(4*gBLp3*sqrt10 +      & 
+&  2*gBL*gBY*(11._dp*(g1) + 2*gBY*sqrt10))) - 20._dp*(TrYxCYxYvadjYv) - 40._dp*(TrYxCYxYxCYx)))*BMuP)/5._dp
 
  
 DBMuP = oo16pi2*( betaBMuP1 + oo16pi2 * betaBMuP2 ) 
@@ -7295,18 +7270,18 @@ Call Chop(DBmu)
 ! mq2 
 !-------------------- 
  
-betamq21  = 2._dp*(adjTdTd) + 2._dp*(adjTuTu) + 2._dp*(adjYdmd2Yd) + adjYdYdmq2 +     & 
-&  2._dp*(adjYumu2Yu) + adjYuYumq2 - 6*AbsM2*g2p2*id3R - (32*AbsM3*g3p2*id3R)            & 
-& /3._dp - (AbsMBp*gBLp2*id3R)/3._dp - (2*AbsMBp*gYBp2*id3R)/15._dp + 2*adjYdYd*mHd2 +   & 
-&  2*adjYuYu*mHu2 + mq2adjYdYd + mq2adjYuYu - (2*AbsMBp*gYB*gBL*id3R*sqrt2ov5)           & 
-& /3._dp - (id3R*(2*g1p2*M1 + gBY*(5*gBY*M1 + 5*gBL*MBBp + gYB*MBBp*sqrt10)              & 
-&  + g1*(2*gYB*MBBp + 2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*Conjg(M1))/15._dp -            & 
-&  (id3R*(2*g1p2*MBBp + 2*gYBp2*MBBp + 5*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 +        & 
-&  MBp)) + gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10 + g1*(2*gYB*(M1 + MBp)               & 
-&  + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10))*Conjg(MBBp))/15._dp - (2*g1*gYB*id3R*MBBp*Conjg(MBp))& 
-& /15._dp - (gBL*gBY*id3R*MBBp*Conjg(MBp))/3._dp - (g1*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))& 
-& /3._dp - (gYB*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp + g1*id3R*ooSqrt15*Tr1(1)       & 
-&  + gBY*id3R*ooSqrt6*Tr1(1) + gYB*id3R*ooSqrt15*Tr1(4) + gBL*id3R*ooSqrt6*Tr1(4)
+betamq21  = (60._dp*(adjTdTd) + 60._dp*(adjTuTu) + 60._dp*(adjYdmd2Yd) +              & 
+&  30._dp*(adjYdYdmq2) + 60._dp*(adjYumu2Yu) + 30._dp*(adjYuYumq2) - 180*AbsM2*g2p2*id3R -& 
+&  320*AbsM3*g3p2*id3R - 10*AbsMBp*gBLp2*id3R - 4*AbsMBp*gYBp2*id3R + 60*adjYdYd*mHd2 +  & 
+&  60*adjYuYu*mHu2 + 30._dp*(mq2adjYdYd) + 30._dp*(mq2adjYuYu) - 4*AbsMBp*gYB*gBL*id3R*sqrt10 -& 
+&  2*id3R*(2*g1p2*M1 + gBY*(5*gBY*M1 + 5*gBL*MBBp + gYB*MBBp*sqrt10) + g1*(2*gYB*MBBp +  & 
+&  2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*Conjg(M1) - 2*id3R*(2*g1p2*MBBp + 2*gYBp2*MBBp +  & 
+&  5*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp)) + gYB*(2*gBL*MBBp + gBY*(M1 +        & 
+&  MBp))*sqrt10 + g1*(2*gYB*(M1 + MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10))          & 
+& *Conjg(MBBp) - 4*g1*gYB*id3R*MBBp*Conjg(MBp) - 10*gBL*gBY*id3R*MBBp*Conjg(MBp)         & 
+&  - 2*g1*gBL*id3R*MBBp*sqrt10*Conjg(MBp) - 2*gYB*gBY*id3R*MBBp*sqrt10*Conjg(MBp)        & 
+&  + 2*g1*id3R*sqrt15*Tr1(1) + 5*gBY*id3R*sqrt6*Tr1(1) + 2*gYB*id3R*sqrt15*Tr1(4)        & 
+&  + 5*gBL*id3R*sqrt6*Tr1(4))/30._dp
 
  
  
@@ -7535,9 +7510,9 @@ betaml22 =  betaml22- 3*ml2adjYeYe*TrYdadjYd - 2*adjTeTe*TrYeadjYe - 2*adjYeme2Y
 &  24*gBY*M1*sqrt10 + 8*gBL*MBBp*sqrt10) + 2*g1p2*(46*gYBp2*(2._dp*(M1) + MBp) +         & 
 &  5*(9*(24*gBYp2*M1 + 16*gBL*gBY*MBBp + gBLp2*(2._dp*(M1) + MBp)) + 2*g2p2*(2._dp*(M1) +& 
 &  M2)) + 32*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) + gBY*(90*gYBp2*(8*gBL*MBBp +& 
-&  gBY*(2._dp*(M1) + MBp)) + 325*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp +         & 
-&  gBY*gBLp2*(2._dp*(M1) + MBp)) + 50*g2p2*(2*gBL*MBBp + gBY*(2._dp*(M1) +               & 
-&  M2)) + 64*gYBp3*MBBp*sqrt10 + 10*gYB*(33*gBLp2*MBBp + 2*(g2p2 + 11._dp*(gBYp2))*MBBp +& 
+&  gBY*(2._dp*(M1) + MBp)) + 25*(13*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp +      & 
+&  gBY*gBLp2*(2._dp*(M1) + MBp)) + 2*g2p2*(2*gBL*MBBp + gBY*(2._dp*(M1) + M2))) +        & 
+&  64*gYBp3*MBBp*sqrt10 + 10*gYB*(33*gBLp2*MBBp + 2*(g2p2 + 11._dp*(gBYp2))*MBBp +       & 
 &  11*gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) + 2*g1*(92*gYBp3*MBBp + 10*gYB*(36*gBLp2*MBBp +& 
 &  2*(g2p2 + 36._dp*(gBYp2))*MBBp + 27*gBL*gBY*(2._dp*(M1) + MBp)) + 32*gYBp2*(3*gBL*MBBp +& 
 &  gBY*(2._dp*(M1) + MBp))*sqrt10 + 5*(11*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp +  & 
@@ -7546,24 +7521,24 @@ betaml22 =  betaml22- 3*ml2adjYeYe*TrYdadjYd - 2*adjTeTe*TrYeadjYe - 2*adjYeme2Y
 &  adjYeTe*g1*(4._dp*(g1) + gBY*sqrt10) + adjYeYe*(8*g1p2*M1 + gYB*gBY*MBBp*sqrt10 +     & 
 &  g1*(8*gYB*MBBp + 2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))))*Conjg(M1))/100._dp +           & 
 &  (3*(3*id3R*(92*g1p4*MBBp + 92*gYBp4*MBBp + 10*gYBp2*(72*gBLp2*MBBp + (2._dp*(g2p2) +  & 
-&  45._dp*(gBYp2))*MBBp + 36*gBL*gBY*(M1 + 2._dp*(MBp))) + 325*(gBLp4*MBBp +             & 
+&  45._dp*(gBYp2))*MBBp + 36*gBL*gBY*(M1 + 2._dp*(MBp))) + 25*(13*(gBLp4*MBBp +          & 
 &  4*gBLp2*gBYp2*MBBp + gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 +      & 
-&  2._dp*(MBp))) + 50*g2p2*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp + M2)) +         & 
+&  2._dp*(MBp))) + 2*g2p2*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp + M2))) +         & 
 &  32*gYBp3*(4*gBL*MBBp + gBY*(M1 + 2._dp*(MBp)))*sqrt10 + 5*gYB*(11*(4*gBLp3*MBBp +     & 
 &  8*gBL*gBYp2*MBBp + gBYp3*(2._dp*(M1) + MBp) + 3*gBY*gBLp2*(M1 + 2._dp*(MBp))) +       & 
 &  2*g2p2*(2*gBL*MBBp + gBY*(M1 + MBp + M2)))*sqrt10 + 4*g1p3*(23*gYB*(2._dp*(M1) +      & 
 &  MBp) + 8*(2*gBL*M1 + 4*gBY*MBBp + gBL*MBp)*sqrt10) + 2*g1p2*(184*gYBp2*MBBp +         & 
 &  5*(45*gBLp2*MBBp + 2*(g2p2 + 36._dp*(gBYp2))*MBBp + 36*gBL*gBY*(2._dp*(M1) +          & 
 &  MBp)) + 16*gYB*(8*gBL*MBBp + 3*gBY*(2._dp*(M1) + MBp))*sqrt10) + g1*(92*gYBp3*(M1 +   & 
-&  2._dp*(MBp)) + 20*gYB*(99*gBL*gBY*MBBp + 18*gBYp2*(2._dp*(M1) + MBp) + 18*gBLp2*(M1 + & 
-&  2._dp*(MBp)) + g2p2*(M1 + MBp + M2)) + 32*gYBp2*(8*gBY*MBBp + 3*gBL*(M1 +             & 
-&  2._dp*(MBp)))*sqrt10 + 5*(11*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) +& 
-&  MBp) + gBLp3*(M1 + 2._dp*(MBp))) + 2*g2p2*(2*gBY*MBBp + gBL*(M1 + MBp +               & 
-&  M2)))*sqrt10)) + 10*((adjYvTv*(g1*gBL + gYB*gBY) - adjYvYv*(2*gYB*gBL*MBBp +          & 
-&  2*g1*gBY*MBBp + g1*gBL*(M1 + MBp) + gYB*gBY*(M1 + MBp)))*sqrt10 - adjYeTe*(8*g1*gYB + & 
-&  g1*gBL*sqrt10 + gYB*gBY*sqrt10) + adjYeYe*(8*g1p2*MBBp + 8*g1*gYB*(M1 +               & 
-&  MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10 +          & 
-&  2*gYB*MBBp*(4._dp*(gYB) + gBL*sqrt10))))*Conjg(MBBp))/50._dp - (12*adjYeTe*gYBp2*Conjg(MBp))/5._dp  
+&  2._dp*(MBp)) + 20*gYB*(9*(11*gBL*gBY*MBBp + 2*gBYp2*(2._dp*(M1) + MBp) +              & 
+&  2*gBLp2*(M1 + 2._dp*(MBp))) + g2p2*(M1 + MBp + M2)) + 32*gYBp2*(8*gBY*MBBp +          & 
+&  3*gBL*(M1 + 2._dp*(MBp)))*sqrt10 + 5*(11*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp +           & 
+&  3*gBL*gBYp2*(2._dp*(M1) + MBp) + gBLp3*(M1 + 2._dp*(MBp))) + 2*g2p2*(2*gBY*MBBp +     & 
+&  gBL*(M1 + MBp + M2)))*sqrt10)) + 10*((adjYvTv*(g1*gBL + gYB*gBY) - adjYvYv*(g1*(2*gBY*MBBp +& 
+&  gBL*(M1 + MBp)) + gYB*(2*gBL*MBBp + gBY*(M1 + MBp))))*sqrt10 - adjYeTe*(8*g1*gYB +    & 
+&  g1*gBL*sqrt10 + gYB*gBY*sqrt10) + adjYeYe*(8*g1p2*MBBp + g1*(8*gYB*(M1 +              & 
+&  MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) + gYB*(gBY*(M1 + MBp)*sqrt10 +           & 
+&  2*MBBp*(4._dp*(gYB) + gBL*sqrt10)))))*Conjg(MBBp))/50._dp - (12*adjYeTe*gYBp2*Conjg(MBp))/5._dp  
 betaml22 =  betaml22+ (243*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/5._dp + (81*g1p2*gBLp2*id3R*M1*Conjg(MBp))/10._dp +& 
 &  (117*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/4._dp + (207*g1p2*gYBp2*id3R*M1*Conjg(MBp))/25._dp +& 
 &  (81*gBYp2*gYBp2*id3R*M1*Conjg(MBp))/10._dp + (24*adjYeYe*g1*gYB*MBBp*Conjg(MBp))/5._dp +& 
@@ -7614,12 +7589,11 @@ Dml2 = 0.5_dp*(Dml2+ Conjg(Transpose(Dml2)) )
 ! mHd2 
 !-------------------- 
  
-betamHd21  = -6*AbsM2*g2p2 - (6*AbsMBp*gYBp2)/5._dp + 6._dp*(TrCTdTpTd)               & 
-&  + 2._dp*(TrCTeTpTe) + 6._dp*(Trmd2YdadjYd) + 2._dp*(Trme2YeadjYe) + 2._dp*(Trml2adjYeYe)& 
-&  + 6._dp*(Trmq2adjYdYd) + 6*mHd2*TrYdadjYd + 2*mHd2*TrYeadjYe - (6*g1*(g1*M1 +         & 
-&  gYB*MBBp)*Conjg(M1))/5._dp - (6*(g1p2*MBBp + gYBp2*MBBp + g1*gYB*(M1 + MBp))          & 
-& *Conjg(MBBp))/5._dp - (6*g1*gYB*MBBp*Conjg(MBp))/5._dp - g1*sqrt3ov5*Tr1(1)            & 
-&  - gYB*sqrt3ov5*Tr1(4)
+betamHd21  = (-30*AbsM2*g2p2 - 6*AbsMBp*gYBp2 + 30._dp*(TrCTdTpTd) + 10._dp*(TrCTeTpTe)& 
+&  + 30._dp*(Trmd2YdadjYd) + 10._dp*(Trme2YeadjYe) + 10._dp*(Trml2adjYeYe)               & 
+&  + 30._dp*(Trmq2adjYdYd) + 30*mHd2*TrYdadjYd + 10*mHd2*TrYeadjYe - 6*g1*(g1*M1 +       & 
+&  gYB*MBBp)*Conjg(M1) - 6*(g1p2*MBBp + gYBp2*MBBp + g1*gYB*(M1 + MBp))*Conjg(MBBp)      & 
+&  - 6*g1*gYB*MBBp*Conjg(MBp) - g1*sqrt15*Tr1(1) - gYB*sqrt15*Tr1(4))/5._dp
 
  
  
@@ -7722,67 +7696,66 @@ End If
 ! mHu2 
 !-------------------- 
  
-betamHu21  = -6*AbsM2*g2p2 - (6*AbsMBp*gYBp2)/5._dp + 6._dp*(TrCTuTpTu)               & 
-&  + 2._dp*(TrCTvTpTv) + 2._dp*(Trml2adjYvYv) + 6._dp*(Trmq2adjYuYu) + 6._dp*(Trmu2YuadjYu)& 
-&  + 2._dp*(Trmv2YvadjYv) + 6*mHu2*TrYuadjYu + 2*mHu2*TrYvadjYv - (6*g1*(g1*M1 +         & 
-&  gYB*MBBp)*Conjg(M1))/5._dp - (6*(g1p2*MBBp + gYBp2*MBBp + g1*gYB*(M1 + MBp))          & 
-& *Conjg(MBBp))/5._dp - (6*g1*gYB*MBBp*Conjg(MBp))/5._dp + g1*sqrt3ov5*Tr1(1)            & 
-&  + gYB*sqrt3ov5*Tr1(4)
+betamHu21  = (-30*AbsM2*g2p2 - 6*AbsMBp*gYBp2 + 30._dp*(TrCTuTpTu) + 10._dp*(TrCTvTpTv)& 
+&  + 10._dp*(Trml2adjYvYv) + 30._dp*(Trmq2adjYuYu) + 30._dp*(Trmu2YuadjYu)               & 
+&  + 10._dp*(Trmv2YvadjYv) + 30*mHu2*TrYuadjYu + 10*mHu2*TrYvadjYv - 6*g1*(g1*M1 +       & 
+&  gYB*MBBp)*Conjg(M1) - 6*(g1p2*MBBp + gYBp2*MBBp + g1*gYB*(M1 + MBp))*Conjg(MBBp)      & 
+&  - 6*g1*gYB*MBBp*Conjg(MBp) + g1*sqrt15*Tr1(1) + gYB*sqrt15*Tr1(4))/5._dp
 
  
  
 If (TwoLoopRGE) Then 
-betamHu22 = (18*AbsM2*g1p2*g2p2)/5._dp + 33*AbsM2*g2p4 + (108*AbsMBp*g1*gYB*gBL*gBY)/5._dp +      & 
-&  (414*AbsMBp*g1p2*gYBp2)/25._dp + (18*AbsM2*g2p2*gYBp2)/5._dp + (18*AbsMBp*g2p2*gYBp2)/5._dp +& 
-&  (162*AbsMBp*gBLp2*gYBp2)/5._dp + (621*AbsMBp*gYBp4)/25._dp + (72*AbsMBp*gYB*g1p2*gBL*sqrt2ov5)/5._dp +& 
-&  (72*AbsMBp*g1*gBY*gYBp2*sqrt2ov5)/5._dp + (216*AbsMBp*gBL*gYBp3*sqrt2ov5)/5._dp +     & 
-&  (8*g1p2*TrCTuTpTu)/5._dp + 32*g3p2*TrCTuTpTu + gBLp2*TrCTuTpTu + gBYp2*TrCTuTpTu +    & 
-&  (8*gYBp2*TrCTuTpTu)/5._dp + gYB*gBL*sqrt10*TrCTuTpTu + g1*gBY*sqrt10*TrCTuTpTu -      & 
-&  (8*g1p2*M1*TrCTuTpYu)/5._dp - gBYp2*M1*TrCTuTpYu - (16*g1*gYB*MBBp*TrCTuTpYu)/5._dp - & 
-&  2*gBL*gBY*MBBp*TrCTuTpYu - gBLp2*MBp*TrCTuTpYu - (8*gYBp2*MBp*TrCTuTpYu)/5._dp -      & 
-&  32*g3p2*M3*TrCTuTpYu - g1*gBY*M1*sqrt10*TrCTuTpYu - g1*gBL*MBBp*sqrt10*TrCTuTpYu -    & 
-&  gYB*gBY*MBBp*sqrt10*TrCTuTpYu - gYB*gBL*MBp*sqrt10*TrCTuTpYu + 3*gBLp2*TrCTvTpTv +    & 
-&  3*gBYp2*TrCTvTpTv + 3*gYB*gBL*sqrt2ov5*TrCTvTpTv + 3*g1*gBY*sqrt2ov5*TrCTvTpTv -      & 
-&  3*gBYp2*M1*TrCTvTpYv - 6*gBL*gBY*MBBp*TrCTvTpYv - 3*gBLp2*MBp*TrCTvTpYv -             & 
-&  3*g1*gBY*M1*sqrt2ov5*TrCTvTpYv - 3*g1*gBL*MBBp*sqrt2ov5*TrCTvTpYv - 3*gYB*gBY*MBBp*sqrt2ov5*TrCTvTpYv -& 
-&  3*gYB*gBL*MBp*sqrt2ov5*TrCTvTpYv - 8._dp*(TrCYxTxCTvTpYv) - 6._dp*(Trmd2YdadjYuYuadjYd) -& 
-&  2._dp*(Trme2YeadjYvYvadjYe) - 2._dp*(Trml2adjYeYeadjYvYv) + 3*gBLp2*Trml2adjYvYv +    & 
-&  3*gBYp2*Trml2adjYvYv + 3*gYB*gBL*sqrt2ov5*Trml2adjYvYv + 3*g1*gBY*sqrt2ov5*Trml2adjYvYv -& 
-&  2._dp*(Trml2adjYvYvadjYeYe) - 12._dp*(Trml2adjYvYvadjYvYv) - 8._dp*(Trml2adjYvYxCYxYv) -& 
-&  6._dp*(Trmq2adjYdYdadjYuYu) + (8*g1p2*Trmq2adjYuYu)/5._dp + 32*g3p2*Trmq2adjYuYu +    & 
-&  gBLp2*Trmq2adjYuYu + gBYp2*Trmq2adjYuYu + (8*gYBp2*Trmq2adjYuYu)/5._dp +              & 
-&  gYB*gBL*sqrt10*Trmq2adjYuYu + g1*gBY*sqrt10*Trmq2adjYuYu - 6._dp*(Trmq2adjYuYuadjYdYd) -& 
-&  36._dp*(Trmq2adjYuYuadjYuYu) - 6._dp*(Trmu2YuadjYdYdadjYu) + (8*g1p2*Trmu2YuadjYu)/5._dp  
-betamHu22 =  betamHu22+ 32*g3p2*Trmu2YuadjYu + gBLp2*Trmu2YuadjYu + gBYp2*Trmu2YuadjYu + (8*gYBp2*Trmu2YuadjYu)/5._dp +& 
-&  gYB*gBL*sqrt10*Trmu2YuadjYu + g1*gBY*sqrt10*Trmu2YuadjYu - 36._dp*(Trmu2YuadjYuYuadjYu) -& 
-&  2._dp*(Trmv2YvadjYeYeadjYv) + 3*gBLp2*Trmv2YvadjYv + 3*gBYp2*Trmv2YvadjYv +           & 
-&  3*gYB*gBL*sqrt2ov5*Trmv2YvadjYv + 3*g1*gBY*sqrt2ov5*Trmv2YvadjYv - 12._dp*(Trmv2YvadjYvYvadjYv) -& 
-&  8._dp*(Trmv2YvadjYvYxCYx) - 8._dp*(Trmv2YxCYxYvadjYv) - 6._dp*(TrYdadjTuTuadjYd) -    & 
-&  6._dp*(TrYdadjYuTuadjTd) - 6*mHd2*TrYdadjYuYuadjYd - 6*mHu2*TrYdadjYuYuadjYd -        & 
-&  2._dp*(TrYeadjTvTvadjYe) - 2._dp*(TrYeadjYvTvadjTe) - 2*mHd2*TrYeadjYvYvadjYe -       & 
-&  2*mHu2*TrYeadjYvYvadjYe - 6._dp*(TrYuadjTdTdadjYu) - 36._dp*(TrYuadjTuTuadjYu) -      & 
-&  6._dp*(TrYuadjYdTdadjTu) + 64*AbsM3*g3p2*TrYuadjYu + 2*AbsMBp*gBLp2*TrYuadjYu +       & 
-&  (16*AbsMBp*gYBp2*TrYuadjYu)/5._dp + (8*g1p2*mHu2*TrYuadjYu)/5._dp + 32*g3p2*mHu2*TrYuadjYu +& 
-&  gBLp2*mHu2*TrYuadjYu + gBYp2*mHu2*TrYuadjYu + (8*gYBp2*mHu2*TrYuadjYu)/5._dp +        & 
-&  2*AbsMBp*gYB*gBL*sqrt10*TrYuadjYu + gYB*gBL*mHu2*sqrt10*TrYuadjYu + g1*gBY*mHu2*sqrt10*TrYuadjYu -& 
-&  36._dp*(TrYuadjYuTuadjTu) - 36*mHu2*TrYuadjYuYuadjYu - 2._dp*(TrYvadjTeTeadjYv) -     & 
-&  12._dp*(TrYvadjTvTvadjYv) - 2._dp*(TrYvadjYeTeadjTv) + 6*AbsMBp*gBLp2*TrYvadjYv +     & 
-&  3*gBLp2*mHu2*TrYvadjYv + 3*gBYp2*mHu2*TrYvadjYv + 6*AbsMBp*gYB*gBL*sqrt2ov5*TrYvadjYv +& 
-&  3*gYB*gBL*mHu2*sqrt2ov5*TrYvadjYv + 3*g1*gBY*mHu2*sqrt2ov5*TrYvadjYv - 12._dp*(TrYvadjYvTvadjTv) -& 
-&  8._dp*(TrYvadjYvTxCTx) - 12*mHu2*TrYvadjYvYvadjYv - 8._dp*(TrYxCmv2CYxYvadjYv) -      & 
-&  8._dp*(TrYxCTxTvadjYv) - 8._dp*(TrYxCYxTvadjTv) - 8*mC12*TrYxCYxYvadjYv -             & 
-&  8*mHu2*TrYxCYxYvadjYv + ((621*g1p4*M1 + 90*g1p2*g2p2*M1 + 540*g1*gYB*gBL*gBY*M1 +     & 
-&  810*g1p2*gBYp2*M1 + 414*g1p2*gYBp2*M1 + 828*gYB*g1p3*MBBp + 90*g1*gYB*g2p2*MBBp +     & 
-&  540*g1p2*gBL*gBY*MBBp + 270*g1*gYB*gBLp2*MBBp + 540*g1*gYB*gBYp2*MBBp +               & 
-&  270*gBL*gBY*gYBp2*MBBp + 414*g1*gYBp3*MBBp + 270*g1*gYB*gBL*gBY*MBp + 207*g1p2*gYBp2*MBp +& 
-&  45*g1p2*g2p2*M2 + 72*gYB*g1p2*gBL*M1*sqrt10 + 216*g1p3*gBY*M1*sqrt10 + 72*g1*gBY*gYBp2*M1*sqrt10 +& 
+betamHu22 = (90*AbsM2*g1p2*g2p2 + 825*AbsM2*g2p4 + 540*AbsMBp*g1*gYB*gBL*gBY + 414*AbsMBp*g1p2*gYBp2 +& 
+&  90*AbsM2*g2p2*gYBp2 + 90*AbsMBp*g2p2*gYBp2 + 810*AbsMBp*gBLp2*gYBp2 + 621*AbsMBp*gYBp4 +& 
+&  72*AbsMBp*gYB*g1p2*gBL*sqrt10 + 72*AbsMBp*g1*gBY*gYBp2*sqrt10 + 216*AbsMBp*gBL*gYBp3*sqrt10 +& 
+&  40*g1p2*TrCTuTpTu + 800*g3p2*TrCTuTpTu + 25*gBLp2*TrCTuTpTu + 25*gBYp2*TrCTuTpTu +    & 
+&  40*gYBp2*TrCTuTpTu + 25*gYB*gBL*sqrt10*TrCTuTpTu + 25*g1*gBY*sqrt10*TrCTuTpTu -       & 
+&  40*g1p2*M1*TrCTuTpYu - 25*gBYp2*M1*TrCTuTpYu - 80*g1*gYB*MBBp*TrCTuTpYu -             & 
+&  50*gBL*gBY*MBBp*TrCTuTpYu - 25*gBLp2*MBp*TrCTuTpYu - 40*gYBp2*MBp*TrCTuTpYu -         & 
+&  800*g3p2*M3*TrCTuTpYu - 25*g1*gBY*M1*sqrt10*TrCTuTpYu - 25*g1*gBL*MBBp*sqrt10*TrCTuTpYu -& 
+&  25*gYB*gBY*MBBp*sqrt10*TrCTuTpYu - 25*gYB*gBL*MBp*sqrt10*TrCTuTpYu + 75*gBLp2*TrCTvTpTv +& 
+&  75*gBYp2*TrCTvTpTv + 15*gYB*gBL*sqrt10*TrCTvTpTv + 15*g1*gBY*sqrt10*TrCTvTpTv -       & 
+&  75*gBYp2*M1*TrCTvTpYv - 150*gBL*gBY*MBBp*TrCTvTpYv - 75*gBLp2*MBp*TrCTvTpYv -         & 
+&  15*g1*gBY*M1*sqrt10*TrCTvTpYv - 15*g1*gBL*MBBp*sqrt10*TrCTvTpYv - 15*gYB*gBY*MBBp*sqrt10*TrCTvTpYv -& 
+&  15*gYB*gBL*MBp*sqrt10*TrCTvTpYv - 200._dp*(TrCYxTxCTvTpYv) - 150._dp*(Trmd2YdadjYuYuadjYd) -& 
+&  50._dp*(Trme2YeadjYvYvadjYe) - 50._dp*(Trml2adjYeYeadjYvYv) + 75*gBLp2*Trml2adjYvYv + & 
+&  75*gBYp2*Trml2adjYvYv + 15*gYB*gBL*sqrt10*Trml2adjYvYv + 15*g1*gBY*sqrt10*Trml2adjYvYv -& 
+&  50._dp*(Trml2adjYvYvadjYeYe) - 300._dp*(Trml2adjYvYvadjYvYv) - 200._dp*(Trml2adjYvYxCYxYv) -& 
+&  150._dp*(Trmq2adjYdYdadjYuYu) + 40*g1p2*Trmq2adjYuYu + 800*g3p2*Trmq2adjYuYu +        & 
+&  25*gBLp2*Trmq2adjYuYu + 25*gBYp2*Trmq2adjYuYu + 40*gYBp2*Trmq2adjYuYu +               & 
+&  25*gYB*gBL*sqrt10*Trmq2adjYuYu + 25*g1*gBY*sqrt10*Trmq2adjYuYu - 150._dp*(Trmq2adjYuYuadjYdYd) -& 
+&  900._dp*(Trmq2adjYuYuadjYuYu) - 150._dp*(Trmu2YuadjYdYdadjYu) + 40*g1p2*Trmu2YuadjYu +& 
+&  800*g3p2*Trmu2YuadjYu + 25*gBLp2*Trmu2YuadjYu + 25*gBYp2*Trmu2YuadjYu +               & 
+&  40*gYBp2*Trmu2YuadjYu + 25*gYB*gBL*sqrt10*Trmu2YuadjYu + 25*g1*gBY*sqrt10*Trmu2YuadjYu -& 
+&  900._dp*(Trmu2YuadjYuYuadjYu) - 50._dp*(Trmv2YvadjYeYeadjYv) + 75*gBLp2*Trmv2YvadjYv +& 
+&  75*gBYp2*Trmv2YvadjYv + 15*gYB*gBL*sqrt10*Trmv2YvadjYv + 15*g1*gBY*sqrt10*Trmv2YvadjYv -& 
+&  300._dp*(Trmv2YvadjYvYvadjYv) - 200._dp*(Trmv2YvadjYvYxCYx) - 200._dp*(Trmv2YxCYxYvadjYv) -& 
+&  150._dp*(TrYdadjTuTuadjYd) - 150._dp*(TrYdadjYuTuadjTd) - 150*mHd2*TrYdadjYuYuadjYd - & 
+&  150*mHu2*TrYdadjYuYuadjYd - 50._dp*(TrYeadjTvTvadjYe) - 50._dp*(TrYeadjYvTvadjTe) -   & 
+&  50*mHd2*TrYeadjYvYvadjYe - 50*mHu2*TrYeadjYvYvadjYe - 150._dp*(TrYuadjTdTdadjYu) -    & 
+&  900._dp*(TrYuadjTuTuadjYu) - 150._dp*(TrYuadjYdTdadjTu) + 1600*AbsM3*g3p2*TrYuadjYu + & 
+&  50*AbsMBp*gBLp2*TrYuadjYu + 80*AbsMBp*gYBp2*TrYuadjYu + 40*g1p2*mHu2*TrYuadjYu +      & 
+&  800*g3p2*mHu2*TrYuadjYu + 25*gBLp2*mHu2*TrYuadjYu + 25*gBYp2*mHu2*TrYuadjYu +         & 
+&  40*gYBp2*mHu2*TrYuadjYu + 50*AbsMBp*gYB*gBL*sqrt10*TrYuadjYu + 25*gYB*gBL*mHu2*sqrt10*TrYuadjYu +& 
+&  25*g1*gBY*mHu2*sqrt10*TrYuadjYu - 900._dp*(TrYuadjYuTuadjTu) - 900*mHu2*TrYuadjYuYuadjYu -& 
+&  50._dp*(TrYvadjTeTeadjYv) - 300._dp*(TrYvadjTvTvadjYv) - 50._dp*(TrYvadjYeTeadjTv) +  & 
+&  150*AbsMBp*gBLp2*TrYvadjYv + 75*gBLp2*mHu2*TrYvadjYv + 75*gBYp2*mHu2*TrYvadjYv +      & 
+&  30*AbsMBp*gYB*gBL*sqrt10*TrYvadjYv + 15*gYB*gBL*mHu2*sqrt10*TrYvadjYv +               & 
+&  15*g1*gBY*mHu2*sqrt10*TrYvadjYv - 300._dp*(TrYvadjYvTvadjTv) - 200._dp*(TrYvadjYvTxCTx) -& 
+&  300*mHu2*TrYvadjYvYvadjYv - 200._dp*(TrYxCmv2CYxYvadjYv) - 200._dp*(TrYxCTxTvadjYv) - & 
+&  200._dp*(TrYxCYxTvadjTv) - 200*mC12*TrYxCYxYvadjYv - 200*mHu2*TrYxCYxYvadjYv +        & 
+&  (621*g1p4*M1 + 90*g1p2*g2p2*M1 + 540*g1*gYB*gBL*gBY*M1 + 810*g1p2*gBYp2*M1 +          & 
+&  414*g1p2*gYBp2*M1 + 828*gYB*g1p3*MBBp + 90*g1*gYB*g2p2*MBBp + 540*g1p2*gBL*gBY*MBBp + & 
+&  270*g1*gYB*gBLp2*MBBp + 540*g1*gYB*gBYp2*MBBp + 270*gBL*gBY*gYBp2*MBBp +              & 
+&  414*g1*gYBp3*MBBp + 270*g1*gYB*gBL*gBY*MBp + 207*g1p2*gYBp2*MBp + 45*g1p2*g2p2*M2 +   & 
+&  72*gYB*g1p2*gBL*M1*sqrt10 + 216*g1p3*gBY*M1*sqrt10 + 72*g1*gBY*gYBp2*M1*sqrt10 +      & 
 &  72*g1p3*gBL*MBBp*sqrt10 + 216*gYB*g1p2*gBY*MBBp*sqrt10 + 108*g1*gBL*gYBp2*MBBp*sqrt10 +& 
 &  36*gBY*gYBp3*MBBp*sqrt10 + 36*gYB*g1p2*gBL*MBp*sqrt10 + 36*g1*gBY*gYBp2*MBp*sqrt10 -  & 
 &  40*g1p2*TradjYuTu - 25*gBYp2*TradjYuTu - 25*g1*gBY*sqrt10*TradjYuTu - 75*gBYp2*TradjYvTv -& 
 &  15*g1*gBY*sqrt10*TradjYvTv + 5*(16*g1p2*M1 + 5*gBY*(2*gBY*M1 + 2*gBL*MBBp +           & 
 &  gYB*MBBp*sqrt10) + g1*(16*gYB*MBBp + 10*gBY*M1*sqrt10 + 5*gBL*MBBp*sqrt10))*TrYuadjYu +& 
-&  15*(g1*(2*gBY*M1 + gBL*MBBp)*sqrt10 + gBY*(10*gBY*M1 + 10*gBL*MBBp + gYB*MBBp*sqrt10))*TrYvadjYv)*Conjg(M1))/25._dp  
-betamHu22 =  betamHu22+ ((828*gYB*g1p3*M1 + 90*g1*gYB*g2p2*M1 + 540*g1p2*gBL*gBY*M1 + 270*g1*gYB*gBLp2*M1 +   & 
+&  15*(g1*(2*gBY*M1 + gBL*MBBp)*sqrt10 + gBY*(10*gBY*M1 + 10*gBL*MBBp + gYB*MBBp*sqrt10))*TrYvadjYv)*Conjg(M1) +& 
+&  (828*gYB*g1p3*M1 + 90*g1*gYB*g2p2*M1 + 540*g1p2*gBL*gBY*M1 + 270*g1*gYB*gBLp2*M1 +    & 
 &  540*g1*gYB*gBYp2*M1 + 270*gBL*gBY*gYBp2*M1 + 414*g1*gYBp3*M1 + 414*g1p4*MBBp +        & 
 &  90*g1p2*g2p2*MBBp + 1620*g1*gYB*gBL*gBY*MBBp + 270*g1p2*gBLp2*MBBp + 540*g1p2*gBYp2*MBBp +& 
 &  1656*g1p2*gYBp2*MBBp + 90*g2p2*gYBp2*MBBp + 540*gBLp2*gYBp2*MBBp + 270*gBYp2*gYBp2*MBBp +& 
@@ -7798,25 +7771,22 @@ betamHu22 =  betamHu22+ ((828*gYB*g1p3*M1 + 90*g1*gYB*g2p2*M1 + 540*g1p2*gBL*gBY
 &  gBYp2*MBBp + gBL*gBY*(M1 + MBp)) + 5*gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10 +       & 
 &  g1*(16*gYB*(M1 + MBp) + 5*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10))*TrYuadjYu +          & 
 &  15*(10*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp)) + g1*(2*gBY*MBBp +              & 
-&  gBL*(M1 + MBp))*sqrt10 + gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10)*TrYvadjYv)*Conjg(MBBp))/25._dp +& 
-&  (54*g1*gYB*gBL*gBY*M1*Conjg(MBp))/5._dp + (207*g1p2*gYBp2*M1*Conjg(MBp))/25._dp +     & 
-&  (414*gYB*g1p3*MBBp*Conjg(MBp))/25._dp + (18*g1*gYB*g2p2*MBBp*Conjg(MBp))/5._dp +      & 
-&  (54*g1p2*gBL*gBY*MBBp*Conjg(MBp))/5._dp + (108*g1*gYB*gBLp2*MBBp*Conjg(MBp))/5._dp +  & 
-&  (54*g1*gYB*gBYp2*MBBp*Conjg(MBp))/5._dp + (108*gBL*gBY*gYBp2*MBBp*Conjg(MBp))/5._dp  
-betamHu22 =  betamHu22+ (828*g1*gYBp3*MBBp*Conjg(MBp))/25._dp + (9*g2p2*gYBp2*M2*Conjg(MBp))/5._dp +          & 
-&  (36*gYB*g1p2*gBL*M1*sqrt2ov5*Conjg(MBp))/5._dp + (36*g1*gBY*gYBp2*M1*sqrt2ov5*Conjg(MBp))/5._dp +& 
-&  (36*g1p3*gBL*MBBp*sqrt2ov5*Conjg(MBp))/5._dp + (108*gYB*g1p2*gBY*MBBp*sqrt2ov5*Conjg(MBp))/5._dp +& 
-&  (216*g1*gBL*gYBp2*MBBp*sqrt2ov5*Conjg(MBp))/5._dp + (72*gBY*gYBp3*MBBp*sqrt2ov5*Conjg(MBp))/5._dp -& 
-&  gBLp2*TradjYuTu*Conjg(MBp) - (8*gYBp2*TradjYuTu*Conjg(MBp))/5._dp - gYB*gBL*sqrt10*TradjYuTu*Conjg(MBp) -& 
-&  3*gBLp2*TradjYvTv*Conjg(MBp) - 3*gYB*gBL*sqrt2ov5*TradjYvTv*Conjg(MBp) +              & 
-&  (16*g1*gYB*MBBp*TrYuadjYu*Conjg(MBp))/5._dp + 2*gBL*gBY*MBBp*TrYuadjYu*Conjg(MBp) +   & 
-&  g1*gBL*MBBp*sqrt10*TrYuadjYu*Conjg(MBp) + gYB*gBY*MBBp*sqrt10*TrYuadjYu*Conjg(MBp) +  & 
-&  6*gBL*gBY*MBBp*TrYvadjYv*Conjg(MBp) + 3*g1*gBL*MBBp*sqrt2ov5*TrYvadjYv*Conjg(MBp) +   & 
-&  3*gYB*gBY*MBBp*sqrt2ov5*TrYvadjYv*Conjg(MBp) - 32*g3p2*TradjYuTu*Conjg(M3) +          & 
-&  (9*g1p2*g2p2*M1*Conjg(M2))/5._dp + (18*g1*gYB*g2p2*MBBp*Conjg(M2))/5._dp +            & 
-&  (9*g2p2*gYBp2*MBp*Conjg(M2))/5._dp + 6*g2p4*Tr2(2) + (6*g1p2*Tr2U1(1,1))/5._dp +      & 
-&  (6*g1*gYB*Tr2U1(1,4))/5._dp + (6*g1*gYB*Tr2U1(4,1))/5._dp + (6*gYBp2*Tr2U1(4,         & 
-& 4))/5._dp + 4*g1*sqrt3ov5*Tr3(1) + 4*gYB*sqrt3ov5*Tr3(4)
+&  gBL*(M1 + MBp))*sqrt10 + gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10)*TrYvadjYv)*Conjg(MBBp) +& 
+&  270*g1*gYB*gBL*gBY*M1*Conjg(MBp) + 207*g1p2*gYBp2*M1*Conjg(MBp) + 414*gYB*g1p3*MBBp*Conjg(MBp) +& 
+&  90*g1*gYB*g2p2*MBBp*Conjg(MBp) + 270*g1p2*gBL*gBY*MBBp*Conjg(MBp) + 540*g1*gYB*gBLp2*MBBp*Conjg(MBp) +& 
+&  270*g1*gYB*gBYp2*MBBp*Conjg(MBp) + 540*gBL*gBY*gYBp2*MBBp*Conjg(MBp) + 828*g1*gYBp3*MBBp*Conjg(MBp) +& 
+&  45*g2p2*gYBp2*M2*Conjg(MBp) + 36*gYB*g1p2*gBL*M1*sqrt10*Conjg(MBp) + 36*g1*gBY*gYBp2*M1*sqrt10*Conjg(MBp) +& 
+&  36*g1p3*gBL*MBBp*sqrt10*Conjg(MBp) + 108*gYB*g1p2*gBY*MBBp*sqrt10*Conjg(MBp) +        & 
+&  216*g1*gBL*gYBp2*MBBp*sqrt10*Conjg(MBp) + 72*gBY*gYBp3*MBBp*sqrt10*Conjg(MBp) -       & 
+&  25*gBLp2*TradjYuTu*Conjg(MBp) - 40*gYBp2*TradjYuTu*Conjg(MBp) - 25*gYB*gBL*sqrt10*TradjYuTu*Conjg(MBp) -& 
+&  75*gBLp2*TradjYvTv*Conjg(MBp) - 15*gYB*gBL*sqrt10*TradjYvTv*Conjg(MBp) +              & 
+&  80*g1*gYB*MBBp*TrYuadjYu*Conjg(MBp) + 50*gBL*gBY*MBBp*TrYuadjYu*Conjg(MBp) +          & 
+&  25*g1*gBL*MBBp*sqrt10*TrYuadjYu*Conjg(MBp) + 25*gYB*gBY*MBBp*sqrt10*TrYuadjYu*Conjg(MBp) +& 
+&  150*gBL*gBY*MBBp*TrYvadjYv*Conjg(MBp) + 15*g1*gBL*MBBp*sqrt10*TrYvadjYv*Conjg(MBp) +  & 
+&  15*gYB*gBY*MBBp*sqrt10*TrYvadjYv*Conjg(MBp) - 800*g3p2*TradjYuTu*Conjg(M3) +          & 
+&  45*g1p2*g2p2*M1*Conjg(M2) + 90*g1*gYB*g2p2*MBBp*Conjg(M2) + 45*g2p2*gYBp2*MBp*Conjg(M2) +& 
+&  150*g2p4*Tr2(2) + 30*g1p2*Tr2U1(1,1) + 30*g1*gYB*Tr2U1(1,4) + 30*g1*gYB*Tr2U1(4,      & 
+& 1) + 30*gYBp2*Tr2U1(4,4) + 20*g1*sqrt15*Tr3(1) + 20*gYB*sqrt15*Tr3(4))/25._dp
 
  
 DmHu2 = oo16pi2*( betamHu21 + oo16pi2 * betamHu22 ) 
@@ -7845,59 +7815,57 @@ betamd21  = (-320*AbsM3*g3p2*id3R - 10*AbsMBp*gBLp2*id3R - 16*AbsMBp*gYBp2*id3R 
  
  
 If (TwoLoopRGE) Then 
-betamd22 = (128*AbsM3*g1p2*g3p2*id3R)/45._dp - (128*AbsM3*g3p4*id3R)/3._dp + (358*AbsMBp*g1*gYB*gBL*gBY*id3R)/45._dp -& 
-&  (28*AbsMBp*g1p2*gBLp2*id3R)/9._dp + (16*AbsM3*g3p2*gBLp2*id3R)/9._dp + (16*AbsMBp*g3p2*gBLp2*id3R)/9._dp +& 
-&  (109*AbsMBp*gBLp4*id3R)/12._dp + (16*AbsM3*g3p2*gBYp2*id3R)/9._dp + (109*AbsMBp*gBLp2*gBYp2*id3R)/18._dp +& 
-&  (1616*AbsMBp*g1p2*gYBp2*id3R)/225._dp + (128*AbsM3*g3p2*gYBp2*id3R)/45._dp +          & 
-&  (128*AbsMBp*g3p2*gYBp2*id3R)/45._dp + (13*AbsMBp*gBLp2*gYBp2*id3R)/5._dp -            & 
-&  (28*AbsMBp*gBYp2*gYBp2*id3R)/9._dp + (808*AbsMBp*gYBp4*id3R)/75._dp + (2*g1p2*md2YdadjYd)/5._dp +& 
-&  6*g2p2*md2YdadjYd + (2*gYBp2*md2YdadjYd)/5._dp - 2._dp*(md2YdadjYdYdadjYd) -          & 
-&  2._dp*(md2YdadjYuYuadjYd) - (124*AbsMBp*gYB*g1p2*gBL*id3R*sqrt2ov5)/45._dp -          & 
-&  (64*AbsM3*gYB*g3p2*gBL*id3R*sqrt2ov5)/9._dp - (64*AbsMBp*gYB*g3p2*gBL*id3R*sqrt2ov5)/9._dp -& 
-&  (64*AbsM3*g1*g3p2*gBY*id3R*sqrt2ov5)/9._dp - (74*AbsMBp*g1*gBY*gBLp2*id3R*sqrt2ov5)/9._dp -& 
-&  (74*AbsMBp*gYB*gBLp3*id3R*sqrt2ov5)/3._dp - (74*AbsMBp*gYB*gBL*gBYp2*id3R*sqrt2ov5)/9._dp -& 
-&  (124*AbsMBp*g1*gBY*gYBp2*id3R*sqrt2ov5)/45._dp - (124*AbsMBp*gBL*gYBp3*id3R*sqrt2ov5)/15._dp +& 
-&  gYB*gBL*md2YdadjYd*sqrt2ov5 + g1*gBY*md2YdadjYd*sqrt2ov5 + (4*g1p2*TdadjTd)/5._dp +   & 
-&  12*g2p2*TdadjTd + (4*gYBp2*TdadjTd)/5._dp + 2*gYB*gBL*sqrt2ov5*TdadjTd +              & 
-&  2*g1*gBY*sqrt2ov5*TdadjTd - 4._dp*(TdadjTdYdadjYd) - 4._dp*(TdadjTuYuadjYd) -         & 
-&  4._dp*(TdadjYdYdadjTd) - 4._dp*(TdadjYuYuadjTd) - 12*TdadjYd*TrCTdTpYd -              & 
-&  4*TdadjYd*TrCTeTpYe - 6*md2YdadjYd*TrYdadjYd - 12*TdadjTd*TrYdadjYd - 2*md2YdadjYd*TrYeadjYe -& 
-&  4*TdadjTd*TrYeadjYe - (4*g1p2*M1*YdadjTd)/5._dp - (8*g1*gYB*MBBp*YdadjTd)/5._dp -     & 
-&  (4*gYBp2*MBp*YdadjTd)/5._dp - 12*g2p2*M2*YdadjTd - 2*g1*gBY*M1*sqrt2ov5*YdadjTd -     & 
-&  2*g1*gBL*MBBp*sqrt2ov5*YdadjTd - 2*gYB*gBY*MBBp*sqrt2ov5*YdadjTd - 2*gYB*gBL*MBp*sqrt2ov5*YdadjTd -& 
-&  12*TradjYdTd*YdadjTd - 4*TradjYeTe*YdadjTd - 4._dp*(YdadjTdTdadjYd) - 4._dp*(YdadjTuTuadjYd)  
-betamd22 =  betamd22+ 24*AbsM2*g2p2*YdadjYd + (8*AbsMBp*gYBp2*YdadjYd)/5._dp + (4*g1p2*mHd2*YdadjYd)/5._dp +& 
-&  12*g2p2*mHd2*YdadjYd + (4*gYBp2*mHd2*YdadjYd)/5._dp + 4*AbsMBp*gYB*gBL*sqrt2ov5*YdadjYd +& 
-&  2*gYB*gBL*mHd2*sqrt2ov5*YdadjYd + 2*g1*gBY*mHd2*sqrt2ov5*YdadjYd - 12*TrCTdTpTd*YdadjYd -& 
-&  4*TrCTeTpTe*YdadjYd - 12*Trmd2YdadjYd*YdadjYd - 4*Trme2YeadjYe*YdadjYd -              & 
-&  4*Trml2adjYeYe*YdadjYd - 12*Trmq2adjYdYd*YdadjYd - 24*mHd2*TrYdadjYd*YdadjYd -        & 
-&  8*mHd2*TrYeadjYe*YdadjYd + (2*g1p2*YdadjYdmd2)/5._dp + 6*g2p2*YdadjYdmd2 +            & 
-&  (2*gYBp2*YdadjYdmd2)/5._dp + gYB*gBL*sqrt2ov5*YdadjYdmd2 + g1*gBY*sqrt2ov5*YdadjYdmd2 -& 
-&  6*TrYdadjYd*YdadjYdmd2 - 2*TrYeadjYe*YdadjYdmd2 - 4._dp*(YdadjYdmd2YdadjYd) -         & 
-&  4._dp*(YdadjYdTdadjTd) - 8*mHd2*YdadjYdYdadjYd - 2._dp*(YdadjYdYdadjYdmd2) -          & 
-&  4._dp*(YdadjYdYdmq2adjYd) - 4._dp*(YdadjYumu2YuadjYd) - 4._dp*(YdadjYuTuadjTd) -      & 
-&  4*mHd2*YdadjYuYuadjYd - 4*mHu2*YdadjYuYuadjYd - 2._dp*(YdadjYuYuadjYdmd2) -           & 
-&  4._dp*(YdadjYuYumq2adjYd) + (4*g1p2*Ydmq2adjYd)/5._dp + 12*g2p2*Ydmq2adjYd +          & 
-&  (4*gYBp2*Ydmq2adjYd)/5._dp + 2*gYB*gBL*sqrt2ov5*Ydmq2adjYd + 2*g1*gBY*sqrt2ov5*Ydmq2adjYd -& 
-&  12*TrYdadjYd*Ydmq2adjYd - 4*TrYeadjYe*Ydmq2adjYd - 4._dp*(Ydmq2adjYdYdadjYd) -        & 
-&  4._dp*(Ydmq2adjYuYuadjYd) + ((id3R*(9696*g1p4*M1 - 16*g1p3*(-808*gYB*MBBp +           & 
-&  93*gBY*M1*sqrt10 + 31*gBL*MBBp*sqrt10) + 4*g1p2*(808*gYBp2*(2._dp*(M1) +              & 
+betamd22 = (2560*AbsM3*g1p2*g3p2*id3R - 38400._dp*AbsM3*g3p4*id3R + 7160*AbsMBp*g1*gYB*gBL*gBY*id3R -& 
+&  2800*AbsMBp*g1p2*gBLp2*id3R + 1600*AbsM3*g3p2*gBLp2*id3R + 1600*AbsMBp*g3p2*gBLp2*id3R +& 
+&  8175*AbsMBp*gBLp4*id3R + 1600*AbsM3*g3p2*gBYp2*id3R + 5450*AbsMBp*gBLp2*gBYp2*id3R +  & 
+&  6464*AbsMBp*g1p2*gYBp2*id3R + 2560*AbsM3*g3p2*gYBp2*id3R + 2560*AbsMBp*g3p2*gYBp2*id3R +& 
+&  2340*AbsMBp*gBLp2*gYBp2*id3R - 2800*AbsMBp*gBYp2*gYBp2*id3R + 9696*AbsMBp*gYBp4*id3R +& 
+&  360*g1p2*md2YdadjYd + 5400*g2p2*md2YdadjYd + 360*gYBp2*md2YdadjYd - 1800._dp*(md2YdadjYdYdadjYd) -& 
+&  1800._dp*(md2YdadjYuYuadjYd) - 496*AbsMBp*gYB*g1p2*gBL*id3R*sqrt10 - 1280*AbsM3*gYB*g3p2*gBL*id3R*sqrt10 -& 
+&  1280*AbsMBp*gYB*g3p2*gBL*id3R*sqrt10 - 1280*AbsM3*g1*g3p2*gBY*id3R*sqrt10 -           & 
+&  1480*AbsMBp*g1*gBY*gBLp2*id3R*sqrt10 - 4440*AbsMBp*gYB*gBLp3*id3R*sqrt10 -            & 
+&  1480*AbsMBp*gYB*gBL*gBYp2*id3R*sqrt10 - 496*AbsMBp*g1*gBY*gYBp2*id3R*sqrt10 -         & 
+&  1488*AbsMBp*gBL*gYBp3*id3R*sqrt10 + 180*gYB*gBL*md2YdadjYd*sqrt10 + 180*g1*gBY*md2YdadjYd*sqrt10 +& 
+&  720*g1p2*TdadjTd + 10800._dp*g2p2*TdadjTd + 720*gYBp2*TdadjTd + 360*gYB*gBL*sqrt10*TdadjTd +& 
+&  360*g1*gBY*sqrt10*TdadjTd - 3600._dp*(TdadjTdYdadjYd) - 3600._dp*(TdadjTuYuadjYd) -   & 
+&  3600._dp*(TdadjYdYdadjTd) - 3600._dp*(TdadjYuYuadjTd) - 10800._dp*TdadjYd*TrCTdTpYd - & 
+&  3600*TdadjYd*TrCTeTpYe - 5400*md2YdadjYd*TrYdadjYd - 10800._dp*TdadjTd*TrYdadjYd -    & 
+&  1800*md2YdadjYd*TrYeadjYe - 3600*TdadjTd*TrYeadjYe - 720*g1p2*M1*YdadjTd -            & 
+&  1440*g1*gYB*MBBp*YdadjTd - 720*gYBp2*MBp*YdadjTd - 10800._dp*g2p2*M2*YdadjTd -        & 
+&  360*g1*gBY*M1*sqrt10*YdadjTd - 360*g1*gBL*MBBp*sqrt10*YdadjTd - 360*gYB*gBY*MBBp*sqrt10*YdadjTd -& 
+&  360*gYB*gBL*MBp*sqrt10*YdadjTd - 10800._dp*TradjYdTd*YdadjTd - 3600*TradjYeTe*YdadjTd -& 
+&  3600._dp*(YdadjTdTdadjYd) - 3600._dp*(YdadjTuTuadjYd) + 21600._dp*AbsM2*g2p2*YdadjYd +& 
+&  1440*AbsMBp*gYBp2*YdadjYd + 720*g1p2*mHd2*YdadjYd + 10800._dp*g2p2*mHd2*YdadjYd +     & 
+&  720*gYBp2*mHd2*YdadjYd + 720*AbsMBp*gYB*gBL*sqrt10*YdadjYd + 360*gYB*gBL*mHd2*sqrt10*YdadjYd +& 
+&  360*g1*gBY*mHd2*sqrt10*YdadjYd - 10800._dp*TrCTdTpTd*YdadjYd - 3600*TrCTeTpTe*YdadjYd -& 
+&  10800._dp*Trmd2YdadjYd*YdadjYd - 3600*Trme2YeadjYe*YdadjYd - 3600*Trml2adjYeYe*YdadjYd -& 
+&  10800._dp*Trmq2adjYdYd*YdadjYd - 21600._dp*mHd2*TrYdadjYd*YdadjYd - 7200*mHd2*TrYeadjYe*YdadjYd +& 
+&  360*g1p2*YdadjYdmd2 + 5400*g2p2*YdadjYdmd2 + 360*gYBp2*YdadjYdmd2 + 180*gYB*gBL*sqrt10*YdadjYdmd2 +& 
+&  180*g1*gBY*sqrt10*YdadjYdmd2 - 5400*TrYdadjYd*YdadjYdmd2 - 1800*TrYeadjYe*YdadjYdmd2 -& 
+&  3600._dp*(YdadjYdmd2YdadjYd) - 3600._dp*(YdadjYdTdadjTd) - 7200*mHd2*YdadjYdYdadjYd - & 
+&  1800._dp*(YdadjYdYdadjYdmd2) - 3600._dp*(YdadjYdYdmq2adjYd) - 3600._dp*(YdadjYumu2YuadjYd) -& 
+&  3600._dp*(YdadjYuTuadjTd) - 3600*mHd2*YdadjYuYuadjYd - 3600*mHu2*YdadjYuYuadjYd -     & 
+&  1800._dp*(YdadjYuYuadjYdmd2) - 3600._dp*(YdadjYuYumq2adjYd) + 720*g1p2*Ydmq2adjYd +   & 
+&  10800._dp*g2p2*Ydmq2adjYd + 720*gYBp2*Ydmq2adjYd + 360*gYB*gBL*sqrt10*Ydmq2adjYd +    & 
+&  360*g1*gBY*sqrt10*Ydmq2adjYd - 10800._dp*TrYdadjYd*Ydmq2adjYd - 3600*TrYeadjYe*Ydmq2adjYd -& 
+&  3600._dp*(Ydmq2adjYdYdadjYd) - 3600._dp*(Ydmq2adjYuYuadjYd) + (id3R*(9696*g1p4*M1 -   & 
+&  16*g1p3*(-808*gYB*MBBp + 93*gBY*M1*sqrt10 + 31*gBL*MBBp*sqrt10) + 4*g1p2*(808*gYBp2*(2._dp*(M1) +& 
 &  MBp) + 5*(117*gBYp2*M1 + 78*gBL*gBY*MBBp - 70*gBLp2*(2._dp*(M1) + MBp) +              & 
 &  64*g3p2*(2._dp*(M1) + M3)) - 62*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) +   & 
-&  gBY*(-20*gYBp2*(-39*gBL*MBBp + 70*gBY*(2._dp*(M1) + MBp)) + 2725*(3*gBYp3*M1 +        & 
-&  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 800*g3p2*(2*gBL*MBBp +& 
-&  gBY*(2._dp*(M1) + M3)) - 248*gYBp3*MBBp*sqrt10 - 20*gYB*(32*g3p2*MBBp +               & 
+&  gBY*(-20*gYBp2*(-39*gBL*MBBp + 70*gBY*(2._dp*(M1) + MBp)) + 25*(109*(3*gBYp3*M1 +     & 
+&  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 32*g3p2*(2*gBL*MBBp +& 
+&  gBY*(2._dp*(M1) + M3))) - 248*gYBp3*MBBp*sqrt10 - 20*gYB*(32*g3p2*MBBp +              & 
 &  111*gBLp2*MBBp + 74*gBYp2*MBBp + 37*gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) -             & 
 &  4*g1*(-1616*gYBp3*MBBp - 5*gYB*(39*gBLp2*MBBp + 2*(64._dp*(g3p2) + 39._dp*(gBYp2))*MBBp +& 
 &  179*gBL*gBY*(2._dp*(M1) + MBp)) + 62*gYBp2*(3*gBL*MBBp + gBY*(2._dp*(M1) +            & 
 &  MBp))*sqrt10 + 5*(37*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +& 
 &  MBp)) + 32*g3p2*(gBL*MBBp + gBY*(2._dp*(M1) + M3)))*sqrt10)) + 360*(-(g1*(2._dp*(g1) +& 
 &  gBY*sqrt10)*TdadjYd) + (4*g1p2*M1 + gYB*gBY*MBBp*sqrt10 + g1*(4*gYB*MBBp +            & 
-&  2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*YdadjYd))*Conjg(M1))/900._dp + ((id3R*(3232*g1p4*MBBp +& 
+&  2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*YdadjYd))*Conjg(M1) + 2*(id3R*(3232*g1p4*MBBp +   & 
 &  3232*gYBp4*MBBp + 10*gYBp2*(78*gBLp2*MBBp + (128._dp*(g3p2) - 101._dp*(gBYp2))*MBBp + & 
-&  39*gBL*gBY*(M1 + 2._dp*(MBp))) + 2725*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp +              & 
+&  39*gBL*gBY*(M1 + 2._dp*(MBp))) + 25*(109*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp +           & 
 &  gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) +           & 
-&  800*g3p2*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp + M3)) - 124*gYBp3*(4*gBL*MBBp +& 
+&  32*g3p2*(gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + MBp + M3))) - 124*gYBp3*(4*gBL*MBBp +& 
 &  gBY*(M1 + 2._dp*(MBp)))*sqrt10 - 10*gYB*(37*(4*gBLp3*MBBp + 8*gBL*gBYp2*MBBp +        & 
 &  gBYp3*(2._dp*(M1) + MBp) + 3*gBY*gBLp2*(M1 + 2._dp*(MBp))) + 32*g3p2*(2*gBL*MBBp +    & 
 &  gBY*(M1 + MBp + M3)))*sqrt10 + 4*g1p3*(808*gYB*(2._dp*(M1) + MBp) - 31*(4*gBY*MBBp +  & 
@@ -7909,41 +7877,38 @@ betamd22 =  betamd22+ 24*AbsM2*g2p2*YdadjYd + (8*AbsMBp*gYBp2*YdadjYd)/5._dp + (
 &  2._dp*(MBp)))*sqrt10 - 5*(37*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) +& 
 &  MBp) + gBLp3*(M1 + 2._dp*(MBp))) + 32*g3p2*(2*gBY*MBBp + gBL*(M1 + MBp +              & 
 &  M3)))*sqrt10)) + 180*(-((4*g1*gYB + g1*gBL*sqrt10 + gYB*gBY*sqrt10)*TdadjYd) +        & 
-&  (4*g1p2*MBBp + 4*g1*gYB*(M1 + MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp +     & 
-&  gBL*(M1 + MBp))*sqrt10 + 2*gYB*MBBp*(2._dp*(gYB) + gBL*sqrt10))*YdadjYd))*Conjg(MBBp))/450._dp  
-betamd22 =  betamd22+ (179*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/45._dp - (14*g1p2*gBLp2*id3R*M1*Conjg(MBp))/9._dp +& 
-&  (109*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/36._dp + (808*g1p2*gYBp2*id3R*M1*Conjg(MBp))/225._dp -& 
-&  (14*gBYp2*gYBp2*id3R*M1*Conjg(MBp))/9._dp + (1616*gYB*g1p3*id3R*MBBp*Conjg(MBp))/225._dp +& 
-&  (128*g1*gYB*g3p2*id3R*MBBp*Conjg(MBp))/45._dp + (13*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (16*g3p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/9._dp + (26*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (109*gBY*gBLp3*id3R*MBBp*Conjg(MBp))/9._dp + (13*g1*gYB*gBYp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (109*gBL*gBYp3*id3R*MBBp*Conjg(MBp))/18._dp + (26*gBL*gBY*gYBp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (3232*g1*gYBp3*id3R*MBBp*Conjg(MBp))/225._dp + (8*g3p2*gBLp2*id3R*M3*Conjg(MBp))/9._dp +& 
-&  (64*g3p2*gYBp2*id3R*M3*Conjg(MBp))/45._dp - (62*gYB*g1p2*gBL*id3R*M1*sqrt2ov5*Conjg(MBp))/45._dp -& 
-&  (37*g1*gBY*gBLp2*id3R*M1*sqrt2ov5*Conjg(MBp))/9._dp - (37*gYB*gBL*gBYp2*id3R*M1*sqrt2ov5*Conjg(MBp))/9._dp -& 
-&  (62*g1*gBY*gYBp2*id3R*M1*sqrt2ov5*Conjg(MBp))/45._dp - (62*g1p3*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))/45._dp -& 
-&  (32*g1*g3p2*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp - (62*gYB*g1p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/15._dp -& 
-&  (32*gYB*g3p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp - (74*gYB*gBY*gBLp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp -& 
-&  (74*g1*gBLp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp - (37*g1*gBL*gBYp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp -& 
-&  (37*gYB*gBYp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp - (124*g1*gBL*gYBp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/15._dp -& 
-&  (124*gBY*gYBp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/45._dp - (32*gYB*g3p2*gBL*id3R*M3*sqrt2ov5*Conjg(MBp))/9._dp -& 
-&  (4*gYBp2*TdadjYd*Conjg(MBp))/5._dp - 2*gYB*gBL*sqrt2ov5*TdadjYd*Conjg(MBp) +          & 
-&  (8*g1*gYB*MBBp*YdadjYd*Conjg(MBp))/5._dp + 2*g1*gBL*MBBp*sqrt2ov5*YdadjYd*Conjg(MBp) +& 
-&  2*gYB*gBY*MBBp*sqrt2ov5*YdadjYd*Conjg(MBp) + (64*g1p2*g3p2*id3R*M1*Conjg(M3))/45._dp +& 
-&  (8*g3p2*gBYp2*id3R*M1*Conjg(M3))/9._dp + (128*g1*gYB*g3p2*id3R*MBBp*Conjg(M3))/45._dp +& 
-&  (16*g3p2*gBL*gBY*id3R*MBBp*Conjg(M3))/9._dp + (8*g3p2*gBLp2*id3R*MBp*Conjg(M3))/9._dp  
-betamd22 =  betamd22+ (64*g3p2*gYBp2*id3R*MBp*Conjg(M3))/45._dp - (32*g1*g3p2*gBY*id3R*M1*sqrt2ov5*Conjg(M3))/9._dp -& 
-&  (32*g1*g3p2*gBL*id3R*MBBp*sqrt2ov5*Conjg(M3))/9._dp - (32*gYB*g3p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(M3))/9._dp -& 
-&  (32*gYB*g3p2*gBL*id3R*MBp*sqrt2ov5*Conjg(M3))/9._dp - 12*g2p2*TdadjYd*Conjg(M2) +     & 
-&  (32*g3p4*id3R*Tr2(3))/3._dp + (8*g1p2*id3R*Tr2U1(1,1))/15._dp + (gBYp2*id3R*Tr2U1(1,  & 
-& 1))/3._dp - (4*g1*gBY*id3R*sqrt2ov5*Tr2U1(1,1))/3._dp + (8*g1*gYB*id3R*Tr2U1(1,        & 
-& 4))/15._dp + (gBL*gBY*id3R*Tr2U1(1,4))/3._dp - (2*g1*gBL*id3R*sqrt2ov5*Tr2U1(1,        & 
-& 4))/3._dp - (2*gYB*gBY*id3R*sqrt2ov5*Tr2U1(1,4))/3._dp + (8*g1*gYB*id3R*Tr2U1(4,       & 
-& 1))/15._dp + (gBL*gBY*id3R*Tr2U1(4,1))/3._dp - (2*g1*gBL*id3R*sqrt2ov5*Tr2U1(4,        & 
-& 1))/3._dp - (2*gYB*gBY*id3R*sqrt2ov5*Tr2U1(4,1))/3._dp + (gBLp2*id3R*Tr2U1(4,          & 
-& 4))/3._dp + (8*gYBp2*id3R*Tr2U1(4,4))/15._dp - (4*gYB*gBL*id3R*sqrt2ov5*Tr2U1(4,       & 
-& 4))/3._dp + 8*g1*id3R*ooSqrt15*Tr3(1) - 2*gBY*id3R*sqrt2ov3*Tr3(1) + 8*gYB*id3R*ooSqrt15*Tr3(4) -& 
-&  2*gBL*id3R*sqrt2ov3*Tr3(4)
+&  (4*g1p2*MBBp + g1*(4*gYB*(M1 + MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) +         & 
+&  gYB*(gBY*(M1 + MBp)*sqrt10 + 2*MBBp*(2._dp*(gYB) + gBL*sqrt10)))*YdadjYd))*Conjg(MBBp) +& 
+&  3580*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp) - 1400*g1p2*gBLp2*id3R*M1*Conjg(MBp) +         & 
+&  2725*gBLp2*gBYp2*id3R*M1*Conjg(MBp) + 3232*g1p2*gYBp2*id3R*M1*Conjg(MBp) -            & 
+&  1400*gBYp2*gYBp2*id3R*M1*Conjg(MBp) + 6464*gYB*g1p3*id3R*MBBp*Conjg(MBp) +            & 
+&  2560*g1*gYB*g3p2*id3R*MBBp*Conjg(MBp) + 780*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp) +       & 
+&  1600*g3p2*gBL*gBY*id3R*MBBp*Conjg(MBp) + 1560*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp) +     & 
+&  10900._dp*gBY*gBLp3*id3R*MBBp*Conjg(MBp) + 780*g1*gYB*gBYp2*id3R*MBBp*Conjg(MBp) +    & 
+&  5450*gBL*gBYp3*id3R*MBBp*Conjg(MBp) + 1560*gBL*gBY*gYBp2*id3R*MBBp*Conjg(MBp) +       & 
+&  12928._dp*g1*gYBp3*id3R*MBBp*Conjg(MBp) + 800*g3p2*gBLp2*id3R*M3*Conjg(MBp) +         & 
+&  1280*g3p2*gYBp2*id3R*M3*Conjg(MBp) - 248*gYB*g1p2*gBL*id3R*M1*sqrt10*Conjg(MBp) -     & 
+&  740*g1*gBY*gBLp2*id3R*M1*sqrt10*Conjg(MBp) - 740*gYB*gBL*gBYp2*id3R*M1*sqrt10*Conjg(MBp) -& 
+&  248*g1*gBY*gYBp2*id3R*M1*sqrt10*Conjg(MBp) - 248*g1p3*gBL*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  640*g1*g3p2*gBL*id3R*MBBp*sqrt10*Conjg(MBp) - 744*gYB*g1p2*gBY*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  640*gYB*g3p2*gBY*id3R*MBBp*sqrt10*Conjg(MBp) - 4440*gYB*gBY*gBLp2*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  1480*g1*gBLp3*id3R*MBBp*sqrt10*Conjg(MBp) - 2220*g1*gBL*gBYp2*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  740*gYB*gBYp3*id3R*MBBp*sqrt10*Conjg(MBp) - 1488*g1*gBL*gYBp2*id3R*MBBp*sqrt10*Conjg(MBp) -& 
+&  496*gBY*gYBp3*id3R*MBBp*sqrt10*Conjg(MBp) - 640*gYB*g3p2*gBL*id3R*M3*sqrt10*Conjg(MBp) -& 
+&  720*gYBp2*TdadjYd*Conjg(MBp) - 360*gYB*gBL*sqrt10*TdadjYd*Conjg(MBp) + 1440*g1*gYB*MBBp*YdadjYd*Conjg(MBp) +& 
+&  360*g1*gBL*MBBp*sqrt10*YdadjYd*Conjg(MBp) + 360*gYB*gBY*MBBp*sqrt10*YdadjYd*Conjg(MBp) +& 
+&  1280*g1p2*g3p2*id3R*M1*Conjg(M3) + 800*g3p2*gBYp2*id3R*M1*Conjg(M3) + 2560*g1*gYB*g3p2*id3R*MBBp*Conjg(M3) +& 
+&  1600*g3p2*gBL*gBY*id3R*MBBp*Conjg(M3) + 800*g3p2*gBLp2*id3R*MBp*Conjg(M3) +           & 
+&  1280*g3p2*gYBp2*id3R*MBp*Conjg(M3) - 640*g1*g3p2*gBY*id3R*M1*sqrt10*Conjg(M3) -       & 
+&  640*g1*g3p2*gBL*id3R*MBBp*sqrt10*Conjg(M3) - 640*gYB*g3p2*gBY*id3R*MBBp*sqrt10*Conjg(M3) -& 
+&  640*gYB*g3p2*gBL*id3R*MBp*sqrt10*Conjg(M3) - 10800._dp*g2p2*TdadjYd*Conjg(M2) +       & 
+&  9600*g3p4*id3R*Tr2(3) + 480*g1p2*id3R*Tr2U1(1,1) + 300*gBYp2*id3R*Tr2U1(1,            & 
+& 1) - 240*g1*gBY*id3R*sqrt10*Tr2U1(1,1) + 480*g1*gYB*id3R*Tr2U1(1,4) + 300*gBL*gBY*id3R*Tr2U1(1,& 
+& 4) - 120*g1*gBL*id3R*sqrt10*Tr2U1(1,4) - 120*gYB*gBY*id3R*sqrt10*Tr2U1(1,              & 
+& 4) + 480*g1*gYB*id3R*Tr2U1(4,1) + 300*gBL*gBY*id3R*Tr2U1(4,1) - 120*g1*gBL*id3R*sqrt10*Tr2U1(4,& 
+& 1) - 120*gYB*gBY*id3R*sqrt10*Tr2U1(4,1) + 300*gBLp2*id3R*Tr2U1(4,4) + 480*gYBp2*id3R*Tr2U1(4,& 
+& 4) - 240*gYB*gBL*id3R*sqrt10*Tr2U1(4,4) + 480*g1*id3R*sqrt15*Tr3(1) - 600*gBY*id3R*sqrt6*Tr3(1) +& 
+&  480*gYB*id3R*sqrt15*Tr3(4) - 600*gBL*id3R*sqrt6*Tr3(4))/900._dp
 
  
 Dmd2 = oo16pi2*( betamd21 + oo16pi2 * betamd22 ) 
@@ -7976,60 +7941,58 @@ betamu21  = (-320*AbsM3*g3p2*id3R - 10*AbsMBp*gBLp2*id3R - 64*AbsMBp*gYBp2*id3R 
  
  
 If (TwoLoopRGE) Then 
-betamu22 = (512*AbsM3*g1p2*g3p2*id3R)/45._dp - (128*AbsM3*g3p4*id3R)/3._dp + (2566*AbsMBp*g1*gYB*gBL*gBY*id3R)/45._dp +& 
-&  (304*AbsMBp*g1p2*gBLp2*id3R)/45._dp + (16*AbsM3*g3p2*gBLp2*id3R)/9._dp +              & 
-&  (16*AbsMBp*g3p2*gBLp2*id3R)/9._dp + (109*AbsMBp*gBLp4*id3R)/12._dp + (16*AbsM3*g3p2*gBYp2*id3R)/9._dp +& 
-&  (109*AbsMBp*gBLp2*gBYp2*id3R)/18._dp + (6848*AbsMBp*g1p2*gYBp2*id3R)/225._dp +        & 
-&  (512*AbsM3*g3p2*gYBp2*id3R)/45._dp + (512*AbsMBp*g3p2*gYBp2*id3R)/45._dp +            & 
-&  (529*AbsMBp*gBLp2*gYBp2*id3R)/5._dp + (304*AbsMBp*gBYp2*gYBp2*id3R)/45._dp +          & 
-&  (3424*AbsMBp*gYBp4*id3R)/75._dp - 2._dp*(mu2YuadjYdYdadjYu) - (2*g1p2*mu2YuadjYu)/5._dp +& 
-&  6*g2p2*mu2YuadjYu - (2*gYBp2*mu2YuadjYu)/5._dp - 2._dp*(mu2YuadjYuYuadjYu) +          & 
-&  (2072*AbsMBp*gYB*g1p2*gBL*id3R*sqrt2ov5)/45._dp + (128*AbsM3*gYB*g3p2*gBL*id3R*sqrt2ov5)/9._dp +& 
-&  (128*AbsMBp*gYB*g3p2*gBL*id3R*sqrt2ov5)/9._dp + (128*AbsM3*g1*g3p2*gBY*id3R*sqrt2ov5)/9._dp +& 
-&  (256*AbsMBp*g1*gBY*gBLp2*id3R*sqrt2ov5)/9._dp + (256*AbsMBp*gYB*gBLp3*id3R*sqrt2ov5)/3._dp +& 
-&  (256*AbsMBp*gYB*gBL*gBYp2*id3R*sqrt2ov5)/9._dp + (2072*AbsMBp*g1*gBY*gYBp2*id3R*sqrt2ov5)/45._dp +& 
-&  (2072*AbsMBp*gBL*gYBp3*id3R*sqrt2ov5)/15._dp - gYB*gBL*mu2YuadjYu*sqrt2ov5 -          & 
-&  g1*gBY*mu2YuadjYu*sqrt2ov5 - 6*mu2YuadjYu*TrYuadjYu - 2*mu2YuadjYu*TrYvadjYv -        & 
-&  4._dp*(TuadjTdYdadjYu) - (4*g1p2*TuadjTu)/5._dp + 12*g2p2*TuadjTu - (4*gYBp2*TuadjTu)/5._dp -& 
-&  2*gYB*gBL*sqrt2ov5*TuadjTu - 2*g1*gBY*sqrt2ov5*TuadjTu - 12*TrYuadjYu*TuadjTu -       & 
-&  4*TrYvadjYv*TuadjTu - 4._dp*(TuadjTuYuadjYu) - 4._dp*(TuadjYdYdadjTu) -               & 
-&  12*TrCTuTpYu*TuadjYu - 4*TrCTvTpYv*TuadjYu - 4._dp*(TuadjYuYuadjTu) - 4._dp*(YuadjTdTdadjYu) +& 
-&  (4*g1p2*M1*YuadjTu)/5._dp + (8*g1*gYB*MBBp*YuadjTu)/5._dp + (4*gYBp2*MBp*YuadjTu)/5._dp -& 
-&  12*g2p2*M2*YuadjTu + 2*g1*gBY*M1*sqrt2ov5*YuadjTu + 2*g1*gBL*MBBp*sqrt2ov5*YuadjTu +  & 
-&  2*gYB*gBY*MBBp*sqrt2ov5*YuadjTu + 2*gYB*gBL*MBp*sqrt2ov5*YuadjTu - 12*TradjYuTu*YuadjTu  
-betamu22 =  betamu22- 4*TradjYvTv*YuadjTu - 4._dp*(YuadjTuTuadjYu) - 4._dp*(YuadjYdmd2YdadjYu) -            & 
-&  4._dp*(YuadjYdTdadjTu) - 4*mHd2*YuadjYdYdadjYu - 4*mHu2*YuadjYdYdadjYu -              & 
-&  2._dp*(YuadjYdYdadjYumu2) - 4._dp*(YuadjYdYdmq2adjYu) + 24*AbsM2*g2p2*YuadjYu -       & 
-&  (8*AbsMBp*gYBp2*YuadjYu)/5._dp - (4*g1p2*mHu2*YuadjYu)/5._dp + 12*g2p2*mHu2*YuadjYu - & 
-&  (4*gYBp2*mHu2*YuadjYu)/5._dp - 4*AbsMBp*gYB*gBL*sqrt2ov5*YuadjYu - 2*gYB*gBL*mHu2*sqrt2ov5*YuadjYu -& 
-&  2*g1*gBY*mHu2*sqrt2ov5*YuadjYu - 12*TrCTuTpTu*YuadjYu - 4*TrCTvTpTv*YuadjYu -         & 
-&  4*Trml2adjYvYv*YuadjYu - 12*Trmq2adjYuYu*YuadjYu - 12*Trmu2YuadjYu*YuadjYu -          & 
-&  4*Trmv2YvadjYv*YuadjYu - 24*mHu2*TrYuadjYu*YuadjYu - 8*mHu2*TrYvadjYv*YuadjYu -       & 
-&  (2*g1p2*YuadjYumu2)/5._dp + 6*g2p2*YuadjYumu2 - (2*gYBp2*YuadjYumu2)/5._dp -          & 
-&  gYB*gBL*sqrt2ov5*YuadjYumu2 - g1*gBY*sqrt2ov5*YuadjYumu2 - 6*TrYuadjYu*YuadjYumu2 -   & 
-&  2*TrYvadjYv*YuadjYumu2 - 4._dp*(YuadjYumu2YuadjYu) - 4._dp*(YuadjYuTuadjTu) -         & 
-&  8*mHu2*YuadjYuYuadjYu - 2._dp*(YuadjYuYuadjYumu2) - 4._dp*(YuadjYuYumq2adjYu) -       & 
-&  4._dp*(Yumq2adjYdYdadjYu) - (4*g1p2*Yumq2adjYu)/5._dp + 12*g2p2*Yumq2adjYu -          & 
-&  (4*gYBp2*Yumq2adjYu)/5._dp - 2*gYB*gBL*sqrt2ov5*Yumq2adjYu - 2*g1*gBY*sqrt2ov5*Yumq2adjYu -& 
-&  12*TrYuadjYu*Yumq2adjYu - 4*TrYvadjYv*Yumq2adjYu - 4._dp*(Yumq2adjYuYuadjYu) +        & 
-&  ((id3R*(41088._dp*g1p4*M1 + 32*g1p3*(1712*gYB*MBBp + 777*gBY*M1*sqrt10 +              & 
-&  259*gBL*MBBp*sqrt10) + 4*g1p2*(3424*gYBp2*(2._dp*(M1) + MBp) + 5*(4761*gBYp2*M1 +     & 
-&  3174*gBL*gBY*MBBp + 152*gBLp2*(2._dp*(M1) + MBp) + 256*g3p2*(2._dp*(M1) +             & 
-&  M3)) + 1036*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) + gBY*(20*gYBp2*(1587*gBL*MBBp +& 
-&  152*gBY*(2._dp*(M1) + MBp)) + 2725*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp +    & 
-&  gBY*gBLp2*(2._dp*(M1) + MBp)) + 800*g3p2*(2*gBL*MBBp + gBY*(2._dp*(M1) +              & 
-&  M3)) + 4144*gYBp3*MBBp*sqrt10 + 1280*gYB*(6*gBLp2*MBBp + (g3p2 + 4._dp*(gBYp2))*MBBp +& 
-&  2*gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) + 4*g1*(6848*gYBp3*MBBp + 5*gYB*(512*g3p2*MBBp +& 
-&  1587*gBLp2*MBBp + 3174*gBYp2*MBBp + 1283*gBL*gBY*(2._dp*(M1) + MBp)) + 1036*gYBp2*(3*gBL*MBBp +& 
-&  gBY*(2._dp*(M1) + MBp))*sqrt10 + 320*(2*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + & 
-&  gBY*gBLp2*(2._dp*(M1) + MBp)) + g3p2*(gBL*MBBp + gBY*(2._dp*(M1) + M3)))*sqrt10)) -   & 
-&  360*(-(g1*(2._dp*(g1) + gBY*sqrt10)*TuadjYu) + (4*g1p2*M1 + gYB*gBY*MBBp*sqrt10 +     & 
-&  g1*(4*gYB*MBBp + 2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*YuadjYu))*Conjg(M1))/900._dp  
-betamu22 =  betamu22+ ((id3R*(13696._dp*g1p4*MBBp + 13696._dp*gYBp4*MBBp + 10*gYBp2*(3174*gBLp2*MBBp +      & 
+betamu22 = (10240._dp*AbsM3*g1p2*g3p2*id3R - 38400._dp*AbsM3*g3p4*id3R + 51320._dp*AbsMBp*g1*gYB*gBL*gBY*id3R +& 
+&  6080*AbsMBp*g1p2*gBLp2*id3R + 1600*AbsM3*g3p2*gBLp2*id3R + 1600*AbsMBp*g3p2*gBLp2*id3R +& 
+&  8175*AbsMBp*gBLp4*id3R + 1600*AbsM3*g3p2*gBYp2*id3R + 5450*AbsMBp*gBLp2*gBYp2*id3R +  & 
+&  27392._dp*AbsMBp*g1p2*gYBp2*id3R + 10240._dp*AbsM3*g3p2*gYBp2*id3R + 10240._dp*AbsMBp*g3p2*gYBp2*id3R +& 
+&  95220._dp*AbsMBp*gBLp2*gYBp2*id3R + 6080*AbsMBp*gBYp2*gYBp2*id3R + 41088._dp*AbsMBp*gYBp4*id3R -& 
+&  1800._dp*(mu2YuadjYdYdadjYu) - 360*g1p2*mu2YuadjYu + 5400*g2p2*mu2YuadjYu -           & 
+&  360*gYBp2*mu2YuadjYu - 1800._dp*(mu2YuadjYuYuadjYu) + 8288*AbsMBp*gYB*g1p2*gBL*id3R*sqrt10 +& 
+&  2560*AbsM3*gYB*g3p2*gBL*id3R*sqrt10 + 2560*AbsMBp*gYB*g3p2*gBL*id3R*sqrt10 +          & 
+&  2560*AbsM3*g1*g3p2*gBY*id3R*sqrt10 + 5120*AbsMBp*g1*gBY*gBLp2*id3R*sqrt10 +           & 
+&  15360._dp*AbsMBp*gYB*gBLp3*id3R*sqrt10 + 5120*AbsMBp*gYB*gBL*gBYp2*id3R*sqrt10 +      & 
+&  8288*AbsMBp*g1*gBY*gYBp2*id3R*sqrt10 + 24864._dp*AbsMBp*gBL*gYBp3*id3R*sqrt10 -       & 
+&  180*gYB*gBL*mu2YuadjYu*sqrt10 - 180*g1*gBY*mu2YuadjYu*sqrt10 - 5400*mu2YuadjYu*TrYuadjYu -& 
+&  1800*mu2YuadjYu*TrYvadjYv - 3600._dp*(TuadjTdYdadjYu) - 720*g1p2*TuadjTu +            & 
+&  10800._dp*g2p2*TuadjTu - 720*gYBp2*TuadjTu - 360*gYB*gBL*sqrt10*TuadjTu -             & 
+&  360*g1*gBY*sqrt10*TuadjTu - 10800._dp*TrYuadjYu*TuadjTu - 3600*TrYvadjYv*TuadjTu -    & 
+&  3600._dp*(TuadjTuYuadjYu) - 3600._dp*(TuadjYdYdadjTu) - 10800._dp*TrCTuTpYu*TuadjYu - & 
+&  3600*TrCTvTpYv*TuadjYu - 3600._dp*(TuadjYuYuadjTu) - 3600._dp*(YuadjTdTdadjYu) +      & 
+&  720*g1p2*M1*YuadjTu + 1440*g1*gYB*MBBp*YuadjTu + 720*gYBp2*MBp*YuadjTu -              & 
+&  10800._dp*g2p2*M2*YuadjTu + 360*g1*gBY*M1*sqrt10*YuadjTu + 360*g1*gBL*MBBp*sqrt10*YuadjTu +& 
+&  360*gYB*gBY*MBBp*sqrt10*YuadjTu + 360*gYB*gBL*MBp*sqrt10*YuadjTu - 10800._dp*TradjYuTu*YuadjTu -& 
+&  3600*TradjYvTv*YuadjTu - 3600._dp*(YuadjTuTuadjYu) - 3600._dp*(YuadjYdmd2YdadjYu) -   & 
+&  3600._dp*(YuadjYdTdadjTu) - 3600*mHd2*YuadjYdYdadjYu - 3600*mHu2*YuadjYdYdadjYu -     & 
+&  1800._dp*(YuadjYdYdadjYumu2) - 3600._dp*(YuadjYdYdmq2adjYu) + 21600._dp*AbsM2*g2p2*YuadjYu -& 
+&  1440*AbsMBp*gYBp2*YuadjYu - 720*g1p2*mHu2*YuadjYu + 10800._dp*g2p2*mHu2*YuadjYu -     & 
+&  720*gYBp2*mHu2*YuadjYu - 720*AbsMBp*gYB*gBL*sqrt10*YuadjYu - 360*gYB*gBL*mHu2*sqrt10*YuadjYu -& 
+&  360*g1*gBY*mHu2*sqrt10*YuadjYu - 10800._dp*TrCTuTpTu*YuadjYu - 3600*TrCTvTpTv*YuadjYu -& 
+&  3600*Trml2adjYvYv*YuadjYu - 10800._dp*Trmq2adjYuYu*YuadjYu - 10800._dp*Trmu2YuadjYu*YuadjYu -& 
+&  3600*Trmv2YvadjYv*YuadjYu - 21600._dp*mHu2*TrYuadjYu*YuadjYu - 7200*mHu2*TrYvadjYv*YuadjYu -& 
+&  360*g1p2*YuadjYumu2 + 5400*g2p2*YuadjYumu2 - 360*gYBp2*YuadjYumu2 - 180*gYB*gBL*sqrt10*YuadjYumu2 -& 
+&  180*g1*gBY*sqrt10*YuadjYumu2 - 5400*TrYuadjYu*YuadjYumu2 - 1800*TrYvadjYv*YuadjYumu2 -& 
+&  3600._dp*(YuadjYumu2YuadjYu) - 3600._dp*(YuadjYuTuadjTu) - 7200*mHu2*YuadjYuYuadjYu - & 
+&  1800._dp*(YuadjYuYuadjYumu2) - 3600._dp*(YuadjYuYumq2adjYu) - 3600._dp*(Yumq2adjYdYdadjYu) -& 
+&  720*g1p2*Yumq2adjYu + 10800._dp*g2p2*Yumq2adjYu - 720*gYBp2*Yumq2adjYu -              & 
+&  360*gYB*gBL*sqrt10*Yumq2adjYu - 360*g1*gBY*sqrt10*Yumq2adjYu - 10800._dp*TrYuadjYu*Yumq2adjYu -& 
+&  3600*TrYvadjYv*Yumq2adjYu - 3600._dp*(Yumq2adjYuYuadjYu) + (id3R*(41088._dp*g1p4*M1 + & 
+&  32*g1p3*(1712*gYB*MBBp + 777*gBY*M1*sqrt10 + 259*gBL*MBBp*sqrt10) + 4*g1p2*(3424*gYBp2*(2._dp*(M1) +& 
+&  MBp) + 5*(4761*gBYp2*M1 + 3174*gBL*gBY*MBBp + 152*gBLp2*(2._dp*(M1) + MBp) +          & 
+&  256*g3p2*(2._dp*(M1) + M3)) + 1036*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) +& 
+&  gBY*(20*gYBp2*(1587*gBL*MBBp + 152*gBY*(2._dp*(M1) + MBp)) + 25*(109*(3*gBYp3*M1 +    & 
+&  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 32*g3p2*(2*gBL*MBBp +& 
+&  gBY*(2._dp*(M1) + M3))) + 4144*gYBp3*MBBp*sqrt10 + 1280*gYB*(6*gBLp2*MBBp +           & 
+&  (g3p2 + 4._dp*(gBYp2))*MBBp + 2*gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) + 4*g1*(6848*gYBp3*MBBp +& 
+&  5*gYB*(512*g3p2*MBBp + 1587*gBLp2*MBBp + 3174*gBYp2*MBBp + 1283*gBL*gBY*(2._dp*(M1) + & 
+&  MBp)) + 1036*gYBp2*(3*gBL*MBBp + gBY*(2._dp*(M1) + MBp))*sqrt10 + 320*(2*(6*gBYp3*M1 +& 
+&  gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + g3p2*(gBL*MBBp +      & 
+&  gBY*(2._dp*(M1) + M3)))*sqrt10)) - 360*(-(g1*(2._dp*(g1) + gBY*sqrt10)*TuadjYu) +     & 
+&  (4*g1p2*M1 + gYB*gBY*MBBp*sqrt10 + g1*(4*gYB*MBBp + 2*gBY*M1*sqrt10 + gBL*MBBp*sqrt10))*YuadjYu))*Conjg(M1) +& 
+&  2*(id3R*(13696._dp*g1p4*MBBp + 13696._dp*gYBp4*MBBp + 10*gYBp2*(3174*gBLp2*MBBp +     & 
 &  (512._dp*(g3p2) + 1891._dp*(gBYp2))*MBBp + 1587*gBL*gBY*(M1 + 2._dp*(MBp))) +         & 
-&  2725*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) +          & 
-&  MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) + 800*g3p2*(gBLp2*MBBp + gBYp2*MBBp +            & 
-&  gBL*gBY*(M1 + MBp + M3)) + 2072*gYBp3*(4*gBL*MBBp + gBY*(M1 + 2._dp*(MBp)))*sqrt10 +  & 
+&  25*(109*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) +       & 
+&  MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) + 32*g3p2*(gBLp2*MBBp + gBYp2*MBBp +             & 
+&  gBL*gBY*(M1 + MBp + M3))) + 2072*gYBp3*(4*gBL*MBBp + gBY*(M1 + 2._dp*(MBp)))*sqrt10 + & 
 &  640*gYB*(2*(4*gBLp3*MBBp + 8*gBL*gBYp2*MBBp + gBYp3*(2._dp*(M1) + MBp) +              & 
 &  3*gBY*gBLp2*(M1 + 2._dp*(MBp))) + g3p2*(2*gBL*MBBp + gBY*(M1 + MBp + M3)))*sqrt10 +   & 
 &  8*g1p3*(1712*gYB*(2._dp*(M1) + MBp) + 259*(4*gBY*MBBp + gBL*(2._dp*(M1) +             & 
@@ -8041,41 +8004,38 @@ betamu22 =  betamu22+ ((id3R*(13696._dp*g1p4*MBBp + 13696._dp*gYBp4*MBBp + 10*gY
 &  2._dp*(MBp)))*sqrt10 + 320*(2*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) +& 
 &  MBp) + gBLp3*(M1 + 2._dp*(MBp))) + g3p2*(2*gBY*MBBp + gBL*(M1 + MBp + M3)))*sqrt10)) -& 
 &  180*(-((4*g1*gYB + g1*gBL*sqrt10 + gYB*gBY*sqrt10)*TuadjYu) + (4*g1p2*MBBp +          & 
-&  4*g1*gYB*(M1 + MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp + gBL*(M1 +          & 
-&  MBp))*sqrt10 + 2*gYB*MBBp*(2._dp*(gYB) + gBL*sqrt10))*YuadjYu))*Conjg(MBBp))/450._dp +& 
-&  (1283*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/45._dp + (152*g1p2*gBLp2*id3R*M1*Conjg(MBp))/45._dp +& 
-&  (109*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/36._dp + (3424*g1p2*gYBp2*id3R*M1*Conjg(MBp))/225._dp +& 
-&  (152*gBYp2*gYBp2*id3R*M1*Conjg(MBp))/45._dp + (6848*gYB*g1p3*id3R*MBBp*Conjg(MBp))/225._dp  
-betamu22 =  betamu22+ (512*g1*gYB*g3p2*id3R*MBBp*Conjg(MBp))/45._dp + (529*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (16*g3p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/9._dp + (1058*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (109*gBY*gBLp3*id3R*MBBp*Conjg(MBp))/9._dp + (529*g1*gYB*gBYp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (109*gBL*gBYp3*id3R*MBBp*Conjg(MBp))/18._dp + (1058*gBL*gBY*gYBp2*id3R*MBBp*Conjg(MBp))/15._dp +& 
-&  (13696._dp*g1*gYBp3*id3R*MBBp*Conjg(MBp))/225._dp + (8*g3p2*gBLp2*id3R*M3*Conjg(MBp))/9._dp +& 
-&  (256*g3p2*gYBp2*id3R*M3*Conjg(MBp))/45._dp + (1036*gYB*g1p2*gBL*id3R*M1*sqrt2ov5*Conjg(MBp))/45._dp +& 
-&  (128*g1*gBY*gBLp2*id3R*M1*sqrt2ov5*Conjg(MBp))/9._dp + (128*gYB*gBL*gBYp2*id3R*M1*sqrt2ov5*Conjg(MBp))/9._dp +& 
-&  (1036*g1*gBY*gYBp2*id3R*M1*sqrt2ov5*Conjg(MBp))/45._dp + (1036*g1p3*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))/45._dp +& 
-&  (64*g1*g3p2*gBL*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp + (1036*gYB*g1p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/15._dp +& 
-&  (64*gYB*g3p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp + (256*gYB*gBY*gBLp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp +& 
-&  (256*g1*gBLp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp + (128*g1*gBL*gBYp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/3._dp +& 
-&  (128*gYB*gBYp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/9._dp + (2072*g1*gBL*gYBp2*id3R*MBBp*sqrt2ov5*Conjg(MBp))/15._dp +& 
-&  (2072*gBY*gYBp3*id3R*MBBp*sqrt2ov5*Conjg(MBp))/45._dp + (64*gYB*g3p2*gBL*id3R*M3*sqrt2ov5*Conjg(MBp))/9._dp +& 
-&  (4*gYBp2*TuadjYu*Conjg(MBp))/5._dp + 2*gYB*gBL*sqrt2ov5*TuadjYu*Conjg(MBp) -          & 
-&  (8*g1*gYB*MBBp*YuadjYu*Conjg(MBp))/5._dp - 2*g1*gBL*MBBp*sqrt2ov5*YuadjYu*Conjg(MBp) -& 
-&  2*gYB*gBY*MBBp*sqrt2ov5*YuadjYu*Conjg(MBp) + (256*g1p2*g3p2*id3R*M1*Conjg(M3))/45._dp +& 
-&  (8*g3p2*gBYp2*id3R*M1*Conjg(M3))/9._dp + (512*g1*gYB*g3p2*id3R*MBBp*Conjg(M3))/45._dp +& 
-&  (16*g3p2*gBL*gBY*id3R*MBBp*Conjg(M3))/9._dp + (8*g3p2*gBLp2*id3R*MBp*Conjg(M3))/9._dp +& 
-&  (256*g3p2*gYBp2*id3R*MBp*Conjg(M3))/45._dp + (64*g1*g3p2*gBY*id3R*M1*sqrt2ov5*Conjg(M3))/9._dp +& 
-&  (64*g1*g3p2*gBL*id3R*MBBp*sqrt2ov5*Conjg(M3))/9._dp + (64*gYB*g3p2*gBY*id3R*MBBp*sqrt2ov5*Conjg(M3))/9._dp +& 
-&  (64*gYB*g3p2*gBL*id3R*MBp*sqrt2ov5*Conjg(M3))/9._dp - 12*g2p2*TuadjYu*Conjg(M2)  
-betamu22 =  betamu22+ (32*g3p4*id3R*Tr2(3))/3._dp + (32*g1p2*id3R*Tr2U1(1,1))/15._dp + (gBYp2*id3R*Tr2U1(1, & 
-& 1))/3._dp + (8*g1*gBY*id3R*sqrt2ov5*Tr2U1(1,1))/3._dp + (32*g1*gYB*id3R*Tr2U1(1,       & 
-& 4))/15._dp + (gBL*gBY*id3R*Tr2U1(1,4))/3._dp + (4*g1*gBL*id3R*sqrt2ov5*Tr2U1(1,        & 
-& 4))/3._dp + (4*gYB*gBY*id3R*sqrt2ov5*Tr2U1(1,4))/3._dp + (32*g1*gYB*id3R*Tr2U1(4,      & 
-& 1))/15._dp + (gBL*gBY*id3R*Tr2U1(4,1))/3._dp + (4*g1*gBL*id3R*sqrt2ov5*Tr2U1(4,        & 
-& 1))/3._dp + (4*gYB*gBY*id3R*sqrt2ov5*Tr2U1(4,1))/3._dp + (gBLp2*id3R*Tr2U1(4,          & 
-& 4))/3._dp + (32*gYBp2*id3R*Tr2U1(4,4))/15._dp + (8*gYB*gBL*id3R*sqrt2ov5*Tr2U1(4,      & 
-& 4))/3._dp - 16*g1*id3R*ooSqrt15*Tr3(1) - 2*gBY*id3R*sqrt2ov3*Tr3(1) - 16*gYB*id3R*ooSqrt15*Tr3(4) -& 
-&  2*gBL*id3R*sqrt2ov3*Tr3(4)
+&  g1*(4*gYB*(M1 + MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) + gYB*(gBY*(M1 +         & 
+&  MBp)*sqrt10 + 2*MBBp*(2._dp*(gYB) + gBL*sqrt10)))*YuadjYu))*Conjg(MBBp) +             & 
+&  25660._dp*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp) + 3040*g1p2*gBLp2*id3R*M1*Conjg(MBp) +    & 
+&  2725*gBLp2*gBYp2*id3R*M1*Conjg(MBp) + 13696._dp*g1p2*gYBp2*id3R*M1*Conjg(MBp) +       & 
+&  3040*gBYp2*gYBp2*id3R*M1*Conjg(MBp) + 27392._dp*gYB*g1p3*id3R*MBBp*Conjg(MBp) +       & 
+&  10240._dp*g1*gYB*g3p2*id3R*MBBp*Conjg(MBp) + 31740._dp*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp) +& 
+&  1600*g3p2*gBL*gBY*id3R*MBBp*Conjg(MBp) + 63480._dp*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp) +& 
+&  10900._dp*gBY*gBLp3*id3R*MBBp*Conjg(MBp) + 31740._dp*g1*gYB*gBYp2*id3R*MBBp*Conjg(MBp) +& 
+&  5450*gBL*gBYp3*id3R*MBBp*Conjg(MBp) + 63480._dp*gBL*gBY*gYBp2*id3R*MBBp*Conjg(MBp) +  & 
+&  54784._dp*g1*gYBp3*id3R*MBBp*Conjg(MBp) + 800*g3p2*gBLp2*id3R*M3*Conjg(MBp) +         & 
+&  5120*g3p2*gYBp2*id3R*M3*Conjg(MBp) + 4144*gYB*g1p2*gBL*id3R*M1*sqrt10*Conjg(MBp) +    & 
+&  2560*g1*gBY*gBLp2*id3R*M1*sqrt10*Conjg(MBp) + 2560*gYB*gBL*gBYp2*id3R*M1*sqrt10*Conjg(MBp) +& 
+&  4144*g1*gBY*gYBp2*id3R*M1*sqrt10*Conjg(MBp) + 4144*g1p3*gBL*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  1280*g1*g3p2*gBL*id3R*MBBp*sqrt10*Conjg(MBp) + 12432._dp*gYB*g1p2*gBY*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  1280*gYB*g3p2*gBY*id3R*MBBp*sqrt10*Conjg(MBp) + 15360._dp*gYB*gBY*gBLp2*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  5120*g1*gBLp3*id3R*MBBp*sqrt10*Conjg(MBp) + 7680*g1*gBL*gBYp2*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  2560*gYB*gBYp3*id3R*MBBp*sqrt10*Conjg(MBp) + 24864._dp*g1*gBL*gYBp2*id3R*MBBp*sqrt10*Conjg(MBp) +& 
+&  8288*gBY*gYBp3*id3R*MBBp*sqrt10*Conjg(MBp) + 1280*gYB*g3p2*gBL*id3R*M3*sqrt10*Conjg(MBp) +& 
+&  720*gYBp2*TuadjYu*Conjg(MBp) + 360*gYB*gBL*sqrt10*TuadjYu*Conjg(MBp) - 1440*g1*gYB*MBBp*YuadjYu*Conjg(MBp) -& 
+&  360*g1*gBL*MBBp*sqrt10*YuadjYu*Conjg(MBp) - 360*gYB*gBY*MBBp*sqrt10*YuadjYu*Conjg(MBp) +& 
+&  5120*g1p2*g3p2*id3R*M1*Conjg(M3) + 800*g3p2*gBYp2*id3R*M1*Conjg(M3) + 10240._dp*g1*gYB*g3p2*id3R*MBBp*Conjg(M3) +& 
+&  1600*g3p2*gBL*gBY*id3R*MBBp*Conjg(M3) + 800*g3p2*gBLp2*id3R*MBp*Conjg(M3) +           & 
+&  5120*g3p2*gYBp2*id3R*MBp*Conjg(M3) + 1280*g1*g3p2*gBY*id3R*M1*sqrt10*Conjg(M3) +      & 
+&  1280*g1*g3p2*gBL*id3R*MBBp*sqrt10*Conjg(M3) + 1280*gYB*g3p2*gBY*id3R*MBBp*sqrt10*Conjg(M3) +& 
+&  1280*gYB*g3p2*gBL*id3R*MBp*sqrt10*Conjg(M3) - 10800._dp*g2p2*TuadjYu*Conjg(M2) +      & 
+&  9600*g3p4*id3R*Tr2(3) + 1920*g1p2*id3R*Tr2U1(1,1) + 300*gBYp2*id3R*Tr2U1(1,           & 
+& 1) + 480*g1*gBY*id3R*sqrt10*Tr2U1(1,1) + 1920*g1*gYB*id3R*Tr2U1(1,4) + 300*gBL*gBY*id3R*Tr2U1(1,& 
+& 4) + 240*g1*gBL*id3R*sqrt10*Tr2U1(1,4) + 240*gYB*gBY*id3R*sqrt10*Tr2U1(1,              & 
+& 4) + 1920*g1*gYB*id3R*Tr2U1(4,1) + 300*gBL*gBY*id3R*Tr2U1(4,1) + 240*g1*gBL*id3R*sqrt10*Tr2U1(4,& 
+& 1) + 240*gYB*gBY*id3R*sqrt10*Tr2U1(4,1) + 300*gBLp2*id3R*Tr2U1(4,4) + 1920*gYBp2*id3R*Tr2U1(4,& 
+& 4) + 480*gYB*gBL*id3R*sqrt10*Tr2U1(4,4) - 960*g1*id3R*sqrt15*Tr3(1) - 600*gBY*id3R*sqrt6*Tr3(1) -& 
+&  960*gYB*id3R*sqrt15*Tr3(4) - 600*gBL*id3R*sqrt6*Tr3(4))/900._dp
 
  
 Dmu2 = oo16pi2*( betamu21 + oo16pi2 * betamu22 ) 
@@ -8140,16 +8100,16 @@ betame22 =  betame22- 12*Trmq2adjYdYd*YeadjYe - 24*mHd2*TrYdadjYd*YeadjYe - 8*mH
 &  6*gYB*gBL*sqrt2ov5*Yeml2adjYe - 6*g1*gBY*sqrt2ov5*Yeml2adjYe - 12*TrYdadjYd*Yeml2adjYe -& 
 &  4*TrYeadjYe*Yeml2adjYe - 4._dp*(Yeml2adjYeYeadjYe) - 4._dp*(Yeml2adjYvYvadjYe) +      & 
 &  (3*(3*id3R*(1248*g1p4*M1 + 16*g1p3*(104*gYB*MBBp + 69*gBY*M1*sqrt10 + 23*gBL*MBBp*sqrt10) +& 
-&  4*g1p2*(1185*gBYp2*M1 + 790*gBL*gBY*MBBp + 50*gBLp2*(2._dp*(M1) + MBp) +              & 
-&  104*gYBp2*(2._dp*(M1) + MBp) + 46*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) + & 
+&  4*g1p2*(104*gYBp2*(2._dp*(M1) + MBp) + 5*(237*gBYp2*M1 + 158*gBL*gBY*MBBp +           & 
+&  10*gBLp2*(2._dp*(M1) + MBp)) + 46*gYB*(6*gBY*MBBp + gBL*(2._dp*(M1) + MBp))*sqrt10) + & 
 &  gBY*(20*gYBp2*(79*gBL*MBBp + 10*gBY*(2._dp*(M1) + MBp)) + 325*(3*gBYp3*M1 +           & 
 &  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 184*gYBp3*MBBp*sqrt10 +& 
 &  180*gYB*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) +          & 
 &  4*g1*(208*gYBp3*MBBp + 5*gYB*(79*gBLp2*MBBp + 158*gBYp2*MBBp + 59*gBL*gBY*(2._dp*(M1) +& 
 &  MBp)) + 46*gYBp2*(3*gBL*MBBp + gBY*(2._dp*(M1) + MBp))*sqrt10 + 45*(6*gBYp3*M1 +      & 
-&  gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10)) +              & 
-&  40*g1*(2._dp*(g1) + gBY*sqrt10)*TeadjYe - 40*(4*g1p2*M1 + 4*g1*gYB*MBBp +             & 
-&  2*g1*gBY*M1*sqrt10 + g1*gBL*MBBp*sqrt10 + gYB*gBY*MBBp*sqrt10)*YeadjYe)*Conjg(M1))/100._dp  
+&  gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10)) -              & 
+&  40*(-(g1*(2._dp*(g1) + gBY*sqrt10)*TeadjYe) + (4*g1p2*M1 + 4*g1*gYB*MBBp +            & 
+&  2*g1*gBY*M1*sqrt10 + g1*gBL*MBBp*sqrt10 + gYB*gBY*MBBp*sqrt10)*YeadjYe))*Conjg(M1))/100._dp  
 betame22 =  betame22+ (3*(3*id3R*(416*g1p4*MBBp + 416*gYBp4*MBBp + 10*gYBp2*(158*gBLp2*MBBp +               & 
 &  99*gBYp2*MBBp + 79*gBL*gBY*(M1 + 2._dp*(MBp))) + 325*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp +& 
 &  gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) +           & 
@@ -8161,9 +8121,9 @@ betame22 =  betame22+ (3*(3*id3R*(416*g1p4*MBBp + 416*gYBp4*MBBp + 10*gYBp2*(158
 &  2._dp*(MBp)) + 5*gYB*(434*gBL*gBY*MBBp + 79*gBYp2*(2._dp*(M1) + MBp) + 79*gBLp2*(M1 + & 
 &  2._dp*(MBp))) + 46*gYBp2*(8*gBY*MBBp + 3*gBL*(M1 + 2._dp*(MBp)))*sqrt10 +             & 
 &  45*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) + MBp) + gBLp3*(M1 +    & 
-&  2._dp*(MBp)))*sqrt10)) + 20*(4*g1*gYB + g1*gBL*sqrt10 + gYB*gBY*sqrt10)*TeadjYe -     & 
-&  20*(4*g1p2*MBBp + 4*g1*gYB*(M1 + MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp +  & 
-&  gBL*(M1 + MBp))*sqrt10 + 2*gYB*MBBp*(2._dp*(gYB) + gBL*sqrt10))*YeadjYe)*Conjg(MBBp))/50._dp +& 
+&  2._dp*(MBp)))*sqrt10)) - 20*(-((4*g1*gYB + g1*gBL*sqrt10 + gYB*gBY*sqrt10)*TeadjYe) + & 
+&  (4*g1p2*MBBp + g1*(4*gYB*(M1 + MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) +         & 
+&  gYB*(gBY*(M1 + MBp)*sqrt10 + 2*MBBp*(2._dp*(gYB) + gBL*sqrt10)))*YeadjYe))*Conjg(MBBp))/50._dp +& 
 &  (531*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/5._dp + 18*g1p2*gBLp2*id3R*M1*Conjg(MBp) +    & 
 &  (117*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/4._dp + (936*g1p2*gYBp2*id3R*M1*Conjg(MBp))/25._dp +& 
 &  18*gBYp2*gYBp2*id3R*M1*Conjg(MBp) + (1872*gYB*g1p3*id3R*MBBp*Conjg(MBp))/25._dp +     & 
@@ -8254,24 +8214,24 @@ betamv22 =  betamv22+ 12*AbsMBp*gYB*gBL*sqrt2ov5*YvadjYv + 6*gYB*gBL*mHu2*sqrt2o
 &  24*gBYp2*mC12*YxCYx - 16*TrCTxTx*YxCYx - 32*Trmv2YxCYx*YxCYx - 32*mC12*TrYxCYx*YxCYx +& 
 &  12*gBLp2*YxCYxmv2 + 12*gBYp2*YxCYxmv2 - 8*TrYxCYx*YxCYxmv2 - 32._dp*(YxCYxmv2YxCYx) - & 
 &  32._dp*(YxCYxTxCTx) - 32._dp*(YxCYxYxCmv2CYx) - 64*mC12*YxCYxYxCYx - 16._dp*(YxCYxYxCYxmv2) +& 
-&  (3*(3*id3R*(44*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) + 44*g1*gYB*(gBLp2*MBBp +             & 
-&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 8*g1*(6*gBYp3*M1 + gBLp3*MBBp +          & 
-&  6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10 + gBY*(44*gBL*gYBp2*MBBp +    & 
+&  (3*(3*id3R*(44*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) + gBY*(44*gBL*gYBp2*MBBp +            & 
 &  65*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +            & 
-&  MBp)) + 8*gYB*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10)) +   & 
-&  8*(-2*g1p2*TvadjYv - g1*gBY*sqrt10*TvadjYv - 20*gBYp2*TxCYx + (4*g1p2*M1 +            & 
-&  4*g1*gYB*MBBp + 2*g1*gBY*M1*sqrt10 + g1*gBL*MBBp*sqrt10 + gYB*gBY*MBBp*sqrt10)*YvadjYv +& 
+&  MBp)) + 8*gYB*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) +    & 
+&  4*g1*(11*gYB*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) +               & 
+&  2*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +               & 
+&  MBp))*sqrt10)) + 8*(-2*g1p2*TvadjYv - g1*gBY*sqrt10*TvadjYv - 20*gBYp2*TxCYx +        & 
+&  (4*g1p2*M1 + 4*g1*gYB*MBBp + 2*g1*gBY*M1*sqrt10 + g1*gBL*MBBp*sqrt10 + gYB*gBY*MBBp*sqrt10)*YvadjYv +& 
 &  40*gBY*(gBY*M1 + gBL*MBBp)*YxCYx))*Conjg(M1))/20._dp + (3*(3*id3R*(22*g1p2*(gBLp2*MBBp +& 
 &  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 22*gYBp2*(2*gBLp2*MBBp + gBYp2*MBBp +    & 
-&  gBL*gBY*(M1 + 2._dp*(MBp))) + 22*g1*gYB*(6*gBL*gBY*MBBp + gBYp2*(2._dp*(M1) +         & 
-&  MBp) + gBLp2*(M1 + 2._dp*(MBp))) + 65*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp +              & 
-&  gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) +           & 
-&  4*gYB*(4*gBLp3*MBBp + 8*gBL*gBYp2*MBBp + gBYp3*(2._dp*(M1) + MBp) + 3*gBY*gBLp2*(M1 + & 
-&  2._dp*(MBp)))*sqrt10 + 4*g1*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) +& 
-&  MBp) + gBLp3*(M1 + 2._dp*(MBp)))*sqrt10) + 4*(-4*g1*gYB*TvadjYv - g1*gBL*sqrt10*TvadjYv -& 
-&  gYB*gBY*sqrt10*TvadjYv - 40*gBL*gBY*TxCYx + (4*g1p2*MBBp + 4*g1*gYB*(M1 +             & 
-&  MBp) + gYB*gBY*(M1 + MBp)*sqrt10 + g1*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10 +          & 
-&  2*gYB*MBBp*(2._dp*(gYB) + gBL*sqrt10))*YvadjYv + 40*(gBLp2*MBBp + gBYp2*MBBp +        & 
+&  gBL*gBY*(M1 + 2._dp*(MBp))) + 65*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp +      & 
+&  gBL*gBYp3*(2._dp*(M1) + MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) + 4*gYB*(4*gBLp3*MBBp +  & 
+&  8*gBL*gBYp2*MBBp + gBYp3*(2._dp*(M1) + MBp) + 3*gBY*gBLp2*(M1 + 2._dp*(MBp)))*sqrt10 +& 
+&  2*g1*(11*gYB*(6*gBL*gBY*MBBp + gBYp2*(2._dp*(M1) + MBp) + gBLp2*(M1 + 2._dp*(MBp))) + & 
+&  2*(8*gBY*gBLp2*MBBp + 4*gBYp3*MBBp + 3*gBL*gBYp2*(2._dp*(M1) + MBp) + gBLp3*(M1 +     & 
+&  2._dp*(MBp)))*sqrt10)) + 4*(-4*g1*gYB*TvadjYv - g1*gBL*sqrt10*TvadjYv -               & 
+&  gYB*gBY*sqrt10*TvadjYv - 40*gBL*gBY*TxCYx + (4*g1p2*MBBp + g1*(4*gYB*(M1 +            & 
+&  MBp) + (2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10) + gYB*(gBY*(M1 + MBp)*sqrt10 +           & 
+&  2*MBBp*(2._dp*(gYB) + gBL*sqrt10)))*YvadjYv + 40*(gBLp2*MBBp + gBYp2*MBBp +           & 
 &  gBL*gBY*(M1 + MBp))*YxCYx))*Conjg(MBBp))/10._dp + (99*g1*gYB*gBL*gBY*id3R*M1*Conjg(MBp))/5._dp  
 betamv22 =  betamv22+ (117*gBLp2*gBYp2*id3R*M1*Conjg(MBp))/4._dp + (99*g1p2*gBL*gBY*id3R*MBBp*Conjg(MBp))/5._dp +& 
 &  (198*g1*gYB*gBLp2*id3R*MBBp*Conjg(MBp))/5._dp + 117*gBY*gBLp3*id3R*MBBp*Conjg(MBp) +  & 
@@ -8320,11 +8280,11 @@ betamC122 = (2*(396*AbsMBp*g1*gYB*gBL*gBY + 1080*AbsMBp*gBLp4 + 720*AbsMBp*gBLp2
 &  160._dp*(TrYxCTxTxCYx) - 30*AbsMBp*gBLp2*TrYxCYx - 15*gBLp2*mC12*TrYxCYx -            & 
 &  15*gBYp2*mC12*TrYxCYx - 40._dp*(TrYxCYxTvadjTv) - 160._dp*(TrYxCYxTxCTx) -            & 
 &  40*mC12*TrYxCYxYvadjYv - 40*mHu2*TrYxCYxYvadjYv - 160*mC12*TrYxCYxYxCYx +             & 
-&  3*(6*(11*gBL*gBY*gYBp2*MBBp + 11*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) + 11*g1*gYB*(gBLp2*MBBp +& 
-&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 20*gBY*(3*gBYp3*M1 + 2*gBLp3*MBBp +      & 
-&  4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 2*gYB*gBY*(3*gBLp2*MBBp +          & 
-&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10 + 2*g1*(6*gBYp3*M1 + gBLp3*MBBp +   & 
-&  6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10) + 5*gBYp2*TrCYxTx -          & 
+&  3*(6*(11*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) + gBY*(11*gBL*gYBp2*MBBp + 20*(3*gBYp3*M1 + & 
+&  2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp)) + 2*gYB*(3*gBLp2*MBBp +& 
+&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10) + g1*(11*gYB*(gBLp2*MBBp +         & 
+&  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 2*(6*gBYp3*M1 + gBLp3*MBBp +             & 
+&  6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) + MBp))*sqrt10)) + 5*gBYp2*TrCYxTx -         & 
 &  10*gBY*(gBY*M1 + gBL*MBBp)*TrYxCYx)*Conjg(M1) + 6*(3*(11*g1p2*(gBLp2*MBBp +           & 
 &  2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp)) + 11*gYBp2*(2*gBLp2*MBBp + gBYp2*MBBp +    & 
 &  gBL*gBY*(M1 + 2._dp*(MBp))) + 40*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp +      & 
@@ -8365,12 +8325,12 @@ betamC221  = -12*AbsMBp*gBLp2 - 12*gBY*(gBY*M1 + gBL*MBBp)*Conjg(M1) - 12*(gBLp2
 If (TwoLoopRGE) Then 
 betamC222 = (4*(198*AbsMBp*g1*gYB*gBL*gBY + 540*AbsMBp*gBLp4 + 360*AbsMBp*gBLp2*gBYp2 +           & 
 &  297*AbsMBp*gBLp2*gYBp2 + 36*AbsMBp*g1*gBY*gBLp2*sqrt10 + 108*AbsMBp*gYB*gBLp3*sqrt10 +& 
-&  36*AbsMBp*gYB*gBL*gBYp2*sqrt10 + 9*(11*gBL*gBY*gYBp2*MBBp + 11*g1p2*gBY*(3*gBY*M1 +   & 
-&  2*gBL*MBBp) + 11*g1*gYB*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +            & 
-&  MBp)) + 20*gBY*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +& 
-&  MBp)) + 2*gYB*gBY*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) + MBp))*sqrt10 + & 
-&  2*g1*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +            & 
-&  MBp))*sqrt10)*Conjg(M1) + 9*(11*g1p2*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +& 
+&  36*AbsMBp*gYB*gBL*gBYp2*sqrt10 + 9*(11*g1p2*gBY*(3*gBY*M1 + 2*gBL*MBBp) +             & 
+&  gBY*(11*gBL*gYBp2*MBBp + 20*(3*gBYp3*M1 + 2*gBLp3*MBBp + 4*gBL*gBYp2*MBBp +           & 
+&  gBY*gBLp2*(2._dp*(M1) + MBp)) + 2*gYB*(3*gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +& 
+&  MBp))*sqrt10) + g1*(11*gYB*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +         & 
+&  MBp)) + 2*(6*gBYp3*M1 + gBLp3*MBBp + 6*gBL*gBYp2*MBBp + gBY*gBLp2*(2._dp*(M1) +       & 
+&  MBp))*sqrt10))*Conjg(M1) + 9*(11*g1p2*(gBLp2*MBBp + 2*gBYp2*MBBp + gBL*gBY*(2._dp*(M1) +& 
 &  MBp)) + 11*gYBp2*(2*gBLp2*MBBp + gBYp2*MBBp + gBL*gBY*(M1 + 2._dp*(MBp))) +           & 
 &  40*(gBLp4*MBBp + 4*gBLp2*gBYp2*MBBp + gBYp4*MBBp + gBL*gBYp3*(2._dp*(M1) +            & 
 &  MBp) + gBY*gBLp3*(M1 + 2._dp*(MBp))) + 2*gYB*(4*gBLp3*MBBp + 8*gBL*gBYp2*MBBp +       & 
@@ -8398,9 +8358,9 @@ End If
 ! MBBp 
 !-------------------- 
  
-betaMBBp1  = (33*g1p2*MBBp + 33*gYBp2*MBBp + 33*g1*gYB*(M1 + MBp) + 45*(gBLp2*MBBp +  & 
-&  gBYp2*MBBp + gBL*gBY*(M1 + MBp)) + 6*g1*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10 +        & 
-&  6*gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10)/5._dp
+betaMBBp1  = (3*(11*g1p2*MBBp + 11*gYBp2*MBBp + 15*(gBLp2*MBBp + gBYp2*MBBp +         & 
+&  gBL*gBY*(M1 + MBp)) + 2*gYB*(2*gBL*MBBp + gBY*(M1 + MBp))*sqrt10 + g1*(11*gYB*(M1 +   & 
+&  MBp) + 2*(2*gBY*MBBp + gBL*(M1 + MBp))*sqrt10)))/5._dp
 
  
  
@@ -8621,8 +8581,8 @@ Call Chop(DMBp)
 ! vd 
 !-------------------- 
  
-betavd1  = -3*TrYdadjYd*vd - TrYeadjYe*vd + (3*(g1p2 + 5._dp*(g2p2) + gYBp2)          & 
-& *vd*(1 + Xi))/20._dp
+betavd1  = (vd*(-60._dp*(TrYdadjYd) - 20._dp*(TrYeadjYe) + 3*(g1p2 + 5._dp*(g2p2)     & 
+&  + gYBp2)*(1 + Xi)))/20._dp
 
  
  
@@ -8652,8 +8612,8 @@ End If
 ! vu 
 !-------------------- 
  
-betavu1  = -3*TrYuadjYu*vu - TrYvadjYv*vu + (3*(g1p2 + 5._dp*(g2p2) + gYBp2)          & 
-& *vu*(1 + Xi))/20._dp
+betavu1  = (vu*(-60._dp*(TrYuadjYu) - 20._dp*(TrYvadjYv) + 3*(g1p2 + 5._dp*(g2p2)     & 
+&  + gYBp2)*(1 + Xi)))/20._dp
 
  
  
@@ -8683,7 +8643,7 @@ End If
 ! x1 
 !-------------------- 
  
-betax11  = -2*TrYxCYx*x1 + (3*(gBLp2 + gBYp2)*x1*(1 + Xi))/2._dp
+betax11  = (x1*(-4._dp*(TrYxCYx) + 3*(gBLp2 + gBYp2)*(1 + Xi)))/2._dp
 
  
  

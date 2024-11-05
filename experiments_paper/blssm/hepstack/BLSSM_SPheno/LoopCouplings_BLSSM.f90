@@ -1,10 +1,10 @@
 ! ------------------------------------------------------------------------------  
-! This file was automatically created by SARAH version 4.15.1 
+! This file was automatically created by SARAH version 4.14.5 
 ! SARAH References: arXiv:0806.0538, 0909.2863, 1002.0840, 1207.0906, 1309.7223,
 !           1405.1434, 1411.0675, 1503.03098, 1703.09237, 1706.05372, 1805.07306  
 ! (c) Florian Staub, Mark Goodsell and Werner Porod 2020  
 ! ------------------------------------------------------------------------------  
-! File created at 16:14 on 25.7.2023   
+! File created at 18:48 on 3.11.2021   
 ! ----------------------------------------------------------------------  
  
  
@@ -183,7 +183,7 @@ Real(dp) Function AlphaEW_T(AlphaEW_In, Q,MVWm,MSd,MSu,MSe,MHpm,MCha,MFe,MFd,MFu
 Real(dp),Intent(in)::AlphaEW_In, Q,MVWm,MSd(6),MSu(6),MSe(6),MHpm(2),MCha(2),MFe(3),MFd(3),MFu(3)
 Integer::i1 
 Real(dp)::DeltaAlpha 
-DeltaAlpha=1._dp/(3._dp)*(1._dp-rMS)! conversion to DRbar if necessary 
+DeltaAlpha=1._dp/(6._dp)*(1._dp-rMS)! conversion to DRbar if necessary 
 Do i1=1,6
 DeltaAlpha=DeltaAlpha+1._dp/9._dp*Log(MSd(i1)/ Q) 
 End Do 
@@ -203,31 +203,6 @@ DeltaAlpha=-AlphaEW_in*DeltaAlpha/(2._dp*Pi)
 AlphaEW_T=AlphaEW_in/(1._dp-DeltaAlpha) 
  
 End Function AlphaEW_T 
- 
- 
-Real(dp) Function DeltaAlphaEW_T(AlphaEW_In, Q,MVWm,MSd,MSu,MSe,MHpm,MCha,MFe,MFd,MFu) 
- 
-Real(dp),Intent(in)::AlphaEW_In, Q,MVWm,MSd(6),MSu(6),MSe(6),MHpm(2),MCha(2),MFe(3),MFd(3),MFu(3)
-Integer::i1 
-Real(dp)::DeltaAlpha 
-DeltaAlpha=0._dp
-Do i1=1,6
-DeltaAlpha=DeltaAlpha+1._dp/9._dp*Log(MSd(i1)/ Q) 
-End Do 
-Do i1=1,6
-DeltaAlpha=DeltaAlpha+4._dp/9._dp*Log(MSu(i1)/ Q) 
-End Do 
-Do i1=1,6
-DeltaAlpha=DeltaAlpha+1._dp/3._dp*Log(MSe(i1)/ Q) 
-End Do 
-Do i1=2,2
-DeltaAlpha=DeltaAlpha+1._dp/3._dp*Log(MHpm(i1)/ Q) 
-End Do 
-Do i1=1,2
-DeltaAlpha=DeltaAlpha+4._dp/3._dp*Log(MCha(i1)/ Q) 
-End Do 
-DeltaAlphaEW_T=-AlphaEW_in*DeltaAlpha/(2._dp*Pi) 
-End Function DeltaAlphaEW_T 
  
  
 Real(dp) Function AlphaS_T(AlphaS_In, Q,MSd,MSu,MGlu,MFd,MFu) 
@@ -1026,7 +1001,6 @@ End Do
 
 chargefactor = 1 
 Do i1= 1,6
-  i2= 1
    Do i3= 1,2
   If ((MFv2(i1).gt.mf_l2(2)).Or.(MVZp2.gt.mf_l2(2)).Or.(MHpm2(i3).gt.mf_l2(2))) Then
 coup1L = cplFvFvVZpL(gt1,i1)
@@ -1055,7 +1029,6 @@ End if
 
 chargefactor = 1 
 Do i1= 1,6
-  i2= 1
   If ((MFv2(i1).gt.mf_l2(2)).Or.(MVZp2.gt.mf_l2(2)).Or.(MVWm2.gt.mf_l2(2))) Then
 coup1L = cplFvFvVZpL(gt1,i1)
 coup1R = cplFvFvVZpR(gt1,i1)
@@ -1211,7 +1184,6 @@ End Do
 
 chargefactor = 1 
 Do i1= 1,3
-  i2= 1
    Do i3= 1,4
   If ((MFe2(i1).gt.mf_l2(2)).Or.(MVWm2.gt.mf_l2(2)).Or.(Mhh2(i3).gt.mf_l2(2))) Then
 coup1L = cplcFeFvVWmL(i1,gt1)
@@ -1240,7 +1212,6 @@ End if
 
 chargefactor = 1 
 Do i1= 1,3
-  i2= 1
   If ((MFe2(i1).gt.mf_l2(2)).Or.(MVWm2.gt.mf_l2(2)).Or.(MVZp2.gt.mf_l2(2))) Then
 coup1L = cplcFeFvVWmL(i1,gt1)
 coup1R = cplcFeFvVWmR(i1,gt1)
