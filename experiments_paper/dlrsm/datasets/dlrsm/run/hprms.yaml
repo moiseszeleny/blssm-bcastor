@@ -1,0 +1,24 @@
+run_name: dlrsm/run
+parallel: false
+n_workers: 30
+total_iterations: 20
+initial_dataset:
+  generate: true
+  n_workers: 30
+  n_points: 400
+checkpoint:
+  name: checkpoint
+  n_step_save: 5
+resolution:
+  value: 1.0e-06
+  constant_resolution: false
+  r_decay_steps: 100
+  initial: 0.01
+  final: 1.0e-06
+batch_sampling:
+  tpe_trials: 2500
+  rank_samples: 30
+  n_evaluation_workers: 30
+  alpha: 2
+eci:
+  num_samples: 128

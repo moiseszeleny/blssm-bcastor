@@ -1,0 +1,147 @@
+Block MODSEL      #  
+           1           0  #  1/0: HIGH/LOW SCALE INPUT 
+           2           1  # BOUNDARY CONDITION  
+           6           1  # GENERATION MIXING 
+           12         172          89   # RENORMALIZATION SCALE 
+Block SMINPUTS    # Standard Model inputs 
+            2     1.16637000E-05   # G_F,FERMI CONSTANT 
+            3     1.18700000E-01   # ALPHA_S(MZ) SM MSBAR 
+            4     9.11887000E+01   # Z-BOSON POLE MASS 
+            5     4.18000000E+00   # M_B(MB) SM MSBAR 
+            6     1.72890000E+02   # M_TOP(POLE) 
+            7     1.77669000E+00   # M_TAU(POLE) 
+Block MINPAR      # Input parameters 
+            2     7.39281370E-01   # LAM1INPUT
+            3    -6.06788677E-01   # LAM2INPUT
+            4    -6.89254580E-01   # LAM3INPUT
+            5     9.66332037E-01   # LAM4INPUT
+            6     9.32179104E-01   # LAM5INPUT
+            7     3.77386690E-01   # LAM6INPUT
+            8     6.94939350E-01   # RHO1INPUT
+            9    -7.69746595E-01   # RHO2INPUT
+           10     8.41169017E-01   # ALP1INPUT
+           11    -1.24353344E-01   # ALP2INPUT
+           12    -5.82887304E-01   # ALP3INPUT
+Block SPhenoInput   # SPheno specific input 
+           1          -1  # ERROR LEVEL 
+           2           0  # SPA CONVENTIONS 
+           7           0  # SKIP 2-LOOP HIGGS CORRECTIONS 
+           8           3  # METHOD USED FOR TWO-LOOP CALCULATION 
+           9           1  # GAUGELESS LIMIT USED AT TWO-LOOP 
+          10           0  # SAFE-MODE USED AT TWO-LOOP 
+          11           1  # CALCULATE BRANCHING RATIOS 
+          13           1  # 3-BODY DECAYS: NONE (0), FERMION (1), SCALAR (2), BOTH (3) 
+          14           0  # RUN COUPLINGS TO SCALE OF DECAYING PARTICLE 
+           12     1.00000000E-04   # WRITE ONLY BRANCHING RATIOS LARGER THAN THIS VALUE 
+           15     1.00000000E-30   # WRITE ONLY DECAY IF WIDTH LARGER THAN THIS VALUE 
+          19          -2  # MATCHING ORDER (-2:AUTOMATIC, -1:POLE, 0-2: TREE, ONE- & TWO-LOOP) 
+          31          -1  # FIXED GUT SCALE (-1: DYNAMICAL GUT SCALE) 
+          32           0  # STRICT UNIFICATION 
+           34     1.00000000E-04   # PRECISION OF MASS CALCULATION 
+          35          40  # MAXIMAL NUMBER OF ITERATIONS
+          36           5  # MINIMAL NUMBER OF ITERATIONS BEFORE DISCARDING POINTS
+          37           1  # SET YUKAWA SCHEME  
+          38           2  # 1- OR 2-LOOP RGES 
+          50           1  # MAJORANA PHASES: USE ONLY POSITIVE MASSES (PUT 0 TO USE FILE WITH CALCHEP/MICROMEGAS!) 
+          51           0  # WRITE OUTPUT IN CKM BASIS 
+          52           0  # WRITE SPECTRUM IN CASE OF TACHYONIC STATES 
+          55           0  # CALCULATE LOOP CORRECTED MASSES 
+          57           1  # CALCULATE LOW ENERGY CONSTRAINTS 
+          65           1  # SOLUTION TADPOLE EQUATION 
+          66           1  # TWO-SCALE MATCHING 
+          67           1  # EFFECTIVE HIGGS MASS CALCULATION 
+          75           0  # WRITE WHIZARD FILES 
+          76           2  # WRITE HIGGSBOUNDS FILE: 2 FOR HIGGSBOUNDS5, 1 FOR HIGGSBOUNDS4 AND BELOW   
+          77           0  # OUTPUT FOR MICROMEGAS (RUNNING MASSES FOR LIGHT QUARKS; REAL MIXING MATRICES)   
+          78           0  # OUTPUT FOR MADGRAPH (WRITES ALSO VANISHING BLOCKS)   
+          79           0  # WRITE WCXF FILES (EXCHANGE FORMAT FOR WILSON COEFFICIENTS) 
+          86           0  # MAXIMAL WIDTH TO BE COUNTED AS INVISIBLE IN HIGGS DECAYS; -1: ONLY LSP 
+         510           0  # WRITE TREE LEVEL VALUES FOR TADPOLE SOLUTIONS 
+         515           0  # WRITE PARAMETER VALUES AT GUT SCALE 
+         520           1  # WRITE EFFECTIVE HIGGS COUPLINGS (HIGGSBOUNDS BLOCKS): PUT 0 TO USE FILE WITH MADGRAPH! 
+         521           1  # DIPHOTON/DIGLUON WIDTHS INCLUDING HIGHER ORDER 
+         525           0  # WRITE LOOP CONTRIBUTIONS TO DIPHOTON DECAY OF HIGGS 
+         530           0  # WRITE BLOCKS FOR VEVACIOUS 
+Block DECAYOPTIONS   # Options to turn on/off specific decays 
+           1           1  # CALC 3-BODY DECAYS OF FU 
+           2           1  # CALC 3-BODY DECAYS OF FE 
+           3           1  # CALC 3-BODY DECAYS OF FD 
+           4           1  # CALC 3-BODY DECAYS OF FV 
+Block MUXMIXIN    #  
+            1           1     0.00000000E+00   # MUX(1,1)
+            1           2     0.00000000E+00   # MUX(1,2)
+            1           3     0.00000000E+00   # MUX(1,3)
+            2           1     0.00000000E+00   # MUX(2,1)
+            2           2     0.00000000E+00   # MUX(2,2)
+            2           3     0.00000000E+00   # MUX(2,3)
+            3           1     0.00000000E+00   # MUX(3,1)
+            3           2     0.00000000E+00   # MUX(3,2)
+            3           3     0.00000000E+00   # MUX(3,3)
+Block YIN    #  
+            1           1     0.00000000E+00   # Y(1,1)
+            1           2     0.00000000E+00   # Y(1,2)
+            1           3     0.00000000E+00   # Y(1,3)
+            2           1     0.00000000E+00   # Y(2,1)
+            2           2     0.00000000E+00   # Y(2,2)
+            2           3     0.00000000E+00   # Y(2,3)
+            3           1     0.00000000E+00   # Y(3,1)
+            3           2     0.00000000E+00   # Y(3,2)
+            3           3     0.00000000E+00   # Y(3,3)
+Block YLIN    #  
+            1           1     0.00000000E+00   # YL(1,1)
+            1           2     0.00000000E+00   # YL(1,2)
+            1           3     0.00000000E+00   # YL(1,3)
+            2           1     0.00000000E+00   # YL(2,1)
+            2           2     0.00000000E+00   # YL(2,2)
+            2           3     0.00000000E+00   # YL(2,3)
+            3           1     0.00000000E+00   # YL(3,1)
+            3           2     0.00000000E+00   # YL(3,2)
+            3           3     0.00000000E+00   # YL(3,3)
+Block YQ1IN    #  
+            1           1     0.00000000E+00   # YQ1(1,1)
+            1           2     0.00000000E+00   # YQ1(1,2)
+            1           3     0.00000000E+00   # YQ1(1,3)
+            2           1     0.00000000E+00   # YQ1(2,1)
+            2           2     0.00000000E+00   # YQ1(2,2)
+            2           3     0.00000000E+00   # YQ1(2,3)
+            3           1     0.00000000E+00   # YQ1(3,1)
+            3           2     0.00000000E+00   # YQ1(3,2)
+            3           3     0.00000000E+00   # YQ1(3,3)
+Block YQ2IN    #  
+            1           1     0.00000000E+00   # YQ2(1,1)
+            1           2     0.00000000E+00   # YQ2(1,2)
+            1           3     0.00000000E+00   # YQ2(1,3)
+            2           1     0.00000000E+00   # YQ2(2,1)
+            2           2     0.00000000E+00   # YQ2(2,2)
+            2           3     0.00000000E+00   # YQ2(2,3)
+            3           1     0.00000000E+00   # YQ2(3,1)
+            3           2     0.00000000E+00   # YQ2(3,2)
+            3           3     0.00000000E+00   # YQ2(3,3)
+Block YRIN    #  
+            1           1     0.00000000E+00   # YR(1,1)
+            1           2     0.00000000E+00   # YR(1,2)
+            1           3     0.00000000E+00   # YR(1,3)
+            2           1     0.00000000E+00   # YR(2,1)
+            2           2     0.00000000E+00   # YR(2,2)
+            2           3     0.00000000E+00   # YR(2,3)
+            3           1     0.00000000E+00   # YR(3,1)
+            3           2     0.00000000E+00   # YR(3,2)
+            3           3     0.00000000E+00   # YR(3,3)
+Block YTIN    #  
+            1           1     0.00000000E+00   # YT(1,1)
+            1           2     0.00000000E+00   # YT(1,2)
+            1           3     0.00000000E+00   # YT(1,3)
+            2           1     0.00000000E+00   # YT(2,1)
+            2           2     0.00000000E+00   # YT(2,2)
+            2           3     0.00000000E+00   # YT(2,3)
+            3           1     0.00000000E+00   # YT(3,1)
+            3           2     0.00000000E+00   # YT(3,2)
+            3           3     0.00000000E+00   # YT(3,3)
+Block HMIXIN       #  
+          102     0.00000000E+00   # K1
+Block VEVIN       #  
+            4     0.00000000E+00   # VR
+Block GAUGEIN       #  
+            2     0.00000000E+00   # G2
+            3     0.00000000E+00   # G3
+            4     0.00000000E+00   # GBL

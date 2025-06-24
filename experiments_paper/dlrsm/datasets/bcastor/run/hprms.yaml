@@ -1,0 +1,22 @@
+run_name: bcastor/run
+parallel: false
+n_workers: 4
+initial_dataset:
+  generate: True,
+  n_points: 20
+checkpoint:
+  name: checkpoint
+  n_step_save: 1
+total_iterations: 20
+resolution:
+  value: 0.002
+  constant_resolution: false
+  r_decay_steps: 30
+  initial: 0.01
+  final: 0.001
+batch_sampling:
+  tpe_trials: 200
+  rank_samples: 5
+  alpha: 2
+eci:
+  num_samples: 128

@@ -17,8 +17,8 @@ def all_pheno_obj_fn(obj_hep_cfg, hep_stack_cfg):
     def output_function(x):
         sample_dict = hep_stack_fn(
             x,
-            hep_config=hep_stack_cfg,
-            close=True
+            hep_config=hep_stack_cfg#,
+            #close=True
             )
         sample_dict = mus_masses_hbhs_mg5(
             sample_dict, obj_hep_cfg
@@ -35,8 +35,8 @@ def aa_bb_pheno_obj_fn(obj_hep_cfg, hep_stack_cfg):
     def output_function(x):
         sample_dict = hep_stack_fn(
             x,
-            hep_config=hep_stack_cfg,
-            close=True
+            hep_config=hep_stack_cfg#,
+            #close=True
             )
         sample_dict = mu_aa_bb_masses_hbhs_mg5(
             sample_dict, obj_hep_cfg
@@ -53,8 +53,8 @@ def aa_pheno_obj_fn(obj_hep_cfg, hep_stack_cfg):
     def output_function(x):
         sample_dict = hep_stack_fn(
             x,
-            hep_config=hep_stack_cfg,
-            close=True
+            hep_config=hep_stack_cfg#,
+            #close=True
             )
         sample_dict = mu_aa_masses_hbhs_mg5(
             sample_dict, obj_hep_cfg

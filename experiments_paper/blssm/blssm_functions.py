@@ -269,3 +269,36 @@ def mus_masses_hbhs_mg5(sample_dict, obj_hep_config):
     print(output_dict)
     return output_dict
 
+if __name__ == "__main__":
+    # Example usage
+    sample_dict = {
+        'SLHA': {
+            'HIGGSCOUPLINGSBOSONS': {
+                'entries': {
+                    '3,25,21,21': {'value': 1.0}
+                }
+            },
+            'MASS': {
+                'entries': {
+                    '25': {'value': 125.0}
+                }
+            },
+            'DECAY 25': {
+                'entries': {
+                    '2,22,22': {'value': 0.001}
+                }
+            }
+        },
+        'MG5': {
+            'gghaa': {'cross_section_pb': 0.1},
+            'gghtautau': {'cross_section_pb': 0.2},
+            'eehzzbb': {'cross_section_pb': 0.3}
+        }
+    }
+    
+    #print(mu_aa_spheno(sample_dict))
+    print(mu_aa_mg5(sample_dict))
+    print(mu_tautau_mg5(sample_dict))
+    print(mu_bb_mg5(sample_dict))
+
+

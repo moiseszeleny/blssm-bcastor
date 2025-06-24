@@ -1,0 +1,125 @@
+input_space:
+  lam1input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '2'
+    - value
+  lam2input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '3'
+    - value
+  lam3input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '4'
+    - value
+  lam4input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '5'
+    - value
+  lam5input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '6'
+    - value
+  lam6input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '7'
+    - value
+  rho1input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '8'
+    - value
+  rho2input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '9'
+    - value
+  alpha1input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '10'
+    - value
+  alpha2input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '11'
+    - value
+  alpha3input:
+    lower: -4.0
+    upper: 4.0
+    distribution: uniform
+    key_chain:
+    - LHS
+    - MINPAR
+    - entries
+    - '12'
+    - value
+output_parameters:
+  mH1:
+  - SPheno
+  - mH1
+  mH2:
+  - SPheno
+  - mH2
+objectives:
+  double_constraint:
+    mH1:
+    - - gt
+      - 120
+    - - lt
+      - 130

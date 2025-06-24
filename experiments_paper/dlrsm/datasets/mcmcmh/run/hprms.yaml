@@ -1,0 +1,9 @@
+checkpoint:
+  n_step_save: 500
+  name: chckpnt
+run_name: mcmcmh/run
+total_iterations: 10000
+target_acceptance_rate: 0.234
+initial_scale: 0.1
+adapt_frequency: 100
+burn_in: 1000
